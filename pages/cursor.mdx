@@ -1,0 +1,9 @@
+# Cursor
+
+import { Cursor } from '@snippyly/snippyly-demo-component'
+import { v4 as uuidv4 } from 'uuid';
+
+export const cursorDocumentId = uuidv4();
+
+<Cursor type={0} documentId={cursorDocumentId}/>
+<Cursor type={1} documentId={cursorDocumentId} height={500}/>
