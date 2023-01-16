@@ -1,8 +1,8 @@
 # Huddle
 
 import { Huddle } from '@snippyly/snippyly-demo-component'
-import { v4 as uuidv4 } from 'uuid';
+import { documentID } from '../components/documentID'
 
-export const huddleDocumentId = uuidv4();
+export const huddleDocumentId = documentID("huddle");
 
 <Huddle user={"Rachel"} documentId={huddleDocumentId}/>
