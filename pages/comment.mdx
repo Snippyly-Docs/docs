@@ -1,7 +1,7 @@
 # Comment
 import { Comment } from '@snippyly/snippyly-demo-component'
-import { v4 as uuidv4 } from 'uuid';
+import { documentID } from '../components/documentID'
 
-export const commentDocumentId = uuidv4();
+export const commentDocumentId = documentID("comment");
 
 <Comment user={"Rachel"} documentId={commentDocumentId} height={500}/>
