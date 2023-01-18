@@ -3,4 +3,23 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 })
 
-module.exports = withNextra()
+const securityHeaders = [
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=*, microphone=*, geolocation=*, browsing-topics=*'
+  }
+]
+
+
+module.exports = withNextra({
+    async headers() {
+      return [
+        {
+          // Apply these headers to all routes in your application.
+          source: '/:path*',
+          headers: securityHeaders,
+        },
+      ]
+    },
+  }
+)
