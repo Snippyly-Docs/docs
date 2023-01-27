@@ -1,15 +1,10 @@
-# Huddles
+# Huddle
 
-import { Recorder } from '@snippyly/snippyly-demo-component'
-import { documentID } from '../components/documentID'
+import { Huddle } from '@snippyly/snippyly-demo-component'
+import { documentID } from '../../../components/documentID'
 
-export const recorderDocumentId = documentID("recorder");
+export const huddleDocumentId = documentID("huddle");
 
-<Recorder user={"Rachel"} documentId={recorderDocumentId} height={500}/>
+<Huddle user={"Rachel"} documentId={huddleDocumentId}/>
 
 ## Adding the Huddle Tool
-
-Host github-snippyly
-  HostName github.com
-	AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_snippyly

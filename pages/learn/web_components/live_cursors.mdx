@@ -1,1 +1,11 @@
 # Live Cursors
+
+import { Cursor } from '@snippyly/snippyly-demo-component'
+import { documentID } from '../../../components/documentID'
+
+export const cursorDocumentId = documentID("cursor");
+
+<div className="cursor-container">
+  <Cursor type={0} documentId={cursorDocumentId}/>
+  <Cursor type={1} documentId={cursorDocumentId}/>
+</div>
