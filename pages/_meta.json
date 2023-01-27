@@ -1,9 +1,9 @@
 {
   "index": {
-    "title": "Home",
-    "type": "page"
+    "title": "Introduction",
+    "display": "hidden"
   },
-  "guides": {
+  "learn": {
     "title": "Learn",
     "type": "page"
   },

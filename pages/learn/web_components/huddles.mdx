@@ -1,0 +1,15 @@
+# Huddles
+
+import { Recorder } from '@snippyly/snippyly-demo-component'
+import { documentID } from '../components/documentID'
+
+export const recorderDocumentId = documentID("recorder");
+
+<Recorder user={"Rachel"} documentId={recorderDocumentId} height={500}/>
+
+## Adding the Huddle Tool
+
+Host github-snippyly
+  HostName github.com
+	AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_snippyly

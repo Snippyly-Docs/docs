@@ -1,0 +1,116 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Configuration
+
+## 1: Authentication
+
+<Callout type="warning" emoji="⚠️">Don't have an API key? Get one here!</Callout>
+
+First, you need to initialize the **SnippylyProvider** with a client authentication token. If you don't have one, go ahead and [visit our website]() to sign up! Insert the **SnipplyProvider** in the root of your application.
+
+```js
+import { SnippylyProvider } from '@snippyly/react';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <SnippylyProvider apiKey="...">
+      <App />
+    </SnippylyProvider>
+  </React.StrictMode>
+);
+```
+
+The `SnippylyProvider` acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context.
+
+## 2: Using the Snippyly Client
+
+The `@snippyly/react` package provides a convenient hook `useSnippylyClient` to provision the SDK client. Here's how you can use it in a React component:
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+
+function SomeComponent() {
+
+  const { client } = useSnippylyClient();
+
+  return (
+    <>
+      <h1>This is some component!</>
+    </>
+  );
+}
+```
+
+## 3: Identifying your Users
+
+Snippyly needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
+
+### General Implementation
+
+Everyone handles authentication differently in their applications, so there isn't a one size fits all solution. Here's a general implementation, but the main point is that _when the user is logged in_, you should also identify the user with the **Snippyly** client.
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+
+function LoginComponent() {
+
+  const { client } = useSnippylyClient();
+
+  return (
+    <>
+      <h1>This is some login component!</>
+    </>
+  );
+}
+```
+
+### Example with Firebase Authentication
+
+Here's a specific example using Firebase Authentication:
+
+```js
+
+import { useSnippylyClient } from '@snippyly/react';
+
+function LoginComponent() {
+
+  const { client } = useSnippylyClient();
+
+  return (
+    <>
+      <h1>This is some login component!</>
+    </>
+  );
+}
+```
+
+## 4: Tracking the User
+
+Lastly, Snippyly needs to know what part of your app the user is currently on! **Documents** and **Locations** are how you can provide that information.
+
+### Document
+
+A **Document** is like a _Building_. Users in the same building can find eachother, but they cannot interact in real-time until they are in the same **Location**. A **Document** can be represented with a string identifier.
+
+Here, we will set our **Document ID**, which is like setting the address of the building that the current user is in. _In this example_, I have a React component that where I want to implement some Snippyly features.
+
+```js
+
+```
+
+### Location
+
+A **Location** is like a _Room_. Users in the same room can talk to eachother, see eachother, and interact in real-time! They can be represented by any JSON object.
+
+### Setting the Document ID
+
+Well what happens when your user leaves the _Building_? 
+
+### Setting the Location
+
+## Next Steps
+
+<Callout type="info">Make sure you configure your installation correctly before moving on!</Callout>
+
+Now you can move on to learn some of our [main concepts]()!

@@ -1,0 +1,53 @@
+import { Tab, Tabs, Callout } from 'nextra-theme-docs';
+
+# Installation
+
+## 1: Install the Snippyly SDK
+
+### Using NPM
+
+<Tabs items={['React', 'HTML + JS']}>
+  <Tab>
+    ```sh
+    npm install @snippyly/react
+    ```
+  </Tab>
+  <Tab></Tab>
+</Tabs>
+
+<Callout type="info">
+  <p>Don't have an app yet? Create a sample React app by pasting the following in your terminal:</p>
+  ```sh
+  npx create-react-app snip-demo && cd snip-demo && npm install @snippyly/sdk && npm start
+  ```
+</Callout>
+
+### Using CDN
+
+Install the Snippyly script at the end of your body tag.
+
+<Tabs items={['React', 'HTML + JS']}>
+  <Tab>
+    ```html
+    <body>
+      <!--Your stuff goes here-->
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@<<sdkVersion>>/snippyly.js" onload="loadSnippyly()"></script>
+    </body>
+    ```
+  </Tab>
+  <Tab></Tab>
+</Tabs>
+
+## 2: Install the Snippyly types (optional)
+
+Installing types will give you access to autocompletion and other neat features!
+
+```sh
+npm install --save-dev @snippyly/types
+```
+
+## Next Steps
+
+Now that you've installed the Snippyly, you can move on to [configure your installation](/learn/get_started/configuration)!
+
+<Callout type="warning" emoji="⚠️">Don't see your library/framework? Contact us <a href="#">here</a> so we can provide an integration!</Callout>
