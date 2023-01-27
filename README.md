@@ -21,3 +21,7 @@ Then, run `pnpm dev` to start the development server and visit localhost:3000.
 ## License
 
 This project is licensed under the MIT License.
+
+## TODO
+
+* Split up the Get Started section into different frameworks/libraries. For now, focus only on @snippyly/react

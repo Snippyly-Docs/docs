@@ -21,7 +21,23 @@ root.render(
 );
 ```
 
-The `SnippylyProvider` acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context.
+First import the `SnipplyProvider`:
+
+```js
+import { SnippylyProvider } from '@snippyly/react';
+```
+
+Then you can add it to your HTML with your API key:
+
+```html
+<React.StrictMode>
+  <SnippylyProvider apiKey="...">
+    <App />
+  </SnippylyProvider>
+</React.StrictMode>
+```
+
+The `SnippylyProvider` acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context. 
 
 ## 2: Using the Snippyly Client
 
@@ -42,9 +58,31 @@ function SomeComponent() {
 }
 ```
 
+First import the `SnipplyClient`:
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+```
+
+Then you can use the provided hook to fetch an instance of the client:
+
+```js
+const { client } = useSnipplyClient();
+```
+
+TODO: What should the user expect here? Can the user try doing something here just to test it out?
+
 ## 3: Identifying your Users
 
 Snippyly needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
+
+### _When should I identify users?_
+
+> **You must identify the user every time the SDK is loaded on the browser for the first time.**
+> For example, when a new session/tab is created you must re-identify the user.
+
+* TODO: Instead of telling the developer to identify on login, tell them to identify when the user session changes.
+* TODO: Is there a way to logout the user from the SDK?
 
 ### General Implementation
 
@@ -56,10 +94,31 @@ import { useSnippylyClient } from '@snippyly/react';
 function LoginComponent() {
 
   const { client } = useSnippylyClient();
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
+  function login() {
+    // Do some login logic
+    setLoggedIn(true);
+  }
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    if (!client) return;
+
+    const fakeUserObject = {
+        userId: JSON.stringify(Math.floor(Math.random() * 1000000)),
+        name: 'Jonny Lin',
+        email: 'jonnylin13@gmail.com'
+    };
+    client.identify(fakeUserObject).then(res => {
+      console.log(res);
+    });
+
+  }, [isLoggedIn]);
 
   return (
     <>
-      <h1>This is some login component!</>
+      {/* This is some login form template */}
     </>
   );
 }
@@ -93,11 +152,22 @@ Lastly, Snippyly needs to know what part of your app the user is currently on! *
 
 A **Document** is like a _Building_. Users in the same building can find eachother, but they cannot interact in real-time until they are in the same **Location**. A **Document** can be represented with a string identifier.
 
-Here, we will set our **Document ID**, which is like setting the address of the building that the current user is in. _In this example_, I have a React component that where I want to implement some Snippyly features.
+Here, we will set our **Document ID**, which is like setting the address of the building that the current user is in.
 
 ```js
 
 ```
+
+* We need to document updateUser here
+* How to add user contacts
+  * When you set a groupId in the User object, this will group that user with that ID
+  * All users in the same group will be able to see eachother when tagging, assigning, etc
+  * Users also have a private list of contacts that are specific to that user
+  * You can manually add contacts to a user's group _or_ their private list during user identification
+  * If you change a user's group ID, the SDK will preserve the contacts they had previously
+  * Is there a way to currently remove contacts?
+
+_In this example_, I have a React component where I want to implement some Snippyly features.
 
 ### Location
 
