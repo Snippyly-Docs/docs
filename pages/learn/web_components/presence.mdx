@@ -1,4 +1,5 @@
 import { Presence } from '@snippyly/snippyly-demo-component'
+import SplitPane from '../../../components/SplitPane'
 import { documentID } from '../../../components/documentID'
 export const presenceDocumentId = documentID("presence");
 
@@ -8,5 +9,7 @@ _Display which users are currently in the same Location._
 
 ---
 
-<Presence user={"Rachel"} documentId={presenceDocumentId} height={500}/>
-<Presence user={"David"} documentId={presenceDocumentId} height={500}/>
+<SplitPane>
+  <Presence user={"Rachel"} documentId={presenceDocumentId}/>
+  <Presence user={"Ross"} documentId={presenceDocumentId}/>
+</SplitPane>

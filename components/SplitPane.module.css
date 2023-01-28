@@ -1,0 +1,8 @@
+.demoWrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.demoWrapper > div {
+  flex: 1;
+}

@@ -1,9 +1,9 @@
 // Example from https://beta.reactjs.org/learn
 
 // import { useState } from 'react'
-import styles from './DemoWrapper.module.css';
+import styles from './SplitPane.module.css';
 
-function DemoWrapper({children}) {
+function SplitPane({children}) {
 
   return (
     <div className={styles.demoWrapper}>
@@ -12,4 +12,4 @@ function DemoWrapper({children}) {
   )
 }
 
-export default DemoWrapper;
+export default SplitPane;

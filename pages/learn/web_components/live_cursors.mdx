@@ -1,11 +1,16 @@
 # Live Cursors
 
+_See who's collaborating with you in realtime._
+
+---
+
 import { Cursor } from '@snippyly/snippyly-demo-component'
 import { documentID } from '../../../components/documentID'
+import SplitPane from '../../../components/SplitPane';
 
 export const cursorDocumentId = documentID("cursor");
 
-<div className="cursor-container">
-  <Cursor type={0} documentId={cursorDocumentId}/>
+<SplitPane>
   <Cursor type={1} documentId={cursorDocumentId}/>
-</div>
+  <Cursor type={0} documentId={cursorDocumentId}/>
+</SplitPane>
