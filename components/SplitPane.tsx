@@ -6,7 +6,7 @@ import styles from './SplitPane.module.css';
 function SplitPane({children}) {
 
   return (
-    <div className={styles.demoWrapper}>
+    <div className={styles.splitPane}>
       {children}
     </div>
   )

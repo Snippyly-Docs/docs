@@ -1,8 +1,8 @@
-.demoWrapper {
+.splitPane {
   display: flex;
   gap: 12px;
 }
 
-.demoWrapper > div {
+.splitPane > div {
   flex: 1;
 }
