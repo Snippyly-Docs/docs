@@ -89,3 +89,27 @@ Here's what you can expect in the `event.detail`:
 ```
 
 You can add `snippyly-recorder-player` tag anywhere in your website. The SDK will detect it and will show the recording at that place. It will not be visible if the recorder id is invalid or the recording of that id is deleted.
+
+## 5: Customization
+
+### Add a custom button label
+
+To add a custom label to the recorder tool pass a string to the `buttonLabel` attribute on the `<SnippylyRecorderTool>` component.
+
+**Example**
+
+```html copy
+<SnippylyRecorderTool type="all" buttonLabel="Add Recording" />
+```
+
+### Replace the button
+
+To use your own button instead of ours, pass your button html code into `<SnippylyRecorderTool>` component.
+
+**Example**
+
+```html copy
+<SnippylyRecorderTool type="all">
+  <button>Start Recording</button>
+</SnippylyRecorderTool>
+```
