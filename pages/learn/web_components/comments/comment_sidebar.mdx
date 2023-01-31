@@ -1,0 +1,60 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Comment sidebar
+
+_Key sidebar settings_
+
+---
+
+## 1: Navigate to comment location when comment is clicked on the sidebar
+
+By default clicking on a comment in the sidebar, will emit `onSidebarCommentClick` event with `documentId` and `location` data so you can use this information to update the state of your app and redirect user to the location where that comment annotation was added. 
+
+If you maintain unique id based URLs for your app pages where comments can be added, then you could turn on the `enable-url-navigation` feature so that we can handle the navigation automatically for you.
+
+<Callout type="info">
+  **Note:** The event data will be available inside the **`detail`** field of the `event` object.
+</Callout>
+
+**Example**
+
+```javascript copy
+const commentElement = document.querySelector('snippyly-comments');
+commentElement.addEventListener('onSidebarCommentClick', (event) => {
+  // Get document id and location data inside event.detail field.
+  console.log('onSidebarCommentClick', event.detail);
+});
+```
+
+## 2: Set the `Page` filter options in the sidebar
+
+For us to accurately generate the `Page` filter, we need inputs from you.
+
+The `Page` filter represents the specific `location` within the `document` where the comments were added.  Every app will have their own way of defining these. So, here is how you can provide us the inputs to generate this filter:
+
+### a. Setting filter options label
+
+This will be shown in the filter dropdown.
+
+- **If you set `location`:**  In the your `location` object, you can set a special field **`locationName` **and pass any string to it. We will use that to set the label.  If you don't set this field then we will use the current URL `/path` as label.  
+  To learn more about using `location`, check out [this](doc:set-location).
+
+- **If you don't set `location`:** This means that you are setting all comments under `documentId` and not under any specific `location` under the `documentId`.  In this case, we will automatically generate `All` label and group all comments under that.
+
+### b. Setting filter options value
+
+This will be used to filter the comments in the sidebar.
+
+The way you can set this is by using `location`. The key use case for this filter is to segment comments by different pages/sections in your app where the comment was added. The way you tell Snippyly about these pages or sections in your app is by setting `location`. Once you set `location`, we automatically use that as values behind the scenes to filter based comments based on that.
+
+## 3: Set the `Version` filter options in the sidebar
+
+The `Version` filter represents the specific version of the `document` where the comments were added. You can tell us about different versions by setting the `location` object. In the `location` object use the key as `version` and value as anything that represents the version in your app.  Every app will have their own way of defining these. So, here is how you can provide us the inputs to generate this filter:
+
+### a. Setting filter options label
+
+This will be shown in the filter dropdown. The value that you set in the `version`  key of the `location` object will be used as the option label. To learn more about using `location`, check out [this](doc:set-location).
+
+### b. Setting filter options value
+
+This will be used to filter the comments in the sidebar. The value that you set in the `version`  key of the `location` object will be used as the option value as well.

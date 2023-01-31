@@ -1,5 +1,6 @@
 import { Comment } from '@snippyly/snippyly-demo-component'
 import { documentID } from '../../../components/documentID'
+import { Callout } from 'nextra-theme-docs'
 export const commentDocumentId = documentID("comment");
 
 # Comments
@@ -10,14 +11,181 @@ _Leave a comment thread anywhere on the page. Assign the comment to a user._
 
 <Comment style="margin-top: 2.5rem" user={"Rachel"} documentId={commentDocumentId} height={500}/>
 
-## Enabling Text Comments (Popover Mode)
+## 1: Add the component
 
-## Adding the Comment Sidebar
+```html copy
+<snippyly-comments></snippyly-comments>
+```
 
-## Adding the Comment Tool
+<Callout type="warning">
+  The `snippyly-comments` component needs to be in the root App component of your React app
+</Callout>
 
-## Using Locations to group Comments
+## 2: Add the comment tool
 
-## Restricting Comments to certain DOM elements
+This will create a button using which your end-users can add comments. You can add this tag anywhere into your code. You can customize this button or pass your own button as described later on this page.
 
-## Disabled Comments on certain DOM elements
+When your users click on this button, their mouse cursor will change to a comment pin and it will start detecting & highlighting the borders of the underlying elements. Then, clicking on the highlighted element will attach a comment to it.
+
+**Example**
+
+```html copy
+<snippyly-comment-tool></snippyly-comment-tool>
+```
+
+## 3: Add the comment sidebar
+
+This is like the comments history feature of Google Docs. You can see all past comments here even if they are not visible on the UI.
+
+**Example**
+
+```html copy
+<snippyly-comments-sidebar></snippyly-comments-sidebar>
+```
+
+<Callout type="warning">
+  The `snippyly-comments-sidebar` component needs to be in the root App component of your React app
+</Callout>
+
+**Note:**
+
+- If `<snippyly-comments-sidebar>` is added to the DOM, all comment dialogs will show a **'Open all comments'** button. This button will open the comments sidebar.
+- Clicking on a comment in the sidebar will take you to exact spot where the comment is added.
+- You can update/delete a comment from the sidebar as well.
+- When the sidebar is in `open` state, the floating comment dialogs will be hidden from the DOM.
+- The sidebar comes with 4 filter options:
+  - `Page`: Where the comment was added in the document. It can be set by using the `location` feature.
+  - `Status`: Current status of the comment.
+  - `People`: Who created the comment and who it is assigned to.
+  - `Version`: Which version of the document the comment was added to. This is hidden by default. It only shows up when there is atleast one comment on a `version` location. It can be set by using the `location` feature.
+
+<Callout type="info">
+  **Note:** For more information on the comment sidebar, click [here]()
+</Callout>
+
+## 4: Enable text based commenting
+
+<Callout type="info"> **Note:** Learn about what text based commenting is [here]()</Callout>
+
+Text based comments are disabled by default. You can enable them using the client API:
+
+```js copy
+const commentElement = client.getCommentElement();
+commentElement.enableTextComments(true);
+```
+
+## 5: Customization
+
+### Style the component
+
+Simply add a CSS class to the component to give it a style.
+
+**Example**
+
+```html copy
+<snippyly-comment-tool class="my-custom-css"></snippyly-comment-tool>
+```
+
+```css copy
+snippyly-comment-tool.my-custom-css {
+  /* Custom CSS */
+}
+```
+
+### Add a custom trigger button
+
+**Example**
+```html copy
+<snippyly-comment-tool>
+  <button>Add Comment</button>
+</snippyly-comment-tool>
+```
+
+### Style the element-based highlighter
+
+A purple border is added to the target DOM element when:
+
+- you hover on the DOM element with the comment trigger activated
+- you hover on the comment pin
+- you select the comment pin
+
+You can style the highlighter by passing your own CSS class name to the `pin-highlighter-class` attribute of the `<snippyly-comments>` element.
+
+**Example**
+
+```html copy
+<snippyly-comments pin-highlighter-class="custom-pin-highlighter-class">
+</snippyly-comments>
+```
+
+```css copy
+.custom-pin-highlighter-class {
+  outline: 2px solid black !important;
+}
+```
+
+### Style the text-based highlighter
+
+When a text is selected and a comment is added, the background of the selected text is set to yellow and the text color is set to black.
+
+You can style the highlighter by passing your own CSS class name to the `text-highlighter-class` attribute of the `<snippyly-comments>` element.
+
+**Example**
+
+```html copy
+<snippyly-comments text-highlighter-class="custom-text-highlighter-class">
+</snippyly-comments>
+```
+
+```css copy
+.custom-text-highlighter-class {
+  background-color: lightgreen !important;
+  color: black !important;
+}
+```
+
+### Restrict comments to specific DOM elements
+
+By default, your end-users can add a comment to any DOM element or any selected text. 
+
+You can restrict comments to specific DOM elements & their children by providing a list of element ids. For all other DOM elements, comments will be disabled - the DOM highlighter will be turned off and no comments can be attached. Note if you pass an empty array the entire DOM can be commented.
+
+**Example**
+
+```js copy
+const commentElement = client.getCommentElement();
+commentElement.allowedElementIds(['elementId1', 'elementId2']);
+```
+
+### Disable comments on specific DOM elements
+
+With the above method you can specify where comments could be added, with this feature you can do the inverse. You can specify the DOM elements and its children where comments should be disabled.
+
+You can do so by adding **`data-snippyly-comment-disabled`** attribute to any DOM element. You can manually add it or add it programatically during runtime.
+
+### Enable comments on pre-defined elements only
+
+By default, clicking on `<snippyly-comment-tool>` trigger allows users to attach a comment to any element in a freestyle way. If you want to associate `<snippyly-comment-tool>` with pre-defined elements on the DOM only, then use any of the these two methods:
+
+![](https://files.readme.io/ef78f36-Snippyly_SDK_Pre-defined_Element_Comment.gif "Snippyly SDK Pre-defined Element Comment.gif")
+
+**a. Using `<snippyly-comment-tool>` trigger**  
+Pass target element's ID in `target-comment-element-id` attribute.  
+Note you can add as many `<snippyly-comment-tool>` triggers as you like and associate each trigger with a unique DOM element ID.
+
+**Example**
+
+```html copy
+<snippyly-comment-tool target-comment-element-id="TARGET_ELEMENT_ID">
+  <!-- Your custom UI here -->
+</snippyly-comment-tool>
+```
+
+**b. Using `attachComment()` method**  
+Pass target element's ID in `attachComment()` method.  
+An example on how you can use this: Show a button on hover on any DOM element. On click, call this method and pass that DOM element's ID. The comment will then be attached to the element.
+
+```js copy
+const commentElement = client.getCommentElement();
+commentElement.attachComment(TARGET_ELEMENT_ID);
+```
