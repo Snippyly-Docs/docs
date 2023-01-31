@@ -2,6 +2,7 @@ import { Presence } from '@snippyly/snippyly-demo-component'
 import SplitPane from '../../../components/SplitPane'
 import { documentID } from '../../../components/documentID'
 export const presenceDocumentId = documentID("presence");
+import { Callout } from 'nextra-theme-docs';
 
 # Presence
 
@@ -13,3 +14,12 @@ _Display which users are currently in the same Location._
   <Presence user={"Rachel"} documentId={presenceDocumentId}/>
   <Presence user={"Ross"} documentId={presenceDocumentId}/>
 </SplitPane>
+
+### Implementation
+
+```html copy
+<snippyly-presence></snippyly-presence>
+```
+
+<Callout type="info">Insert the component anywhere in your application!</Callout>
+

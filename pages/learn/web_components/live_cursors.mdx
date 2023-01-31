@@ -7,6 +7,7 @@ _See who's collaborating with you in realtime._
 import { Cursor } from '@snippyly/snippyly-demo-component'
 import { documentID } from '../../../components/documentID'
 import SplitPane from '../../../components/SplitPane';
+import { Callout } from 'nextra-theme-docs';
 
 export const cursorDocumentId = documentID("cursor");
 
@@ -14,3 +15,14 @@ export const cursorDocumentId = documentID("cursor");
   <Cursor type={1} documentId={cursorDocumentId}/>
   <Cursor type={0} documentId={cursorDocumentId}/>
 </SplitPane>
+
+### Implementation
+
+```html copy
+<snippyly-cursor></snippyly-cursor>
+```
+
+<Callout type="warning">
+  The `snippyly-cursor` component needs to be in the root App component of your React app
+</Callout>
+
