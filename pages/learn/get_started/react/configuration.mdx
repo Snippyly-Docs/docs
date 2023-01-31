@@ -8,28 +8,15 @@ import { Callout } from 'nextra-theme-docs';
 
 First, you need to initialize the **SnippylyProvider** with a client authentication token. If you don't have one, go ahead and [visit our website]() to sign up! Insert the **SnipplyProvider** in the root of your application.
 
-```js
-import { SnippylyProvider } from '@snippyly/react';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <SnippylyProvider apiKey="...">
-      <App />
-    </SnippylyProvider>
-  </React.StrictMode>
-);
-```
-
 First import the `SnipplyProvider`:
 
-```js
+```js copy
 import { SnippylyProvider } from '@snippyly/react';
 ```
 
 Then you can add it to your HTML with your API key:
 
-```html
+```html copy
 <React.StrictMode>
   <SnippylyProvider apiKey="...">
     <App />
@@ -37,38 +24,42 @@ Then you can add it to your HTML with your API key:
 </React.StrictMode>
 ```
 
-The `SnippylyProvider` acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context. 
+The **SnippylyProvider** acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context.
+
+### Configuring the Client
+
+The **SnippylyProvider** also takes a `config` property to restrict certain features. Here's how to restrict **Snippyly** features to a certain URL:
+
+```jsx copy showLineNumbers {3-5}
+<SnippylyProvider
+  apiKey="..."
+  config={{
+    urlAllowList: ['/review']
+  }}
+>
+```
+
+You can view the reference [here]() to check out all the different configuration options available.
 
 ## 2: Using the Snippyly Client
 
-The `@snippyly/react` package provides a convenient hook `useSnippylyClient` to provision the SDK client. Here's how you can use it in a React component:
-
-```js
-import { useSnippylyClient } from '@snippyly/react';
-
-function SomeComponent() {
-
-  const { client } = useSnippylyClient();
-
-  return ();
-}
-```
+The `@snippyly/react` package provides a convenient hook `useSnippylyClient` to provision the SDK client.
 
 First import the `SnipplyClient`:
 
-```js
+```js copy
 import { useSnippylyClient } from '@snippyly/react';
 ```
 
 Then you can use the provided hook to fetch an instance of the client:
 
-```js
+```js copy
 const { client } = useSnipplyClient();
 ```
 
 To test the client out, we can add a `useEffect` hook to our component and log the `client.version` property. Within your React component, create a new effect:
 
-```js
+```js copy
 useEffect(() => {
   if (client) {
     console.log(client.version);
@@ -78,7 +69,7 @@ useEffect(() => {
 
 This effect simply checks if the client has been provisioned, and logs the current SDK version to the console. Here is what the full example looks like in context:
 
-```js
+```js copy
 import { useSnippylyClient } from '@snippyly/react';
 
 function SomeComponent() {
@@ -95,11 +86,11 @@ function SomeComponent() {
 }
 ```
 
-When your component is rendered, you should verify for yourself that the `Snippyly` SDK is loaded, working, and on the intended version. Note that when using the `Snippyly` client in a React effect, it is a general best practice to check if the client is `undefined`.
+When your component is rendered, you should verify for yourself that the **Snippyly** SDK is _loaded, working, and on the intended version_. Note that when using the **Snippyly** client in a React effect, it is a general best practice to check if the client is `undefined`.
 
 ## 3: Identifying your Users
 
-Snippyly needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
+**Snippyly** needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
 
 ### _When should I identify users?_
 
@@ -112,7 +103,7 @@ Everyone handles authentication differently in their applications, so there isn'
 
 Let's walk through a specific example using Firebase Authentication. Here's some typical Firebase code you would find in a React application:
 
-```js
+```js copy
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -127,7 +118,24 @@ export const signInWithGoogle = () => {
 
 The code snippet above initializes the Firebase SDK. **This code example is not important** -- all you need to know is that the code exports a function `signInWithGoogle` that we will be using in our example below.
 
-```js
+First import the `useSnippylyClient` hook as well as the `signInWithGoogle` function we defined in the Firebase code.
+
+```js copy
+import { useSnippylyClient } from '@snippyly/react';
+import { signInWithGoogle } from '../firebase';
+```
+
+Second, we add a button to our React component that calls a handler function `signInHandler`:
+
+```jsx copy
+return (
+  <button onClick={ signInHandler }>Log in with Google</button>
+);
+```
+
+Within our component, provision an instance of the **Snippyly** client:
+
+```js copy {6}
 import { useSnippylyClient } from '@snippyly/react';
 import { signInWithGoogle } from '../firebase';
 
@@ -135,37 +143,28 @@ function LoginComponent() {
 
   const { client } = useSnippylyClient();
 
-  // TODO: Implement signInHandler()
-
   return (
     <button onClick={ signInHandler }>Log in with Google</button>
   );
 }
 ```
 
-In the above example, we first import the `useSnippylyHook` as well as the `signInWithGoogle` function we defined in the Firebase code.
-
-```js
-import { useSnippylyClient } from '@snippyly/react';
-import { signInWithGoogle } from '../firebase';
-```
-
-Second, we create a button that calls a handler function `signInHandler`:
-
-```html
-<button onClick={ signInHandler }>Log in with Google</button>
-```
-
 Lastly, we can define the function `signInHandler`. This function calls the `signInWithGoogle` function we made earlier, which prompts the user to login via Google. If the user is logged in successfully, we identify the user using the `identify` function provided by the **Snippyly** client:
 
-```js
+```js copy
 const signInHandler = async () => {
   try {
     const credentials = await signInWithGoogle();
     if (credentials.user === null) return;
     if (!client) return;
 
-    const res = await client.identify(credentials.user);
+    const snippylyUser = {
+      userId: credentials.user.userInfo.uid,
+      name: credentials.user.userInfo.displayName,
+      email: credentials.user.userInfo.email,
+      photoUrl: credentials.user.userInfo.photoURL
+    };
+    const res = await client.identify(snippylyUser);
     // Success!
   } catch (err) {
     // Do something with the error!
@@ -174,9 +173,20 @@ const signInHandler = async () => {
 };
 ```
 
+The `identify` function accepts a [User]() as its only parameter. If your authentication method provides user data, you may have to map that data to our **Snippyly** [User]() object like in our Firebase example:
+
+```js copy
+const snippylyUser = {
+  userId: credentials.user.userInfo.uid,
+  name: credentials.user.userInfo.displayName,
+  email: credentials.user.userInfo.email,
+  photoUrl: credentials.user.userInfo.photoURL
+};
+```
+
 Keep in mind this is only one method of logging the user in, and you will have to decide where to identify the user in your _specific_ application. Here's the full example in context:
 
-```js
+```js copy
 import { useSnippylyClient } from '@snippyly/react';
 import { signInWithGoogle } from '../firebase';
 
@@ -190,7 +200,14 @@ function LoginComponent() {
       if (credentials.user === null) return;
       if (!client) return;
 
-      const res = await client.identify(credentials.user);
+      const snippylyUser = {
+        userId: credentials.user.userInfo.uid,
+        name: credentials.user.userInfo.displayName,
+        email: credentials.user.userInfo.email,
+        photoUrl: credentials.user.userInfo.photoURL
+      };
+
+      client.identify(snippylyUser);
       // Success!
     } catch (err) {
       // Do something with the error!
@@ -204,9 +221,17 @@ function LoginComponent() {
 }
 ```
 
+Be sure to check out the reference, specifically the [User]() and the [Client]() to see exactly what's available to you.
+
 ### Signing Out
 
-Signing the user out is extremely simple.
+Signing the user out is extremely simple. Just add this function call to your logout code:
+
+```js copy
+client.signOutUser();
+```
+
+The `signOutUser` function returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), so you can use it with `async/await`.
 
 ## 4: Tracking the User
 
@@ -218,7 +243,7 @@ A **Document** is like a _Building_. Users in the same **Document** can interact
 
 Here, we will set our **Document ID**, which is like setting the address of the building that the current user is in.
 
-```js
+```js copy {7-11}
 import { useSnippylyClient } from '@snippyly/react';
 
 function SomeComponent() {
@@ -235,7 +260,7 @@ function SomeComponent() {
 }
 ```
 
-In this example, we use a React effect to set the **Document ID** to the string `some_document_id`. Now, if two users are online, and in the **Document** `some_document_id`, they should be able to interact with eachother using our [pre-made web components]().
+In this example, we use a React effect to set the **Document ID** to the string `some_document_id`. Now, if two users are online, and also in the same **Document** `some_document_id`, they should be able to interact with eachother using our [pre-made web components]().
 
 ### Setting the Location
 
@@ -243,7 +268,9 @@ In this example, we use a React effect to set the **Document ID** to the string 
 
 A **Location** is like a _Room_. Users in the same room can talk to eachother, see eachother, and interact in real-time! **Locations** are _completely optional_, you can opt to use them or not. If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. A **Location** can be described using any plain JSON object.
 
-```js
+Here, we will set the **Document ID** as well as the **Location**.
+
+```js copy {7-11}
 import { useSnippylyClient } from '@snippyly/react';
 
 function SomeComponent() {
@@ -271,23 +298,48 @@ Your user won't be able to interact with _anyone_!
 
 If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
 
-## 5: Extra Configurations
+## 5: Extra User Configurations
+
+{/* <Callout type="info">Don't want to read about more configuration? Move on to some of our basic concepts [here]()!</Callout> */}
+
+There are some extra configurations to the `User` that you can make that will help you unlock the most value out of the SDK. 
 
 ### Contacts
 
+When identifying the user, you can provide a list of [UserContact]() entries that we will use to map those contacts to that particular user. For example:
+
+```js copy {5-10}
+client.identify({
+  userId: "some_user_uuid",
+  name: "Peter Parker",
+  email: "peter@superheroes.com",
+  contacts: [
+    {
+      name: "Mary Jane",
+      email: "mjane@spidertalent.com"
+    }
+  ]
+});
+```
+
+If you identify the user **Peter Parker** like in the example above, that user will now be able to tag **Mary Jane** _(mjane@spidertalent.com)_ in comments!
+
+<Callout type="info">Read more about tags and contacts [here]().</Callout>
+
 ### Updating the User
 
-* We need to document updateUser here
-* How to add user contacts
-  * When you set a groupId in the User object, this will group that user with that ID
-  * All users in the same group will be able to see eachother when tagging, assigning, etc
-  * Users also have a private list of contacts that are specific to that user
-  * You can manually add contacts to a user's group _or_ their private list during user identification
-  * If you change a user's group ID, the SDK will preserve the contacts they had previously
-  * Is there a way to currently remove contacts?
+At any time, if you need to update the user's data, you can use the `updateUser` function available on the **Snippyly** client:
+
+```js copy
+client.updateUser({userId: "some_user_uuid"});
+```
+
+If you provide a different UUID than the original user, the client will re-initialize with that new user. Check out the [User]() reference to check out what fields you can update.
 
 ## Next Steps
 
-<Callout type="info">Make sure you configure your installation correctly before moving on!</Callout>
+<Callout type="warning">Make sure you configure your installation correctly before moving on!</Callout>
 
-Now you can move on to learn some of our [main concepts]()!
+* Now you can move on to learn some of our [main concepts]()!
+* Check out what [web components]() we've built for your convenience!
+* Learn how to maximize your usage of the SDK with [elements]()!
