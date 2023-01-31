@@ -32,6 +32,8 @@ When your users click on this button, their mouse cursor will change to a tag pi
 
 Simply add a CSS class to the component to give it a style.
 
+**Example**
+
 ```html copy
 <snippyly-tag-tool class="my-custom-css"></snippyly-tag-tool>
 ```
@@ -45,6 +47,8 @@ snippyly-tag-tool.my-custom-css {
 ### Add a custom trigger button
 
 You can provide a custom button to add tags using a slot.
+
+**Example**
 
 ```html copy
 <snippyly-tag-tool>
@@ -62,6 +66,8 @@ A purple border is added to the target DOM element when:
 
 You can style the highlighter by passing your own CSS class name to the `pin-highlighter-class` attribute of the `<snippyly-tags>` element.
 
+**Example**
+
 ```html copy
 <snippyly-tags pin-highlighter-class="custom-pin-highlighter-class"></snippyly-tags>
 ```
@@ -77,6 +83,8 @@ You can style the highlighter by passing your own CSS class name to the `pin-hig
 By default, your end-users can add a tag to any DOM element. 
 
 You can restrict tags to specific DOM elements & their children by providing a list of element ids. For all other DOM elements, tags will be disabled - the DOM highlighter will be turned off and no tags can be attached.
+
+**Example**
 
 ```js copy
 const tagElement = client.getTagElement();
@@ -101,6 +109,8 @@ By default, clicking on `<snippyly-tag-tool>` trigger allows users to attach a t
 Pass target element's ID in `target-tag-element-id` attribute.  
 Note you can add as many `<snippyly-tag-tool>` triggers as you like and associate each trigger with a unique DOM element ID.
 
+**Example**
+
 ```html copy
 <snippyly-tag-tool target-tag-element-id="TARGET_ELEMENT_ID">
   <!-- Your custom UI here -->
@@ -110,6 +120,8 @@ Note you can add as many `<snippyly-tag-tool>` triggers as you like and associat
 **b. Using `attachTag()` method**  
 Pass target element's ID in `attachTag()` method.  
 An example on how you can use this: Show a button on hover on any DOM element. On click, call this method and pass that DOM element's ID. The tag will then be attached to the element.
+
+**Example**
 
 ```js copy
 const tagElement = client.getTagElement();
