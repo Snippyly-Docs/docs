@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@snippyly/snippyly-demo-component': ^1.0.39
+  '@snippyly/snippyly-demo-component': ^1.0.48
   '@types/node': 18.11.10
   next: ^13.1.6
   nextra: 2.0.1
@@ -12,7 +12,7 @@ specifiers:
   uuid: ^9.0.0
 
 dependencies:
-  '@snippyly/snippyly-demo-component': 1.0.39_biqbaboplfbrettd7655fr4n2y
+  '@snippyly/snippyly-demo-component': 1.0.48_biqbaboplfbrettd7655fr4n2y
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   nextra: 2.0.1_3vryta7zmbcsw4rrqf4axjqggm
   nextra-theme-docs: 2.0.1_3vryta7zmbcsw4rrqf4axjqggm
@@ -59,8 +59,8 @@ packages:
       '@lezer/common': 1.0.2
     dev: false
 
-  /@codemirror/lang-css/6.0.1:
-    resolution: {integrity: sha512-rlLq1Dt0WJl+2epLQeAsfqIsx3lGu4HStHCJu95nGGuz2P2fNugbU3dQYafr2VRjM4eMC9HviI6jvS98CNtG5w==}
+  /@codemirror/lang-css/6.0.2:
+    resolution: {integrity: sha512-4V4zmUOl2Glx0GWw0HiO1oGD4zvMlIQ3zx5hXOE6ipCjhohig2bhWRAasrZylH9pRNTcl1VMa59Lsl8lZWlTzw==}
     dependencies:
       '@codemirror/autocomplete': 6.4.0
       '@codemirror/language': 6.4.0
@@ -72,7 +72,7 @@ packages:
     resolution: {integrity: sha512-9NzhWKAkWEwjXC04DKM6yrHnxIPFTqZNLDhWfZiKLMxUiU++XoHz9n6D5EPp1igBmX0vXcpFb5Kud6XzIJhZ4A==}
     dependencies:
       '@codemirror/autocomplete': 6.4.0
-      '@codemirror/lang-css': 6.0.1
+      '@codemirror/lang-css': 6.0.2
       '@codemirror/lang-javascript': 6.1.2
       '@codemirror/language': 6.4.0
       '@codemirror/state': 6.2.0
@@ -101,7 +101,7 @@ packages:
       '@codemirror/view': 6.7.3
       '@lezer/common': 1.0.2
       '@lezer/highlight': 1.1.3
-      '@lezer/lr': 1.3.1
+      '@lezer/lr': 1.3.2
       style-mod: 4.0.0
     dev: false
 
@@ -125,15 +125,15 @@ packages:
       w3c-keyname: 2.2.6
     dev: false
 
-  /@codesandbox/sandpack-client/1.20.6:
-    resolution: {integrity: sha512-xCLLIaxqxBI+Y8bJk+Bph9I3zEwijGHS5l1ngnISvugW+4VQdj5DVIX6fBwzV9xazH3RRikk21PIz4VU2YE1jQ==}
+  /@codesandbox/sandpack-client/1.20.7:
+    resolution: {integrity: sha512-9fD+MLBFrmerKVNTRGUZPAOfLrNrtreQM6b1Iwv+ObQvXs9m7HkBUtyUqNTDn1fw4IHoxAEGx4jUSTDHZJi9LA==}
     dependencies:
       codesandbox-import-utils: 1.3.8
       lodash.isequal: 4.5.0
     dev: false
 
-  /@codesandbox/sandpack-react/1.20.6_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-u3XlpiFEbpB16sGUNaipArTFaZfd3UbEFb1KuYOHXZG96/yLzlGuexDgoYqV7rXwSpumKMLvepGYYvcOS+wqKA==}
+  /@codesandbox/sandpack-react/1.20.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-dnJnSG/6iLh1mUxib8gWYPKZBH4DzBpYLfs3SZVqHJix4wmbA2FUss9eSoIrkzxOq2eJEf7JgoKzrEFk5SUXiA==}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
       react-dom: ^16.8.0 || ^17 || ^18
@@ -141,13 +141,13 @@ packages:
       '@code-hike/classer': 0.0.0-e48fa74_react@18.2.0
       '@codemirror/autocomplete': 6.4.0
       '@codemirror/commands': 6.2.0
-      '@codemirror/lang-css': 6.0.1
+      '@codemirror/lang-css': 6.0.2
       '@codemirror/lang-html': 6.4.1
       '@codemirror/lang-javascript': 6.1.2
       '@codemirror/language': 6.4.0
       '@codemirror/state': 6.2.0
       '@codemirror/view': 6.7.3
-      '@codesandbox/sandpack-client': 1.20.6
+      '@codesandbox/sandpack-client': 1.20.7
       '@lezer/highlight': 1.1.3
       '@react-hook/intersection-observer': 3.1.1_react@18.2.0
       '@stitches/core': 1.2.8
@@ -181,7 +181,7 @@ packages:
     resolution: {integrity: sha512-mSjx+unLLapEqdOYDejnGBokB5+AiJKZVclmud0MKQOKx3DLJ5b5VTCstgDDknR6iIV4gVrN6euzsCnj0A2gQA==}
     dependencies:
       '@lezer/highlight': 1.1.3
-      '@lezer/lr': 1.3.1
+      '@lezer/lr': 1.3.2
     dev: false
 
   /@lezer/highlight/1.1.3:
@@ -195,18 +195,18 @@ packages:
     dependencies:
       '@lezer/common': 1.0.2
       '@lezer/highlight': 1.1.3
-      '@lezer/lr': 1.3.1
+      '@lezer/lr': 1.3.2
     dev: false
 
   /@lezer/javascript/1.4.1:
     resolution: {integrity: sha512-Hqx36DJeYhKtdpc7wBYPR0XF56ZzIp0IkMO/zNNj80xcaFOV4Oj/P7TQc/8k2TxNhzl7tV5tXS8ZOCPbT4L3nA==}
     dependencies:
       '@lezer/highlight': 1.1.3
-      '@lezer/lr': 1.3.1
+      '@lezer/lr': 1.3.2
     dev: false
 
-  /@lezer/lr/1.3.1:
-    resolution: {integrity: sha512-+GymJB/+3gThkk2zHwseaJTI5oa4AuOuj1I2LCslAVq1dFZLSX8SAe4ZlJq1TjezteDXtF/+d4qeWz9JvnrG9Q==}
+  /@lezer/lr/1.3.2:
+    resolution: {integrity: sha512-SDSvnHWMBH6WxoOt51AjuHOiQ0DMxxhfK5lNoyJXuv5POWz6MfXKGU9Fus9tK8NqrI1sSBNdKtG5cUXXZtGG5w==}
     dependencies:
       '@lezer/common': 1.0.2
     dev: false
@@ -528,10 +528,10 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@snippyly/snippyly-demo-component/1.0.39_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-ZN9yxd/RwVZZ+5khS3efi203MesTjrRhAFTu1pdwyDwyqKyLwODSr0bt6p9i/c8pLz4UjHAak9wvxw3bGAvZPA==}
+  /@snippyly/snippyly-demo-component/1.0.48_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-45KNZJgj2ULFS91GzMYHSP+pkafzwtQ2JmWlLUOQ8mrcNX1KdG45FlNt2jLJUhHLF0GJ1Eb50bhghGf8vmYRhQ==}
     dependencies:
-      '@codesandbox/sandpack-react': 1.20.6_biqbaboplfbrettd7655fr4n2y
+      '@codesandbox/sandpack-react': 1.20.8_biqbaboplfbrettd7655fr4n2y
     transitivePeerDependencies:
       - react
       - react-dom
