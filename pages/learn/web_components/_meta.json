@@ -1,8 +1,8 @@
 {
-  "presence": "How to add Presence",
-  "live_cursors": "How to add Live Cursors",
-  "tags": "How to add Tags",
-  "recorded_videos": "How to add Recorded Videos",
-  "huddles": "How to add Huddles",
-  "comments": "How to add Comments"
+  "presence": "Presence",
+  "live_cursors": "Live Cursors",
+  "tags": "Tags",
+  "recorded_videos": "Recorder",
+  "huddles": "Huddles",
+  "comments": "Comments"
 }

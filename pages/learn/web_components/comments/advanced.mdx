@@ -1,42 +1,12 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Comments continued
+# Advanced usage
 
 _More advanced commenting features._
 
 ---
 
-## 1: Enable stream mode
-
-You can enable stream mode to show comment dialog boxes on right side similar to Google Docs (vs contextual floating dialog boxes).
-
-![](https://files.readme.io/a0f2a09-Snippyly_SDK_Comment_Stream_View.gif "Snippyly SDK Comment Stream View.gif")
-
-To enable stream mode, you can call this method with parameter `true`. To disable it again, you can call this method with parameter `false`.
-
-**Example**
-
-```js copy
-const commentElement = client.getCommentElement();
-commentElement.enableStreamMode(true);
-```
-
-**Note:**
-
-- Ensure that you move the `<snippyly-comments>` tag (added in Step 1) as a **sibling of the target content** -  inside whichever DOM element is getting scrolled so that the comment stream also scrolls.
-- Optionally, you could also pass the DOM id of the scrolling element to help us position the comments more accurately:
-
-**Example**
-
-```html copy
-<snippyly-comments stream-view-container-id='scrollingElementId'></snippyly-comments>
-```
-
-<Callout type="info">
-  For more details, please refer to this [demo](https://snippyly-demo-react-ts.web.app/stream-view)
-</Callout>
-
-## 2: Disable floating comments
+## 1. Disable floating comments
 
 By default, when users hover or click on comment pin or highlighted text, floating comment dialog box appears. If you want to disable floating comment dialog box, you can call this method with parameter `true`. To re-enable you can call this method with parameter `false`.
 
@@ -47,7 +17,7 @@ const commentElement = client.getCommentElement();
 commentElement.disableFloatingComments(true);
 ```
 
-## 3: Enable moderator mode
+## 2. Enable moderator mode
 
 By default, when a user adds a comment it is visible to all authenticated users on the same `Document`.  
 Moderator mode makes visibility of all comments private to the only `admin` users and the comment author. Admin users will see an `approve` button to approve the comment.
@@ -68,7 +38,7 @@ const commentElement = client.getCommentElement();
 commentElement.enableModeratorMode(true);
 ```
 
-## 4: Delete an entire comment thread using custom trigger
+## 3. Delete an entire comment thread using custom trigger
 
 To delete a comment, the end-user needs to click on the the comment pin or the commented text and press `Backspace` button or `Delete` button.
 
@@ -81,7 +51,7 @@ const commentElement = client.getCommentElement();
 commentElement.deleteComment();
 ```
 
-## 5: Show sign in button when user is anonymous or signed out
+## 4. Show sign in button when user is anonymous or signed out
 
 You can now show a sign in call to action to users in the comment dialog box when they are signed out or are logged in anonymously. When the user clicks on the sign in button, we will publish an event called `signIn` so that you listen to it and hook it with your sign in method. Here is an example:
 
@@ -105,7 +75,7 @@ element?.addEventListener('signIn', () => {
 
 <Callout type="info">After the user successfully logs in with you, pass the user object to the Snippyly `identify()` method</Callout>
 
-## 6: Enable attachments
+## 5. Enable attachments
 
 Once you enable this feature, your users can attach files for team members to refer directly in context.
 
@@ -124,68 +94,4 @@ Once you enable this feature, your users can attach files for team members to re
 ```js copy
 const commentElement = client.getCommentElement();
 commentElement.enableAttachment(true);
-```
-
-## 7: Enable embed mode for sidebar
-
-Using embed mode, you can embed the sidebar in your own container and the sidebar will take up the width and height of your container.
-
-To enable embed mode, pass `embed-mode="true"` attribute in `<snippyly-comments-sidebar>` tag.
-
-**Example**
-
-```html copy
-<snippyly-comments-sidebar embed-mode="true"></snippyly-comments-sidebar>
-```
-
-When embed mode is enabled, clicking on `Open All Comments` button in comment dialog will not open the sidebar. We will instead emit an `openSidebar` event that you can listen to and open the sidebar yourself.
-
-This is how you can listen to that event:
-
-**Example**
-
-```js copy
-const commentElement = document.querySelector('snippyly-comments');
-commentElement.addEventListener('openSidebar', (s) => {
-  // Show the sidebar in custom container
-});
-```
-
-## 8: Enable URL based navigation in sidebar
-
-After you enable this mode, if you click on any comment in the sidebar, we will navigate you to the URL where the comment was added, scroll to the comment and open it. You should use this only if you maintain unique id based URLs for your app pages/sections where comments can be added.
-
-By default this is turned off and we emit `onSidebarCommentClick` event instead. [Learn more]().
-
-To enable it pass `enable-url-navigation="true"` attribute in `<snippyly-comments-sidebar>` tag.
-
-**Example**
-
-```html copy
-<snippyly-comments-sidebar enable-url-navigation="true"></snippyly-comments-sidebar>
-```
-
-## 9: Open, close, or toggle the sidebar programmatically
-
-Note this will not work if you turn on `embed-mode`. Use the following to programmatically control the sidebar:
-
-**a. Open comments sidebar**
-
-```ts copy
-const commentElement = client.getCommentElement();
-commentElement.openCommentSidebar();
-```
-
-**b. Close comments sidebar**
-
-```ts copy
-const commentElement = client.getCommentElement();
-commentElement.closeCommentSidebar();
-```
-
-**c. Toggle comments sidebar**
-
-```ts copy
-const commentElement = client.getCommentElement();
-commentElement.toggleCommentSidebar();
 ```

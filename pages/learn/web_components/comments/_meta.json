@@ -1,5 +1,7 @@
 {
-  "comment_types": "Types of comments",
+  "popover": "Popover mode",
+  "text": "Text based comments",
   "comment_sidebar": "Comment sidebar",
+  "comment_bubble": "Comment bubble",
   "advanced": "Advanced usage"
 }
