@@ -270,6 +270,14 @@ In this example, we use a React effect to set the **Document ID** to the string 
 
 A **Location** is like a _Room_. Users in the same room can talk to eachother, see eachother, and interact in real-time! **Locations** are _completely optional_, you can opt to use them or not. If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. A **Location** can be described using any plain JSON object.
 
+> What if I don't set the **Document**?
+
+Your user won't be able to interact with _anyone_!
+
+> What if I don't want to use **Locations**?
+
+If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
+
 Here, we will set the **Document ID** as well as the **Location**.
 
 ```js copy {7-11}
@@ -292,13 +300,55 @@ function SomeComponent() {
 
 In this example, we set the **Document ID** as `some_document_id`, and the **Location** to an object with an ID property and value of `1`. _If you specify a **Location**_, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
 
-> What if I don't set the **Document**?
 
-Your user won't be able to interact with _anyone_!
+### Multiple Locations
 
-> What if I don't want to use **Locations**?
+One neat feature of **Locations** is that the user can actually be in multiple locations at once!
 
-If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
+**Example**
+
+```js copy {10-11}
+import { useSnippylyClient } from '@snippyly/react';
+
+function SomeComponent() {
+
+  const { client } = useSnippylyClient();
+
+  useEffect(() => {
+    if (client) {
+      client.setDocumentID('some_document_id');
+      client.addLocation({id: 1});
+      client.addLocation({id: 2});
+    }
+  }, [client]);
+
+  return ();
+}
+```
+
+In this example, the user will have access to both location 1 and location 2!
+
+### Location data attributes
+
+If you don't want to use JS to set the client location, you can alternatively use data attributes. Add the `data-snippyly-location` attribute to the top level of an element where you want to set the custom location object.
+
+**Example**
+
+```html copy {4}
+<div class="container">
+  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
+  // then add location attribute to below div as mentioned here
+  <div class="sub-container" data-snippyly-location='{"key1": "value1"}'>
+    <div class="card">
+      ... any content ...
+    </div>
+  </div>
+</div>
+```
+
+<Callout type="info">
+  **Note:** Make sure that you are converting object to string before setting it to location attribute.
+</Callout>
 
 ## 5: Extra User Configurations
 
