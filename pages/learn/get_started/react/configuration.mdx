@@ -1,0 +1,293 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Configuration
+
+## 1: Authentication
+
+<Callout type="warning" emoji="⚠️">Don't have an API key? Get one here!</Callout>
+
+First, you need to initialize the **SnippylyProvider** with a client authentication token. If you don't have one, go ahead and [visit our website]() to sign up! Insert the **SnipplyProvider** in the root of your application.
+
+```js
+import { SnippylyProvider } from '@snippyly/react';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <SnippylyProvider apiKey="...">
+      <App />
+    </SnippylyProvider>
+  </React.StrictMode>
+);
+```
+
+First import the `SnipplyProvider`:
+
+```js
+import { SnippylyProvider } from '@snippyly/react';
+```
+
+Then you can add it to your HTML with your API key:
+
+```html
+<React.StrictMode>
+  <SnippylyProvider apiKey="...">
+    <App />
+  </SnippylyProvider>
+</React.StrictMode>
+```
+
+The `SnippylyProvider` acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context. 
+
+## 2: Using the Snippyly Client
+
+The `@snippyly/react` package provides a convenient hook `useSnippylyClient` to provision the SDK client. Here's how you can use it in a React component:
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+
+function SomeComponent() {
+
+  const { client } = useSnippylyClient();
+
+  return ();
+}
+```
+
+First import the `SnipplyClient`:
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+```
+
+Then you can use the provided hook to fetch an instance of the client:
+
+```js
+const { client } = useSnipplyClient();
+```
+
+To test the client out, we can add a `useEffect` hook to our component and log the `client.version` property. Within your React component, create a new effect:
+
+```js
+useEffect(() => {
+  if (client) {
+    console.log(client.version);
+  }
+}, [client]);
+```
+
+This effect simply checks if the client has been provisioned, and logs the current SDK version to the console. Here is what the full example looks like in context:
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+
+function SomeComponent() {
+
+  const { client } = useSnippylyClient();
+
+  useEffect(() => {
+    if (client) {
+      console.log(client.version);
+    }
+  }, [client]);
+
+  return ();
+}
+```
+
+When your component is rendered, you should verify for yourself that the `Snippyly` SDK is loaded, working, and on the intended version. Note that when using the `Snippyly` client in a React effect, it is a general best practice to check if the client is `undefined`.
+
+## 3: Identifying your Users
+
+Snippyly needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
+
+### _When should I identify users?_
+
+> **You must identify the user every time the SDK is loaded on the browser for the first time.**
+> For example, when a new session/tab is created you must re-identify the user.
+
+Everyone handles authentication differently in their applications, so there isn't a one size fits all solution. The main point is that _when the user is logged in_, you should also identify the user with the **Snippyly** client.
+
+### Example with Firebase Authentication
+
+Let's walk through a specific example using Firebase Authentication. Here's some typical Firebase code you would find in a React application:
+
+```js
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
+const app = firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth(app);
+const provider = new firebase.auth.GoogleAuthProvider();
+
+export const signInWithGoogle = () => {
+  return auth.signInWithPopup(provider);
+};
+```
+
+The code snippet above initializes the Firebase SDK. **This code example is not important** -- all you need to know is that the code exports a function `signInWithGoogle` that we will be using in our example below.
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+import { signInWithGoogle } from '../firebase';
+
+function LoginComponent() {
+
+  const { client } = useSnippylyClient();
+
+  // TODO: Implement signInHandler()
+
+  return (
+    <button onClick={ signInHandler }>Log in with Google</button>
+  );
+}
+```
+
+In the above example, we first import the `useSnippylyHook` as well as the `signInWithGoogle` function we defined in the Firebase code.
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+import { signInWithGoogle } from '../firebase';
+```
+
+Second, we create a button that calls a handler function `signInHandler`:
+
+```html
+<button onClick={ signInHandler }>Log in with Google</button>
+```
+
+Lastly, we can define the function `signInHandler`. This function calls the `signInWithGoogle` function we made earlier, which prompts the user to login via Google. If the user is logged in successfully, we identify the user using the `identify` function provided by the **Snippyly** client:
+
+```js
+const signInHandler = async () => {
+  try {
+    const credentials = await signInWithGoogle();
+    if (credentials.user === null) return;
+    if (!client) return;
+
+    const res = await client.identify(credentials.user);
+    // Success!
+  } catch (err) {
+    // Do something with the error!
+    console.log(err);
+  }
+};
+```
+
+Keep in mind this is only one method of logging the user in, and you will have to decide where to identify the user in your _specific_ application. Here's the full example in context:
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+import { signInWithGoogle } from '../firebase';
+
+function LoginComponent() {
+
+  const { client } = useSnippylyClient();
+
+  const signInHandler = async () => {
+    try {
+      const credentials = await signInWithGoogle();
+      if (credentials.user === null) return;
+      if (!client) return;
+
+      const res = await client.identify(credentials.user);
+      // Success!
+    } catch (err) {
+      // Do something with the error!
+      console.log(err);
+    }
+  };
+
+  return (
+    <button onClick={ signInHandler }>Log in with Google</button>
+  );
+}
+```
+
+### Signing Out
+
+Signing the user out is extremely simple.
+
+## 4: Tracking the User
+
+Lastly, Snippyly needs to know what part of your app the user is currently on! **Documents** and **Locations** are how you can provide that information.
+
+### Setting the Document ID
+
+A **Document** is like a _Building_. Users in the same **Document** can interact with eachother. A **Document** can be represented with a string identifier.
+
+Here, we will set our **Document ID**, which is like setting the address of the building that the current user is in.
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+
+function SomeComponent() {
+
+  const { client } = useSnippylyClient();
+
+  useEffect(() => {
+    if (client) {
+      client.setDocumentID('some_document_id');
+    }
+  }, [client]);
+
+  return ();
+}
+```
+
+In this example, we use a React effect to set the **Document ID** to the string `some_document_id`. Now, if two users are online, and in the **Document** `some_document_id`, they should be able to interact with eachother using our [pre-made web components]().
+
+### Setting the Location
+
+> If a **Document** is like a building, what are the rooms?
+
+A **Location** is like a _Room_. Users in the same room can talk to eachother, see eachother, and interact in real-time! **Locations** are _completely optional_, you can opt to use them or not. If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. A **Location** can be described using any plain JSON object.
+
+```js
+import { useSnippylyClient } from '@snippyly/react';
+
+function SomeComponent() {
+
+  const { client } = useSnippylyClient();
+
+  useEffect(() => {
+    if (client) {
+      client.setDocumentID('some_document_id');
+      client.setLocation({id: 1});
+    }
+  }, [client]);
+
+  return ();
+}
+```
+
+In this example, we set the **Document ID** as `some_document_id`, and the **Location** to an object with an ID property and value of `1`. _If you specify a **Location**_, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
+
+> What if I don't set the **Document**?
+
+Your user won't be able to interact with _anyone_!
+
+> What if I don't want to use **Locations**?
+
+If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
+
+## 5: Extra Configurations
+
+### Contacts
+
+### Updating the User
+
+* We need to document updateUser here
+* How to add user contacts
+  * When you set a groupId in the User object, this will group that user with that ID
+  * All users in the same group will be able to see eachother when tagging, assigning, etc
+  * Users also have a private list of contacts that are specific to that user
+  * You can manually add contacts to a user's group _or_ their private list during user identification
+  * If you change a user's group ID, the SDK will preserve the contacts they had previously
+  * Is there a way to currently remove contacts?
+
+## Next Steps
+
+<Callout type="info">Make sure you configure your installation correctly before moving on!</Callout>
+
+Now you can move on to learn some of our [main concepts]()!
