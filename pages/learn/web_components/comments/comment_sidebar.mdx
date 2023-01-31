@@ -106,7 +106,7 @@ This is how you can listen to that event:
 **Example**
 
 ```js copy
-const commentElement = document.querySelector('snippyly-comments');
+const commentElement = document.querySelector('SnippylyComments');
 commentElement.addEventListener('openSidebar', (s) => {
   // Show the sidebar in custom container
 });
@@ -164,7 +164,7 @@ If you maintain unique id based URLs for your app pages where comments can be ad
 **Example**
 
 ```javascript copy
-const commentElement = document.querySelector('snippyly-comments');
+const commentElement = document.querySelector('SnippylyComments');
 commentElement.addEventListener('onSidebarCommentClick', (event) => {
   // Get document id and location data inside event.detail field.
   console.log('onSidebarCommentClick', event.detail);
