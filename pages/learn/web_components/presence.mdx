@@ -15,7 +15,7 @@ _Display which users are currently in the same Location._
   <Presence user={"Ross"} documentId={presenceDocumentId}/>
 </SplitPane>
 
-### Implementation
+## 1: Add the component
 
 ```html copy
 <snippyly-presence></snippyly-presence>
@@ -23,3 +23,72 @@ _Display which users are currently in the same Location._
 
 <Callout type="info">Insert the component anywhere in your application!</Callout>
 
+## 2: Customization
+
+### Style the component
+
+Simply add a CSS class to the component to give it a style.
+
+**Example**
+
+```html copy
+<snippyly-presence class="my-custom-css"></snippyly-presence>
+```
+
+```css copy
+snippyly-presence.my-custom-css .s-presence-avatar {
+  /* Custom CSS */
+}
+```
+
+You can also pass your own CSS class to the inner DOM elements of the presence component using the property **`container-class`**.
+
+**Example**
+
+```html copy
+<snippyly-presence container-class="my-custom-container-class"></snippyly-presence>
+```
+
+```css copy
+snippyly-presence .my-custom-container-class {
+  /* Custom CSS */
+}
+```
+
+### Set max avatars
+
+**Default:** Maximum 5 user avatars will be visible in `<snippyly-presence>`. If there are > 5 online users, it will show `+ remaining_number` at the end.
+
+You can configure this by setting `max-users="count"` attribute in `<snippyly-presence>` component.
+
+**Example**
+
+```html copy
+<snippyly-presence max-users="2"></snippyly-presence>
+```
+
+### Add presence for child documents
+
+There are some apps where there are child documents within the main document eg: Google Slides.
+
+By default, `<snippyly-presence>` will show all online users in the given document.  
+However, if you also want to show who is online at a child document level, then you can add another `<snippyly-presence>` in your child document and pass a `location` object in the `location` attribute of `<snippyly-presence>` tag.
+
+For this feature, you need to first call `setLocation(location)` in the child document and pass the same `location` object to `<snippyly-presence>` as `string` using `JSON.stringify(location)`.
+
+**Example**
+
+```html copy
+<snippyly-presence location="location"></snippyly-presence>
+```
+
+### Set inactivity time
+
+By default if the user is inactive for `>5 minutes`, we mark them offline. By inactive we mean they haven't moved their mouse or haven't made any keyboard event. You can configure this default threshold as follows:
+
+**Example**
+
+```js
+const presenceElement = client.getPresenceElement();
+presenceElement.setInactivityTime(60000); // Pass time in milliseconds
+```
