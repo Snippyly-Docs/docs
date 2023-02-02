@@ -26,21 +26,33 @@ Import the component:
 import { SnippylyComments } from '@snippyly/react';
 ```
 
-Then add it to the root of your React application:
+Then add it to the root of your React application.
 
 **Example**
 
-```tsx copy {6}
-import { SnippylyProvider, SnippylyComments } from "@snippyly/react";
+<br />
 
-function App() {
-  return (
-    <SnippylyProvider apiKey='...'>
-        <SnippylyComments />
-    </SnippylyProvider>
-  )
-}
-```
+<SplitPane>
+  <div>
+    ```tsx copy {9}
+    import { 
+      SnippylyProvider, 
+      SnippylyComments 
+    } from "@snippyly/react";
+
+    function App() {
+      return (
+        <SnippylyProvider apiKey='...'>
+            <SnippylyComments />
+        </SnippylyProvider>
+      )
+    }
+    ```
+  </div>
+  <div>
+    <Comment paddingBottom="1rem" user={"Rachel"} documentId={commentDocumentId} mode="commentsOnly"/>
+  </div>
+</SplitPane>
 
 <Callout type="warning">
   The `SnippylyComments` component _**must**_ be in the root App component of your React app
@@ -138,24 +150,46 @@ const SomeComponent = () => {
 export default SomeComponent;
 ```
 
-
 ### 3a. Add the comment tool component
 
 This will create a button which allows your end-users to add comments. You can add this tag anywhere into your code. You can customize this button or pass your own button as described later on this page.
 
 When your users click on this button, their mouse cursor will change to a comment pin and it will start detecting & highlighting the borders of the underlying elements. Then, clicking on the highlighted element will attach a comment to it.
 
-**Example**
+First import the component:
 
 ```ts copy
 import { SnippylyCommentTool } from '@snippyly/react';
 ```
 
-Then insert it somewhere in your application:
+Then insert it somewhere in your application.
 
-```tsx copy
-<SnippylyCommentTool></SnippylyCommentTool>
-```
+**Example**
+
+<br />
+
+<SplitPane>
+  <div>
+    ```tsx copy {8}
+    import { 
+      SnippylyCommentTool 
+    } from "@snippyly/react";
+
+    function SomeComponent() {
+      return (
+        <div class="toolbar">
+          <SnippylyCommentTool />
+        </div>
+      )
+    }
+    ```
+  </div>
+  <div>
+    <Comment paddingBottom="1rem" user={"Rachel"} documentId={commentDocumentId} />
+  </div>
+</SplitPane>
+
+<Callout type="info">By default, the `SnippylyCommentTool` is in _**freestyle**_ mode, which places comment pins on the DOM. If you want to read about popover mode, head over [here]()</Callout>
 
 ### 3b. Enable text based comments
 

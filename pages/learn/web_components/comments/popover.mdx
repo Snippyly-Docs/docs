@@ -1,6 +1,7 @@
 import { Comment } from '@snippyly/snippyly-demo-component'
 import { documentID } from '../../../../components/documentID'
 import { Callout } from 'nextra-theme-docs'
+import SplitPane from '../../../../components/SplitPane';
 export const commentDocumentId = documentID("comment");
 
 # Popover mode
@@ -25,21 +26,33 @@ Import the component:
 import { SnippylyComments } from '@snippyly/react';
 ```
 
-Then add it to the root of your React application:
+Then add it to the root of your React application.
 
 **Example**
 
-```tsx copy {6}
-import { SnippylyProvider, SnippylyComments } from "@snippyly/react";
+<br />
 
-function App() {
-  return (
-    <SnippylyProvider apiKey='...'>
-        <SnippylyComments />
-    </SnippylyProvider>
-  )
-}
-```
+<SplitPane>
+  <div>
+    ```tsx copy {9}
+    import { 
+      SnippylyProvider, 
+      SnippylyComments 
+    } from "@snippyly/react";
+
+    function App() {
+      return (
+        <SnippylyProvider apiKey='...'>
+            <SnippylyComments />
+        </SnippylyProvider>
+      )
+    }
+    ```
+  </div>
+  <div>
+    <Comment paddingBottom="1rem" user={"Rachel"} documentId={commentDocumentId} mode="commentsOnly"/>
+  </div>
+</SplitPane>
 
 <Callout type="warning">
   The `SnippylyComments` component _**must**_ be in the root App component of your React app
@@ -123,10 +136,9 @@ We are gonna define a function `enablePopoverMode` that fetches the [`CommentEle
 
 ```tsx copy
 const enablePopoverMode = () => {
-  if (client) {
-    const commentElement = client.getCommentElement();
-    commentElement.enablePopoverMode(true);
-  }
+  if (!client) return;
+  const commentElement = client.getCommentElement();
+  commentElement.enablePopoverMode(true);
 }
 ```
 
@@ -134,36 +146,43 @@ Finally, inside the `useEffect` we created we can add the function call to `enab
 
 **Example**
 
-```tsx copy {8-21}
-import React, {useEffect} from "react";
-import { useSnippylyClient } from '@snippyly/react';
+<br />
 
-const SomeComponent = () => {
-  
-  const { client } = useSnippylyClient();
+<SplitPane>
+  <div>
+    ```tsx copy {8-19}
+    import React, {useEffect} from "react";
+    import { useSnippylyClient } from '@snippyly/react';
+
+    const SomeComponent = () => {
+      
+      const { client } = useSnippylyClient();
 
 
-  const enablePopoverMode = () => {
-    if (client) {
-      const commentElement = client.getCommentElement();
-      commentElement.enablePopoverMode(true);
+      const enablePopoverMode = () => {
+        if (!client) return;
+        const commentElement = client.getCommentElement();
+        commentElement.enablePopoverMode(true);
+      }
+
+      useEffect(() => {
+        if (!client) return;
+        enablePopoverMode();
+      }, [client]);
+
+      
+      return (
+        //... rest of the component code...
+      )
     }
-  }
 
-  useEffect(() => {
-    if (client) {
-      enablePopoverMode();
-    }
-  }, [client]);
-
-  
-  return (
-    //... rest of the component code...
-  )
-}
-
-export default SomeComponent;
-```
+    export default SomeComponent;
+    ```
+  </div>
+  <div>
+    <Comment paddingBottom="1rem" mode="popover" user={"Rachel"} documentId={commentDocumentId} />
+  </div>
+</SplitPane>
 
 ### 4. Add a comment bubble
 
