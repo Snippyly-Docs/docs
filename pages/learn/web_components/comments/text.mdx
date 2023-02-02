@@ -1,4 +1,5 @@
 import { Comment } from '@snippyly/snippyly-demo-component'
+import SplitPane from '../../../../components/SplitPane';
 import { documentID } from '../../../../components/documentID'
 import { Callout } from 'nextra-theme-docs'
 export const commentDocumentId = documentID("comment");
@@ -76,37 +77,43 @@ Finally, inside the `useEffect` we created we can add the function call to `enab
 
 **Example**
 
-```tsx copy {8-21}
-import { useEffect } from "react";
-import { useSnippylyClient } from '@snippyly/react';
+<SplitPane>
+  <div>
+    ```tsx copy {8-21}
+    import { useEffect } from "react";
+    import { useSnippylyClient } from '@snippyly/react';
 
-const SomeComponent = () => {
-  
-  const { client } = useSnippylyClient();
+    const SomeComponent = () => {
+      
+      const { client } = useSnippylyClient();
 
 
-  const enableTextComments = () => {
-    if (client) {
-      const commentElement = client.getCommentElement();
-      commentElement.enableTextComments(true);
+      const enableTextComments = () => {
+        if (client) {
+          const commentElement = client.getCommentElement();
+          commentElement.enableTextComments(true);
+        }
+      }
+
+      useEffect(() => {
+        if (client) {
+          enableTextComments();
+        }
+      }, [client]);
+
+      
+      return (
+        //... rest of the component code...
+      )
     }
-  }
 
-  useEffect(() => {
-    if (client) {
-      enableTextComments();
-    }
-  }, [client]);
-
-  
-  return (
-    //... rest of the component code...
-  )
-}
-
-export default SomeComponent;
-```
-
+    export default SomeComponent;
+    ```
+  </div>
+  <div>
+    <Comment style="margin-top: 2.5rem" paddingBottom="1rem" mode="text" user={"Rachel"} documentId={commentDocumentId}/>
+  </div>
+</SplitPane>
 
 ## Customization
 
