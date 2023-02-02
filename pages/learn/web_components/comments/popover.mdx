@@ -13,11 +13,69 @@ _Show popovers instead of comment pins._
 
 ## When to use
 
-If you want to display popover style comments instead of our default freestyle comment pins.
+If you want to display popover style comments instead of our default freestyle comment pins. Users will be able to attach comments to containers that you specify.
 
 ## How to use
 
-### Enable popover mode
+### 1. Add the comments component
+
+Import the component:
+
+```ts copy
+import { SnippylyComments } from '@snippyly/react';
+```
+
+Then add it to the root of your React application:
+
+**Example**
+
+```tsx copy {6}
+import { SnippylyProvider, SnippylyComments } from "@snippyly/react";
+
+function App() {
+  return (
+    <SnippylyProvider apiKey='...'>
+        <SnippylyComments />
+    </SnippylyProvider>
+  )
+}
+```
+
+<Callout type="warning">
+  The `SnippylyComments` component _**must**_ be in the root App component of your React app
+</Callout>
+
+### 2. Add the comment tool component with a target element
+
+This will create a button which allows your end-users to attach comments to a container. You can customize this button or pass your own button as described later on this page.
+
+When your users click on this button, a comment dialog will open prompting the user to leave a comment.
+
+**Example**
+
+```ts copy
+import { SnippylyCommentTool } from '@snippyly/react';
+```
+
+You must specify the target container element in which the popover will show using the `targetCommentElementId` attribute:
+
+```tsx copy
+<SnippylyCommentTool targetCommentElementId="target"></SnippylyCommentTool>
+```
+
+In practice, the comment tool is usually inside the target DOM element:
+
+**Example**
+
+```tsx copy
+<div className="popover-container" id="target">
+  <SnippylyCommentTool targetCommentElementId="target" />
+</div>
+```
+
+<Callout type="warning">You must specify a target DOM element id for popover mode </Callout>
+
+### 3. Enable popover mode
 
 You can use our client API to enable popover mode:
 
@@ -26,10 +84,25 @@ const commentElement = client.getCommentElement();
 commentElement.enablePopoverMode(true);
 ```
 
-**Example**
+In your component, provision the **Snippyly** client:
 
-```tsx copy {8-21} showLineNumbers
-import React, {useEffect} from "react";
+```tsx copy {1, 5}
+import { useSnippylyClient } from '@snippyly/react';
+
+const SomeComponent = () => {
+  
+  const { client } = useSnippylyClient();
+  
+  return (
+    //... rest of the component code...
+  )
+}
+```
+
+Next, create a `useEffect` hook that uses the `client` as a dependency:
+
+```tsx copy
+import { useEffect } from 'react';
 import { useSnippylyClient } from '@snippyly/react';
 
 const SomeComponent = () => {
@@ -37,10 +110,38 @@ const SomeComponent = () => {
   const { client } = useSnippylyClient();
 
   useEffect(() => {
-    if (client) {
-      enablePopoverMode();
-    }
+
   }, [client]);
+  
+  return (
+    //... rest of the component code...
+  )
+}
+```
+
+We are gonna define a function `enablePopoverMode` that fetches the [`CommentElement`](), and enables popover mode:
+
+```tsx copy
+const enablePopoverMode = () => {
+  if (client) {
+    const commentElement = client.getCommentElement();
+    commentElement.enablePopoverMode(true);
+  }
+}
+```
+
+Finally, inside the `useEffect` we created we can add the function call to `enablePopoverMode`. Here is the full example in context:
+
+**Example**
+
+```tsx copy {8-21}
+import React, {useEffect} from "react";
+import { useSnippylyClient } from '@snippyly/react';
+
+const SomeComponent = () => {
+  
+  const { client } = useSnippylyClient();
+
 
   const enablePopoverMode = () => {
     if (client) {
@@ -48,6 +149,13 @@ const SomeComponent = () => {
       commentElement.enablePopoverMode(true);
     }
   }
+
+  useEffect(() => {
+    if (client) {
+      enablePopoverMode();
+    }
+  }, [client]);
+
   
   return (
     //... rest of the component code...
@@ -56,3 +164,55 @@ const SomeComponent = () => {
 
 export default SomeComponent;
 ```
+
+### 4. Add a comment bubble
+
+<br />
+
+<Comment mode="bubble" user={"Rachel"} documentId={commentDocumentId} height={500}/>
+
+The comment bubble is an enhancement that you can add to popover mode. Adding the component creates a button that can **open the comment associated with some target element**. It also shows the total number of threads in the given comment.
+
+Import the component:
+
+```tsx copy
+import { SnippylyCommentBubble } from '@snippyly/react';
+```
+
+Similar to the `SnippylyCommentTool`, you will have to set the `targetCommentElementId` attribute to point at the popover container:
+
+```tsx copy
+<SnippylyCommentTool targetCommentElementId="target"></SnippylyCommentTool>
+```
+
+And a fuller example for context:
+
+**Example**
+
+```tsx copy {7}
+import { SnippylyCommentBubble } from '@snippyly/react';
+
+export const SomeComponent = () => {
+    return (
+      <div className="popover-container" id="target">
+        <div className="comment-bubble">
+          <SnippylyCommentBubble targetCommentElementId="target" />
+        </div>
+        <SnippylyCommentTool targetCommentElementId="target" />
+      </div>
+    )
+}
+```
+
+## Customization
+
+### Give it a custom trigger button
+
+**Example**
+```html copy
+<SnippylyCommentBubble>
+   <button>Bubble button</button>
+</SnippylyCommentBubble>
+```
+
+<Callout type="info">Currently, there is no way to fetch the total # of comment threads in the comment. Please [contact us]() if you need assistance</Callout>

@@ -1,11 +1,11 @@
 import { Comment } from '@snippyly/snippyly-demo-component'
-import { documentID } from '../../../components/documentID'
+import { documentID } from '../../../../components/documentID'
 import { Callout } from 'nextra-theme-docs'
 export const commentDocumentId = documentID("comment");
 
-# Comments
+# Freestyle mode
 
-_Show comments from users on your application._
+_Let your users place comments anywhere on the DOM._
 
 ---
 
@@ -13,7 +13,11 @@ _Show comments from users on your application._
 
 ## When to use
 
-The `SnippylyComments` component renders any saved comments to the DOM. It must be placed in the root App component of your React app.
+If you want users to be able to press a button to enable commenting, and place comment pins anywhere on the DOM, then freestyle mode is the correct choice. If freestyle mode is not right for you, be sure to check out:
+
+- [Popover mode]()
+- [Streaming mode]()
+- [Text based comments]()
 
 ## How to use
 
@@ -29,7 +33,7 @@ Then add it to the root of your React application:
 
 **Example**
 
-```tsx copy showLineNumbers {6}
+```tsx copy {6}
 import { SnippylyProvider, SnippylyComments } from "@snippyly/react";
 
 function App() {

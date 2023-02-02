@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@snippyly/snippyly-demo-component': ^1.0.69
+  '@snippyly/snippyly-demo-component': ^1.0.76
   '@types/node': 18.11.10
   next: ^13.1.6
   nextra: 2.0.1
@@ -12,7 +12,7 @@ specifiers:
   uuid: ^9.0.0
 
 dependencies:
-  '@snippyly/snippyly-demo-component': 1.0.69_biqbaboplfbrettd7655fr4n2y
+  '@snippyly/snippyly-demo-component': 1.0.76_biqbaboplfbrettd7655fr4n2y
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   nextra: 2.0.1_3vryta7zmbcsw4rrqf4axjqggm
   nextra-theme-docs: 2.0.1_3vryta7zmbcsw4rrqf4axjqggm
@@ -159,6 +159,10 @@ packages:
       react-devtools-inline: 4.4.0
       react-dom: 18.2.0_react@18.2.0
       react-is: 17.0.2
+    dev: false
+
+  /@codesandbox/sandpack-themes/1.19.0:
+    resolution: {integrity: sha512-IbFnx3CmldOpwh+lJoRps4vRA41mSn4ZqU4sNxoIt6HrAVuOZodTBe52hDn58N/l0RRaEh/hMw0UFB4Bmp7wqw==}
     dev: false
 
   /@headlessui/react/1.7.8_biqbaboplfbrettd7655fr4n2y:
@@ -528,10 +532,11 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@snippyly/snippyly-demo-component/1.0.69_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-jobMo0bEdDfCPkK515/W8WxJZ4x25SaPLs2Y21amt0Wg+wT0oHp12pp/b4lQEQyIjURPdYKK/uAO2MWvj9iJfQ==}
+  /@snippyly/snippyly-demo-component/1.0.76_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-IgAKVzY+QbwgiXGZtldtFtsJFvbnMWRfuc9TOxy287rDrjTrlW/XL/5KaZjYRn/v98VkE0N/+2IXJ5kYvqizDA==}
     dependencies:
       '@codesandbox/sandpack-react': 1.20.8_biqbaboplfbrettd7655fr4n2y
+      '@codesandbox/sandpack-themes': 1.19.0
     transitivePeerDependencies:
       - react
       - react-dom

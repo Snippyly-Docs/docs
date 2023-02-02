@@ -1,7 +1,8 @@
 {
+  "freestyle": "Freestyle mode",
   "popover": "Popover mode",
+  "streaming": "Streaming mode",
   "text": "Text based comments",
   "comment_sidebar": "Comment sidebar",
-  "comment_bubble": "Comment bubble",
   "advanced": "Advanced usage"
 }

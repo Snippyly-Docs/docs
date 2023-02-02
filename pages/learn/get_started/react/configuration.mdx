@@ -6,7 +6,7 @@ _Learn how to unlock the most out of the SDK._
 
 ---
 
-## 1: Authentication
+## 1. Authentication
 
 <Callout type="warning" emoji="⚠️">Don't have an API key? Get one here!</Callout>
 
@@ -34,7 +34,7 @@ The **SnippylyProvider** acts as a [React context provider](https://reactjs.org/
 
 The **SnippylyProvider** also takes a `config` property to restrict certain features. Here's how to restrict **Snippyly** features to a certain URL:
 
-```jsx copy showLineNumbers {3-5}
+```jsx copy {3-5}
 <SnippylyProvider
   apiKey="..."
   config={{
@@ -45,7 +45,7 @@ The **SnippylyProvider** also takes a `config` property to restrict certain feat
 
 You can view the reference [here]() to check out all the different configuration options available.
 
-## 2: Using the Snippyly Client
+## 2. Using the Snippyly Client
 
 The `@snippyly/react` package provides a convenient hook `useSnippylyClient` to provision the SDK client.
 
@@ -92,7 +92,7 @@ function SomeComponent() {
 
 When your component is rendered, you should verify for yourself that the **Snippyly** SDK is _loaded, working, and on the intended version_. Note that when using the **Snippyly** client in a React effect, it is a general best practice to check if the client is `undefined`.
 
-## 3: Identifying your Users
+## 3. Identifying your Users
 
 **Snippyly** needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
 
@@ -237,7 +237,7 @@ client.signOutUser();
 
 The `signOutUser` function returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), so you can use it with `async/await`.
 
-## 4: Tracking the User
+## 4. Tracking the User
 
 Lastly, Snippyly needs to know what part of your app the user is currently on! **Documents** and **Locations** are how you can provide that information.
 
@@ -352,7 +352,7 @@ If you don't want to use JS to set the client location, you can alternatively us
   **Note:** Make sure that you are converting object to string before setting it to location attribute.
 </Callout>
 
-## 5: Extra User Configurations
+## 5. Extra User Configurations
 
 {/* <Callout type="info">Don't want to read about more configuration? Move on to some of our basic concepts [here]()!</Callout> */}
 

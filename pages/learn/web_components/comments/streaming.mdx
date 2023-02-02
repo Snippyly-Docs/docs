@@ -3,21 +3,69 @@ import { documentID } from '../../../../components/documentID'
 import { Callout } from 'nextra-theme-docs'
 export const commentDocumentId = documentID("comment");
 
-# Text-based comments
+# Streaming mode
 
-_Show Google Docs type text comments._
+_Show all comment dialogs in a stream format, similar to Google Docs._
 
 ---
 
-<Comment style="margin-top: 2.5rem" mode="text" user={"Rachel"} documentId={commentDocumentId} height={500}/>
+<Comment style="margin-top: 2.5rem" mode="stream" user={"Rachel"} documentId={commentDocumentId} height={500}/>
 
 ## When to use
 
-If you want to display Google Docs style text comments, you can use our client APIs to enable that feature easily.
+Streaming mode will show all the comment dialogs in order of submission on the right hand side of the page. It works well with text-based comments, but you can also use it with freestyle mode.
 
 ## How to use
 
-### 1. Enable text based comments
+### 1. Add the comments component
+
+Import the component:
+
+```ts copy
+import { SnippylyComments } from '@snippyly/react';
+```
+
+Then add it to the root of your React application:
+
+**Example**
+
+```tsx copy {6}
+import { SnippylyProvider, SnippylyComments } from "@snippyly/react";
+
+function App() {
+  return (
+    <SnippylyProvider apiKey='...'>
+        <SnippylyComments />
+    </SnippylyProvider>
+  )
+}
+```
+
+<Callout type="warning">
+  The `SnippylyComments` component _**must**_ be in the root App component of your React app
+</Callout>
+
+### 2a. Add the comment tool component
+
+This will create a button which allows your end-users to add comments. You can add this tag anywhere into your code. You can customize this button or pass your own button as described later on this page.
+
+When your users click on this button, their mouse cursor will change to a comment pin and it will start detecting & highlighting the borders of the underlying elements. Then, clicking on the highlighted element will attach a comment to it.
+
+**Example**
+
+```ts copy
+import { SnippylyCommentTool } from '@snippyly/react';
+```
+
+Then insert it somewhere in your application:
+
+```tsx copy
+<SnippylyCommentTool></SnippylyCommentTool>
+```
+
+### 2b. Enable text based comments
+
+If you would rather use text based comments instead of freestyle comments, here's how to enable that:
 
 ```js copy
 const commentElement = client.getCommentElement();
@@ -105,27 +153,4 @@ const SomeComponent = () => {
 }
 
 export default SomeComponent;
-```
-
-
-## Customization
-
-### Style the text-based highlighter
-
-When a text is selected and a comment is added, the background of the selected text is set to yellow and the text color is set to black.
-
-You can style the highlighter by passing your own CSS class name to the `text-highlighter-class` attribute of the `<SnippylyComments>` element.
-
-**Example**
-
-```html copy
-<SnippylyComments text-highlighter-class="custom-text-highlighter-class">
-</SnippylyComments>
-```
-
-```css copy
-.custom-text-highlighter-class {
-  background-color: lightgreen !important;
-  color: black !important;
-}
 ```
