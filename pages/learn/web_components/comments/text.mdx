@@ -61,18 +61,18 @@ const SomeComponent = () => {
 }
 ```
 
-We are gonna define a function `enableStreamMode` that fetches the [`CommentElement`](), and enables streaming mode:
+We are gonna define a function `enableTextComments` that fetches the [`CommentElement`](), and enables streaming mode:
 
 ```tsx copy
-const enableStreamMode = () => {
+const enableTextComments = () => {
   if (client) {
     const commentElement = client.getCommentElement();
-    commentElement.enableStreamMode(true);
+    commentElement.enableTextComments(true);
   }
 }
 ```
 
-Finally, inside the `useEffect` we created we can add the function call to `enableStreamMode`. Here is the full example in context:
+Finally, inside the `useEffect` we created we can add the function call to `enableTextComments`. Here is the full example in context:
 
 **Example**
 
@@ -85,16 +85,16 @@ const SomeComponent = () => {
   const { client } = useSnippylyClient();
 
 
-  const enableStreamMode = () => {
+  const enableTextComments = () => {
     if (client) {
       const commentElement = client.getCommentElement();
-      commentElement.enableStreamMode(true);
+      commentElement.enableTextComments(true);
     }
   }
 
   useEffect(() => {
     if (client) {
-      enableStreamMode();
+      enableTextComments();
     }
   }, [client]);
 
