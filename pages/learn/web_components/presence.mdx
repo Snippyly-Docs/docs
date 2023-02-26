@@ -27,33 +27,35 @@ _Display which users are currently in the same Location._
 
 ### Style the component
 
-Simply add a CSS class to the component to give it a style.
+Simply target the component to give it a style.
 
 **Example**
 
 ```html copy
-<snippyly-presence class="my-custom-css"></snippyly-presence>
+<snippyly-presence></snippyly-presence>
 ```
 
 ```css copy
-snippyly-presence.my-custom-css .s-presence-avatar {
+snippyly-presence {
   /* Custom CSS */
 }
 ```
 
-You can also pass your own CSS class to the inner DOM elements of the presence component using the property **`container-class`**.
+We've provided CSS parts for you to target each individual part at a more granular level.
 
 **Example**
 
-```html copy
-<snippyly-presence container-class="my-custom-container-class"></snippyly-presence>
-```
-
 ```css copy
-snippyly-presence .my-custom-container-class {
+snippyly-presence::part(container) {
+  /* Custom CSS */
+}
+
+snippyly-presence::part(user-avatar) {
   /* Custom CSS */
 }
 ```
+
+<Callout type="info">Get a full list of CSS parts [here]()!</Callout>
 
 ### Set max avatars
 
@@ -67,9 +69,9 @@ You can configure this by setting `max-users="count"` attribute in `<snippyly-pr
 <snippyly-presence max-users="2"></snippyly-presence>
 ```
 
-### Add presence for child documents
+### Add presence for locations
 
-There are some apps where there are child documents within the main document eg: Google Slides.
+There are some apps where there are locations within the main document eg: Google Slides, where each slide represents a different location on the document.
 
 By default, `<snippyly-presence>` will show all online users in the given document.  
 However, if you also want to show who is online at a child document level, then you can add another `<snippyly-presence>` in your child document and pass a `location` object in the `location` attribute of `<snippyly-presence>` tag.
@@ -91,4 +93,18 @@ By default if the user is inactive for `>5 minutes`, we mark them offline. By in
 ```js
 const presenceElement = client.getPresenceElement();
 presenceElement.setInactivityTime(60000); // Pass time in milliseconds
+```
+
+You can also set the inactivity time easily by passing it as a property:
+
+```html
+<snippyly-presence inactivity-time="60000"></snippyly-presence>
+```
+
+### Dark mode
+
+To set dark mode on only the Presence component, just add the `dark` attribute.
+
+```html
+<snippyly-presence dark></snippyly-presence>
 ```
