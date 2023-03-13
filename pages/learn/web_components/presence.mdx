@@ -59,7 +59,7 @@ snippyly-presence::part(user-avatar) {
 
 ### Set max avatars
 
-**Default:** Maximum 5 user avatars will be visible in `<snippyly-presence>`. If there are > 5 online users, it will show `+ remaining_number` at the end.
+**Default:** Maximum 5 user avatars will be visible in `<snippyly-presence>`. If there are more than 5 online users, it will show `+ remaining_number` at the end.
 
 You can configure this by setting `max-users="count"` attribute in `<snippyly-presence>` component.
 
@@ -99,6 +99,17 @@ You can also set the inactivity time easily by passing it as a property:
 
 ```html
 <snippyly-presence inactivity-time="60000"></snippyly-presence>
+```
+
+### Enable follow-along mode
+
+We provide a convenient "follow-along" mode that allows you to follow along with other users by clicking on their user avatar in the presence container. You can enable this feature by:
+
+**Example**
+
+```js
+const presenceElement = client.getPresenceElement();
+presenceElement.enableFollowAlongMode();
 ```
 
 ### Dark mode
