@@ -1,6 +1,8 @@
 const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
+  theme: './components/Layout/Layout.tsx',
   themeConfig: './theme.config.tsx',
 })
 
-module.exports = withNextra()
+module.exports = withNextra({
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+})

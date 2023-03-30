@@ -1,0 +1,30 @@
+.bodyContainer {
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .navBar {}
+  .mainWindow {
+
+    display: flex;
+
+    .sidebarContainer {
+      width: 280px;
+      height: 100%;
+    }
+
+    .pageContainer {
+
+      flex: 1;
+      padding: 3rem 2rem;
+
+      h1 {
+        font-weight: 600;
+        font-size: 3rem;
+      }
+
+    }
+
+  }
+}

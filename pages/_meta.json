@@ -1,14 +1,8 @@
 {
   "index": {
-    "title": "Introduction",
-    "display": "hidden"
+    "hidden": true
   },
-  "learn": {
-    "title": "Learn",
-    "type": "page"
-  },
-  "reference": {  
-    "title": "Reference",
-    "type": "page"
+  "realtime": {
+    "title": "Realtime Collaboration"
   }
 }

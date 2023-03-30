@@ -1,8 +1,0 @@
-.splitPane {
-  display: flex;
-  gap: 12px;
-}
-
-.splitPane > div {
-  flex: 1;
-}
