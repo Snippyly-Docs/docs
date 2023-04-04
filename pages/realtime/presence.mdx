@@ -1,9 +1,98 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
+import PresenceDemo from '../../components/PresenceDemo/PresenceDemo.tsx';
+import SplitPane from '../../components/SplitPane/SplitPane.tsx';
+import Step from '../../components/Step/Step.tsx';
+import CodeSampleWrapper from '../../components/CodeSampleWrapper/CodeSampleWrapper.tsx';
+import { useState } from 'react';
 
 # Presence [#presence]
 
 <Subheading>Your users can see who is online on this page.</Subheading>
+<PresenceDemo />
 
 # Steps [#steps]
+
+export function PresenceSample() {
+
+  const [step, setStep] = useState(1);
+  const [scrollLine, setScrollLine] = useState(undefined);
+
+  const scrollLineMap = {
+    1: 2,
+    2: 7,
+    3: 7
+  };
+
+  const handleStepChanged = (step) => {
+    setScrollLine(scrollLineMap[step]);
+    setStep(step);
+  }
+
+  return (
+    <SplitPane
+      left={
+        <>
+          <Step 
+            step={1}
+            handleClick={() => handleStepChanged(1)}
+            title="Import Presence Component"
+            active={step === 1}
+            description={
+              <>
+                <strong>Import the component from our React library.</strong>
+                <p>We offer a specific component for our users that use React.</p>
+              </>
+            }
+          />
+          <Step 
+            step={2}
+            handleClick={() => handleStepChanged(2)}
+            title="Add Presence Component"
+            active={step === 2}
+            description={
+              <>
+                <strong>Add it anywhere you want to see the user avatars.</strong>
+                <p>This component renders the avatars of users on the same page in your web app.</p>
+              </>
+            }
+          />
+          <Step 
+            step={3}
+            handleClick={() => handleStepChanged(3)}
+            title="Test Integration"
+            active={step === 3}
+            description={
+              <>
+                <strong>Test it out by opening the same page in another browser.</strong>
+                <p>When you open the same page in another browser, you should see the avatars of both users.</p>
+              </>
+            }
+          />
+        </>
+      }
+      right={
+        <CodeSampleWrapper
+          scrollToLine={scrollLine}
+          code={
+`
+
+import { SnippylyPresence } from '@snippyly/react';
+
+export default function App() {
+  return (
+    <>
+      <SnippylyPresence />
+    </>
+  );
+}
+    `}
+        />
+      }
+    />
+  );
+}
+
+<PresenceSample />
+
 # Customize Behavior [#customize-behavior]
 # Customize UI [#customize-ui]

@@ -1,0 +1,45 @@
+.stepContainer {
+
+  .title {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #D5DBE1;
+
+    .stepNumber {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background-color: #000;
+      background: #A3ACB9;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    h1.titleText {
+      font-size: 1.2rem !important;
+      font-weight: 600 !important;
+    }
+  }
+
+  .description {
+
+    font-weight: 300;
+    padding: 1.2rem;
+    cursor: pointer;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  .active {
+    background-color: rgb( 247,250,252) !important;
+    box-shadow: inset 0 1px #e3e8ee !important;
+  }
+  
+
+}

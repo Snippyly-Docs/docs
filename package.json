@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
+    "@snippyly/react": "^1.0.27",
     "@snippyly/snippyly-demo-component": "^1.0.97",
+    "brace": "^0.11.1",
     "next": "^13.1.6",
     "nextra": "2.3.0",
     "nextra-theme-docs": "2.0.1",
     "react": "^18.2.0",
+    "react-ace": "^10.1.0",
     "react-dom": "^18.2.0",
     "sass": "^1.60.0",
     "uuid": "^9.0.0"
