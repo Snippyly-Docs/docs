@@ -1,7 +1,7 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import PresenceDemo from '../../components/PresenceDemo/PresenceDemo.tsx';
 import SplitPane from '../../components/SplitPane/SplitPane.tsx';
-import Step from '../../components/Step/Step.tsx';
+import StepList from '../../components/StepList/StepList.tsx';
 import CodeSampleWrapper from '../../components/CodeSampleWrapper/CodeSampleWrapper.tsx';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 # Steps [#steps]
 
-export function PresenceSample() {
+export function ReactPresenceOverview() {
 
   const highlightRangeMap = {
     1: [2, 2],
@@ -30,59 +30,57 @@ export function PresenceSample() {
     setStep(step);
   }
 
+  const steps = [
+    {
+      step: 1,
+      title: 'Import Presence Component',
+      active: step === 1,
+      description: (
+        <>
+          <strong>Import the component from our React library.</strong>
+          <p>We offer a specific component for our users that use React.</p>
+        </>
+      )
+    },
+    {
+      step: 2,
+      title: 'Identify the user',
+      active: step === 2,
+      description: (
+        <>
+          <strong>If you haven't already done so:</strong>
+          <p>The user must be identified atleast once prior to using the Presence component. Here is an example of generating fake user data for testing purposes.</p>
+        </>
+      )
+    },
+    {
+      step: 3,
+      title: 'Add Presence Component',
+      active: step === 3,
+      description: (
+        <>
+          <strong>Add it anywhere you want to see the user avatars.</strong>
+          <p>This component renders the avatars of users on the same page in your web app.</p>
+        </>
+      )
+    },
+    {
+      step: 4,
+      title: 'Test Integration',
+      active: step === 4,
+      description: (
+        <>
+          <strong>Test it out by opening the same page in another browser.</strong>
+          <p>When you open the same page in another incognito window or browser, you should see the avatars of both users.</p>
+        </>
+      )
+    }
+  ];
+
   return (
     <SplitPane
       left={
-        <>
-          <Step 
-            step={1}
-            handleClick={() => handleStepChanged(1)}
-            title="Import Presence Component"
-            active={step === 1}
-            description={
-              <>
-                <strong>Import the component from our React library.</strong>
-                <p>We offer a specific component for our users that use React.</p>
-              </>
-            }
-          />
-          <Step
-            step={2}
-            handleClick={() => handleStepChanged(2)}
-            title="Identify the user"
-            active={step === 2}
-            description={
-              <>
-                <strong>If you haven't already done so:</strong>
-                <p>The user must be identified atleast once prior to using the Presence component. Here is an example of generating fake user data for testing purposes.</p>
-              </>
-            }
-          />
-          <Step 
-            step={3}
-            handleClick={() => handleStepChanged(3)}
-            title="Add Presence Component"
-            active={step === 3}
-            description={
-              <>
-                <strong>Add it anywhere you want to see the user avatars.</strong>
-                <p>This component renders the avatars of users on the same page in your web app.</p>
-              </>
-            }
-          />
-          <Step 
-            step={4}
-            handleClick={() => handleStepChanged(4)}
-            title="Test Integration"
-            active={step === 4}
-            description={
-              <>
-                <strong>Test it out by opening the same page in another browser.</strong>
-                <p>When you open the same page in another incognito window or browser, you should see the avatars of both users.</p>
-              </>
-            }
-          />
-        </>
+        <StepList steps={steps} handleStepChanged={handleStepChanged} />
       }
       right={
         <CodeSampleWrapper
@@ -117,7 +115,7 @@ export default function App() {
   );
 }
 
-<PresenceSample />
+<ReactPresenceOverview />
 
 # Customize Behavior [#customize-behavior]
 # Customize UI [#customize-ui]

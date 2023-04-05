@@ -1,4 +1,5 @@
 import styles from './Step.module.scss';
+import React from 'react';
 
 interface StepProps {
   title: string;
@@ -6,13 +7,12 @@ interface StepProps {
   description: React.ReactNode | string;
   handleClick: (step: number) => void;
   active: boolean;
+  ref?: any;
 }
 
-
-export default function Step({title, description, step, handleClick, active}: StepProps) {
-
+export const Step = React.forwardRef(({title, description, step, handleClick, active}, ref) => {
   return (
-    <div className={styles.stepContainer}>
+    <div ref={ref} data-step={step} className={styles.stepContainer}>
       <div className={styles.title}>
         <div className={styles.stepNumber}>{ step.toString() }</div>
         <h1 className={styles.titleText}>{ title }</h1>
@@ -23,4 +23,4 @@ export default function Step({title, description, step, handleClick, active}: St
     </div>
   );
 
-}
+});

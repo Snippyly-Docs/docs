@@ -12,6 +12,8 @@
     .sidebarContainer {
       width: 280px;
       height: 100%;
+      position: sticky;
+      top: 0;
     }
 
     .pageContainer {
