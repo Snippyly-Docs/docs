@@ -14,17 +14,18 @@ import { useState } from 'react';
 
 export function PresenceSample() {
 
+  const highlightRangeMap = {
+    1: [1, 3],
+    2: [6, 8],
+    3: [6, 8]
+  };
+  
   const [step, setStep] = useState(1);
   const [scrollLine, setScrollLine] = useState(undefined);
-
-  const scrollLineMap = {
-    1: 2,
-    2: 7,
-    3: 7
-  };
+  const [highlightRange, setHighlightRange] = useState(highlightRangeMap[1]);
 
   const handleStepChanged = (step) => {
-    setScrollLine(scrollLineMap[step]);
+    setHighlightRange(highlightRangeMap[step]);
     setStep(step);
   }
 
@@ -73,6 +74,7 @@ export function PresenceSample() {
       right={
         <CodeSampleWrapper
           scrollToLine={scrollLine}
+          highlightRange={highlightRange}
           code={
 `
 

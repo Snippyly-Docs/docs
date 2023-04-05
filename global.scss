@@ -10,3 +10,26 @@ body {
   // padding: 0;
   line-height: 1.5;
 }
+
+.aceSelectedWord {
+  background-color: #013e89;
+  position: absolute;
+}
+
+.ace_cursor {
+  opacity: 0 !important;
+}
+
+.ace_gutter-active-line {
+  background-color: transparent !important;
+}
+
+.ace_editor {
+  // background-color: #212D63 !important;
+  // padding: 1rem !important;
+  border-radius: 1rem;
+}
+
+.ace_text-layer {
+  margin: 0 2rem !important;
+}

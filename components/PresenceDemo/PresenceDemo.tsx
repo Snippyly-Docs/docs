@@ -11,24 +11,19 @@ export default function PresenceDemo(props: any) {
 
   useEffect(() => {
 
-    console.log(client)
-
     if (client) {
-
-      const documentId = documentID('documentation');
-      client.setDocumentId(documentId);
+      client.setDocumentId('presence-docs');
 
       const yourLoggedInUser = generateUserData();
       client
         .identify(yourLoggedInUser)
         .then((res) => {
           // User auth successful with Snippyly
-          console.log(yourLoggedInUser);
-        })
+          // console.log(client.getPresenceElement().presenceService.presenceUsers$.value);
+        }) 
         .catch((err) => {
-          console.log(err);
+          console.log(err); 
         });
-
     }
 
   }, [client]);

@@ -41,8 +41,7 @@
     });
 
     const handleToggleFolder = (name: string, evt: any) => {
-      evt.stopPropagation();
-      console.log('stopPropagation' in evt);
+      evt.preventDefault();
       setFolderOpenStates((prevState) => {
         return {
           ...prevState,
@@ -95,7 +94,8 @@
                   </summary>
                   <ul className={`${styles.list} ${styles.headingList}`}>{ renderHeadings() }</ul>
                 </details> :
-                <a className={styles.pageLink} href={child.route}>{ customMeta && customMeta.title ? customMeta.title : child.name}</a>
+                <a className={styles.pageLink} href={child.route}>
+                  <CaretIcon open={false} />{ customMeta && customMeta.title ? customMeta.title : child.name}</a>
               }
             </li>
           );
