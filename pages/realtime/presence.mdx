@@ -15,9 +15,10 @@ import { useState } from 'react';
 export function PresenceSample() {
 
   const highlightRangeMap = {
-    1: [1, 3],
-    2: [6, 8],
-    3: [6, 8]
+    1: [2, 2],
+    2: [7, 13],
+    3: [16, 18],
+    4: [16, 18]
   };
   
   const [step, setStep] = useState(1);
@@ -45,11 +46,23 @@ export function PresenceSample() {
               </>
             }
           />
-          <Step 
+          <Step
             step={2}
             handleClick={() => handleStepChanged(2)}
-            title="Add Presence Component"
+            title="Identify the user"
             active={step === 2}
+            description={
+              <>
+                <strong>If you haven't already done so:</strong>
+                <p>The user must be identified atleast once prior to using the Presence component. Here is an example of generating fake user data for testing purposes.</p>
+              </>
+            }
+          />
+          <Step 
+            step={3}
+            handleClick={() => handleStepChanged(3)}
+            title="Add Presence Component"
+            active={step === 3}
             description={
               <>
                 <strong>Add it anywhere you want to see the user avatars.</strong>
@@ -58,14 +71,14 @@ export function PresenceSample() {
             }
           />
           <Step 
-            step={3}
-            handleClick={() => handleStepChanged(3)}
+            step={4}
+            handleClick={() => handleStepChanged(4)}
             title="Test Integration"
-            active={step === 3}
+            active={step === 4}
             description={
               <>
                 <strong>Test it out by opening the same page in another browser.</strong>
-                <p>When you open the same page in another browser, you should see the avatars of both users.</p>
+                <p>When you open the same page in another incognito window or browser, you should see the avatars of both users.</p>
               </>
             }
           />
@@ -79,8 +92,18 @@ export function PresenceSample() {
 `
 
 import { SnippylyPresence } from '@snippyly/react';
+import { useEffect } from 'react';
 
 export default function App() {
+
+  useEffect(() => {
+    if (client) {
+      client.setDocumentId('presence-docs');
+      const yourLoggedInUser = generateUserData();
+      client.identify(yourLoggedInUser)
+    }
+  }, [client]);
+
   return (
     <>
       <SnippylyPresence />

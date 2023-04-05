@@ -65,7 +65,6 @@ export default function CodeSample(props: CodeSampleProps) {
         minLines: 12
       }}
       width="100%"
-      height="100%"
     />
   );
 }
