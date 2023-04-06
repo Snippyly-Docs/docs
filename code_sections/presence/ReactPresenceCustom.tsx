@@ -4,9 +4,10 @@ import CodeSection from '../CodeSection';
 export default function HTMLPresenceOverview() {
   const highlightRangeMap = {
     1: [2, 2],
-    2: [8, 21],
-    3: [12, 13],
-    4: [15, 17]
+    2: [8, 18],
+    3: [12, 14],
+    4: [23, 23],
+    5: [24, 24]
   };
   
   const [step, setStep] = useState(1);
@@ -36,23 +37,34 @@ export default function HTMLPresenceOverview() {
     },
     {
       step: 3,
-      title: 'Add Presence to child documents',
+      title: 'Set inactivity time',
       active: step === 3,
       description: (
         <>
-          <strong>Show users' presence on child documents.</strong>
-          <p>For example: specific tabs on a page, or which slide the user is currently working on.</p>
+          <strong>Set the time it takes for a user to go inactive.</strong>
+          <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
         </>
       )
     },
     {
       step: 4,
-      title: 'Set inactivity time',
+      title: 'Add Presence to child documents',
       active: step === 4,
       description: (
         <>
-          <strong>Set the time it takes for a user to go inactive.</strong>
-          <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
+          <strong>Show users' presence on child documents.</strong>
+          <p>Set the location attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.</p>
+        </>
+      )
+    },
+    {
+      step: 5,
+      title: 'Set max users',
+      active: step === 5,
+      description: (
+        <>
+          <strong>Max users determines how many Presence avatars to display at a time.</strong>
+          <p>You can set this via the maxUsers attribute. Any avatars will be hidden and shown in an avatar which indicates the number of extra users.</p>
         </>
       )
     }
@@ -69,9 +81,6 @@ export default function App() {
   useEffect(() => {
 
     if (client) {
-      
-      // Set the current user's location to page 1
-      client.setLocation({page: 1});
 
       // Set the inactivity time in milliseconds
       const presenceElement = client.getPresenceElement();
@@ -83,7 +92,10 @@ export default function App() {
 
   return (
     <div className="toolbar">
-      <SnippylyPresence />
+      <SnippylyPresence
+        location={{page: 1}}
+        maxUsers={3}
+      />
     </div>
   );
 }
