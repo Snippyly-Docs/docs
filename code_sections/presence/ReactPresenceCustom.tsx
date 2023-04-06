@@ -64,7 +64,7 @@ export default function HTMLPresenceOverview() {
       description: (
         <>
           <strong>Max users determines how many Presence avatars to display at a time.</strong>
-          <p>You can set this via the maxUsers attribute. Any avatars will be hidden and shown in an avatar which indicates the number of extra users.</p>
+          <p>You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.</p>
         </>
       )
     }

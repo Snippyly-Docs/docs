@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@snippyly/react': ^1.0.27
+  '@snippyly/react': ^1.0.30
   '@snippyly/snippyly-demo-component': ^1.0.97
   '@types/node': 18.11.10
   brace: ^0.11.1
@@ -16,7 +16,7 @@ specifiers:
   uuid: ^9.0.0
 
 dependencies:
-  '@snippyly/react': 1.0.27_biqbaboplfbrettd7655fr4n2y
+  '@snippyly/react': 1.0.30_biqbaboplfbrettd7655fr4n2y
   '@snippyly/snippyly-demo-component': 1.0.97_biqbaboplfbrettd7655fr4n2y
   brace: 0.11.1
   next: 13.1.6_5y7qh6ykubtj2qr2evk3di7hpa
@@ -550,8 +550,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@snippyly/react/1.0.27_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-tqAS7pSkEq1MaQlvHRZUXWithdMJ2p2pwNkU49b+tQWnD4edkpTpVezgHf8AB7uDFrkCnni9km/5lEQ5AopeGw==}
+  /@snippyly/react/1.0.30_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-akbOBjZlTGUna5LDsziruI4nE4+bbJUSn8thGChr69AK0xxK6/MzrRUHpA9v1wPOjUwJEGNXcdr51U7PGWEvWQ==}
     peerDependencies:
       react: ^18.0.0 || ^17.0.0 || ^16.0.0
       react-dom: ^18.0.0 || ^17.0.0 || ^16.0.0
