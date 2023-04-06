@@ -1,14 +1,20 @@
 import '../global.scss';
 import '../public/fonts/poppins.scss';
 import { AppProps } from 'next/app';
-import { SnippylyProvider, useSnippylyClient } from '@snippyly/react';
-import { useEffect } from 'react';
+import { SnippylyProvider } from '@snippyly/react';
+import GlobalContext from '../components/globalContext';
+import { useState } from 'react';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
 
+  const [frontendOption, setFrontendOption] = useState('React');
+
   return (
     <SnippylyProvider apiKey="WDMgKshFEsPTqvBjUcH3">
-      <Component {...pageProps} />
+      <GlobalContext.Provider value={{ frontendOption, setFrontendOption }}>
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
     </SnippylyProvider>
   );
 }

@@ -3,12 +3,12 @@ import { Step } from '../Step/Step';
 import React, { useRef, useEffect } from 'react';
 
 export interface StepListProps {
-  steps: [{
+  steps: {
     step: number;
     title: string;
     active: boolean;
     description: React.ReactNode;
-  }],
+  }[],
   handleStepChanged: (step: number) => void;
 }
 
@@ -18,10 +18,15 @@ export default function StepList(props: StepListProps) {
 
   const handleScroll = () => {
     let closestStep = null;
+    let glitch = false;
     let minDistance = Number.MAX_VALUE;
 
     stepRefs.current.forEach((step) => {
       const viewportHeight = window.innerHeight;
+      if (!step.current) {
+        glitch = true;
+        return;
+      }
       const rect = step.current.getBoundingClientRect();
       const stepCenter = rect.top + rect.height / 2;
       const viewportCenter = viewportHeight / 2;
@@ -35,7 +40,7 @@ export default function StepList(props: StepListProps) {
       }
     });
 
-    if (closestStep) {
+    if (closestStep && !glitch) {
       props.handleStepChanged(parseInt(closestStep.current.dataset.step));
     }
   };
@@ -46,12 +51,13 @@ export default function StepList(props: StepListProps) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [stepRefs]);
 
   return (
     <>
       {props.steps.map((step, index) => {
         return <Step
+          key={index}
           step={step.step}
           ref={stepRefs.current[index]}
           handleClick={() => props.handleStepChanged(step.step)}
