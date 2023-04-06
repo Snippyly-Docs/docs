@@ -1,15 +1,15 @@
 .flexContainer {
   display: flex;
-  position: sticky;
-  top: 1.5rem;
+  // position: sticky;
+  // top: 1.5rem;
 
-  .spacer {
-    width: 47%;
-  }
+  // .spacer {
+  //   width: 47%;
+  // }
 }
 
 .flexContainer.hidden {
-  opacity: 0;
+  visibility: hidden;
   user-select: none;
   pointer-events: none;
 }
@@ -21,7 +21,7 @@
   // padding: 1rem 0;
 
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   // background-color: white;
 
   h3 {

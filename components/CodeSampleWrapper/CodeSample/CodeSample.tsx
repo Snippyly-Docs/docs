@@ -2,12 +2,15 @@ import React, { useRef, useEffect } from 'react';
 import AceEditor from 'react-ace';
 
 import 'brace/mode/javascript';
+import 'brace/mode/html';
+import 'brace/mode/jsx';
 import 'brace/theme/tomorrow_night_blue';
 
 export interface CodeSampleProps {
   code: string;
   scrollToLine?: number;
   highlightRange?: [number, number];
+  mode: string;
 }
 
 export default function CodeSample(props: CodeSampleProps) {
@@ -51,7 +54,7 @@ export default function CodeSample(props: CodeSampleProps) {
   return (
     <AceEditor
       ref={editorRef}
-      mode="javascript"
+      mode={props.mode}
       theme="tomorrow_night_blue"
       highlightActiveLine={false}
       value={props.code}

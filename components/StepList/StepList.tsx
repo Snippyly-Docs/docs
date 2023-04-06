@@ -18,15 +18,11 @@ export default function StepList(props: StepListProps) {
 
   const handleScroll = () => {
     let closestStep = null;
-    let glitch = false;
     let minDistance = Number.MAX_VALUE;
 
     stepRefs.current.forEach((step) => {
       const viewportHeight = window.innerHeight;
-      if (!step.current) {
-        glitch = true;
-        return;
-      }
+      if (!step.current) return;
       const rect = step.current.getBoundingClientRect();
       const stepCenter = rect.top + rect.height / 2;
       const viewportCenter = viewportHeight / 2;
@@ -40,8 +36,9 @@ export default function StepList(props: StepListProps) {
       }
     });
 
-    if (closestStep && !glitch) {
-      props.handleStepChanged(parseInt(closestStep.current.dataset.step));
+    if (closestStep) {
+      const closestStepValue = parseInt(closestStep.current.dataset.step);
+      props.handleStepChanged(closestStepValue);
     }
   };
 

@@ -9,58 +9,58 @@ interface StepTabsProps {
 export default function StepTabs(props: StepTabsProps) {
 
   const {frontendOption, setFrontendOption} = useContext(GlobalContext);
-  const [hide, setHide] = useState(false);
+  // const [hide, setHide] = useState(false);
 
-  const optionRefs = useRef(
-    Object.keys(props.optionsMap).reduce((acc, key) => {
-      acc[key] = createRef();
-      return acc;
-    }, {})
-  );
+  // const optionRefs = useRef(
+  //   Object.keys(props.optionsMap).reduce((acc, key) => {
+  //     acc[key] = createRef();
+  //     return acc;
+  //   }, {})
+  // );
 
   const hostRef = useRef(null);
 
-  const handleScroll = () => {
+  // const handleScroll = () => {
+  //   const currentNode = optionRefs.current[frontendOption].current;
 
-    console.log(frontendOption);
-    const currentNode = optionRefs.current[frontendOption].current;
+  //   if (!currentNode) return;
+  //   if (currentNode.children.length === 0) return;
+  //   if (currentNode.children[0].length < 2) return;
+  //   if (currentNode.children[0].children[1].length < 1) return;
 
-    if (!currentNode) return;
-    if (currentNode.children.length === 0) return;
-    if (currentNode.children[0].length < 2) return;
-    if (currentNode.children[0].children[1].length < 1) return;
+  //   const targetPane = currentNode.children[0].children[1].children[0];
 
-    const targetPane = currentNode.children[0].children[1].children[0];
+  //   if (!hostRef.current || !targetPane) return;
+  //   const hostRect = hostRef.current.getBoundingClientRect();
+  //   const targetRect = targetPane.getBoundingClientRect();
 
-    if (!hostRef.current || !targetPane) return;
-    const hostRect = hostRef.current.getBoundingClientRect();
-    const targetRect = targetPane.getBoundingClientRect();
+  //   const isOccluded = hostRect.top > targetRect.top;
 
-    const isOccluded = hostRect.bottom > targetRect.top;
+  //   requestAnimationFrame(() => {
+  //     if (isOccluded && !hide) {
+  //       setHide(true);
+  //     } else if (!isOccluded && hide) {
+  //       setHide(false);
+  //     }
+  //   });
 
-    if (isOccluded) {
-      setHide(true);
-    } else if (!isOccluded) {
-      setHide(false);
-    }
+  // }
 
-  }
+  // const OptionComponent = forwardRef((_, ref) => (
+  //   <div ref={ref}>{props.optionsMap[frontendOption]}</div>
+  // ));
 
-  const OptionComponent = forwardRef((_, ref) => (
-    <div ref={ref}>{props.optionsMap[frontendOption]}</div>
-  ));
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [frontendOption]);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [frontendOption, hide]);
 
   return (
     <>
-      <div className={`${hide ? styles.hidden : ''} ${styles.flexContainer}`} ref={hostRef}>
+      <div className={`${styles.flexContainer}`} ref={hostRef}>
         <div className={styles.spacer}></div>
         <div className={styles.stepTabs}>
           <h3>Frontend: </h3>
@@ -73,8 +73,8 @@ export default function StepTabs(props: StepTabsProps) {
           }) }
         </div>
       </div>
-      <OptionComponent ref={optionRefs.current[frontendOption]} />
-      {/* { props.optionsMap[activeTab] } */}
+      {/* <OptionComponent ref={optionRefs.current[frontendOption]} /> */}
+      { props.optionsMap[frontendOption] }
     </>
   );
 }

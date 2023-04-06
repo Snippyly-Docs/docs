@@ -2,6 +2,8 @@ import Subheading from '../../components/Subheading/Subheading.tsx';
 import PresenceDemo from '../../components/PresenceDemo/PresenceDemo.tsx';
 import ReactPresenceOverview from '../../code_samples/presence/ReactPresenceOverview.tsx';
 import HTMLPresenceOverview from '../../code_samples/presence/HTMLPresenceOverview.tsx';
+import ReactPresenceCustom from '../../code_samples/presence/ReactPresenceCustom.tsx';
+import HTMLPresenceCustom from '../../code_samples/presence/HTMLPresenceCustom.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Presence [#presence]
@@ -26,6 +28,17 @@ export function PresenceSteps() {
 
 # Customize Behavior [#customize-behavior]
 
-export function PresenceCustomSteps() {}
+export function PresenceCustomSteps() {
+  const optionsMap = {
+    'React': <ReactPresenceCustom />,
+    'HTML': <HTMLPresenceCustom />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<PresenceCustomSteps />
 
 # Customize UI [#customize-ui]
