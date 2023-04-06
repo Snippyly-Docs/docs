@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import SplitPane from '../../components/SplitPane/SplitPane';
-import StepList from '../../components/StepList/StepList';
-import CodeSampleWrapper from '../../components/CodeSampleWrapper/CodeSampleWrapper';
+import CodeSection from '../CodeSection';
 
 export default function HTMLPresenceOverview() {
   const highlightRangeMap = {
@@ -12,14 +10,6 @@ export default function HTMLPresenceOverview() {
   };
   
   const [step, setStep] = useState(1);
-  const [scrollLine, setScrollLine] = useState(undefined);
-  const [highlightRange, setHighlightRange] = useState(highlightRangeMap[1]);
-
-  const handleStepChanged = (step) => {
-    setScrollLine(highlightRangeMap[step][0]);
-    setHighlightRange(highlightRangeMap[step]);
-    setStep(step);
-  }
 
   const steps = [
     {
@@ -62,24 +52,13 @@ export default function HTMLPresenceOverview() {
       description: (
         <>
           <strong>Set the time it takes for a user to go inactive.</strong>
-          <p>By default this value is 5 minutes.</p>
+          <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
         </>
       )
     }
   ];
 
-  return (
-    <SplitPane
-      left={
-        <StepList steps={steps} handleStepChanged={handleStepChanged} />
-      }
-      right={
-        <CodeSampleWrapper
-          mode="jsx"
-          scrollToLine={scrollLine}
-          highlightRange={highlightRange}
-          code={
-`
+  const code = `
 
 import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
 
@@ -108,9 +87,7 @@ export default function App() {
     </div>
   );
 }
-    `}
-        />
-      }
-    />
-  );
+    `;
+
+  return <CodeSection mode="jsx" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
 }

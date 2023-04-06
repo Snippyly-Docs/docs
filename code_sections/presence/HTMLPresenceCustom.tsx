@@ -1,23 +1,13 @@
 import { useState } from 'react';
-import SplitPane from '../../components/SplitPane/SplitPane';
-import StepList from '../../components/StepList/StepList';
-import CodeSampleWrapper from '../../components/CodeSampleWrapper/CodeSampleWrapper';
+import CodeSection from '../CodeSection';
 
-export default function HTMLPresenceOverview() {
+export default function HTMLPresenceCustom() {
   const highlightRangeMap = {
     1: [17, 19],
     2: [21, 22]
   };
   
   const [step, setStep] = useState(1);
-  const [scrollLine, setScrollLine] = useState(undefined);
-  const [highlightRange, setHighlightRange] = useState(highlightRangeMap[1]);
-
-  const handleStepChanged = (step) => {
-    setScrollLine(highlightRangeMap[step][0]);
-    setHighlightRange(highlightRangeMap[step]);
-    setStep(step);
-  }
 
   const steps = [
     {
@@ -38,24 +28,13 @@ export default function HTMLPresenceOverview() {
       description: (
         <>
           <strong>Set the time it takes for a user to go inactive.</strong>
-          <p>By default this value is 5 minutes.</p>
+          <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
         </>
       )
     }
   ];
 
-  return (
-    <SplitPane
-      left={
-        <StepList steps={steps} handleStepChanged={handleStepChanged} />
-      }
-      right={
-        <CodeSampleWrapper
-          mode="html"
-          scrollToLine={scrollLine}
-          highlightRange={highlightRange}
-          code={
-`
+  const code = `
 
 <!doctype html>
 <html lang="en">
@@ -83,9 +62,7 @@ export default function HTMLPresenceOverview() {
     
   </body>
 </html>
-    `}
-        />
-      }
-    />
-  );
+    `;
+
+  return <CodeSection mode="html" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
 }
