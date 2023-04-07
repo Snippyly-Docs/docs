@@ -14,7 +14,7 @@
       align-items: center;
       color: #fff;
       background-color: #000;
-      background: #A3ACB9;
+      background: var(--step-circle-color);
       border-radius: 50%;
       margin-right: 0.5rem;
     }
@@ -22,6 +22,7 @@
     h1.titleText {
       font-size: 1.2rem !important;
       font-weight: 600 !important;
+      color: var(--headline-color)
     }
   }
 
@@ -32,6 +33,7 @@
     cursor: pointer;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    color: var(--primary-color);
 
     strong {
       font-weight: 500;
@@ -39,7 +41,7 @@
   }
 
   .active {
-    background-color: rgb( 247,250,252) !important;
+    background-color: var(--step-highlight-color) !important;
     box-shadow: inset 0 1px #e3e8ee !important;
   }
   

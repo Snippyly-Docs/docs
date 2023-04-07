@@ -42,6 +42,12 @@ body {
   padding-left: 2rem !important;
 }
 
+// Markdown styling
+
+h1, h2, h3, h4, h5 {
+  color: var(--headline-color);
+}
+
 // Table styling
 
 table {
@@ -56,11 +62,14 @@ table {
   // box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   thead {
+
+    color: var(--headline-color);
+
     tr {
       // background-color: #009879;
       // color: #ffffff;
       text-align: left;
-      border-bottom: 1px solid #dddddd;
+      border-bottom: 1px solid var(--border-color);
     }
   }
 
@@ -71,8 +80,8 @@ table {
 
   tbody {
     tr {
-      border-bottom: 1px solid #dddddd;
-
+      border-bottom: 1px solid var(--border-color);
+      color: var(--primary-color);
     }
 
     // tr:nth-of-type(even) {
@@ -81,11 +90,6 @@ table {
 
     tr:last-of-type {
       // border-bottom: 2px solid #009879;
-    }
-
-    tr.active-row {
-      font-weight: bold;
-      color: #009879;
     }
   }
 
