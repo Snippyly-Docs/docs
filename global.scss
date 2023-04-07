@@ -3,6 +3,11 @@ body {
   max-height: 100vh;
   max-width: 100vw;
   font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+}
+
+:root {
+  background-color: var(--bg-color);
 }
 
 * {
