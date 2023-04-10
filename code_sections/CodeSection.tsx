@@ -14,6 +14,7 @@ interface CodeSectionProps {
   mode: string;
   code: string;
   setStep: (step: number) => void;
+  preview?: React.ReactNode;
 }
 
 export default function CodeSection(props: CodeSectionProps) {
@@ -37,6 +38,7 @@ export default function CodeSection(props: CodeSectionProps) {
           scrollToLine={scrollLine}
           highlightRange={highlightRange}
           code={props.code}
+          preview={props.preview}
         />
       }
     />

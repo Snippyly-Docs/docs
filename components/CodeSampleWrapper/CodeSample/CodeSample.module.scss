@@ -1,0 +1,28 @@
+.noTopBorder {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+
+.previewContainer {
+  background-color: #002451;
+  padding: 1rem;
+  color: #A4CDFE;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom: 1px solid #63a0eb;
+
+  .previewToggle {
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .previewContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+}

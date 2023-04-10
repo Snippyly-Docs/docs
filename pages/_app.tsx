@@ -25,7 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-
+      const query = window.matchMedia('(prefers-color-scheme: dark)');
+      handleThemeChange(query);
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleThemeChange);
 
     return () => {

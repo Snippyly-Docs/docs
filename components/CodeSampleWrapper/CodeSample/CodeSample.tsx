@@ -1,5 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import AceEditor from 'react-ace';
+import styles from './CodeSample.module.scss';
+import CaretIcon from '../../CaretIcon/CaretIcon';
 
 import 'brace/mode/javascript';
 import 'brace/mode/html';
@@ -11,11 +13,14 @@ export interface CodeSampleProps {
   scrollToLine?: number;
   highlightRange?: [number, number];
   mode: string;
+  preview?: React.ReactNode;
 }
 
 export default function CodeSample(props: CodeSampleProps) {
   const editorRef = useRef(null);
   const markerIdRef = useRef(null);
+
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   useEffect(() => {
     if (editorRef.current && props.scrollToLine >= 0) {
@@ -52,22 +57,39 @@ export default function CodeSample(props: CodeSampleProps) {
   }, [props.highlightRange]);
 
   return (
-    <AceEditor
-      ref={editorRef}
-      mode={props.mode}
-      theme="tomorrow_night_blue"
-      highlightActiveLine={false}
-      value={props.code}
-      fontSize={14}
-      readOnly
-      showPrintMargin={false}
-      showGutter={false}
-      wrapEnabled
-      setOptions={{
-        useWorker: false,
-        minLines: 12
-      }}
-      width="100%"
-    />
+    <>
+      { props.preview ? 
+        <div className={styles.previewContainer}>
+          <div className={styles.previewToggle} onClick={() => setPreviewOpen(!previewOpen)}>
+            <CaretIcon open={previewOpen} />
+            Preview
+          </div>
+          { previewOpen ?
+            <div className={styles.previewContent}>
+              { props.preview }
+            </div>
+          : undefined }
+        </div>
+        : null 
+      }
+      <AceEditor
+        ref={editorRef}
+        mode={props.mode}
+        className={`${props.preview ? styles.noTopBorder : ''}`}
+        theme="tomorrow_night_blue"
+        highlightActiveLine={false}
+        value={props.code}
+        fontSize={14}
+        readOnly
+        showPrintMargin={false}
+        showGutter={false}
+        wrapEnabled
+        setOptions={{
+          useWorker: false,
+          minLines: 12
+        }}
+        width="100%"
+      />
+    </>
   );
 }
