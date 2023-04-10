@@ -11,14 +11,14 @@ import 'brace/theme/tomorrow_night_blue';
 export interface CodeSampleProps {
   code: string;
   scrollToLine?: number;
-  highlightRange?: [number, number];
+  highlightRanges?: Array<[number, number]>;
   mode: string;
   preview?: React.ReactNode;
 }
 
 export default function CodeSample(props: CodeSampleProps) {
   const editorRef = useRef(null);
-  const markerIdRef = useRef(null);
+  const markerIdRefs = useRef([]);
 
   const [previewOpen, setPreviewOpen] = useState(false);
 
@@ -33,28 +33,33 @@ export default function CodeSample(props: CodeSampleProps) {
 
   useEffect(() => {
     if (editorRef.current) {
+
+      if (props.highlightRanges === undefined) return;
+
       const editor = editorRef.current.editor;
       const session = editor.getSession();
-
-      if (props.highlightRange === undefined) return;
       
-      if (markerIdRef.current !== null) {
-        session.removeMarker(markerIdRef.current);
-        markerIdRef.current = null;
+      if (markerIdRefs.current.length > 0) {
+        markerIdRefs.current.forEach(markerIdRef => {
+          session.removeMarker(markerIdRef);
+        });
+        markerIdRefs.current = [];
       }
 
-      const [startRow, endRow] = props.highlightRange;
-      const _markerId = session.addMarker(
-        // @ts-ignore
-        new window.ace.Range(startRow, 0, endRow, Infinity),
-        'aceSelectedWord',
-        'fullLine'
-      );
+      props.highlightRanges.forEach((highlightRange) => {
+        const [startRow, endRow] = highlightRange;
+        const _markerId = session.addMarker(
+          // @ts-ignore
+          new window.ace.Range(startRow, 0, endRow, Infinity),
+          'aceSelectedWord',
+          'fullLine'
+        );
 
-      markerIdRef.current = _markerId;
+        markerIdRefs.current = [...markerIdRefs.current, _markerId];
 
+      });
     }
-  }, [props.highlightRange]);
+  }, [props.highlightRanges]);
 
   return (
     <>

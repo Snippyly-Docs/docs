@@ -4,7 +4,7 @@ import StepList from '../components/StepList/StepList';
 import CodeSampleWrapper from '../components/CodeSampleWrapper/CodeSampleWrapper';
 
 interface CodeSectionProps {
-  highlightRangeMap: {[key: number]: number[]},
+  highlightRangeMap: {[key: number]: number[][]},
   steps: {
     step: number;
     title: string;
@@ -20,11 +20,11 @@ interface CodeSectionProps {
 export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
-  const [highlightRange, setHighlightRange] = useState(props.highlightRangeMap[1]);
+  const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
 
   const handleStepChanged = (step) => {
-    setScrollLine(props.highlightRangeMap[step][0]);
-    setHighlightRange(props.highlightRangeMap[step]);
+    setHighlightRanges(props.highlightRangeMap[step]);
+    setScrollLine(props.highlightRangeMap[step][0][0]);
     props.setStep(step);
   }
   return (
@@ -36,7 +36,7 @@ export default function CodeSection(props: CodeSectionProps) {
         <CodeSampleWrapper
           mode={props.mode}
           scrollToLine={scrollLine}
-          highlightRange={highlightRange}
+          highlightRanges={highlightRanges}
           code={props.code}
           preview={props.preview}
         />

@@ -4,13 +4,13 @@ import { CodeSampleProps } from './CodeSample/CodeSample';
 //@ts-ignore
 const CodeSample = dynamic(() => import('./CodeSample/CodeSample.tsx'), { ssr: false });
 
-export default function CodeSampleWrapper({code, scrollToLine, highlightRange, mode, preview}: CodeSampleProps) {
+export default function CodeSampleWrapper({code, scrollToLine, highlightRanges, mode, preview}: CodeSampleProps) {
   return (
     <CodeSample
       // @ts-ignore
       code={code}
       scrollToLine={scrollToLine}
-      highlightRange={highlightRange}
+      highlightRanges={highlightRanges}
       mode={mode}
       preview={preview}
     />

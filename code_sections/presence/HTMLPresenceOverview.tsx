@@ -3,8 +3,8 @@ import CodeSection from '../CodeSection';
 
 export default function HTMLPresenceOverview() {
   const highlightRangeMap = {
-    1: [11, 13],
-    2: [11, 13]
+    1: [[11, 13]],
+    2: [[11, 13]]
   };
   
   const [step, setStep] = useState(1);

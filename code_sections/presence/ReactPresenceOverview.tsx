@@ -5,9 +5,9 @@ import CodeSection from '../CodeSection';
 export default function ReactPresenceOverview(props) {
 
   const highlightRangeMap = {
-    1: [2, 2],
-    2: [7, 9],
-    3: [7, 9]
+    1: [[2, 2]],
+    2: [[7, 9]],
+    3: [[7, 9]]
   };
   
   const [step, setStep] = useState(1);

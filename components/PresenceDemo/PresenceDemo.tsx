@@ -5,7 +5,11 @@ import { generateUserData } from '../../components/user';
 import { documentID } from '../../components/documentID';
 import DemoContainer from '../DemoContainer/DemoContainer';
 
-export default function PresenceDemo(props: any) {
+interface PresenceDemoProps {
+  naked?: boolean;
+}
+
+export default function PresenceDemo(props: PresenceDemoProps) {
 
   const { client } = useSnippylyClient();
 
@@ -27,6 +31,10 @@ export default function PresenceDemo(props: any) {
     }
 
   }, [client]);
+
+  if (props.naked) {
+    return <SnippylyPresence></SnippylyPresence>
+  }
 
   return (
     <DemoContainer>
