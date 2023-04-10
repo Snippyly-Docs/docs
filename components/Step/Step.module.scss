@@ -24,6 +24,12 @@
       font-weight: 600 !important;
       color: var(--headline-color)
     }
+
+    @media screen and (max-width: 992px) {
+      h1.titleText {
+        font-size: 2.5vmin !important;
+      }
+    }
   }
 
   .description {
@@ -34,9 +40,16 @@
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     color: var(--primary-color);
+    font-size: 1.1rem;
 
     strong {
       font-weight: 500;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .description {
+      font-size: 2vmin;
     }
   }
 

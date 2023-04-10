@@ -75,11 +75,10 @@ export default function CodeSample(props: CodeSampleProps) {
       <AceEditor
         ref={editorRef}
         mode={props.mode}
-        className={`${props.preview ? styles.noTopBorder : ''}`}
+        className={`${props.preview ? styles.noTopBorder : ''} ${styles.aceEditor}`}
         theme="tomorrow_night_blue"
         highlightActiveLine={false}
         value={props.code}
-        fontSize={14}
         readOnly
         showPrintMargin={false}
         showGutter={false}

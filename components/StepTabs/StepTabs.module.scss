@@ -60,4 +60,12 @@
       color: #625DF5;
     }
   }
+
+  @media screen and (max-width: 992px) {
+
+    h3,
+    p {
+      font-size: 2vmin;
+    }
+  }
 }

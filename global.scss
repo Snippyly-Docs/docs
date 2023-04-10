@@ -99,3 +99,9 @@ table {
   }
 
 }
+
+@media screen and (max-width: 992px) {
+  table {
+    font-size: 2.25vmin;
+  }
+}
