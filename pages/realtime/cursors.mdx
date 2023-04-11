@@ -4,6 +4,9 @@ import ReactCursorOverview from '../../code_sections/cursor/ReactCursorOverview.
 import HTMLCursorOverview from '../../code_sections/cursor/HTMLCursorOverview.tsx';
 import ReactCursorCustom from '../../code_sections/cursor/ReactCursorCustom.tsx';
 import HTMLCursorCustom from '../../code_sections/cursor/HTMLCursorCustom.tsx';
+import CursorSlot from '../../code_sections/cursor/CursorSlot.tsx';
+import CursorParts from '../../code_sections/cursor/CursorParts.tsx';
+import CursorVariables from '../../code_sections/cursor/CursorVariables.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Cursors [#cursors]
@@ -55,6 +58,46 @@ export function CursorSlotSteps() {
   );
 }
 
+<CursorSlotSteps />
+
 ## 2. Parts
 
+export function CursorCSSParts() {
+  const optionsMap = {
+    'HTML': <CursorParts sectionId="customize-ui" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<CursorCSSParts />
+
+| Part Name | What does it do? |
+| --------- | ---------------- |
+| `container` | Targets the root cursor container |
+| `svg` | Targets the cursor svg icon |
+| `huddle-avatar-container` | Targets the cursor avatar specific to huddle mode |
+| `avatar-container` | Targets the avatar container specific to avatar mode |
+| `label-container` | Targets the label container |
+| `label` | Targets the label text |
+
 ## 3. Variables
+
+export function CursorCSSVariables() {
+  const optionsMap = {
+    'HTML': <CursorVariables sectionId="customize-ui" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<CursorCSSVariables />
+
+| Variable Name | Default (light) | Default (dark) | What does it do? |
+| ------------- | --------------------- | -------------------- | ---------------- |
+| `--snippyly-cursor-avatar-size` | `2rem` | `2rem` | Sets the Cursor avatar size in avatar mode |
+| `--snippyly-cursor-video-size` | `4.2rem` | `4.2rem` | Sets the Cursor avatar size in Huddle mode |

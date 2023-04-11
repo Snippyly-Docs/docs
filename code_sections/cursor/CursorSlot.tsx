@@ -3,6 +3,7 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function CursorSlot(props: CodeSectionVariant) {
   const highlightRangeMap = {
+    1: [[11, 13]]
   };
   
   const [step, setStep] = useState(1);
@@ -10,23 +11,12 @@ export default function CursorSlot(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: '',
+      title: 'Add a custom icon for the cursor',
       active: step === 1,
       description: (
         <>
-          <strong>Add it any page you want to see user cursors.</strong>
-          <p>This component renders the cursors of users on the same document and location in your web app.</p>
-        </>
-      )
-    },
-    {
-      step: 2,
-      title: 'Test Integration',
-      active: step === 2,
-      description: (
-        <>
-          <strong>Test it out by opening the same page in another browser.</strong>
-          <p>When you open the same page in another incognito window or browser, you should see the cursor on the other window when moving your mouse around.</p>
+          <strong>You can provide any HTML inside the Cursor element.</strong>
+          <p>Just provide the correct slot attribute and the cursor icon that we use will be replaced.</p>
         </>
       )
     }
@@ -44,8 +34,9 @@ export default function CursorSlot(props: CodeSectionVariant) {
   <body>
 
     <snippyly-cursor>
-      <div class="custom-cursor" slot=""></div>
+      <img src="..." slot="cursor" />
     </snippyly-cursor>
+
     <!-- ... -->
     
   </body>
