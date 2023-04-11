@@ -41,7 +41,7 @@ export default function CodeSection(props: CodeSectionProps) {
     } else {
       setActiveHeader(null);
       if (window.location.hash !== '') {
-        window.history.pushState(null, '', '#');
+        window.history.pushState(null, '', ' ');
       }
     }
   }
