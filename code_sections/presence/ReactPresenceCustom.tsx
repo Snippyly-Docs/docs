@@ -6,8 +6,9 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
     1: [[2, 2]],
     2: [[8, 10], [16, 18]],
     3: [[12, 14]],
-    4: [[23, 23]],
-    5: [[24, 24]]
+    4: [[13, 13], [16, 19]],
+    5: [[28, 28]],
+    6: [[29, 29]]
   };
   
   const [step, setStep] = useState(1);
@@ -48,8 +49,19 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
     },
     {
       step: 4,
-      title: 'Add Presence to child documents',
+      title: 'Fetch Presence users',
       active: step === 4,
+      description: (
+        <>
+          <strong>Subscribe to changes to Presence users.</strong>
+          <p>You can use this to build your own Presence UI from scratch.</p>
+        </>
+      )
+    },
+    {
+      step: 5,
+      title: 'Add Presence to child documents',
+      active: step === 5,
       description: (
         <>
           <strong>Show users' presence on child documents.</strong>
@@ -58,16 +70,16 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
       )
     },
     {
-      step: 5,
+      step: 6,
       title: 'Set max users',
-      active: step === 5,
+      active: step === 6,
       description: (
         <>
           <strong>Max users determines how many Presence avatars to display at a time.</strong>
           <p>You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.</p>
         </>
       )
-    }
+    },
   ];
 
   const code = `
@@ -85,6 +97,11 @@ export default function App() {
       // Set the inactivity time in milliseconds
       const presenceElement = client.getPresenceElement();
       presenceElement.setInactivityTime(3 * 60 * 1000);
+
+      // Subscribe to changes to Presence users
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
+      });
 
     }
 

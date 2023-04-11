@@ -23,6 +23,11 @@ export default function CodeSample(props: CodeSampleProps) {
 
   const [previewOpen, setPreviewOpen] = useState(false);
 
+  const setPadding = (editor) => {
+    editor.renderer.setScrollMargin(8, 0, 0, 0);
+    editor.renderer.setPadding(16);
+  };
+
   useEffect(() => {
     if (editorRef.current && props.scrollToLine >= 0) {
       const editor = editorRef.current.editor;
@@ -86,6 +91,7 @@ export default function CodeSample(props: CodeSampleProps) {
         highlightActiveLine={false}
         value={props.code}
         readOnly
+        onLoad={setPadding}
         showPrintMargin={false}
         showGutter={false}
         wrapEnabled

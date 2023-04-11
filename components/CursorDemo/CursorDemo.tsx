@@ -1,11 +1,11 @@
 import { useSnippylyClient } from "@snippyly/react";
 import { useEffect, useRef, useState } from 'react';
 import DemoContainer from "../DemoContainer/DemoContainer";
-import styles from './CursorsDemo.module.scss';
+import styles from './CursorDemo.module.scss';
 
-interface CursorsDemoProps {}
+interface CursorDemoProps {}
 
-export default function CursorsDemo(props: CursorsDemoProps) {
+export default function CursorDemo(props: CursorDemoProps) {
 
   const iframe1Ref = useRef(null);
   const iframe2Ref = useRef(null);
@@ -24,7 +24,7 @@ export default function CursorsDemo(props: CursorsDemoProps) {
     if (demoInitialized) return;
 
     const documentId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-
+    
     fetch('https://us-central1-snipply-sdk-staging.cloudfunctions.net/setCursorData', {
       method: 'POST',
       body: JSON.stringify({ documentId })

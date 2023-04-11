@@ -5,7 +5,8 @@ export default function HTMLPresenceCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[13, 13]],
     2: [[14, 14]],
-    3: [[20, 22]]
+    3: [[20, 22]],
+    4: [[21, 21], [24, 27]]
   };
   
   const [step, setStep] = useState(1);
@@ -43,6 +44,17 @@ export default function HTMLPresenceCustom(props: CodeSectionVariant) {
           <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
         </>
       )
+    },
+    {
+      step: 4,
+      title: 'Fetch Presence users',
+      active: step === 4,
+      description: (
+        <>
+          <strong>Subscribe to changes to Presence users.</strong>
+          <p>You can use this to build your own Presence UI from scratch.</p>
+        </>
+      )
     }
   ];
 
@@ -69,6 +81,11 @@ export default function HTMLPresenceCustom(props: CodeSectionVariant) {
     // Set time in ms
     const presenceElement = window.snippyly.getPresenceElement();
     presenceElement.setInactivityTime(3 * 60 * 1000);
+
+    // Subscribe to changes to Presence users
+    presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+      // Do something with users list
+    });
 
     </script>
     

@@ -1,11 +1,28 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
-import CursorsDemo from '../../components/CursorsDemo/CursorsDemo.tsx';
+import CursorDemo from '../../components/CursorDemo/CursorDemo.tsx';
+import ReactCursorOverview from '../../code_sections/cursor/ReactCursorOverview.tsx';
+import HTMLCursorOverview from '../../code_sections/cursor/HTMLCursorOverview.tsx';
+import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Cursors [#cursors]
 
 <Subheading>View eachother's cursors when interacting on the same page.</Subheading>
-<CursorsDemo />
+<CursorDemo />
 
 # Steps [#steps]
+
+export function CursorSteps() {
+  const optionsMap = {
+    'React': <ReactCursorOverview sectionId="steps" />,
+    'HTML': <HTMLCursorOverview sectionId="steps" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<CursorSteps />
+
 # Customize Behavior [#customize-behavior]
 # Customize UI [#customize-ui]
