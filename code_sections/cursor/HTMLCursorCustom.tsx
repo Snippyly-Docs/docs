@@ -81,7 +81,7 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
     cursorElement.setInactivityTime(0.5 * 60 * 1000);
 
     // Set allowed elements
-    cursorElement.setAllowedElementIds(['element-1', 'element-2']);
+    cursorElement.allowedElementIds(['element-1', 'element-2']);
 
     // Subscribe cursor data while it changes
     cursorElement.getLiveCursorsOnCurrentDocument().subscribe((cursors) => {
