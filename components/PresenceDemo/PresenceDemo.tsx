@@ -1,12 +1,11 @@
-import styles from './PresenceDemo.module.scss';
 import { SnippylyPresence, SnippylyProvider, useSnippylyClient } from '@snippyly/react';
 import { useEffect } from 'react';
 import { generateUserData } from '../../components/user';
-import { documentID } from '../../components/documentID';
 import DemoContainer from '../DemoContainer/DemoContainer';
 
 interface PresenceDemoProps {
   naked?: boolean;
+  classString?: string;
 }
 
 export default function PresenceDemo(props: PresenceDemoProps) {
@@ -26,19 +25,21 @@ export default function PresenceDemo(props: PresenceDemoProps) {
           // console.log(client.getPresenceElement().presenceService.presenceUsers$.value);
         }) 
         .catch((err) => {
-          console.log(err); 
+          console.log(err);
         });
     }
 
   }, [client]);
 
   if (props.naked) {
-    return <SnippylyPresence></SnippylyPresence>
+    //@ts-ignore
+    return <div className={props.classString}><SnippylyPresence /></div>
   }
 
   return (
     <DemoContainer>
-      <SnippylyPresence></SnippylyPresence>
+      { /* @ts-ignore */ }
+      <div className={props.classString}><SnippylyPresence /></div>
     </DemoContainer>
   );
 }

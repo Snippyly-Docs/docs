@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import CodeSection from '../CodeSection';
+import PresenceDemo from '../../components/PresenceDemo/PresenceDemo';
 
 export default function PresenceVariables(props) {
 
@@ -42,7 +43,7 @@ export default function PresenceVariables(props) {
       description: (
         <>
           <strong>Reference the table below to see what variables we expose.</strong>
-          <p>Alternatively, you can directly inspect the component CSS to see what parts are available.</p>
+          <p>Alternatively, you can directly inspect the component CSS to see what variables are available.</p>
         </>
       )
     }
@@ -59,5 +60,7 @@ snippyly-presence {
 }
     `;
 
-  return <CodeSection mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
+  return <CodeSection
+  preview={ <PresenceDemo classString="smallAvatar" naked={true} /> }
+  mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import CodeSection from '../CodeSection';
+import PresenceDemo from '../../components/PresenceDemo/PresenceDemo';
 
 export default function PresenceParts(props) {
 
@@ -51,9 +52,11 @@ export default function PresenceParts(props) {
   const code = `
 
 snippyly-presence::part(tooltip-text) {
-  font-size: 1.5rem;
+  flex-direction: column-reverse;
 }
     `;
 
-  return <CodeSection mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
+  return <CodeSection 
+  preview={ <PresenceDemo classString="bigText" naked={true} /> }
+  mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

@@ -1,0 +1,12 @@
+.bigText {
+  snippyly-presence::part(tooltip-text) {
+    flex-direction: column-reverse;
+  }
+}
+
+.smallAvatar {
+  snippyly-presence {
+    --snippyly-presence-avatar-size: 1.5rem;
+    --snippyly-avatar-size: 1.5rem;
+  }
+}

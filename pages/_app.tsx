@@ -1,5 +1,6 @@
 import '../global.scss';
 import '../theme.scss';
+import '../components/PresenceDemo/PresenceDemo.scss';
 import '../public/fonts/poppins.scss';
 import { AppProps } from 'next/app';
 import { SnippylyProvider } from '@snippyly/react';
