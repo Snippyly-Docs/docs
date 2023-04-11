@@ -38,6 +38,10 @@
   cursor: pointer;
 }
 
+.header.active {
+  color: var(--sidebar-active-link-color);
+}
+
 .headingList {
   padding-left: 2rem !important;
 }
