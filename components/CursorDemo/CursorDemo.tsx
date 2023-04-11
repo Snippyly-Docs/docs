@@ -15,6 +15,7 @@ export default function CursorDemo(props: CursorDemoProps) {
 
     const iframe = document.createElement('iframe');
     iframe.src = src;
+    iframe.setAttribute('scrolling', 'no');
     el.appendChild(iframe);
     
   };

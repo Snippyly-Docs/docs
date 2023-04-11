@@ -42,3 +42,19 @@ export function CursorCustomizeBehavior() {
 <CursorCustomizeBehavior />
 
 # Customize UI [#customize-ui]
+
+## 1. Slots
+
+export function CursorSlotSteps() {
+  const optionsMap = {
+    'HTML': <CursorSlot sectionId="customize-ui" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+## 2. Parts
+
+## 3. Variables
