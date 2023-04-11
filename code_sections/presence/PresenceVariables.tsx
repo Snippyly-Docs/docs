@@ -1,9 +1,9 @@
 
 import { useState } from 'react';
-import CodeSection from '../CodeSection';
+import CodeSection, { CodeSectionVariant } from '../CodeSection';
 import PresenceDemo from '../../components/PresenceDemo/PresenceDemo';
 
-export default function PresenceVariables(props) {
+export default function PresenceVariables(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[2, 2], [6, 6]],
@@ -61,6 +61,7 @@ snippyly-presence {
     `;
 
   return <CodeSection
+  sectionId={props.sectionId}
   preview={ <PresenceDemo classString="smallAvatar" naked={true} /> }
   mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

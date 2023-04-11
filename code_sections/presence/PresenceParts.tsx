@@ -1,9 +1,9 @@
 
 import { useState } from 'react';
-import CodeSection from '../CodeSection';
+import CodeSection, { CodeSectionVariant } from '../CodeSection';
 import PresenceDemo from '../../components/PresenceDemo/PresenceDemo';
 
-export default function PresenceParts(props) {
+export default function PresenceParts(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[2, 2], [4, 4]],
@@ -57,6 +57,7 @@ snippyly-presence::part(tooltip-text) {
     `;
 
   return <CodeSection 
+  sectionId={props.sectionId}
   preview={ <PresenceDemo classString="bigText" naked={true} /> }
   mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

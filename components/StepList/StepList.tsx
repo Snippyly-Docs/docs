@@ -39,6 +39,10 @@ export default function StepList(props: StepListProps) {
     if (closestStep) {
       const closestStepValue = parseInt(closestStep.current.dataset.step);
       props.handleStepChanged(closestStepValue);
+    } else {
+      if (window.pageYOffset === 0) {
+        props.handleStepChanged(null);
+      }
     }
   };
 

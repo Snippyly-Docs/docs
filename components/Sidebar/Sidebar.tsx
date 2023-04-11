@@ -20,7 +20,7 @@ interface CustomHeading extends Heading {
 export default function Sidebar(props: SidebarProps) {
 
   const { pageMap, headings, route } = props.pageOpts;
-  const { activeHeader, setActiveHeader } = useContext(GlobalContext);
+  const { activeHeader } = useContext(GlobalContext);
 
   const sidebarItems = pageMap.filter((item) => item.kind !== 'Meta');
   let meta = pageMap.find((item) => (item.kind === 'Meta')) as MetaJsonFile;
@@ -54,35 +54,6 @@ export default function Sidebar(props: SidebarProps) {
 
   const renderHeadings = () => {
 
-    const observer = useRef(null);
-    const anchors = useRef([]);
-
-    useLayoutEffect(() => {
-      if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
-        observer.current = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const id = entry.target.id;
-              if (id) {
-                window.history.replaceState(null, '', `#${id}`);
-                setActiveHeader(id);
-              }
-            }
-          });
-        });
-
-        anchors.current.forEach((anchor) => {
-          if (observer.current) observer.current.observe(anchor);
-        });
-
-        return () => {
-          if (observer.current) {
-            observer.current.disconnect();
-          }
-        };
-      }
-    }, []);
-
     return headings.map((heading, idx) => {
 
       let data = heading as CustomHeading;
@@ -94,10 +65,7 @@ export default function Sidebar(props: SidebarProps) {
 
       return (
         <li key={data.value} className={styles.listItem}>
-          <a className={`${styles.header} ${activeHeader === data.id ? styles.active : ''}`} href={`#${data.id}`} ref={(_) => {
-            const heading = document.getElementById(data.id);
-            if (heading) anchors.current.push(heading);
-          }}>{data.value}</a>
+          <a className={`${styles.header} ${activeHeader === data.id || !activeHeader && idx === 0 ? styles.active : ''}`} href={`#${data.id}`}>{data.value}</a>
         </li>
       );
     });

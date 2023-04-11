@@ -17,8 +17,8 @@ import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 export function PresenceSteps() {
   const optionsMap = {
-    'React': <ReactPresenceOverview />,
-    'HTML': <HTMLPresenceOverview />
+    'React': <ReactPresenceOverview sectionId="steps" />,
+    'HTML': <HTMLPresenceOverview sectionId="steps" />
   };
 
   return (
@@ -32,8 +32,8 @@ export function PresenceSteps() {
 
 export function PresenceCustomSteps() {
   const optionsMap = {
-    'React': <ReactPresenceCustom />,
-    'HTML': <HTMLPresenceCustom />
+    'React': <ReactPresenceCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLPresenceCustom sectionId="customize-behavior" />
   };
 
   return (
@@ -49,7 +49,7 @@ export function PresenceCustomSteps() {
 
 export function PresenceCSSPartsSteps() {
   const optionsMap = {
-    'All': <PresenceParts />
+    'All': <PresenceParts sectionId="customize-ui" />
   };
 
   return <StepTabs optionsMap={optionsMap} />
@@ -69,7 +69,7 @@ export function PresenceCSSPartsSteps() {
 
 export function PresenceCSSVariablesSteps() {
   const optionsMap = {
-    'All': <PresenceVariables />
+    'All': <PresenceVariables sectionId="customize-ui" />
   };
   return <StepTabs optionsMap={optionsMap} />
 }

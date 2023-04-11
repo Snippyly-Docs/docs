@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import CodeSection from '../CodeSection';
+import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
-export default function HTMLPresenceOverview() {
+export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[2, 2]],
     2: [[8, 10], [16, 18]],
@@ -101,5 +101,5 @@ export default function App() {
 }
     `;
 
-  return <CodeSection mode="jsx" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
+  return <CodeSection sectionId={props.sectionId} mode="jsx" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
 }

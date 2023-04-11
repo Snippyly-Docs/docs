@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import SplitPane from '../components/SplitPane/SplitPane';
 import StepList from '../components/StepList/StepList';
 import CodeSampleWrapper from '../components/CodeSampleWrapper/CodeSampleWrapper';
+import GlobalContext from '../components/globalContext';
 
-interface CodeSectionProps {
+export interface CodeSectionVariant {
+  sectionId: string;
+}
+
+export interface CodeSectionProps {
   highlightRangeMap: {[key: number]: number[][]},
   steps: {
     step: number;
@@ -15,17 +20,30 @@ interface CodeSectionProps {
   code: string;
   setStep: (step: number) => void;
   preview?: React.ReactNode;
+  sectionId: string;
 }
 
 export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
+  const { setActiveHeader } = useContext(GlobalContext);
 
   const handleStepChanged = (step) => {
-    setHighlightRanges(props.highlightRangeMap[step]);
-    setScrollLine(props.highlightRangeMap[step][0][0]);
-    props.setStep(step);
+    if (step !== null) {
+      setActiveHeader(props.sectionId);
+      if (window.location.hash !== `#${props.sectionId}`) {
+        window.history.pushState(null, '', `#${props.sectionId}`);
+      }
+      setHighlightRanges(props.highlightRangeMap[step]);
+      setScrollLine(props.highlightRangeMap[step][0][0]);
+      props.setStep(step);
+    } else {
+      setActiveHeader(null);
+      if (window.location.hash !== '') {
+        window.history.pushState(null, '', '#');
+      }
+    }
   }
   return (
     <SplitPane
