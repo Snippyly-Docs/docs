@@ -2,6 +2,8 @@ import Subheading from '../../components/Subheading/Subheading.tsx';
 import CursorDemo from '../../components/CursorDemo/CursorDemo.tsx';
 import ReactCursorOverview from '../../code_sections/cursor/ReactCursorOverview.tsx';
 import HTMLCursorOverview from '../../code_sections/cursor/HTMLCursorOverview.tsx';
+import ReactCursorCustom from '../../code_sections/cursor/ReactCursorCustom.tsx';
+import HTMLCursorCustom from '../../code_sections/cursor/HTMLCursorCustom.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Cursors [#cursors]
@@ -25,4 +27,18 @@ export function CursorSteps() {
 <CursorSteps />
 
 # Customize Behavior [#customize-behavior]
+
+export function CursorCustomizeBehavior() {
+  const optionsMap = {
+    'React': <ReactCursorCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLCursorCustom sectionId="customize-behavior" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<CursorCustomizeBehavior />
+
 # Customize UI [#customize-ui]

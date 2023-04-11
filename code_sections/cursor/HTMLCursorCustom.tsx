@@ -3,8 +3,10 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLCursorCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[11, 11]],
-    2: [[11, 11]]
+    1: [[12, 12]],
+    2: [[17, 17], [19, 20]],
+    3: [[17, 17], [22, 23]],
+    4: [[17, 17], [25, 28]]
   };
   
   const [step, setStep] = useState(1);
@@ -12,23 +14,45 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Add Cursor Component',
+      title: 'Enable avatar mode',
       active: step === 1,
       description: (
         <>
-          <strong>Add it any page you want to see user cursors.</strong>
-          <p>This component renders the cursors of users on the same document and location in your web app.</p>
+          <strong>Show the user's avatar floating next to their cursor.</strong>
+          <p>Enabling this mode will allow you to show the user's avatar in context with the cursor.</p>
         </>
       )
     },
     {
       step: 2,
-      title: 'Test Integration',
+      title: 'Set inactivity time',
       active: step === 2,
       description: (
         <>
-          <strong>Test it out by opening the same page in another browser.</strong>
-          <p>When you open the same page in another incognito window or browser, you should see the cursor on the other window when moving your mouse around.</p>
+          <strong>Set the time it takes for a cursor to disappear.</strong>
+          <p>If a user leaves their mouse cursor, set the time it takes for that cursor to disappear on everyone else's screen. If they unfocus the tab, they will immediately go inactive.</p>
+        </>
+      )
+    },
+    {
+      step: 3,
+      title: 'Set allowed element IDs',
+      active: step === 3,
+      description: (
+        <>
+          <strong>Whitelist allowed elements</strong>
+          <p>If you provide a list of element IDs, we will only show cursors that hover over those specific elements.</p>
+        </>
+      )
+    },
+    {
+      step: 4,
+      title: 'Get live cursor data',
+      active: step === 4,
+      description: (
+        <>
+          <strong>Subscribe to cursor changes</strong>
+          <p>Get realtime updates on cursor positions. You can use this to build your own Cursors from scratch.</p>
         </>
       )
     }
@@ -45,8 +69,26 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
   </head>
   <body>
 
-    <snippyly-cursor></snippyly-cursor>
-    <!-- ... -->
+    <snippyly-cursor
+      avatar-mode="true"
+    ></snippyly-cursor>
+
+    <script>
+
+    const cursorElement = window.snippyly.getCursorElement();
+
+    // Set time in ms
+    cursorElement.setInactivityTime(0.5 * 60 * 1000);
+
+    // Set allowed elements
+    cursorElement.setAllowedElementIds(['element-1', 'element-2']);
+
+    // Subscribe cursor data while it changes
+    cursorElement.getLiveCursorsOnCurrentDocument().subscribe((cursors) => {
+      // Do something with cursors list
+    });
+
+    </script>
     
   </body>
 </html>
