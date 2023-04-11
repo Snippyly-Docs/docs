@@ -4,6 +4,8 @@ import ReactPresenceOverview from '../../code_sections/presence/ReactPresenceOve
 import HTMLPresenceOverview from '../../code_sections/presence/HTMLPresenceOverview.tsx';
 import ReactPresenceCustom from '../../code_sections/presence/ReactPresenceCustom.tsx';
 import HTMLPresenceCustom from '../../code_sections/presence/HTMLPresenceCustom.tsx';
+import PresenceParts from '../../code_sections/presence/PresenceParts.tsx';
+import PresenceVariables from '../../code_sections/presence/PresenceVariables.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Presence [#presence]
@@ -43,11 +45,17 @@ export function PresenceCustomSteps() {
 
 # Customize UI [#customize-ui]
 
-## 1. Slots
+## 1. Parts
 
-## 2. CSS
+export function PresenceCSSPartsSteps() {
+  const optionsMap = {
+    'All': <PresenceParts />
+  };
 
-### a. Parts
+  return <StepTabs optionsMap={optionsMap} />
+}
+
+<PresenceCSSPartsSteps />
 
 | Part Name | What does it do? |
 | --------- | ---------------- |
@@ -57,7 +65,16 @@ export function PresenceCustomSteps() {
 | `user-avatar` | Targets the user avatar container |
 | `more-users` | Targets the more users container |
 
-### b. Variables
+## 2. Variables
+
+export function PresenceCSSVariablesSteps() {
+  const optionsMap = {
+    'All': <PresenceVariables />
+  };
+  return <StepTabs optionsMap={optionsMap} />
+}
+
+<PresenceCSSVariablesSteps />
 
 | Variable Name | Default (light) | Default (dark) | What does it do? |
 | ------------- | --------------------- | -------------------- | ---------------- |

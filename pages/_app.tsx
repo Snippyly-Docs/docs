@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 function MyApp({ Component, pageProps }: AppProps) {
 
   const [frontendOption, setFrontendOption] = useState('React');
+  const [activeHeader, setActiveHeader] = useState(undefined);
 
   const handleThemeChange = (e) => {
 
@@ -36,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SnippylyProvider apiKey="WDMgKshFEsPTqvBjUcH3">
-      <GlobalContext.Provider value={{ frontendOption, setFrontendOption }}>
+      <GlobalContext.Provider value={{ frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </SnippylyProvider>

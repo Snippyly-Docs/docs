@@ -6,6 +6,7 @@ import CaretIcon from '../../CaretIcon/CaretIcon';
 import 'brace/mode/javascript';
 import 'brace/mode/html';
 import 'brace/mode/jsx';
+import 'brace/mode/css';
 import 'brace/theme/tomorrow_night_blue';
 
 export interface CodeSampleProps {

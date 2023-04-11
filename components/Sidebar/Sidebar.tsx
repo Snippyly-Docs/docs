@@ -52,6 +52,12 @@
 
 
     const renderHeadings = () => {
+
+      // TODO: Add an interaction observer for each heading
+      // TODO: When a heading comes onto screen, set the active header
+      // TODO: If the active header === anchor tag, set the active class to the anchor tag
+      // TODO: Make sure we properly cleanup
+      
       return headings.map((heading, idx) => {
 
         let data = heading as CustomHeading;
