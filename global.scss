@@ -16,8 +16,14 @@ body {
   line-height: 1.5;
 }
 
+// Ace editor
+
+.ace-tomorrow-night-blue {
+  background-color: #212D63;
+}
+
 .aceSelectedWord {
-  background-color: #013e89;
+  background-color: #273c76;
   position: absolute;
 }
 
