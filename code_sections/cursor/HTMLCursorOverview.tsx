@@ -3,8 +3,8 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLCursorOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[10, 10]],
-    2: [[10, 10]]
+    1: [[8, 8]],
+    2: [[8, 8]]
   };
   
   const [step, setStep] = useState(1);
@@ -16,7 +16,7 @@ export default function HTMLCursorOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Add it any page you want to see user cursors.</strong>
+          <strong>Add it to any page you want to see user cursors.</strong>
           <p>This component renders the cursors of users on the same document and location in your web app.</p>
         </>
       )
@@ -38,9 +38,7 @@ export default function HTMLCursorOverview(props: CodeSectionVariant) {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Cursors documentation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 

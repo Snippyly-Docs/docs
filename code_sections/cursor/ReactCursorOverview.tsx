@@ -30,7 +30,7 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Add it any page you want to see user cursors.</strong>
+          <strong>Add it to the root component.</strong>
           <p>This component renders the cursors of users on the same document and location in your web app.</p>
         </>
       )

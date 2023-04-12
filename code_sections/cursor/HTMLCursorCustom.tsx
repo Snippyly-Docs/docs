@@ -3,10 +3,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLCursorCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[11, 11]],
-    2: [[16, 16], [18, 19]],
-    3: [[16, 16], [21, 22]],
-    4: [[16, 16], [24, 27]]
+    1: [[9, 9]],
+    2: [[10, 10]],
+    3: [[11, 11]]
   };
   
   const [step, setStep] = useState(1);
@@ -44,17 +43,6 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
           <p>If you provide a list of element IDs, we will only show cursors that hover over those specific elements.</p>
         </>
       )
-    },
-    {
-      step: 4,
-      title: 'Get live cursor data',
-      active: step === 4,
-      description: (
-        <>
-          <strong>Subscribe to cursor changes</strong>
-          <p>Get realtime updates on cursor positions. You can use this to build your own Cursors from scratch.</p>
-        </>
-      )
     }
   ];
 
@@ -62,32 +50,15 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Cursors documentation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 
     <snippyly-cursor
       avatar-mode="true"
+      inactivity-time="300000"
+      allowed-element-ids='["element-1", "element-2"]'
     ></snippyly-cursor>
-
-    <script>
-
-    const cursorElement = window.snippyly.getCursorElement();
-
-    // Set time in ms
-    cursorElement.setInactivityTime(0.5 * 60 * 1000);
-
-    // Set allowed elements
-    cursorElement.allowedElementIds(['element-1', 'element-2']);
-
-    // Subscribe cursor data while it changes
-    cursorElement.getLiveCursorsOnCurrentDocument().subscribe((cursors) => {
-      // Do something with cursors list
-    });
-
-    </script>
     
   </body>
 </html>
