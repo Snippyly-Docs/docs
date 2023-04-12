@@ -20,7 +20,7 @@ interface CustomHeading extends Heading {
 export default function Sidebar(props: SidebarProps) {
 
   const { pageMap, headings, route } = props.pageOpts;
-  const { activeHeader } = useContext(GlobalContext);
+  const { setActiveHeader, activeHeader } = useContext(GlobalContext);
 
   const sidebarItems = pageMap.filter((item) => item.kind !== 'Meta');
   let meta = pageMap.find((item) => (item.kind === 'Meta')) as MetaJsonFile;
@@ -65,7 +65,9 @@ export default function Sidebar(props: SidebarProps) {
 
       return (
         <li key={data.value} className={styles.listItem}>
-          <a className={`${styles.header} ${activeHeader === data.id || !activeHeader && idx === 0 ? styles.active : ''}`} href={`#${data.id}`}>{data.value}</a>
+          <a className={`${styles.header} ${activeHeader === data.id || !activeHeader && idx === 0 ? styles.active : ''}`} href={`#${data.id}`} onClick={() => {
+            setActiveHeader(data.id);
+          }}>{data.value}</a>
         </li>
       );
     });
