@@ -3,12 +3,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[1, 1]],
-    2: [[7, 9], [15, 17]],
-    3: [[11, 13]],
-    4: [[12, 12], [15, 18]],
-    5: [[27, 27]],
-    6: [[28, 28]]
+    1: [[8, 8]],
+    2: [[9, 9]],
+    3: [[10, 10]]
   };
   
   const [step, setStep] = useState(1);
@@ -16,52 +13,19 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Import useSnippylyClient hook',
+      title: 'Set inactivity time',
       active: step === 1,
       description: (
         <>
-          <strong>Import the Snippyly client hook.</strong>
-          <p>This hook provides the Snippyly client.</p>
-        </>
-      )
-    },
-    {
-      step: 2,
-      title: 'Create useEffect hook',
-      active: step === 2,
-      description: (
-        <>
-          <strong>Create a useEffect hook with the client as a dependency</strong>
-          <p>Make sure to add the client as a dependency and check if the client is null.</p>
-        </>
-      )
-    },
-    {
-      step: 3,
-      title: 'Set inactivity time',
-      active: step === 3,
-      description: (
-        <>
-          <strong>Set the time it takes for a user to go inactive.</strong>
+          <strong>Set the time it takes for a user to go inactive in milliseconds.</strong>
           <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
         </>
       )
     },
     {
-      step: 4,
-      title: 'Fetch Presence users',
-      active: step === 4,
-      description: (
-        <>
-          <strong>Subscribe to changes to Presence users.</strong>
-          <p>You can use this to build your own Presence UI from scratch.</p>
-        </>
-      )
-    },
-    {
-      step: 5,
+      step: 2,
       title: 'Add Presence to child documents',
-      active: step === 5,
+      active: step === 2,
       description: (
         <>
           <strong>Show users' presence on child documents.</strong>
@@ -70,9 +34,9 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
       )
     },
     {
-      step: 6,
+      step: 3,
       title: 'Set max users',
-      active: step === 6,
+      active: step === 3,
       description: (
         <>
           <strong>Max users determines how many Presence avatars to display at a time.</strong>
@@ -83,32 +47,14 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
+import { SnippylyPresence } from '@snippyly/react';
 
 export default function App() {
-
-  const { client } = useSnippylyClient();
-
-  useEffect(() => {
-
-    if (client) {
-
-      // Set the inactivity time in milliseconds
-      const presenceElement = client.getPresenceElement();
-      presenceElement.setInactivityTime(3 * 60 * 1000);
-
-      // Subscribe to changes to Presence users
-      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
-      });
-
-    }
-
-  }, [client]);
 
   return (
     <div className="toolbar">
       <SnippylyPresence
+        inactivityTime={30000}
         location={{page: 1}}
         maxUsers={3}
       />

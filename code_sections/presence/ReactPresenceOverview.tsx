@@ -6,8 +6,8 @@ export default function ReactPresenceOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[1, 1]],
-    2: [[6, 8]],
-    3: [[6, 8]]
+    2: [[7, 7]],
+    3: [[7, 7]]
   };
   
   const [step, setStep] = useState(1);

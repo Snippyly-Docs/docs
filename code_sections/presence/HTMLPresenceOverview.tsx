@@ -3,8 +3,8 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[10, 12]],
-    2: [[10, 12]]
+    1: [[9, 9]],
+    2: [[9, 9]]
   };
   
   const [step, setStep] = useState(1);
@@ -38,9 +38,7 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Presence documentation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 
