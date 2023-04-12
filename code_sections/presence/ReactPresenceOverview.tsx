@@ -5,9 +5,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactPresenceOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[2, 2]],
-    2: [[7, 9]],
-    3: [[7, 9]]
+    1: [[1, 1]],
+    2: [[6, 8]],
+    3: [[6, 8]]
   };
   
   const [step, setStep] = useState(1);
@@ -49,7 +49,6 @@ export default function ReactPresenceOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 import { SnippylyPresence } from '@snippyly/react';
 
 export default function App() {

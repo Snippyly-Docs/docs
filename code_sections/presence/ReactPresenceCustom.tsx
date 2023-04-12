@@ -3,12 +3,12 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[2, 2]],
-    2: [[8, 10], [16, 18]],
-    3: [[12, 14]],
-    4: [[13, 13], [16, 19]],
-    5: [[28, 28]],
-    6: [[29, 29]]
+    1: [[1, 1]],
+    2: [[7, 9], [15, 17]],
+    3: [[11, 13]],
+    4: [[12, 12], [15, 18]],
+    5: [[27, 27]],
+    6: [[28, 28]]
   };
   
   const [step, setStep] = useState(1);
@@ -83,7 +83,6 @@ export default function HTMLPresenceOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
 
 export default function App() {

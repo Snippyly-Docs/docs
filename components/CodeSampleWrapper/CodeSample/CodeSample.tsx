@@ -21,11 +21,24 @@ export default function CodeSample(props: CodeSampleProps) {
   const editorRef = useRef(null);
   const markerIdRefs = useRef([]);
 
-  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(true);
 
   const setPadding = (editor) => {
     editor.renderer.setScrollMargin(8, 0, 0, 0);
     editor.renderer.setPadding(16);
+  };
+
+  const setHeight = (editor) => {
+    const lineHeight = editor.renderer.lineHeight;
+    const totalLines = editor.session.getLength();
+    const height = lineHeight * totalLines + (3 * lineHeight);
+    editor.container.style.height = `${height}px`;
+    editor.resize();
+  };
+
+  const handleEditorLoad = (editor) => {
+    setPadding(editor);
+    setHeight(editor);
   };
 
   useEffect(() => {
@@ -91,13 +104,12 @@ export default function CodeSample(props: CodeSampleProps) {
         highlightActiveLine={false}
         value={props.code}
         readOnly
-        onLoad={setPadding}
+        onLoad={handleEditorLoad}
         showPrintMargin={false}
         showGutter={false}
         wrapEnabled
         setOptions={{
-          useWorker: false,
-          minLines: 12
+          useWorker: false
         }}
         width="100%"
       />

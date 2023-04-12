@@ -1,13 +1,14 @@
 
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
+import CursorDemo from '../../components/CursorDemo/CursorDemo';
 
 export default function CursorVariables(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[2, 2]],
-    2: [[3, 3]],
-    3: [[3, 3]]
+    1: [[1, 1], [3, 3]],
+    2: [[2, 2]],
+    3: [[2, 2]]
   };
   
   const [step, setStep] = useState(1);
@@ -49,14 +50,15 @@ export default function CursorVariables(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 snippyly-cursor {
   --snippyly-cursor-avatar-size: 1.5rem;
 }
-
-    `;
+`;
 
   return <CodeSection
   sectionId={props.sectionId}
+  preview={
+    <CursorDemo avatarMode={true} />
+  }
   mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

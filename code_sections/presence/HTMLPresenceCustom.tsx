@@ -3,10 +3,10 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLPresenceCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[13, 13]],
-    2: [[14, 14]],
-    3: [[20, 22]],
-    4: [[21, 21], [24, 27]]
+    1: [[12, 12]],
+    2: [[13, 13]],
+    3: [[19, 21]],
+    4: [[20, 20], [23, 26]]
   };
   
   const [step, setStep] = useState(1);
@@ -59,7 +59,6 @@ export default function HTMLPresenceCustom(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 <!doctype html>
 <html lang="en">
   <head>

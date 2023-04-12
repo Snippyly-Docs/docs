@@ -3,8 +3,8 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLCursorOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[11, 11]],
-    2: [[11, 11]]
+    1: [[10, 10]],
+    2: [[10, 10]]
   };
   
   const [step, setStep] = useState(1);
@@ -35,7 +35,6 @@ export default function HTMLCursorOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 <!doctype html>
 <html lang="en">
   <head>

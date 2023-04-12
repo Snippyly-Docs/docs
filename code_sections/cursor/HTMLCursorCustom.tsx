@@ -3,10 +3,10 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLCursorCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[12, 12]],
-    2: [[17, 17], [19, 20]],
-    3: [[17, 17], [22, 23]],
-    4: [[17, 17], [25, 28]]
+    1: [[11, 11]],
+    2: [[16, 16], [18, 19]],
+    3: [[16, 16], [21, 22]],
+    4: [[16, 16], [24, 27]]
   };
   
   const [step, setStep] = useState(1);
@@ -59,7 +59,6 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 <!doctype html>
 <html lang="en">
   <head>

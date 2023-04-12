@@ -1,9 +1,11 @@
-import { useSnippylyClient } from "@snippyly/react";
 import { useEffect, useRef, useState } from 'react';
 import DemoContainer from "../DemoContainer/DemoContainer";
 import styles from './CursorDemo.module.scss';
 
-interface CursorDemoProps {}
+interface CursorDemoProps {
+  noBorderRadius?: boolean;
+  avatarMode?: boolean;
+}
 
 export default function CursorDemo(props: CursorDemoProps) {
 
@@ -16,6 +18,7 @@ export default function CursorDemo(props: CursorDemoProps) {
     const iframe = document.createElement('iframe');
     iframe.src = src;
     iframe.setAttribute('scrolling', 'no');
+    iframe.setAttribute('frameborder', '0');
     el.appendChild(iframe);
     
   };
@@ -30,6 +33,21 @@ export default function CursorDemo(props: CursorDemoProps) {
       method: 'POST',
       body: JSON.stringify({ documentId })
     }).then(data => {
+
+      if (props.noBorderRadius) {
+        const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0&noBorderRadius=true`;
+        createIFrame(iframe1Ref.current, src);
+        setDemoInitialized(true);
+        return;
+      }
+
+      if (props.avatarMode) {
+        const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0&avatarMode=true`;
+        createIFrame(iframe1Ref.current, src);
+        setDemoInitialized(true);
+        return;
+      }
+
       const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0`;
       const src2 = `https://snippyly-demo-html-dev.firebaseapp.com/cursor-docs-demo.html?documentId=${documentId}&userIndex=1`;
       
@@ -43,6 +61,12 @@ export default function CursorDemo(props: CursorDemoProps) {
     });
         
   }, []);
+
+  if (props.noBorderRadius || props.avatarMode) {
+    return (
+      <div ref={iframe1Ref} className={styles.iframe}></div>
+    );
+  }
 
   return (
     <DemoContainer>

@@ -3,12 +3,12 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLCursorCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[2, 2]],
-    2: [[8, 10], [25, 27]],
-    3: [[12, 12], [14, 15]],
-    4: [[12, 12], [17, 18]],
-    5: [[12, 12], [20, 23]],
-    6: [[32, 32]]
+    1: [[1, 1]],
+    2: [[7, 9], [24, 26]],
+    3: [[11, 11], [13, 14]],
+    4: [[11, 11], [16, 17]],
+    5: [[11, 11], [19, 22]],
+    6: [[31, 31]]
   };
   
   const [step, setStep] = useState(1);
@@ -83,7 +83,6 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 import { SnippylyCursor, useSnippylyClient } from '@snippyly/react';
 
 export default function App() {

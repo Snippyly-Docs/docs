@@ -6,9 +6,9 @@ import PresenceDemo from '../../components/PresenceDemo/PresenceDemo';
 export default function PresenceVariables(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[2, 2], [6, 6]],
-    2: [[3, 3], [7, 7]],
-    3: [[3, 3], [7, 7]]
+    1: [[1, 1], [5, 5]],
+    2: [[2, 2], [6, 6]],
+    3: [[2, 2], [6, 6]]
   };
   
   const [step, setStep] = useState(1);
@@ -50,7 +50,6 @@ export default function PresenceVariables(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 snippyly-presence {
   --snippyly-presence-avatar-size: 1.5rem;
 }

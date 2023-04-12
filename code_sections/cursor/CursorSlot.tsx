@@ -3,7 +3,7 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function CursorSlot(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[11, 13]]
+    1: [[8, 10]]
   };
   
   const [step, setStep] = useState(1);
@@ -23,13 +23,10 @@ export default function CursorSlot(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Cursors documentation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 

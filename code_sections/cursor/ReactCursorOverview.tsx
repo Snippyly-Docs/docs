@@ -5,9 +5,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactCursorOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[2, 2]],
-    2: [[8, 8]],
-    3: [[8, 8]]
+    1: [[1, 1]],
+    2: [[7, 7]],
+    3: [[7, 7]]
   };
   
   const [step, setStep] = useState(1);
@@ -49,7 +49,6 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-
 import { SnippylyCursor } from '@snippyly/react';
 
 export default function App() {
