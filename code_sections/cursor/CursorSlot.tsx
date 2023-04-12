@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
+import CursorDemo from '../../components/CursorDemo/CursorDemo';
 
 export default function CursorSlot(props: CodeSectionVariant) {
   const highlightRangeMap = {
@@ -40,5 +41,9 @@ export default function CursorSlot(props: CodeSectionVariant) {
 </html>
     `;
 
-  return <CodeSection sectionId={props.sectionId} mode="html" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
+  return <CodeSection
+    preview={
+      <CursorDemo replaceCursor={true} />
+    }
+    sectionId={props.sectionId} mode="html" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
 }

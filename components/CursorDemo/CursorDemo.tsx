@@ -5,6 +5,7 @@ import styles from './CursorDemo.module.scss';
 interface CursorDemoProps {
   noBorderRadius?: boolean;
   avatarMode?: boolean;
+  replaceCursor?: boolean;
 }
 
 export default function CursorDemo(props: CursorDemoProps) {
@@ -48,6 +49,13 @@ export default function CursorDemo(props: CursorDemoProps) {
         return;
       }
 
+      if (props.replaceCursor) {
+        const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0&replaceCursor=true`;
+        createIFrame(iframe1Ref.current, src);
+        setDemoInitialized(true);
+        return;
+      }
+
       const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0`;
       const src2 = `https://snippyly-demo-html-dev.firebaseapp.com/cursor-docs-demo.html?documentId=${documentId}&userIndex=1`;
       
@@ -62,7 +70,7 @@ export default function CursorDemo(props: CursorDemoProps) {
         
   }, []);
 
-  if (props.noBorderRadius || props.avatarMode) {
+  if (props.noBorderRadius || props.avatarMode || props.replaceCursor) {
     return (
       <div ref={iframe1Ref} className={styles.iframe}></div>
     );
