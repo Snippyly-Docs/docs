@@ -1,0 +1,7 @@
+{
+    "projects": {
+        "default": "snipply-sdk-staging",
+        "staging": "snipply-sdk-staging",
+        "prod": "snippyly-sdk-prod"
+    }
+}
