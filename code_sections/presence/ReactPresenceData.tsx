@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
-export default function ReactCursorData(props: CodeSectionVariant) {
+export default function ReactPresenceData(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[1, 1], [6, 6]],
     2: [[2, 2], [8, 9], [17, 18]],
@@ -35,12 +35,12 @@ export default function ReactCursorData(props: CodeSectionVariant) {
     },
     {
       step: 3,
-      title: 'Subscribe to live cursors',
+      title: 'Subscribe to presence users',
       active: step === 3,
       description: (
         <>
-          <strong>Subscribe to constant cursor changes.</strong>
-          <p>We will send you a new list of cursors everytime there is a change so you can build out your own cursor UI and logic.</p>
+          <strong>Subscribe to constant user changes.</strong>
+          <p>We will send you a new list of users everytime there is a change so you can build out your own user UI and logic.</p>
         </>
       )
     }
@@ -57,10 +57,10 @@ export default function App() {
   useEffect(() => {
     if (client) {
 
-      const cursorElement = client.getCursorElement();
+      const presenceElement = client.getPresenceElement();
 
-      cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
-        // Do something with cursors list
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
       });
 
     }
@@ -68,7 +68,7 @@ export default function App() {
 
   return (
     <>
-      <SnippylyCursor />
+      <SnippylyPresence />
       {/* ... */}
     </>
   );

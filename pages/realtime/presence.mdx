@@ -6,6 +6,8 @@ import ReactPresenceCustom from '../../code_sections/presence/ReactPresenceCusto
 import HTMLPresenceCustom from '../../code_sections/presence/HTMLPresenceCustom.tsx';
 import PresenceParts from '../../code_sections/presence/PresenceParts.tsx';
 import PresenceVariables from '../../code_sections/presence/PresenceVariables.tsx';
+import ReactPresenceData from '../../code_sections/presence/ReactPresenceData.tsx';
+import HTMLPresenceData from '../../code_sections/presence/HTMLPresenceData.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Presence [#presence]
@@ -84,3 +86,18 @@ export function PresenceCSSVariablesSteps() {
 | `--snippyly-tooltip-bg-color` | `#FCFCFD` | `#141416` | Sets the tooltip background color |
 | `--snippyly-tooltip-border-color` | `#E6E8EC` | `#303034` | Sets the tooltip border color |
 | `--snippyly-more-users-color` | `#D4D6DF` | `#404044` | Sets the more users color |
+
+## 3. Build your own UI
+
+export function PresenceDataSteps() {
+  const optionsMap = {
+    'React': <ReactPresenceData sectionId="customize-ui" />,
+    'HTML': <HTMLPresenceData sectionId="customize-ui" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<PresenceDataSteps />
