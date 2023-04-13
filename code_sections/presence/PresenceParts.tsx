@@ -6,9 +6,9 @@ import PresenceDemo from '../../components/PresenceDemo/PresenceDemo';
 export default function PresenceParts(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[1, 1], [3, 3]],
-    2: [[2, 2]],
-    3: [[2, 2]]
+    1: [[1, 1], [11, 11]],
+    2: [[2, 10]],
+    3: [[2, 10]]
   };
   
   const [step, setStep] = useState(1);
@@ -50,13 +50,21 @@ export default function PresenceParts(props: CodeSectionVariant) {
   ];
 
   const code = `
-snippyly-presence::part(tooltip-text) {
-  flex-direction: column-reverse;
+snippyly-presence::part(user-avatar)::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 0, 0.5));
+  pointer-events: none;
 }
-    `;
+`;
 
   return <CodeSection 
   sectionId={props.sectionId}
-  preview={ <PresenceDemo classString="bigText" naked={true} /> }
+  preview={ <PresenceDemo classString="partsDemo" naked={true} /> }
   mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }
