@@ -3,9 +3,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[9, 9]],
-    2: [[12, 15]],
-    3: [[12, 15]]
+    1: [[9, 11]],
+    2: [[10, 10]],
+    3: [[10, 10]]
   };
   
   const [step, setStep] = useState(1);
@@ -55,13 +55,10 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
   <body>
 
     <div class="toolbar">
-      <snippyly-presence></snippyly-presence>
+      <snippyly-presence 
+        flock-mode="true"
+      ></snippyly-presence>
     </div>
-
-    <script>
-      const presenceElement = window.Snippyly.getPresenceElement();
-      presenceElement.enableFlockMode();
-    </script>
     
   </body>
 </html>

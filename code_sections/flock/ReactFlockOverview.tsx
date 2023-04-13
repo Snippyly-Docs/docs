@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
-import { createUseEffectStep, createGetSnippylyStep } from '../CommonSteps';
 
 export default function ReactFlockOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[1, 1], [17, 17]],
-    2: [[1, 1], [6, 6]],
-    3: [[2, 2], [8, 9], [12, 13]],
-    4: [[10, 11]],
-    5: [[10, 11]]
+    1: [[1, 1], [7, 9]],
+    2: [[1, 1], [7, 9]]
   };
   
   const [step, setStep] = useState(1);
@@ -16,32 +12,20 @@ export default function ReactFlockOverview(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Add Presence Component',
+      title: 'Enable Flock mode on Presence',
       active: step === 1,
       description: (
         <>
-          <strong>This features relies on Presence.</strong>
-          <p>Once you finish the steps, you can initialize a flock session by clicking on a user's avatar, to begin following that user.</p>
-        </>
-      )
-    },
-    createGetSnippylyStep(step, 2),
-    createUseEffectStep(step, 3),
-    {
-      step: 4,
-      title: 'Enable Flock mode',
-      active: step === 4,
-      description: (
-        <>
-          <strong>Opt-in to Flock mode globally.</strong>
+          <strong>Opt-in to Flock mode.</strong>
+          <p>This feature relies on Presence in order to trigger Flock mode. You can click on a user's avatar to start following that user.</p>
           <p>This will enable Flock mode as an option for your users globally, wherever Presence is shown.</p>
         </>
       )
     },
     {
-      step: 5,
+      step: 2,
       title: 'Test Integration',
-      active: step === 5,
+      active: step === 2,
       description: (
         <>
           <strong>Test it out by opening the same page in another browser.</strong>
@@ -52,23 +36,15 @@ export default function ReactFlockOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
-import { useEffect } from 'react';
+import { SnippylyPresence } from '@snippyly/react';
 
 export default function App() {
 
-  const client = useSnippylyClient();
-
-  useEffect(() => {
-    if (client) {
-      const presenceElement = client.getPresenceElement();
-      presenceElement.enableFlockMode();
-    }
-  }, [client]);
-
   return (
     <div className="toolbar">
-      <SnippylyPresence />
+      <SnippylyPresence 
+        flockMode={true} 
+      />
     </div>
   );
 }

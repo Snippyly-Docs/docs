@@ -3,8 +3,7 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[16, 16]],
-    2: [[17, 19]]
+    1: [[8, 12], [17, 17]]
   };
   
   const [step, setStep] = useState(1);
@@ -12,19 +11,8 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Use the History API to detect navigation',
-      active: step === 1,
-      description: (
-        <>
-          <strong>We listen to page load in order to determine if the leader of a flock navigates to a different page.</strong>
-          <p>Enabling this option will force us to listen to the Web History API to listen to URL changes as well as the default behavior.</p>
-        </>
-      )
-    },
-    {
-      step: 2,
       title: 'Pass in a callback for navigation',
-      active: step === 2,
+      active: step === 1,
       description: (
         <>
           <strong>Use a callback for custom navigation or side-effects.</strong>
@@ -42,21 +30,18 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
   </head>
   <body>
 
-    <div class="toolbar">
-      <snippyly-presence></snippyly-presence>
-    </div>
-
     <script>
-      const presenceElement = window.Snippyly.getPresenceElement();
-      presenceElement.enableFlockMode(
-        {
-          useHistoryAPI: true,
-          onNavigate: (pageInfo) => {
-            // Do something with pageInfo
-          }
-        }
-      );
+      const onNavigateHandler(pageInfo) {
+        // Do something with pageInfo
+      }
     </script>
+
+    <div class="toolbar">
+      <snippyly-presence
+        flock-mode="true"
+        on-navigate="onNavigateHandler"
+      ></snippyly-presence>
+    </div>
     
   </body>
 </html>
