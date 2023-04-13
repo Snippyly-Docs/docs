@@ -8,6 +8,8 @@ import HTMLCursorSlot from '../../code_sections/cursor/HTMLCursorSlot.tsx';
 import ReactCursorSlot from '../../code_sections/cursor/ReactCursorSlot.tsx';
 import CursorParts from '../../code_sections/cursor/CursorParts.tsx';
 import CursorVariables from '../../code_sections/cursor/CursorVariables.tsx';
+import HTMLCursorData from '../../code_sections/cursor/HTMLCursorData.tsx';
+import ReactCursorData from '../../code_sections/cursor/ReactCursorData.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 
 # Cursors [#cursors]
@@ -103,3 +105,18 @@ export function CursorCSSVariables() {
 | ------------- | --------------------- | -------------------- | ---------------- |
 | `--snippyly-cursor-avatar-size` | `2rem` | `2rem` | Sets the Cursor avatar size in avatar mode |
 | `--snippyly-cursor-video-size` | `4.2rem` | `4.2rem` | Sets the Cursor avatar size in Huddle mode |
+
+## 4. Build your own UI
+
+export function CursorDataSteps() {
+  const optionsMap = {
+    'React': <ReactCursorData sectionId="customize-ui" />,
+    'HTML': <HTMLCursorData sectionId="customize-ui" />
+  };
+
+  return (
+    <StepTabs optionsMap={optionsMap} />
+  );
+}
+
+<CursorDataSteps />
