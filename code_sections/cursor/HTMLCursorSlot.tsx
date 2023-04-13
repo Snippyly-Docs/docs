@@ -16,7 +16,7 @@ export default function CursorSlot(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>You can provide any HTML inside the Cursor element.</strong>
+          <strong>You can provide any HTML inside the cursor element.</strong>
           <p>Just provide the correct slot attribute and the cursor icon that we use will be replaced.</p>
         </>
       )

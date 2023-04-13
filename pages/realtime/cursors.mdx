@@ -4,7 +4,8 @@ import ReactCursorOverview from '../../code_sections/cursor/ReactCursorOverview.
 import HTMLCursorOverview from '../../code_sections/cursor/HTMLCursorOverview.tsx';
 import ReactCursorCustom from '../../code_sections/cursor/ReactCursorCustom.tsx';
 import HTMLCursorCustom from '../../code_sections/cursor/HTMLCursorCustom.tsx';
-import CursorSlot from '../../code_sections/cursor/CursorSlot.tsx';
+import HTMLCursorSlot from '../../code_sections/cursor/HTMLCursorSlot.tsx';
+import ReactCursorSlot from '../../code_sections/cursor/ReactCursorSlot.tsx';
 import CursorParts from '../../code_sections/cursor/CursorParts.tsx';
 import CursorVariables from '../../code_sections/cursor/CursorVariables.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
@@ -50,7 +51,8 @@ export function CursorCustomizeBehavior() {
 
 export function CursorSlotSteps() {
   const optionsMap = {
-    'HTML': <CursorSlot sectionId="customize-ui" />
+    'React': <ReactCursorSlot sectionId="customize-ui" />,
+    'HTML': <HTMLCursorSlot sectionId="customize-ui" />
   };
 
   return (
