@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
+import { createUseEffectStep, createGetSnippylyStep } from '../CommonSteps';
 
 export default function ReactPresenceData(props: CodeSectionVariant) {
   const highlightRangeMap = {
@@ -11,28 +12,8 @@ export default function ReactPresenceData(props: CodeSectionVariant) {
   const [step, setStep] = useState(1);
 
   const steps = [
-    {
-      step: 1,
-      title: 'Get the Snippyly client',
-      active: step === 1,
-      description: (
-        <>
-          <strong>Import the <code>useSnippylyClient</code> React hook.</strong>
-          <p>You can use this hook within your component to fetch the Snippyly client.</p>
-        </>
-      )
-    },
-    {
-      step: 2,
-      title: 'Create a useEffect hook',
-      active: step === 2,
-      description: (
-        <>
-          <strong>Create an effect with the <code>client</code> as a dependency.</strong>
-          <p>Make sure to check if the <code>client</code> is <code>null</code> or <code>undefined</code> before you use it.</p>
-        </>
-      )
-    },
+    createGetSnippylyStep(step, 1),
+    createUseEffectStep(step, 2),
     {
       step: 3,
       title: 'Subscribe to presence users',

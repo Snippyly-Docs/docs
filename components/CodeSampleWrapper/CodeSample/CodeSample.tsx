@@ -32,6 +32,7 @@ export default function CodeSample(props: CodeSampleProps) {
     const lineHeight = editor.renderer.lineHeight;
     const totalLines = editor.session.getLength();
     const height = lineHeight * totalLines + (3 * lineHeight);
+    console.log(height);
     editor.container.style.height = `${height}px`;
     editor.resize();
   };
