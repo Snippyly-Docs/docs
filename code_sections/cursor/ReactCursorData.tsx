@@ -33,7 +33,7 @@ import { useEffect } from 'react';
 
 export default function App() {
 
-  const client = useSnippylyClient();
+  const { client } = useSnippylyClient();
 
   useEffect(() => {
     if (client) {

@@ -30,34 +30,34 @@ export default function CursorDemo(props: CursorDemoProps) {
 
     const documentId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     
-    fetch('https://us-central1-snipply-sdk-staging.cloudfunctions.net/setCursorData', {
+    fetch('https://us-central1-snippyly-sdk-prod.cloudfunctions.net/setCursorData', {
       method: 'POST',
       body: JSON.stringify({ documentId })
     }).then(data => {
 
       if (props.noBorderRadius) {
-        const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0&noBorderRadius=true`;
+        const src = `https://snippyly-docs-demo.web.app/cursors?documentId=${documentId}&userIndex=0&noBorderRadius=true`;
         createIFrame(iframe1Ref.current, src);
         setDemoInitialized(true);
         return;
       }
 
       if (props.avatarMode) {
-        const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0&avatarMode=true`;
+        const src = `https://snippyly-docs-demo.web.app/cursors?documentId=${documentId}&userIndex=0&avatarMode=true`;
         createIFrame(iframe1Ref.current, src);
         setDemoInitialized(true);
         return;
       }
 
       if (props.replaceCursor) {
-        const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0&replaceCursor=true`;
+        const src = `https://snippyly-docs-demo.web.app/cursors?documentId=${documentId}&userIndex=0&replaceCursor=true`;
         createIFrame(iframe1Ref.current, src);
         setDemoInitialized(true);
         return;
       }
 
-      const src = `https://snippyly-demo-html-dev.web.app/cursor-docs-demo.html?documentId=${documentId}&userIndex=0`;
-      const src2 = `https://snippyly-demo-html-dev.firebaseapp.com/cursor-docs-demo.html?documentId=${documentId}&userIndex=1`;
+      const src = `https://snippyly-docs-demo.web.app/cursors?documentId=${documentId}&userIndex=0`;
+      const src2 = `https://snippyly-docs-demo.firebaseapp.com/cursors?documentId=${documentId}&userIndex=1`;
       
       createIFrame(iframe1Ref.current, src);
       createIFrame(iframe2Ref.current, src2);
