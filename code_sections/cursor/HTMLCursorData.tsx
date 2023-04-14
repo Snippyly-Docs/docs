@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
+import { createGetInstanceStep } from '../CommonSteps';
 
 export default function HTMLCursorData(props: CodeSectionVariant) {
   const highlightRangeMap = {
@@ -10,17 +11,7 @@ export default function HTMLCursorData(props: CodeSectionVariant) {
   const [step, setStep] = useState(1);
 
   const steps = [
-    {
-      step: 1,
-      title: 'Get an instance of the cursor element',
-      active: step === 1,
-      description: (
-        <>
-          <strong>Fetch the cursor element from the Snippyly client.</strong>
-          <p>At this point, the Snippyly instance should be loaded and available to you on the <code>window</code> object.</p>
-        </>
-      )
-    },
+    createGetInstanceStep(step, 1, 'cursor'),
     {
       step: 2,
       title: 'Subscribe to live cursors',

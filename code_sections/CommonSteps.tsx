@@ -26,3 +26,17 @@ export function createGetSnippylyStep(currentStep: number, stepNum: number) {
     )
   };
 }
+
+export function createGetInstanceStep(currentStep: number, stepNum: number, instanceType: string) {
+  return {
+    step: stepNum,
+    title: `Get an instance of the ${instanceType} element`,
+    active: currentStep === stepNum,
+    description: (
+      <>
+        <strong>Fetch the {instanceType} element from the Snippyly client.</strong>
+        <p>At this point, the Snippyly instance should be loaded and available to you on the <code>window</code> object.</p>
+      </>
+    )
+  };
+}

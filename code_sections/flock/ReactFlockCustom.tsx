@@ -3,7 +3,7 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[2, 2], [6, 6], [10, 13]],
+    1: [[2, 2], [6, 6], [12, 12]],
   };
   
   const [step, setStep] = useState(1);

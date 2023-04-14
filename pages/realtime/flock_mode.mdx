@@ -5,6 +5,8 @@ import ReactFlockOverview from '../../code_sections/flock/ReactFlockOverview.tsx
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 import ReactFlockCustom from '../../code_sections/flock/ReactFlockCustom.tsx';
 import HTMLFlockCustom from '../../code_sections/flock/HTMLFlockCustom.tsx';
+import ReactFlockAPI from '../../code_sections/flock/ReactFlockAPI.tsx';
+import HTMLFlockAPI from '../../code_sections/flock/HTMLFlockAPI.tsx';
 
 # Flock Mode [#flock-mode]
 
@@ -42,3 +44,19 @@ export function FlockCustomSteps() {
 }
 
 <FlockCustomSteps />
+
+# API [#api]
+
+export function FlockAPISteps() {
+  
+    const optionsMap = {
+      'React': <ReactFlockAPI sectionId="api" />,
+      'HTML': <HTMLFlockAPI sectionId="api" />
+    };
+  
+    return (
+      <StepTabs optionsMap={optionsMap} />
+    );
+}
+
+<FlockAPISteps />
