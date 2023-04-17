@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SnippylyProvider apiKey="WDMgKshFEsPTqvBjUcH3">
-      <GlobalContext.Provider value={{ frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
+      <GlobalContext.Provider value={{ frontendOption, setFrontendOption, activeHeader, setActiveHeader, featureVariant, setFeatureVariant }}>
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </SnippylyProvider>
