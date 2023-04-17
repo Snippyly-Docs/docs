@@ -18,13 +18,20 @@ import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 # Steps [#steps]
 
 export function PresenceSteps() {
-  const optionsMap = {
-    'React': <ReactPresenceOverview sectionId="steps" />,
-    'HTML': <HTMLPresenceOverview sectionId="steps" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactPresenceOverview sectionId="steps" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLPresenceOverview sectionId="steps" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -33,13 +40,20 @@ export function PresenceSteps() {
 # Customize Behavior [#customize-behavior]
 
 export function PresenceCustomSteps() {
-  const optionsMap = {
-    'React': <ReactPresenceCustom sectionId="customize-behavior" />,
-    'HTML': <HTMLPresenceCustom sectionId="customize-behavior" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactPresenceCustom sectionId="customize-behavior" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLPresenceCustom sectionId="customize-behavior" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -50,11 +64,15 @@ export function PresenceCustomSteps() {
 ## 1. Parts
 
 export function PresenceCSSPartsSteps() {
-  const optionsMap = {
-    'All': <PresenceParts sectionId="customize-ui" />
-  };
 
-  return <StepTabs optionsMap={optionsMap} />
+  const frontendOptions = [
+    {
+      title: 'All',
+      value: <PresenceParts sectionId="customize-ui" />
+    }
+  ];
+  
+  return <StepTabs frontendOptions={frontendOptions} />
 }
 
 <PresenceCSSPartsSteps />
@@ -70,10 +88,15 @@ export function PresenceCSSPartsSteps() {
 ## 2. Variables
 
 export function PresenceCSSVariablesSteps() {
-  const optionsMap = {
-    'All': <PresenceVariables sectionId="customize-ui" />
-  };
-  return <StepTabs optionsMap={optionsMap} />
+
+  const frontendOptions = [
+    {
+      title: 'All',
+      value: <PresenceVariables sectionId="customize-ui" />
+    }
+  ];
+
+  return <StepTabs frontendOptions={frontendOptions} />
 }
 
 <PresenceCSSVariablesSteps />
@@ -90,13 +113,20 @@ export function PresenceCSSVariablesSteps() {
 ## 3. Build your own UI
 
 export function PresenceDataSteps() {
-  const optionsMap = {
-    'React': <ReactPresenceData sectionId="customize-ui" />,
-    'HTML': <HTMLPresenceData sectionId="customize-ui" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactPresenceData sectionId="customize-ui" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLPresenceData sectionId="customize-ui" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 

@@ -20,13 +20,20 @@ import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 # Steps [#steps]
 
 export function CursorSteps() {
-  const optionsMap = {
-    'React': <ReactCursorOverview sectionId="steps" />,
-    'HTML': <HTMLCursorOverview sectionId="steps" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactCursorOverview sectionId="steps" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLCursorOverview sectionId="steps" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -35,13 +42,20 @@ export function CursorSteps() {
 # Customize Behavior [#customize-behavior]
 
 export function CursorCustomizeBehavior() {
-  const optionsMap = {
-    'React': <ReactCursorCustom sectionId="customize-behavior" />,
-    'HTML': <HTMLCursorCustom sectionId="customize-behavior" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactCursorCustom sectionId="customize-behavior" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLCursorCustom sectionId="customize-behavior" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -52,13 +66,20 @@ export function CursorCustomizeBehavior() {
 ## 1. Slots
 
 export function CursorSlotSteps() {
-  const optionsMap = {
-    'React': <ReactCursorSlot sectionId="customize-ui" />,
-    'HTML': <HTMLCursorSlot sectionId="customize-ui" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactCursorSlot sectionId="customize-ui" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLCursorSlot sectionId="customize-ui" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -67,12 +88,16 @@ export function CursorSlotSteps() {
 ## 2. Parts
 
 export function CursorCSSParts() {
-  const optionsMap = {
-    'HTML': <CursorParts sectionId="customize-ui" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'HTML',
+      value: <CursorParts sectionId="customize-ui" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -90,12 +115,16 @@ export function CursorCSSParts() {
 ## 3. Variables
 
 export function CursorCSSVariables() {
-  const optionsMap = {
-    'HTML': <CursorVariables sectionId="customize-ui" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'HTML',
+      value: <CursorVariables sectionId="customize-ui" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -109,13 +138,20 @@ export function CursorCSSVariables() {
 ## 4. Build your own UI
 
 export function CursorDataSteps() {
-  const optionsMap = {
-    'React': <ReactCursorData sectionId="customize-ui" />,
-    'HTML': <HTMLCursorData sectionId="customize-ui" />
-  };
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactCursorData sectionId="customize-ui" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLCursorData sectionId="customize-ui" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 

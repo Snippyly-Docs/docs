@@ -17,13 +17,19 @@ import HTMLFlockAPI from '../../code_sections/flock/HTMLFlockAPI.tsx';
 
 export function FlockSteps() {
 
-  const optionsMap = {
-    'React': <ReactFlockOverview sectionId="steps" />,
-    'HTML': <HTMLFlockOverview sectionId="steps" />
-  };
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactFlockOverview sectionId="steps" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLFlockOverview sectionId="steps" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -33,13 +39,19 @@ export function FlockSteps() {
 
 export function FlockCustomSteps() {
 
-  const optionsMap = {
-    'React': <ReactFlockCustom sectionId="customize-behavior" />,
-    'HTML': <HTMLFlockCustom sectionId="customize-behavior" />
-  };
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactFlockCustom sectionId="customize-behavior" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLFlockCustom sectionId="customize-behavior" />
+    }
+  ];
 
   return (
-    <StepTabs optionsMap={optionsMap} />
+    <StepTabs frontendOptions={frontendOptions} />
   );
 }
 
@@ -56,14 +68,20 @@ export function FlockCustomSteps() {
 # API [#api]
 
 export function FlockAPISteps() {
-  
-    const optionsMap = {
-      'React': <ReactFlockAPI sectionId="api" />,
-      'HTML': <HTMLFlockAPI sectionId="api" />
-    };
+
+    const frontendOptions = [
+      {
+        title: 'React',
+        value: <ReactFlockAPI sectionId="api" />
+      },
+      {
+        title: 'HTML',
+        value: <HTMLFlockAPI sectionId="api" />
+      }
+    ];
   
     return (
-      <StepTabs optionsMap={optionsMap} />
+      <StepTabs frontendOptions={frontendOptions} />
     );
 }
 
