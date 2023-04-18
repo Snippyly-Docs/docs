@@ -4,5 +4,8 @@
   },
   "realtime": {
     "title": "Realtime Collaboration"
+  },
+  "async": {
+    "title": "Async Collaboration"
   }
 }

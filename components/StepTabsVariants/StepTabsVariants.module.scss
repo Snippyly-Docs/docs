@@ -18,11 +18,15 @@
   flex: 1;
   display: flex;
   align-items: center;
-  // padding: 1rem 0;
-
-  gap: 0.5rem;
+  gap: 2rem;
   margin-bottom: 2rem;
   // background-color: white;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
   h3 {
     margin: 0;

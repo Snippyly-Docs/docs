@@ -54,10 +54,10 @@ import { SnippylyCursor } from '@snippyly/react';
 export default function App() {
 
   return (
-    <>
+    <SnippylyProvider apiKey="...">
       <SnippylyCursor />
       {/* ... */}
-    </>
+    </SnippylyProvider>
   );
 }
     `;

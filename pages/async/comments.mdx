@@ -1,0 +1,75 @@
+import Subheading from '../../components/Subheading/Subheading.tsx';
+import StepTabsVariants from '../../components/StepTabsVariants/StepTabsVariants.tsx';
+import HTMLFreestyleOverview from '../../code_sections/comments/freestyle/HTMLFreestyleOverview.tsx';
+import ReactFreestyleOverview from '../../code_sections/comments/freestyle/ReactFreestyleOverview.tsx';
+import HTMLPopoverOverview from '../../code_sections/comments/popover/HTMLPopoverOverview.tsx';
+import ReactPopoverOverview from '../../code_sections/comments/popover/ReactPopoverOverview.tsx';
+import HTMLStreamOverview from '../../code_sections/comments/stream/HTMLStreamOverview.tsx';
+import ReactStreamOverview from '../../code_sections/comments/stream/ReactStreamOverview.tsx';
+import HTMLTextOverview from '../../code_sections/comments/text/HTMLTextOverview.tsx';
+import ReactTextOverview from '../../code_sections/comments/text/ReactTextOverview.tsx';
+
+# Comments [#comments]
+
+<Subheading>Add comment annotations directly to your page.</Subheading>
+{/* <CursorDemo /> */}
+
+# Steps [#steps]
+
+export function CommentOverviewSteps() {
+
+  const frontendOptions = [
+    {title: 'React'},
+    {title: 'HTML'}
+  ];
+
+  const variants = [
+    {title: 'Freestyle'},
+    {title: 'Popover'},
+    {title: 'Stream'},
+    {title: 'Text'}
+  ];
+
+  const options = [
+    [
+      <ReactFreestyleOverview sectionId="steps" />,
+      <HTMLFreestyleOverview sectionId="steps" />
+    ],
+    [
+      <ReactPopoverOverview sectionId="steps" />,
+      <HTMLPopoverOverview sectionId="steps" />
+    ],
+    [
+      <ReactStreamOverview sectionId="steps" />,
+      <HTMLStreamOverview sectionId="steps" />
+    ],
+    [
+      <ReactTextOverview sectionId="steps" />,
+      <HTMLTextOverview sectionId="steps" />
+    ]
+  ];
+
+  return (
+    <StepTabsVariants
+      frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
+    />
+  );
+
+}
+
+<CommentOverviewSteps />
+
+# Customize Behavior [#customize-behavior]
+
+
+# Customize UI [#customize-ui]
+
+## 1. Slots
+
+## 2. Parts
+
+## 3. Variables
+
+## 4. Build your own UI

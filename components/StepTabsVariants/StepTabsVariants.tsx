@@ -1,5 +1,5 @@
 import GlobalContext from '../globalContext';
-import styles from './StepTabs.module.scss';
+import styles from './StepTabsVariants.module.scss';
 import { useRef, useContext } from 'react';
 
 interface StepTabsVariantsProps {
@@ -52,16 +52,20 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
         <div className={`${styles.flexContainer}`} ref={hostRef}>
           <div className={styles.spacer}></div>
           <div className={styles.stepTabs}>
-            {
-              props.variants.length > 1 ?
-                renderOptions('Type', props.variants, featureVariant, setFeatureVariant)
-                : null
-            }
-            {
-              props.frontendOptions.length > 1 ?
-                renderOptions('Frontend', props.frontendOptions, frontendOption, setFrontendOption)
-                : null
-            }
+            <div>
+              {
+                props.variants.length > 1 ?
+                  renderOptions('Type', props.variants, featureVariant, setFeatureVariant)
+                  : null
+              }
+            </div>
+            <div>
+              {
+                props.frontendOptions.length > 1 ?
+                  renderOptions('Frontend', props.frontendOptions, frontendOption, setFrontendOption)
+                  : null
+              }
+            </div>
           </div>
         </div>
         : undefined}
