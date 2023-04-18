@@ -1,6 +1,6 @@
 import GlobalContext from '../globalContext';
 import styles from './StepTabsVariants.module.scss';
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useState } from 'react';
 
 interface StepTabsVariantsProps {
   frontendOptions: [{title: string}];
@@ -10,7 +10,8 @@ interface StepTabsVariantsProps {
 
 export default function StepTabsVariants(props: StepTabsVariantsProps) {
 
-  const { frontendOption, setFrontendOption, featureVariant, setFeatureVariant } = useContext(GlobalContext);
+  const { frontendOption, setFrontendOption } = useContext(GlobalContext);
+  const [featureVariant, setFeatureVariant] = useState(0);
 
   const hostRef = useRef(null);
 

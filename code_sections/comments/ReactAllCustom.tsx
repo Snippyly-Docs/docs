@@ -29,7 +29,7 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>You can provide a data attribute.</strong>
+          <strong>Add a data attribute.</strong>
           <p>If you only want to disallow commenting on certain elements, add the <code>data-snippyly-comment-disabled</code> attribute to that element.</p>
         </>
       )
