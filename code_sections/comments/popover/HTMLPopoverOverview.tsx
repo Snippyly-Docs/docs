@@ -4,8 +4,9 @@ import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 export default function HTMLPopoverOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[8, 8]],
-    2: [[11, 11]],
-    3: [[11, 11]]
+    2: [[11, 13]],
+    3: [[17, 19]],
+    4: [[17, 19]]
   };
   
   const [step, setStep] = useState(1);
@@ -35,8 +36,19 @@ export default function HTMLPopoverOverview(props: CodeSectionVariant) {
     },
     {
       step: 3,
-      title: 'Test Integration',
+      title: 'Add the Comment Bubble component',
       active: step === 3,
+      description: (
+        <>
+          <strong>The comment bubble shows the total number of threads, and allows users to open the comment associated with a given target element.</strong>
+          <p>It acts as an indicator -- your users can see how many comments were left on an element at first glance. Like the Comment Tool, you must specify a target comment element ID.</p>
+        </>
+      )
+    },
+    {
+      step: 4,
+      title: 'Test Integration',
+      active: step === 4,
       description: (
         <>
           <strong>Test it out by adding a comment.</strong>
@@ -57,10 +69,15 @@ export default function HTMLPopoverOverview(props: CodeSectionVariant) {
     <snippyly-comments popover-mode="true"></snippyly-comments>
 
     <div class="toolbar">
-      <snippyly-comment-tool target-comment-element-id="some-element"></snippyly-comment-tool>
+      <snippyly-comment-tool 
+        target-comment-element-id="some-element"
+      ></snippyly-comment-tool>
     </div>
 
     <div id="some-element">
+      <snippyly-comment-bubble 
+        target-comment-element-id="some-element"
+      ></snippyly-comment-bubble>
       Attach a comment to this div!
     </div>
   </body>

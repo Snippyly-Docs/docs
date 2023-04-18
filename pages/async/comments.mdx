@@ -1,5 +1,6 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import StepTabsVariants from '../../components/StepTabsVariants/StepTabsVariants.tsx';
+import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 import HTMLFreestyleOverview from '../../code_sections/comments/freestyle/HTMLFreestyleOverview.tsx';
 import ReactFreestyleOverview from '../../code_sections/comments/freestyle/ReactFreestyleOverview.tsx';
 import HTMLPopoverOverview from '../../code_sections/comments/popover/HTMLPopoverOverview.tsx';
@@ -12,6 +13,8 @@ import HTMLAllCustom from '../../code_sections/comments/HTMLAllCustom.tsx';
 import ReactAllCustom from '../../code_sections/comments/ReactAllCustom.tsx';
 import ReactPopoverCustom from '../../code_sections/comments/popover/ReactPopoverCustom.tsx';
 import HTMLPopoverCustom from '../../code_sections/comments/popover/HTMLPopoverCustom.tsx';
+import ReactPin from '../../code_sections/comments/slots/ReactPin.tsx';
+import HTMLPin from '../../code_sections/comments/slots/HTMLPin.tsx';
 
 # Comments [#comments]
 
@@ -103,6 +106,27 @@ export function CommentCustomizeSteps() {
 # Customize UI [#customize-ui]
 
 ## 1. Slots
+
+export function CommentSlotSteps() {
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactPin sectionId="customize-ui" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLPin sectionId="customize-ui" />
+    }
+  ];
+
+  return (
+    <StepTabs
+      frontendOptions={frontendOptions}
+    />
+  );
+}
+
+<CommentSlotSteps />
 
 ## 2. Parts
 

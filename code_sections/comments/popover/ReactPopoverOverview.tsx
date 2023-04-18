@@ -7,8 +7,9 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[1, 1], [3, 5]],
     2: [[11, 11]],
-    3: [[14, 14]],
-    4: [[14, 14]]
+    3: [[14, 16]],
+    4: [[20, 22]],
+    5: [[20, 22]]
   };
   
   const [step, setStep] = useState(1);
@@ -49,8 +50,19 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
     },
     {
       step: 4,
-      title: 'Test Integration',
+      title: 'Add the Comment Bubble component',
       active: step === 4,
+      description: (
+        <>
+          <strong>The comment bubble shows the total number of threads, and allows users to open the comment associated with a given target element.</strong>
+          <p>It acts as an indicator -- your users can see how many comments were left on an element at first glance. Like the Comment Tool, you must specify a target comment element ID.</p>
+        </>
+      )
+    },
+    {
+      step: 5,
+      title: 'Test Integration',
+      active: step === 5,
       description: (
         <>
           <strong>Test it out by adding a comment.</strong>
@@ -74,10 +86,15 @@ export default function App() {
       <SnippylyComments popoverMode={true} />
 
       <div className="toolbar">
-        <SnippylyCommentTool targetCommentElementId="some-element" />
+        <SnippylyCommentTool 
+          targetCommentElementId="some-element" 
+        />
       </div>
 
       <div id="some-element">
+        <SnippylyCommentBubble 
+          targetCommentElementId="some-element" 
+        />
         Attach a comment to this div!
       </div>
     </SnippylyProvider>
