@@ -15,6 +15,10 @@ import ReactPopoverCustom from '../../code_sections/comments/popover/ReactPopove
 import HTMLPopoverCustom from '../../code_sections/comments/popover/HTMLPopoverCustom.tsx';
 import ReactPin from '../../code_sections/comments/slots/ReactPin.tsx';
 import HTMLPin from '../../code_sections/comments/slots/HTMLPin.tsx';
+import ReactBubble from '../../code_sections/comments/slots/ReactBubble.tsx';
+import HTMLBubble from '../../code_sections/comments/slots/HTMLBubble.tsx';
+import ReactTool from '../../code_sections/comments/slots/ReactTool.tsx';
+import HTMLTool from '../../code_sections/comments/slots/HTMLTool.tsx';
 
 # Comments [#comments]
 
@@ -109,27 +113,38 @@ export function CommentCustomizeSteps() {
 
 export function CommentSlotSteps() {
   const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactPin sectionId="customize-ui" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLPin sectionId="customize-ui" />
-    }
+    { title: 'React' },
+    { title: 'HTML' }
+  ];
+
+  const variants = [
+    { title: 'Pin' },
+    { title: 'Bubble' },
+    { title: 'Tool' }
+  ];
+
+  const options = [
+    [
+      <ReactPin sectionId="customize-ui" />,
+      <HTMLPin sectionId="customize-ui" />
+    ],
+    [
+      <ReactBubble sectionId="customize-ui" />,
+      <HTMLBubble sectionId="customize-ui" />
+    ],
+    [
+      <ReactTool sectionId="customize-ui" />,
+      <HTMLTool sectionId="customize-ui" />
+    ]
   ];
 
   return (
-    <StepTabs
+    <StepTabsVariants
       frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
     />
   );
 }
 
 <CommentSlotSteps />
-
-## 2. Parts
-
-## 3. Variables
-
-## 4. Build your own UI

@@ -5,9 +5,9 @@ import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 export default function ReactPin(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[12, 17]],
-    2: [[14, 14]],
-    3: [[16, 16]],
+    1: [[11, 16]],
+    2: [[13, 13]],
+    3: [[15, 15]],
   }
   
   const [step, setStep] = useState(1);
@@ -15,12 +15,12 @@ export default function ReactPin(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Replace the Comment Pin',
+      title: 'Replace the Comment Bubble',
       active: step === 1,
       description: (
         <>
-          <strong>Provide a template for the Comment Pin.</strong>
-          <p>Target the <code>comment-pin</code> slot in order to replace comment pins on the screen.</p>
+          <strong>Provide a template for the Comment Bubble.</strong>
+          <p>Target the <code>comment-bubble</code> slot with your own custom template.</p>
         </>
       )
     },
@@ -49,26 +49,25 @@ export default function ReactPin(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { 
-  SnippylyProvider, 
-  SnippylyComments
+import {
+  SnippylyCommentBubble
 } from '@snippyly/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <>
 
-      <SnippylyComments>
+      <SnippylyCommentBubble>
         <div 
-          slot="comment-pin" 
+          slot="bubble" 
           data-snippyly-priority-color="border-color"
         >
           <img data-snippyly-avatar-img="src" />
         </div>
-      </SnippylyComments>
+      </SnippylyCommentBubble>
 
-    </SnippylyProvider>
+    </>
   );
 }
     `;

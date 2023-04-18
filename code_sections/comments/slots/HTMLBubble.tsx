@@ -2,25 +2,25 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 
-export default function ReactPin(props: CodeSectionVariant) {
+export default function ReactAllCustom(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[12, 17]],
-    2: [[14, 14]],
-    3: [[16, 16]],
-  }
+    1: [[8, 15]],
+    2: [[11, 11]],
+    3: [[13, 13]],
+  };
   
   const [step, setStep] = useState(1);
 
   const steps = [
     {
       step: 1,
-      title: 'Replace the Comment Pin',
+      title: 'Replace the Comment Bubble',
       active: step === 1,
       description: (
         <>
-          <strong>Provide a template for the Comment Pin.</strong>
-          <p>Target the <code>comment-pin</code> slot in order to replace comment pins on the screen.</p>
+          <strong>Provide a template for the Comment Bubble.</strong>
+          <p>Target the <code>comment-bubble</code> slot with your own custom template.</p>
         </>
       )
     },
@@ -49,29 +49,25 @@ export default function ReactPin(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { 
-  SnippylyProvider, 
-  SnippylyComments
-} from '@snippyly/react';
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Comment documentation</title>
+  </head>
+  <body>
 
-export default function App() {
+    <snippyly-comment-bubble>
+      <div 
+        slot="bubble" 
+        data-snippyly-priority-color="border-color"
+      >
+        <img data-snippyly-avatar-img="src" />
+      </div>
+    </snippyly-comment-bubble>
 
-  return (
-    <SnippylyProvider apiKey="...">
-
-      <SnippylyComments>
-        <div 
-          slot="comment-pin" 
-          data-snippyly-priority-color="border-color"
-        >
-          <img data-snippyly-avatar-img="src" />
-        </div>
-      </SnippylyComments>
-
-    </SnippylyProvider>
-  );
-}
+  </body>
+</html>
     `;
 
-  return <CodeSection sectionId={props.sectionId} mode="jsx" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
+  return <CodeSection sectionId={props.sectionId} mode="html" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

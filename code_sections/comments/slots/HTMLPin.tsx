@@ -5,7 +5,7 @@ import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 export default function ReactAllCustom(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[9, 10], [12, 12], [14, 14]],
+    1: [[9, 14]],
     2: [[11, 11]],
     3: [[13, 13]],
   };
@@ -20,7 +20,7 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Provide a template for the Comment Pin.</strong>
-          <p>Target the <code>comment-pin</code> slot in order to replace comment pins on the screen..</p>
+          <p>Target the <code>comment-pin</code> slot in order to replace comment pins on the screen.</p>
         </>
       )
     },

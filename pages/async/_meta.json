@@ -1,5 +1,8 @@
 {
   "comments": {
     "title": "Comments"
+  },
+  "comments_sidebar": {
+    "title": "Comments Sidebar"
   }
 }
