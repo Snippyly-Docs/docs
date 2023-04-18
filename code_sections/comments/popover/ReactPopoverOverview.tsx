@@ -5,10 +5,10 @@ import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 export default function ReactPopoverOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[1, 1]],
-    2: [[7, 7]],
-    3: [[10, 10]],
-    4: [[10, 10]]
+    1: [[1, 1], [3, 5]],
+    2: [[11, 11]],
+    3: [[14, 14]],
+    4: [[14, 14]]
   };
   
   const [step, setStep] = useState(1);
@@ -61,7 +61,11 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyProvider, SnippylyComments, SnippylyCommentTool } from '@snippyly/react';
+import { 
+  SnippylyProvider, 
+  SnippylyComments, 
+  SnippylyCommentTool 
+} from '@snippyly/react';
 
 export default function App() {
 

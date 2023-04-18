@@ -8,6 +8,10 @@ import HTMLStreamOverview from '../../code_sections/comments/stream/HTMLStreamOv
 import ReactStreamOverview from '../../code_sections/comments/stream/ReactStreamOverview.tsx';
 import HTMLTextOverview from '../../code_sections/comments/text/HTMLTextOverview.tsx';
 import ReactTextOverview from '../../code_sections/comments/text/ReactTextOverview.tsx';
+import HTMLAllCustom from '../../code_sections/comments/HTMLAllCustom.tsx';
+import ReactAllCustom from '../../code_sections/comments/ReactAllCustom.tsx';
+import ReactPopoverCustom from '../../code_sections/comments/popover/ReactPopoverCustom.tsx';
+import HTMLPopoverCustom from '../../code_sections/comments/popover/HTMLPopoverCustom.tsx';
 
 # Comments [#comments]
 
@@ -63,6 +67,38 @@ export function CommentOverviewSteps() {
 
 # Customize Behavior [#customize-behavior]
 
+export function CommentCustomizeSteps() {
+  const frontendOptions = [
+    {title: 'React'},
+    {title: 'HTML'}
+  ];
+
+  const variants = [
+    {title: 'All'},
+    {title: 'Popover'}
+  ];
+
+  const options = [
+    [
+      <ReactAllCustom sectionId="steps" />,
+      <HTMLAllCustom sectionId="steps" />
+    ],
+    [
+      <ReactPopoverCustom sectionId="steps" />,
+      <HTMLPopoverCustom sectionId="steps" />
+    ]
+  ];
+
+  return (
+    <StepTabsVariants
+      frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
+    />
+  );
+}
+
+<CommentCustomizeSteps />
 
 # Customize UI [#customize-ui]
 
