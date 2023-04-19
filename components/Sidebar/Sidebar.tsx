@@ -29,7 +29,7 @@ export default function Sidebar(props: SidebarProps) {
     const initialStates = {};
 
     const setDefault = (item) => {
-      initialStates[item.name] = route.includes(item.name) || route === item.route;
+      initialStates[item.name] = route.includes(item.name) || route === item.route || item.kind === 'Folder';
       if (item.children) {
         item.children.forEach(setDefault);
       }

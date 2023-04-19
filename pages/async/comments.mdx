@@ -1,6 +1,5 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import StepTabsVariants from '../../components/StepTabsVariants/StepTabsVariants.tsx';
-import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 import HTMLFreestyleOverview from '../../code_sections/comments/freestyle/HTMLFreestyleOverview.tsx';
 import ReactFreestyleOverview from '../../code_sections/comments/freestyle/ReactFreestyleOverview.tsx';
 import HTMLPopoverOverview from '../../code_sections/comments/popover/HTMLPopoverOverview.tsx';
@@ -19,6 +18,9 @@ import ReactBubble from '../../code_sections/comments/slots/ReactBubble.tsx';
 import HTMLBubble from '../../code_sections/comments/slots/HTMLBubble.tsx';
 import ReactTool from '../../code_sections/comments/slots/ReactTool.tsx';
 import HTMLTool from '../../code_sections/comments/slots/HTMLTool.tsx';
+import PinPart from '../../code_sections/comments/parts/PinPart.tsx';
+import BubblePart from '../../code_sections/comments/parts/BubblePart.tsx';
+import ToolPart from '../../code_sections/comments/parts/ToolPart.tsx';
 
 # Comments [#comments]
 
@@ -148,3 +150,41 @@ export function CommentSlotSteps() {
 }
 
 <CommentSlotSteps />
+
+## 2. Parts
+
+export function CommentPartSteps() {
+  const frontendOptions = [
+    { title: 'All' }
+  ];
+
+  const variants = [
+    { title: 'Pin' },
+    { title: 'Bubble' },
+    { title: 'Tool' }
+  ];
+
+  const options = [
+    [
+      <PinPart sectionId="customize-ui" />
+    ],
+    [
+      <BubblePart sectionId="customize-ui" />
+    ],
+    [
+      <ToolPart sectionId="customize-ui" />
+    ]
+  ];
+
+  return (
+    <StepTabsVariants 
+      frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
+    />
+  );
+}
+
+<CommentPartSteps />
+
+## 3. Variables

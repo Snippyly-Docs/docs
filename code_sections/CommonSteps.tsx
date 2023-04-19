@@ -40,3 +40,78 @@ export function createGetInstanceStep(currentStep: number, stepNum: number, inst
     )
   };
 }
+
+export function createPartSteps(currentStep: number) {
+  return [
+    {
+      step: 1,
+      title: 'Select the part you want to modify',
+      active: currentStep === 1,
+      description: (
+        <>
+          <strong>We offer several parts which can be used like classes.</strong>
+          <p>The Cursor component is encapsulated in Shadow DOM, which is isolated from the normal DOM.</p>
+        </>
+      )
+    },
+    {
+      step: 2,
+      title: 'Apply your CSS rules',
+      active: currentStep === 2,
+      description: (
+        <>
+          <strong>Set whatever CSS rules you want.</strong>
+          <p>The part lets you target a specific element within a Shadow DOM.</p>
+        </>
+      )
+    },
+    {
+      step: 3,
+      title: 'Check out the table below',
+      active: currentStep === 3,
+      description: (
+        <>
+          <strong>Reference the table below to see what parts we expose.</strong>
+          <p>Alternatively, you can directly inspect the component HTML to see what parts are available.</p>
+        </>
+      )
+    }];
+}
+
+export function createVariableSteps(currentStep: number, component: string) {
+  return [
+    {
+      step: 1,
+      title: `Select the ${component} component`,
+      active: currentStep === 1,
+      description: (
+        <>
+          <strong>You can select all {component} components, or use a specific selector.</strong>
+          <p>Our CSS variables are set at the component level.</p>
+        </>
+      )
+    },
+    {
+      step: 2,
+      title: 'Modify a CSS variable',
+      active: currentStep === 2,
+      description: (
+        <>
+          <strong>Set the variable to anything you want.</strong>
+          <p>We expose a set of variables so you can customize the component to better match your UI.</p>
+        </>
+      )
+    },
+    {
+      step: 3,
+      title: 'Check out the table below',
+      active: currentStep === 3,
+      description: (
+        <>
+          <strong>Reference the table below to see what variables we expose.</strong>
+          <p>Alternatively, you can directly inspect the component CSS to see what variables are available.</p>
+        </>
+      )
+    }
+  ];
+}

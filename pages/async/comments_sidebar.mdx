@@ -1,0 +1,42 @@
+import Subheading from '../../components/Subheading/Subheading.tsx';
+import StepTabs from '../../components/StepTabs/StepTabs.tsx';
+import HTMLSidebarOverview from '../../code_sections/comments_sidebar/HTMLSidebarOverview.tsx';
+import ReactSidebarOverview from '../../code_sections/comments_sidebar/ReactSidebarOverview.tsx';
+
+# Comments Sidebar [#comments-sidebar]
+
+<Subheading>Provide a toggleable sidebar to view and filter comments.</Subheading>
+{/* <CursorDemo /> */}
+
+# Steps [#steps]
+
+export function SidebarOverviewSteps() {
+
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactSidebarOverview sectionId="steps" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLSidebarOverview sectionId="steps" />
+    }
+  ];
+
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
+}
+
+<SidebarOverviewSteps />
+
+# Customize Behavior [#customize-behavior]
+
+
+# Customize UI [#customize-ui]
+
+## 1. Slots
+
+## 2. Parts
+
+## 3. Variables
