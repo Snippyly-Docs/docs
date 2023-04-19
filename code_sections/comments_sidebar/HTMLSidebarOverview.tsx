@@ -3,8 +3,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLFreestyleOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[14, 14]],
-    2: [[14, 14]]
+    1: [[9, 9]],
+    2: [[13, 13]],
+    3: [[13, 13]]
   };
   
   const [step, setStep] = useState(1);
@@ -23,8 +24,19 @@ export default function HTMLFreestyleOverview(props: CodeSectionVariant) {
     },
     {
       step: 2,
-      title: 'Test Integration',
+      title: 'Add Sidebar button',
       active: step === 2,
+      description: (
+        <>
+          <strong>Add the Sidebar button to toggle the sidebar.</strong>
+          <p>This is completely optional and you can toggle the sidebar in the comment dialog as well.</p>
+        </>
+      )
+    },
+    {
+      step: 3,
+      title: 'Test Integration',
+      active: step === 3,
       description: (
         <>
           <strong>Test it out by opening the sidebar.</strong>
@@ -43,12 +55,12 @@ export default function HTMLFreestyleOverview(props: CodeSectionVariant) {
   <body>
 
     <snippyly-comments></snippyly-comments>
+    <snippyly-comments-sidebar></snippyly-comments-sidebar>
 
     <div class="toolbar">
       <snippyly-comment-tool></snippyly-comment-tool>
+      <snippyly-sidebar-button></snippyly-sidebar-button>
     </div>
-
-    <snippyly-comments-sidebar></snippyly-comments-sidebar>
     
   </body>
 </html>

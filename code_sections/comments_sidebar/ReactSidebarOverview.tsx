@@ -5,9 +5,10 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactFreestyleOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[3, 3]],
-    2: [[17, 17]],
-    3: [[17, 17]]
+    1: [[1, 1], [3, 4], [6, 6]],
+    2: [[13, 13]],
+    3: [[17, 17]],
+    4: [[17, 17]]
   };
   
   const [step, setStep] = useState(1);
@@ -15,7 +16,7 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Import Comments Sidebar',
+      title: 'Import Comments Sidebar and Sidebar button',
       active: step === 1,
       description: (
         <>
@@ -37,8 +38,19 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
     },
     {
       step: 3,
-      title: 'Test Integration',
+      title: 'Add Sidebar button',
       active: step === 3,
+      description: (
+        <>
+          <strong>Add the Sidebar button to toggle the sidebar.</strong>
+          <p>This is completely optional and you can toggle the sidebar in the comment dialog as well.</p>
+        </>
+      )
+    },
+    {
+      step: 4,
+      title: 'Test Integration',
+      active: step === 4,
       description: (
         <>
           <strong>Test it out by opening the sidebar.</strong>
@@ -52,6 +64,7 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
 import { 
   SnippylyProvider, 
   SnippylyCommentsSidebar, 
+  SnippylySidebarButton,
   SnippylyCommentTool 
 } from '@snippyly/react';
 
@@ -60,12 +73,13 @@ export default function App() {
   return (
     <SnippylyProvider apiKey="...">
       <SnippylyComments />
+      <SnippylyCommentsSidebar />
 
       <div className="toolbar">
         <SnippylyCommentTool />
+        <SnippylySidebarButton />
       </div>
 
-      <SnippylyCommentsSidebar />
     </SnippylyProvider>
   );
 }
