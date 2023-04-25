@@ -50,7 +50,7 @@ export default function HTMLFreestyleOverview(props: CodeSectionVariant) {
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Comment documentation</title>
+    <title>Comment Sidebar documentation</title>
   </head>
   <body>
 

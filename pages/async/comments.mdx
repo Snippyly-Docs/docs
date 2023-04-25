@@ -21,6 +21,9 @@ import HTMLTool from '../../code_sections/comments/slots/HTMLTool.tsx';
 import PinPart from '../../code_sections/comments/parts/PinPart.tsx';
 import BubblePart from '../../code_sections/comments/parts/BubblePart.tsx';
 import ToolPart from '../../code_sections/comments/parts/ToolPart.tsx';
+import ToolVariables from '../../code_sections/comments/variables/ToolVariables.tsx';
+import PinVariables from '../../code_sections/comments/variables/PinVariables.tsx';
+import BubbleVariables from '../../code_sections/comments/variables/BubbleVariables.tsx';
 
 # Comments [#comments]
 
@@ -89,12 +92,12 @@ export function CommentCustomizeSteps() {
 
   const options = [
     [
-      <ReactAllCustom sectionId="steps" />,
-      <HTMLAllCustom sectionId="steps" />
+      <ReactAllCustom sectionId="customize-behavior" />,
+      <HTMLAllCustom sectionId="customize-behavior" />
     ],
     [
-      <ReactPopoverCustom sectionId="steps" />,
-      <HTMLPopoverCustom sectionId="steps" />
+      <ReactPopoverCustom sectionId="customize-behavior" />,
+      <HTMLPopoverCustom sectionId="customize-behavior" />
     ]
   ];
 
@@ -188,3 +191,37 @@ export function CommentPartSteps() {
 <CommentPartSteps />
 
 ## 3. Variables
+
+export function CommentVariableSteps() {
+  const frontendOptions = [
+    {title: 'All'}
+  ];
+
+  const variants = [
+    { title: 'Pin' },
+    { title: 'Bubble' },
+    { title: 'Tool' }
+  ];
+
+  const options = [
+    [
+      <PinVariables sectionId="customize-ui" />
+    ],
+    [
+      <BubbleVariables sectionId="customize-ui" />
+    ],
+    [
+      <ToolVariables sectionId="customize-ui" />
+    ]
+  ];
+
+  return (
+    <StepTabsVariants
+      frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
+    />
+  );
+}
+
+<CommentVariableSteps />
