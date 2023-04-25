@@ -12,7 +12,7 @@ export default function CursorDemo(props: CommentsDemoProps) {
   const [demoInitialized, setDemoInitialized] = useState(false);
 
   const createIFrame = (el, src) => {
-
+ 
     const iframe = document.createElement('iframe');
     iframe.src = src;
     if (props.demoUrl !== 'comments-stream') {
@@ -31,7 +31,7 @@ export default function CursorDemo(props: CommentsDemoProps) {
     
     fetch('https://us-central1-snippyly-sdk-prod.cloudfunctions.net/setCommentData', {
       method: 'POST',
-      body: JSON.stringify({ documentId })
+      body: JSON.stringify({ documentId, type: props.demoUrl.split('-')[1] })
     }).then(data => {
 
       let demoUrl = props.demoUrl;
