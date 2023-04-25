@@ -24,11 +24,41 @@ import ToolPart from '../../code_sections/comments/parts/ToolPart.tsx';
 import ToolVariables from '../../code_sections/comments/variables/ToolVariables.tsx';
 import PinVariables from '../../code_sections/comments/variables/PinVariables.tsx';
 import BubbleVariables from '../../code_sections/comments/variables/BubbleVariables.tsx';
+import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 
 # Comments [#comments]
 
 <Subheading>Add comment annotations directly to your page.</Subheading>
-{/* <CursorDemo /> */}
+
+export function Test() {
+  const frontendOptions = [
+    {title: 'All'}
+  ];
+
+  const variants = [
+    {title: 'Freestyle'},
+    {title: 'Popover'},
+    {title: 'Stream'},
+    {title: 'Text'}
+  ];
+
+  const options = [
+    [ <CommentsDemo demoUrl="comments" /> ],
+    [ <CommentsDemo demoUrl="comments-popover" /> ],
+    [ <CommentsDemo demoUrl="comments-stream" /> ],
+    [ <CommentsDemo demoUrl="comments-text" /> ]
+  ];
+
+  return (
+    <StepTabsVariants
+      frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
+    />
+  );
+}
+
+<Test />
 
 # Steps [#steps]
 

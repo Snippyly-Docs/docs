@@ -1,6 +1,6 @@
 import GlobalContext from '../globalContext';
 import styles from './StepTabsVariants.module.scss';
-import { useRef, useContext, useState } from 'react';
+import React, { useRef, useContext, useState, useMemo } from 'react';
 
 interface StepTabsVariantsProps {
   frontendOptions: [{title: string}];
@@ -12,6 +12,7 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
 
   const { frontendOption, setFrontendOption } = useContext(GlobalContext);
   const [featureVariant, setFeatureVariant] = useState(0);
+  // const [activeOption, setActiveOption] = useState(props.options[0][0]);
 
   const hostRef = useRef(null);
 
@@ -32,7 +33,29 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
     );
   }
 
-  const getActiveOption = () => {
+  // const getActiveOption = () => {
+
+  //   console.log(featureVariant);
+
+  //   if (featureVariant in props.options && frontendOption in props.options[featureVariant]) {
+  //     return props.options[featureVariant][frontendOption];
+  //   }
+
+  //   if (featureVariant in props.options) {
+  //     return props.options[featureVariant][0];
+  //   }
+
+  //   if (frontendOption in props.options[0]) {
+  //     return props.options[0][frontendOption];
+  //   }
+
+  // }
+
+  // useEffect(() => {
+  //   setActiveOption(getActiveOption());
+  // }, [featureVariant, frontendOption]);
+
+  const activeOption = useMemo(() => {
     if (featureVariant in props.options && frontendOption in props.options[featureVariant]) {
       return props.options[featureVariant][frontendOption];
     }
@@ -44,8 +67,8 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
     if (frontendOption in props.options[0]) {
       return props.options[0][frontendOption];
     }
+  }, [featureVariant, frontendOption, props.options]);
 
-  }
 
   return (
     <>
@@ -70,7 +93,7 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
           </div>
         </div>
         : undefined}
-      {getActiveOption()}
+      {activeOption && React.cloneElement(activeOption, { key: `${featureVariant}-${frontendOption}` })}
     </>
   );
 }
