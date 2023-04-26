@@ -5,9 +5,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactSidebarCustom(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[29, 29]],
-    2: [[11, 17]],
-    3: [[33, 33], [19, 23]]
+    1: [[11, 16], [27, 29]],
+    2: [[11, 16]],
+    3: [[18, 22], [31, 33]]
   };
   
   const [step, setStep] = useState(1);
@@ -20,7 +20,7 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.</strong>
-          <p>We provide an event where you can return additional context associated with that comment, for example: what current tab or page of a table the comment lives on.</p>
+          <p>You can pass a function which returns additional context associated with that comment, for example: what current tab or page of a table the comment lives on.</p>
         </>
       )
     },
@@ -30,7 +30,7 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>The event handler should return any context you want saved.</strong>
+          <strong>The function should return any context you want saved.</strong>
           <p>When we return the location data of the comment, you can access the context field that was saved when the comment was created.</p>
         </>
       )
@@ -59,17 +59,16 @@ export default function App() {
 
   const [tabIndex, setTabIndex] = useState(0);
 
-  const onCommentAdded = (_data) => {
-
-    // Add additional context to the comment as an object
+  const provideContext = () => {
+    // Return any additional context you want saved with the comment
     return {
       selectedTabIndex: tabIndex
     };
   };
 
   const onCommentClick = (data) => {
-    const { selectedTabIndex } = comment.context;
-
+    if (!data || !data.context) return;
+    const { selectedTabIndex } = data.context;
     setTabIndex(selectedTabIndex);
   };
 
@@ -77,11 +76,11 @@ export default function App() {
     <SnippylyProvider apiKey="...">
 
       <SnippylyComments
-        onCommentAdded={onCommentAdded}
+        contextProvider={provideContext}
       />
 
       <SnippylyCommentsSidebar 
-        onCommmentClick={onCommentClick}
+        onSidebarCommentClick={onCommentClick}
       />
 
     </SnippylyProvider>

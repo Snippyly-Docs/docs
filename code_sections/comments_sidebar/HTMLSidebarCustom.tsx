@@ -5,9 +5,9 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactSidebarCustom(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[9, 9]],
-    2: [[20, 25]],
-    3: [[13, 13], [27, 30]]
+    1: [[15, 21]],
+    2: [[17, 17]],
+    3: [[23, 29]]
   };
   
   const [step, setStep] = useState(1);
@@ -20,7 +20,7 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.</strong>
-          <p>We provide an event where you can return additional context associated with that comment, for example: what current tab or page of a table the comment lives on.</p>
+          <p>We provide an event where you can set additional context associated with that comment, for example: what current tab or page of a table the comment lives on.</p>
         </>
       )
     },
@@ -30,7 +30,7 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>The event handler should return any context you want saved.</strong>
+          <strong>The event handler should call the callback with any context you want saved.</strong>
           <p>When we return the location data of the comment, you can access the context field that was saved when the comment was created.</p>
         </>
       )
@@ -56,29 +56,28 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
   </head>
   <body>
 
-    <snippyly-comments
-      on-comment-added="onCommentAdded"
-    ></snippyly-comments>
-
-    <snippyly-comments-sidebar
-      on-comment-click="onCommentClick"
-    ></snippyly-comments-sidebar>
+    <snippyly-comments></snippyly-comments>
+    <snippyly-comments-sidebar></snippyly-comments-sidebar>
 
     <script>
 
     let tabIndex = 0;
 
-    function onCommentAdded(_data) {
-      // Add additional context to the comment as an object
-      return {
-        selectedTabIndex: tabIndex
-      };
+    function onCommentAdded(event) {
+      // Add additional context to the comment using a callback
+      event.detail.addContext({ selectedTabIndex: tabIndex });
     }
 
+    const commentElement = document.querySelector('snippyly-comments');
+    commentElement.addEventListener('commentAdded', onCommentAdded);
+
     function onCommentClick(data) {
-      const { selectedTabIndex } = comment.context;
+      const { selectedTabIndex } = data.context;
       tabIndex = selectedTabIndex;
     }
+
+    const sidebarElement = document.querySelector('snippyly-comments-sidebar');
+    sidebarElement.addEventListener('sidebarCommentClicked', onCommentClick);
 
     </script>
     
