@@ -24,14 +24,13 @@ export default function CodeSample(props: CodeSampleProps) {
   const [previewOpen, setPreviewOpen] = useState(true);
 
   const setPadding = (editor) => {
-    editor.renderer.setScrollMargin(8, 0, 0, 0);
-    editor.renderer.setPadding(16);
+    editor.renderer.setPadding(32, 32, 32, 32);
   };
 
   const setHeight = (editor) => {
     const lineHeight = editor.renderer.lineHeight;
     const totalLines = editor.session.getLength();
-    const height = lineHeight * totalLines + (3 * lineHeight);
+    const height = lineHeight * totalLines + (2 * lineHeight);
     editor.container.style.height = `${height}px`;
     editor.resize();
   };
