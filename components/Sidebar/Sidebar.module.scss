@@ -1,5 +1,7 @@
 .sidebar {
-  padding: 3rem 2rem !important;
+  // padding: 3rem 2rem !important;
+  position: sticky;
+  top: 0;
 
   * {
     font-size: 1rem;
@@ -15,7 +17,7 @@
 
 .list {
   margin: 0;
-  padding-left: 1.1rem;
+  padding-left: 1.5rem;
 }
 
 .listItem {
@@ -29,8 +31,21 @@
 }
 
 .listItem + .listItem, .summary + .list {
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
 }
+
+.folder {
+  margin: 0 !important;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.folder + .folder {
+  border-top: 1px solid var(--border-color);
+}
+
 .header {
   color: var(--sidebar-header-color);
   font-weight: 400;

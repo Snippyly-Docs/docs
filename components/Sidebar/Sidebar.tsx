@@ -109,7 +109,7 @@ export default function Sidebar(props: SidebarProps) {
         const customMeta = meta[child.name] as CustomPageMeta;
 
         return (
-          <li key={child.route} className={styles.listItem}>
+          <li key={child.route} className={`${styles.listItem} ${styles.folder}`}>
             <details open={folderOpenStates[child.name]}>
               <summary onClick={($event) => handleToggleFolder(child.name, $event)} className={styles.summary}>
                 <CaretIcon open={folderOpenStates[child.name]} />
