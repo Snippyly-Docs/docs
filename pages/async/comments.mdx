@@ -24,6 +24,8 @@ import ToolPart from '../../code_sections/comments/parts/ToolPart.tsx';
 import ToolVariables from '../../code_sections/comments/variables/ToolVariables.tsx';
 import PinVariables from '../../code_sections/comments/variables/PinVariables.tsx';
 import BubbleVariables from '../../code_sections/comments/variables/BubbleVariables.tsx';
+import HTMLCustomStatus from '../../code_sections/comments/filters/HTMLCustomStatus.tsx';
+import ReactCustomStatus from '../../code_sections/comments/filters/ReactCustomStatus.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 
 # Comments [#comments]
@@ -144,7 +146,48 @@ export function CommentCustomizeSteps() {
 
 # Customize UI [#customize-ui]
 
-## 1. Slots
+## 1. Custom Filters
+
+export function CustomFilterSteps() {
+  const frontendOptions = [
+    { title: 'React' },
+    { title: 'HTML' }
+  ];
+
+  // TODO: Finish this
+  const variants = [
+    {title: 'Status'},
+    {title: 'Priority'},
+    {title: 'Category'}
+  ];
+
+  const options = [
+    [
+      <ReactCustomStatus sectionId="customize-ui" />,
+      <HTMLCustomStatus sectionId="customize-ui" />,
+    ],
+    [
+      <ReactCustomStatus sectionId="customize-ui" />,
+      <HTMLCustomStatus sectionId="customize-ui" />,
+    ],
+    [
+      <ReactCustomStatus sectionId="customize-ui" />,
+      <HTMLCustomStatus sectionId="customize-ui" />,
+    ]
+  ];
+
+  return (
+    <StepTabsVariants
+      frontendOptions={frontendOptions}
+      variants={variants}
+      options={options}
+    />
+  );
+}
+
+<CustomFilterSteps />
+
+## 2. Slots
 
 export function CommentSlotSteps() {
   const frontendOptions = [
@@ -184,7 +227,7 @@ export function CommentSlotSteps() {
 
 <CommentSlotSteps />
 
-## 2. Parts
+## 3. Parts
 
 export function CommentPartSteps() {
   const frontendOptions = [
@@ -220,7 +263,7 @@ export function CommentPartSteps() {
 
 <CommentPartSteps />
 
-## 3. Variables
+## 4. Variables
 
 export function CommentVariableSteps() {
   const frontendOptions = [
