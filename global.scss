@@ -69,7 +69,7 @@ table {
       // background-color: #009879;
       // color: #ffffff;
       text-align: left;
-      border-bottom: 1px solid var(--demo-border-color);
+      border-bottom: 1px solid var(--border-color);
     }
   }
 
@@ -80,7 +80,7 @@ table {
 
   tbody {
     tr {
-      border-bottom: 1px solid var(--demo-border-color);
+      border-bottom: 1px solid var(--border-color);
       color: var(--primary-color);
     }
 

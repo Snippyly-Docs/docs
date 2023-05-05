@@ -2,6 +2,9 @@
   "index": {
     "hidden": true
   },
+  "get_started": {
+    "title": "Get Started"
+  },
   "realtime": {
     "title": "Realtime Collaboration"
   },

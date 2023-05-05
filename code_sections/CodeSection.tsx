@@ -35,18 +35,19 @@ export default function CodeSection(props: CodeSectionProps) {
       if (window.location.hash !== `#${props.sectionId}`) {
         window.history.pushState(null, '', `#${props.sectionId}`);
       }
-      setHighlightRanges(props.highlightRangeMap[step]);
+      if (step in props.highlightRangeMap) {
+        setHighlightRanges(props.highlightRangeMap[step]);
+        // Take the first value of the first range, and the last value of the last range
+        // Set the scroll line to the middle of the range
 
-      // Take the first value of the first range, and the last value of the last range
-      // Set the scroll line to the middle of the range
+        const firstRange = props.highlightRangeMap[step][0];
+        const lastRange = props.highlightRangeMap[step][props.highlightRangeMap[step].length - 1];
+        const firstLine = firstRange[0];
+        const lastLine = lastRange[1];
+        const middleLine = Math.floor((firstLine + lastLine) / 2);
+        setScrollLine(middleLine);
+      }
 
-      const firstRange = props.highlightRangeMap[step][0];
-      const lastRange = props.highlightRangeMap[step][props.highlightRangeMap[step].length - 1];
-      const firstLine = firstRange[0];
-      const lastLine = lastRange[1];
-      const middleLine = Math.floor((firstLine + lastLine) / 2);
-      setScrollLine(middleLine);
-      
       props.setStep(step);
     } else {
       setActiveHeader(null);

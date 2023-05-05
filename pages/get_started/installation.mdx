@@ -1,0 +1,135 @@
+import Subheading from '../../components/Subheading/Subheading.tsx';
+import StepTabs from '../../components/StepTabs/StepTabs.tsx';
+import HTMLInstallation from '../../code_sections/installation/HTMLInstallation.tsx';
+import ReactInstallation from '../../code_sections/installation/ReactInstallation.tsx';
+import HTMLConfig from '../../code_sections/installation/HTMLConfig.tsx';
+import ReactConfig from '../../code_sections/installation/ReactConfig.tsx';
+import HTMLUsers from '../../code_sections/installation/HTMLUsers.tsx';
+import ReactUsers from '../../code_sections/installation/ReactUsers.tsx';
+import ReactLocation from '../../code_sections/installation/ReactLocation.tsx';
+import HTMLLocation from '../../code_sections/installation/HTMLLocation.tsx';
+
+# Installation
+
+export function InstallSteps() {
+  const frontendOptions = [
+    { 
+      title: 'React',
+      value: <ReactInstallation sectionId="installation" />
+    },
+    { 
+      title: 'HTML',
+      value: <HTMLInstallation sectionId="installation" />
+    }
+  ];
+
+  return (
+    <StepTabs 
+      frontendOptions={frontendOptions}
+    />
+  );
+}
+
+<InstallSteps />
+
+# Configuration
+
+export function ConfigSteps() {
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactConfig sectionId="configuration" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLConfig sectionId="configuration" />
+    }
+  ];
+
+  return (
+    <StepTabs 
+      frontendOptions={frontendOptions}
+    />
+  );
+}
+
+<ConfigSteps />
+
+## FeatureType
+
+| Value | Description |
+| --- | --- |
+| area | Area annotations |
+| arrow | Arrow annotations |
+| comment | Comment annotations |
+| tag | Assignment tag annotations |
+| huddle | Default huddles |
+| audioHuddle | Audio huddles |
+| cursor | Realtime cursors |
+| presence | Realtime presence avatars |
+| recorder | Embeddable screen recordings |
+| rewriter | AI copilot copy rewriter |
+
+# Users
+
+export function UserSteps() {
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactUsers sectionId="users" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLUsers sectionId="users" />
+    }
+  ];
+
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
+}
+
+<UserSteps />
+
+## User
+
+| Field | Type | Description |
+| --- | --- | --- |
+| userId | string | Unique user identifier that you use to identify your user |
+| name | string \| undefined | Your user's full name |
+| photoUrl | string \| undefined | Your user's avatar URL |
+| email | string \| undefined | Your user's email  |
+| contacts | UserContact[] \| undefined | Your user's manually defined contacts |
+| plan | string \| undefined | Your user's plan |
+| groupId | string \| undefined | Your user's group ID |
+
+## UserContact
+
+| Field | Type | Description |
+| --- | --- | --- |
+| userId | string | Unique user identifier that you use to identify your user |
+| name | string \| undefined | Your user's full name |
+| photoUrl | string \| undefined | Your user's avatar URL |
+| email | string \| undefined | Your user's email  |
+| groupId | string \| undefined | Your user's group ID |
+
+# Location
+
+export function LocationSteps() {
+  const frontendOptions = [
+    {
+      title: 'React',
+      value: <ReactLocation sectionId="location" />
+    },
+    {
+      title: 'HTML',
+      value: <HTMLLocation sectionId="location" />
+    }
+  ];
+
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
+}
+
+<LocationSteps />

@@ -21,9 +21,17 @@ export default function Sidebar(props: SidebarProps) {
 
   const { pageMap, headings, route } = props.pageOpts;
   const { setActiveHeader, activeHeader } = useContext(GlobalContext);
-
-  const sidebarItems = pageMap.filter((item) => item.kind !== 'Meta');
+  
   let meta = pageMap.find((item) => (item.kind === 'Meta')) as MetaJsonFile;
+  const metaKeyArr = Object.keys(meta.data);
+
+  const sidebarItems = pageMap.filter((item) => item.kind !== 'Meta').sort((a, b) => {
+    // @ts-ignore
+    const aIdx = metaKeyArr.findIndex((key) => (key === a.name));
+    // @ts-ignore
+    const bIdx = metaKeyArr.findIndex((key) => (key === b.name));
+    return aIdx < bIdx ? 1 : -1;
+  });
 
   const [folderOpenStates, setFolderOpenStates] = useState(() => {
     const initialStates = {};
