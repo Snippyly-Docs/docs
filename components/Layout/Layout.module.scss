@@ -10,8 +10,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    padding: 1.5rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+       svg {
+        color: var(--primary-color);
+       }
+    }
   }
+
   .mainWindow {
 
     display: flex;
