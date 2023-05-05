@@ -15,7 +15,9 @@ export default function Layout(props: NextraThemeLayoutProps) {
 
   return (
     <div className={styles.bodyContainer}>
-      <div className={styles.navBar}></div>
+      <div className={styles.navBar}>
+        <h1>Velt</h1>
+      </div>
       <div className={styles.mainWindow}>
 
         <div className={styles.sidebarContainer}>
