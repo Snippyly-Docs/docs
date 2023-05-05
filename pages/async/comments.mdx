@@ -32,9 +32,13 @@ import HTMLCustomCategory from '../../code_sections/comments/filters/HTMLCustomC
 import ReactCustomCategory from '../../code_sections/comments/filters/ReactCustomCategory.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 
-import BubbleVariablesRef from '../../reference/comment-pin/BubbleVariables.mdx';
-import PinVariablesRef from '../../reference/comment-pin/PinVariables.mdx';
-import ToolVariablesRef from '../../reference/comment-pin/ToolVariables.mdx';
+import BubbleVariablesRef from '../../reference/comment-pin/variables/BubbleVariables.mdx';
+import PinVariablesRef from '../../reference/comment-pin/variables/PinVariables.mdx';
+import ToolVariablesRef from '../../reference/comment-pin/variables/ToolVariables.mdx';
+
+import BubblePartsRef from '../../reference/comment-pin/parts/BubbleParts.mdx';
+import PinPartsRef from '../../reference/comment-pin/parts/PinParts.mdx';
+import ToolPartsRef from '../../reference/comment-pin/parts/ToolParts.mdx';
 
 # Comments [#comments]
 
@@ -275,11 +279,24 @@ export function CommentPartSteps() {
     ]
   ];
 
+  const references = [
+    [
+      <PinPartsRef />
+    ],
+    [
+      <BubblePartsRef />
+    ],
+    [
+      <ToolPartsRef />
+    ]
+  ];
+
   return (
     <StepTabsVariants 
       frontendOptions={frontendOptions}
       variants={variants}
       options={options}
+      references={references}
     />
   );
 }
