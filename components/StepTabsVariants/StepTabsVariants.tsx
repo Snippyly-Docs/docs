@@ -5,7 +5,8 @@ import React, { useRef, useContext, useState, useMemo } from 'react';
 interface StepTabsVariantsProps {
   frontendOptions: [{title: string}];
   variants: [{title: string}];
-  options: Array<Array<React.ReactNode>>
+  options: Array<Array<React.ReactNode>>;
+  references: Array<Array<React.ReactNode>>;
 }
 
 export default function StepTabsVariants(props: StepTabsVariantsProps) {
@@ -69,6 +70,22 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
     }
   }, [featureVariant, frontendOption, props.options]);
 
+  const activeReference = useMemo(() => {
+
+    if (!props.references) return;
+    if (featureVariant in props.references && frontendOption in props.references[featureVariant]) {
+      return props.references[featureVariant][frontendOption];
+    }
+
+    if (featureVariant in props.options) {
+      return props.references[featureVariant][0];
+    }
+
+    if (frontendOption in props.options[0]) {
+      return props.references[0][frontendOption];
+    }
+  }, [featureVariant, frontendOption, props.references]);
+
 
   return (
     <>
@@ -94,6 +111,7 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
         </div>
         : undefined}
       {activeOption && React.cloneElement(activeOption, { key: `${featureVariant}-${frontendOption}` })}
+      {activeReference && React.cloneElement(activeReference, { key: `${featureVariant}-${frontendOption}-reference` })}
     </>
   );
 }

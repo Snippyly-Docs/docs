@@ -32,6 +32,10 @@ import HTMLCustomCategory from '../../code_sections/comments/filters/HTMLCustomC
 import ReactCustomCategory from '../../code_sections/comments/filters/ReactCustomCategory.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 
+import BubbleVariablesRef from '../../reference/comment-pin/BubbleVariables.mdx';
+import PinVariablesRef from '../../reference/comment-pin/PinVariables.mdx';
+import ToolVariablesRef from '../../reference/comment-pin/ToolVariables.mdx';
+
 # Comments [#comments]
 
 <Subheading>Add comment annotations directly to your page.</Subheading>
@@ -167,7 +171,6 @@ export function CustomFilterSteps() {
     { title: 'HTML' }
   ];
 
-  // TODO: Finish this
   const variants = [
     {title: 'Status'},
     {title: 'Priority'},
@@ -283,6 +286,8 @@ export function CommentPartSteps() {
 
 <CommentPartSteps />
 
+TBD
+
 ## 4. Variables
 
 export function CommentVariableSteps() {
@@ -308,11 +313,24 @@ export function CommentVariableSteps() {
     ]
   ];
 
+  const references = [
+    [
+      <PinVariablesRef />
+    ],
+    [
+      <BubbleVariablesRef />
+    ],
+    [
+      <ToolVariablesRef />
+    ]
+  ];
+
   return (
     <StepTabsVariants
       frontendOptions={frontendOptions}
       variants={variants}
       options={options}
+      references={references}
     />
   );
 }
