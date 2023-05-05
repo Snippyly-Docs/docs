@@ -12,7 +12,7 @@ export default function ReactCustomPriority(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Define custom prioties',
+      title: 'Define custom priorities',
       active: step === 1,
       description: (
         <>

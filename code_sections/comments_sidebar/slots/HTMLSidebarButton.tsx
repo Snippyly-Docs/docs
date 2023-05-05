@@ -33,7 +33,7 @@ export default function HTMLSidebarButton(props: CodeSectionVariant) {
   <body>
 
     <snippyly-sidebar-button>
-        <div slot="button">
+        <div class="sidebar-button">
           <img src="..." />
         </div>
     </snippyly-sidebar-button>

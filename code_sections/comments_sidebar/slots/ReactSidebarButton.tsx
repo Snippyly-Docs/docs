@@ -35,7 +35,7 @@ export default function App() {
     <>
 
       <SnippylySidebarButton>
-        <div slot="button">
+        <div class="sidebar-button">
           <img src="..." />
         </div>
       </SnippylySidebarButton>
