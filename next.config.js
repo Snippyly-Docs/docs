@@ -5,4 +5,13 @@ const withNextra = require('nextra')({
 
 module.exports = withNextra({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/get_started/installation',
+        permanent: true,
+      }
+    ];
+  }
 })
