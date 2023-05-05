@@ -27,6 +27,10 @@ export function CursorSteps() {
       value: <ReactCursorOverview sectionId="steps" />
     },
     {
+      title: 'Next.js',
+      value: <ReactCursorOverview sectionId="steps" />
+    },
+    {
       title: 'HTML',
       value: <HTMLCursorOverview sectionId="steps" />
     }
@@ -46,6 +50,10 @@ export function CursorCustomizeBehavior() {
   const frontendOptions = [
     {
       title: 'React',
+      value: <ReactCursorCustom sectionId="customize-behavior" />
+    },
+    {
+      title: 'Next.js',
       value: <ReactCursorCustom sectionId="customize-behavior" />
     },
     {
@@ -73,6 +81,10 @@ export function CursorSlotSteps() {
       value: <ReactCursorSlot sectionId="customize-ui" />
     },
     {
+      title: 'Next.js',
+      value: <ReactCursorSlot sectionId="customize-ui" />
+    },
+    {
       title: 'HTML',
       value: <HTMLCursorSlot sectionId="customize-ui" />
     }
@@ -91,7 +103,7 @@ export function CursorCSSParts() {
 
   const frontendOptions = [
     {
-      title: 'HTML',
+      title: 'All',
       value: <CursorParts sectionId="customize-ui" />
     }
   ];
@@ -118,7 +130,7 @@ export function CursorCSSVariables() {
 
   const frontendOptions = [
     {
-      title: 'HTML',
+      title: 'All',
       value: <CursorVariables sectionId="customize-ui" />
     }
   ];
@@ -142,6 +154,10 @@ export function CursorDataSteps() {
   const frontendOptions = [
     {
       title: 'React',
+      value: <ReactCursorData sectionId="customize-ui" />
+    },
+    {
+      title: 'Next.js',
       value: <ReactCursorData sectionId="customize-ui" />
     },
     {

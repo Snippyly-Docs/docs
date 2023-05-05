@@ -68,6 +68,7 @@ export function CommentOverviewSteps() {
 
   const frontendOptions = [
     {title: 'React'},
+    {title: 'Next.js'},
     {title: 'HTML'}
   ];
 
@@ -81,17 +82,21 @@ export function CommentOverviewSteps() {
   const options = [
     [
       <ReactFreestyleOverview sectionId="steps" />,
+      <ReactFreestyleOverview sectionId="steps" />,
       <HTMLFreestyleOverview sectionId="steps" />
     ],
     [
+      <ReactPopoverOverview sectionId="steps" />,
       <ReactPopoverOverview sectionId="steps" />,
       <HTMLPopoverOverview sectionId="steps" />
     ],
     [
       <ReactStreamOverview sectionId="steps" />,
+      <ReactStreamOverview sectionId="steps" />,
       <HTMLStreamOverview sectionId="steps" />
     ],
     [
+      <ReactTextOverview sectionId="steps" />,
       <ReactTextOverview sectionId="steps" />,
       <HTMLTextOverview sectionId="steps" />
     ]
@@ -114,6 +119,7 @@ export function CommentOverviewSteps() {
 export function CommentCustomizeSteps() {
   const frontendOptions = [
     {title: 'React'},
+    {title: 'Next.js'}
     {title: 'HTML'}
   ];
 
@@ -125,9 +131,11 @@ export function CommentCustomizeSteps() {
   const options = [
     [
       <ReactAllCustom sectionId="customize-behavior" />,
+      <ReactAllCustom sectionId="customize-behavior" />,
       <HTMLAllCustom sectionId="customize-behavior" />
     ],
     [
+      <ReactPopoverCustom sectionId="customize-behavior" />,
       <ReactPopoverCustom sectionId="customize-behavior" />,
       <HTMLPopoverCustom sectionId="customize-behavior" />
     ]
@@ -151,6 +159,7 @@ export function CommentCustomizeSteps() {
 export function CustomFilterSteps() {
   const frontendOptions = [
     { title: 'React' },
+    { title: 'Next.js' },
     { title: 'HTML' }
   ];
 
@@ -164,13 +173,16 @@ export function CustomFilterSteps() {
   const options = [
     [
       <ReactCustomStatus sectionId="customize-ui" />,
-      <HTMLCustomStatus sectionId="customize-ui" />,
-    ],
-    [
       <ReactCustomStatus sectionId="customize-ui" />,
       <HTMLCustomStatus sectionId="customize-ui" />,
     ],
     [
+      <ReactCustomStatus sectionId="customize-ui" />,
+      <ReactCustomStatus sectionId="customize-ui" />,
+      <HTMLCustomStatus sectionId="customize-ui" />,
+    ],
+    [
+      <ReactCustomStatus sectionId="customize-ui" />,
       <ReactCustomStatus sectionId="customize-ui" />,
       <HTMLCustomStatus sectionId="customize-ui" />,
     ]
@@ -192,6 +204,7 @@ export function CustomFilterSteps() {
 export function CommentSlotSteps() {
   const frontendOptions = [
     { title: 'React' },
+    { title: 'Next.js' },
     { title: 'HTML' }
   ];
 
@@ -204,13 +217,16 @@ export function CommentSlotSteps() {
   const options = [
     [
       <ReactPin sectionId="customize-ui" />,
+      <ReactPin sectionId="customize-ui" />,
       <HTMLPin sectionId="customize-ui" />
     ],
     [
       <ReactBubble sectionId="customize-ui" />,
+      <ReactBubble sectionId="customize-ui" />,
       <HTMLBubble sectionId="customize-ui" />
     ],
     [
+      <ReactTool sectionId="customize-ui" />,
       <ReactTool sectionId="customize-ui" />,
       <HTMLTool sectionId="customize-ui" />
     ]

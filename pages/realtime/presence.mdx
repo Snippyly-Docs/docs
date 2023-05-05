@@ -1,3 +1,4 @@
+
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import PresenceDemo from '../../components/PresenceDemo/PresenceDemo.tsx';
 import ReactPresenceOverview from '../../code_sections/presence/ReactPresenceOverview.tsx';
@@ -25,9 +26,13 @@ export function PresenceSteps() {
       value: <ReactPresenceOverview sectionId="steps" />
     },
     {
+      title: 'Next.js',
+      value: <ReactPresenceOverview sectionId="steps" />
+    },
+    {
       title: 'HTML',
       value: <HTMLPresenceOverview sectionId="steps" />
-    }
+    },
   ];
 
   return (
@@ -44,6 +49,10 @@ export function PresenceCustomSteps() {
   const frontendOptions = [
     {
       title: 'React',
+      value: <ReactPresenceCustom sectionId="customize-behavior" />
+    },
+    {
+      title: 'Next.js',
       value: <ReactPresenceCustom sectionId="customize-behavior" />
     },
     {
@@ -117,6 +126,10 @@ export function PresenceDataSteps() {
   const frontendOptions = [
     {
       title: 'React',
+      value: <ReactPresenceData sectionId="customize-ui" />
+    },
+    {
+      title: 'Next.js',
       value: <ReactPresenceData sectionId="customize-ui" />
     },
     {
