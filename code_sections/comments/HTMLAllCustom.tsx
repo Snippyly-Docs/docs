@@ -5,8 +5,14 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactAllCustom(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[9, 9], [12, 14]],
-    2: [[16, 18]],
+    1: [[9, 9], [18, 20]],
+    2: [[22, 24]],
+    3: [[10, 10]],
+    4: [[11, 11]],
+    5: [[12, 12]],
+    6: [[13, 13]],
+    7: [[14, 14]],
+    8: [[15, 15]]
   };
   
   const [step, setStep] = useState(1);
@@ -33,6 +39,72 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
           <p>If you only want to disallow commenting on certain elements, add the <code>data-snippyly-comment-disabled</code> attribute to that element.</p>
         </>
       )
+    },
+    {
+      step: 3,
+      title: 'Enable moderator mode',
+      active: step === 3,
+      description: (
+        <>
+          <strong>Allow admins to approve comments.</strong>
+          <p>This requires comments to first be approved by admins before they are visible.</p>
+        </>
+      )
+    },
+    {
+      step: 4,
+      title: 'Enable the sign-in button',
+      active: step === 4,
+      description: (
+        <>
+          <strong>This appears on the comment dialog.</strong>
+          <p>We will provide a sign-in button for users that are not currently logged in.</p>
+        </>
+      )
+    },
+    {
+      step: 5,
+      title: 'Enable comment attachments',
+      active: step === 5,
+      description: (
+        <>
+          <strong>Toggle on/off comment attachments.</strong>
+          <p>When this is on, users can attach webcam/screen/audio recordings, files, and images to their comments.</p>
+        </>
+      )
+    },
+    {
+      step: 6,
+      title: 'Enable device information',
+      active: step === 6,
+      description: (
+        <>
+          <strong>Show each commenter's device type.</strong>
+          <p>When this is on, we show a small icon indicating what type of device the comment was created on.</p>
+        </>
+      )
+    },
+    {
+      step: 7,
+      title: 'Show comment index',
+      active: step === 7,
+      description: (
+        <>
+          <strong>This appears in the sidebar and on comment pin annotations.</strong>
+          <p>When this is on, we show a small icon indicating the comment index in the order of creation date.</p>
+        </>
+      )
+    },
+    {
+      step: 8,
+      title: 'Enable priority',
+      active: step === 8,
+      description: (
+        <>
+          <strong>You can prioritize and filter comments.</strong>
+          <p>By default, this feature is off. We also allow you to customize the list of priorities (shown below in the customize section).</p>
+        </>
+      )
     }
   ];
 
@@ -46,6 +118,12 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
 
     <snippyly-comments
       allowed-element-ids='["some-element"]'
+      moderator-mode="true"
+      sign-in-button="true"
+      allow-attachments="true"
+      show-device-info="true"
+      show-comment-index="true"
+      show-priority="true"
     ></snippyly-comments>
 
     <div id="some-element">

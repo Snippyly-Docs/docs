@@ -26,6 +26,10 @@ import PinVariables from '../../code_sections/comments/variables/PinVariables.ts
 import BubbleVariables from '../../code_sections/comments/variables/BubbleVariables.tsx';
 import HTMLCustomStatus from '../../code_sections/comments/filters/HTMLCustomStatus.tsx';
 import ReactCustomStatus from '../../code_sections/comments/filters/ReactCustomStatus.tsx';
+import HTMLCustomPriority from '../../code_sections/comments/filters/HTMLCustomPriority.tsx';
+import ReactCustomPriority from '../../code_sections/comments/filters/ReactCustomPriority.tsx';
+import HTMLCustomCategory from '../../code_sections/comments/filters/HTMLCustomCategory.tsx';
+import ReactCustomCategory from '../../code_sections/comments/filters/ReactCustomCategory.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 
 # Comments [#comments]
@@ -177,14 +181,14 @@ export function CustomFilterSteps() {
       <HTMLCustomStatus sectionId="customize-ui" />,
     ],
     [
-      <ReactCustomStatus sectionId="customize-ui" />,
-      <ReactCustomStatus sectionId="customize-ui" />,
-      <HTMLCustomStatus sectionId="customize-ui" />,
+      <ReactCustomPriority sectionId="customize-ui" />,
+      <ReactCustomPriority sectionId="customize-ui" />,
+      <HTMLCustomPriority sectionId="customize-ui" />,
     ],
     [
-      <ReactCustomStatus sectionId="customize-ui" />,
-      <ReactCustomStatus sectionId="customize-ui" />,
-      <HTMLCustomStatus sectionId="customize-ui" />,
+      <ReactCustomCategory sectionId="customize-ui" />,
+      <ReactCustomCategory sectionId="customize-ui" />,
+      <HTMLCustomCategory sectionId="customize-ui" />,
     ]
   ];
 
