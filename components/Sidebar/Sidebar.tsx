@@ -33,6 +33,8 @@ export default function Sidebar(props: SidebarProps) {
     return aIdx < bIdx ? 1 : -1;
   });
 
+  console.log(sidebarItems)
+
   const [folderOpenStates, setFolderOpenStates] = useState(() => {
     const initialStates = {};
 
