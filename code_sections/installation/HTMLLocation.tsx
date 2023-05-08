@@ -90,7 +90,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
       }
 
       function loadSnippyly() {
-        await window.snippyly.init("UnHxCCFcclkô4bErBL1");
+        await window.snippyly.initConfig("UnHxCCFcclkô4bErBL1");
 
         window.snippyly.setDocumentID('my-collaboration-app');
         window.snippyly.setLocation({page: 'index'});

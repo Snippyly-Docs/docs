@@ -22,7 +22,8 @@
     h1.titleText {
       font-size: 1.2rem !important;
       font-weight: 600 !important;
-      color: var(--headline-color)
+      color: var(--headline-color);
+      margin: 0;
     }
 
     @media screen and (max-width: 992px) {
@@ -59,4 +60,8 @@
   }
   
 
+}
+
+.stepContainer + .stepContainer {
+  margin-top: 1rem;
 }

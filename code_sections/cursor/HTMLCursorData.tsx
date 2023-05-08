@@ -37,9 +37,9 @@ export default function HTMLCursorData(props: CodeSectionVariant) {
 
     <script>
 
-      if (window.Snippyly) {
+      if (window.snippyly) {
 
-        const cursorElement = window.Snippyly.getCursorElement();
+        const cursorElement = window.snippyly.getCursorElement();
 
         cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
           // Do something with cursors list

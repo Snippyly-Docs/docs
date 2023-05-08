@@ -11,9 +11,7 @@ body {
 }
 
 * {
-  // margin: 0;
-  // padding: 0;
-  line-height: 1.5;
+  letter-spacing: 0 !important;
 }
 
 // Ace editor
@@ -47,6 +45,10 @@ body {
 
 h1, h2, h3, h4, h5 {
   color: var(--headline-color);
+}
+
+h1, h2 {
+  margin: 1rem 0;
 }
 
 // Table styling
@@ -99,4 +101,18 @@ table {
   table {
     font-size: 2.25vmin;
   }
+}
+
+// NextUI overrides
+
+details {
+  background-color: transparent;
+}
+
+code {
+  margin-top: 1rem;
+  background-color: var(--demo-bg-color);
+  color: #E5E5E9;
+  padding: 4px;
+  border-radius: 4px;
 }

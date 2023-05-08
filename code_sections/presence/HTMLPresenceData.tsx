@@ -46,9 +46,9 @@ export default function HTMLPresenceData(props: CodeSectionVariant) {
 
     <script>
 
-      if (window.Snippyly) {
+      if (window.snippyly) {
 
-        const presenceElement = window.Snippyly.getPresenceElement();
+        const presenceElement = window.snippyly.getPresenceElement();
 
         presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
           // Do something with users list

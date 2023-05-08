@@ -1,12 +1,10 @@
 .codeSnippet {
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  padding: 0.5rem;
 
   code {
     font-family: 'Fira Code';
     width: 100%;
     display: inline-block;
     font-size: 13px;
+    padding: 6px;
   }
 }

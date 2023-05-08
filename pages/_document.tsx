@@ -1,11 +1,18 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { NextSeo } from 'next-seo';
+import { CssBaseline } from '@nextui-org/react';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          {/* Add this inline script in the head */}
+        { CssBaseline.flush() }
+        <NextSeo
+          title="Velt Documentation"
+          description="Documentation for the Velt SDK, an easy way to provide collaboration to your users. Easily embed and customize our async and realtime features in your application."
+        />
+        <link rel="icon" href="/static/favicon.png" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
