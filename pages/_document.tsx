@@ -18,9 +18,14 @@ class MyDocument extends Document {
               __html: `
                 (function() {
                   const theme = window.matchMedia("(prefers-color-scheme: dark)");
-                  if (theme.matches) {
+                  const darkMode = localStorage.getItem("darkMode");
+                  if (darkMode === 'true') {
                     document.documentElement.setAttribute("dark", "");
-                  } else {
+                  } else if (darkMode === 'false') {
+                    document.documentElement.removeAttribute("dark");
+                  } else if (theme.matches) {
+                    document.documentElement.setAttribute("dark", "");
+                  } else if (!theme.matches) {
                     document.documentElement.removeAttribute("dark");
                   }
                 })();

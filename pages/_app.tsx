@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const [frontendOption, setFrontendOption] = useState(0);
   const [activeHeader, setActiveHeader] = useState(undefined);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(null);
 
   const handleThemeChange = (e) => {
 
@@ -29,19 +29,30 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const rootElement = document.documentElement;
     if (!rootElement) return;
+    if (darkMode === null) return;
 
     if (darkMode) {
+      localStorage.setItem('darkMode', 'true');
       rootElement.setAttribute('dark', '');
     } else {
+      localStorage.setItem('darkMode', 'false')
       rootElement.removeAttribute('dark');
     }
 
   }, [darkMode]);
 
   useEffect(() => {
+    const _darkMode = localStorage.getItem('darkMode');
+
+    if (_darkMode === 'true') {
+      setDarkMode(true);
+    } else if (_darkMode === 'false') {
+      setDarkMode(false);
+    } else if (_darkMode === null) {
       const query = window.matchMedia('(prefers-color-scheme: dark)');
       setDarkMode(query.matches);
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleThemeChange);
+    }
 
     return () => {
       window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleThemeChange);
