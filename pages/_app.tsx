@@ -8,6 +8,7 @@ import { SnippylyProvider } from '@snippyly/react';
 import GlobalContext from '../components/globalContext';
 import { useState, useEffect } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
+import { initSuperflow } from '@usesuperflow/client'
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [darkMode]);
 
   useEffect(() => {
+    initSuperflow('CGyvhBPvTHD1D5WkqqeH');
     const _darkMode = localStorage.getItem('darkMode');
 
     if (_darkMode === 'true') {
