@@ -1,5 +1,6 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import StepTabsVariants from '../../components/StepTabsVariants/StepTabsVariants.tsx';
+import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 import HTMLFreestyleOverview from '../../code_sections/comments/freestyle/HTMLFreestyleOverview.tsx';
 import ReactFreestyleOverview from '../../code_sections/comments/freestyle/ReactFreestyleOverview.tsx';
 import HTMLPopoverOverview from '../../code_sections/comments/popover/HTMLPopoverOverview.tsx';
@@ -10,8 +11,6 @@ import HTMLTextOverview from '../../code_sections/comments/text/HTMLTextOverview
 import ReactTextOverview from '../../code_sections/comments/text/ReactTextOverview.tsx';
 import HTMLAllCustom from '../../code_sections/comments/HTMLAllCustom.tsx';
 import ReactAllCustom from '../../code_sections/comments/ReactAllCustom.tsx';
-import ReactPopoverCustom from '../../code_sections/comments/popover/ReactPopoverCustom.tsx';
-import HTMLPopoverCustom from '../../code_sections/comments/popover/HTMLPopoverCustom.tsx';
 import ReactPin from '../../code_sections/comments/slots/ReactPin.tsx';
 import HTMLPin from '../../code_sections/comments/slots/HTMLPin.tsx';
 import ReactBubble from '../../code_sections/comments/slots/ReactBubble.tsx';
@@ -30,6 +29,8 @@ import HTMLCustomPriority from '../../code_sections/comments/filters/HTMLCustomP
 import ReactCustomPriority from '../../code_sections/comments/filters/ReactCustomPriority.tsx';
 import HTMLCustomCategory from '../../code_sections/comments/filters/HTMLCustomCategory.tsx';
 import ReactCustomCategory from '../../code_sections/comments/filters/ReactCustomCategory.tsx';
+import HTMLInboxOverview from '../../code_sections/comments/inbox/HTMLInboxOverview.tsx';
+import ReactInboxOverview from '../../code_sections/comments/inbox/ReactInboxOverview.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 
 import BubbleVariablesRef from '../../reference/comment-pin/variables/BubbleVariables.mdx';
@@ -60,14 +61,16 @@ export function Test() {
     {title: 'Freestyle'},
     {title: 'Popover'},
     {title: 'Stream'},
-    {title: 'Text'}
+    {title: 'Text'},
+    {title: 'Inbox'}
   ];
 
   const options = [
     [ <CommentsDemo demoUrl="comments" /> ],
     [ <CommentsDemo demoUrl="comments-popover" /> ],
     [ <CommentsDemo demoUrl="comments-stream" /> ],
-    [ <CommentsDemo demoUrl="comments-text" /> ]
+    [ <CommentsDemo demoUrl="comments-text" /> ],
+    [ <CommentsDemo demoUrl="comments-inbox" /> ]
   ];
 
   return (
@@ -95,7 +98,8 @@ export function CommentOverviewSteps() {
     {title: 'Freestyle'},
     {title: 'Popover'},
     {title: 'Stream'},
-    {title: 'Text'}
+    {title: 'Text'},
+    {title: 'Inbox'}
   ];
 
   const options = [
@@ -118,6 +122,11 @@ export function CommentOverviewSteps() {
       <ReactTextOverview sectionId="steps" />,
       <ReactTextOverview sectionId="steps" />,
       <HTMLTextOverview sectionId="steps" />
+    ],
+    [
+      <ReactInboxOverview sectionId="steps" />,
+      <ReactInboxOverview sectionId="steps" />,
+      <HTMLInboxOverview sectionId="steps" />
     ]
   ];
 
@@ -136,44 +145,23 @@ export function CommentOverviewSteps() {
 # Customize Behavior [#customize-behavior]
 
 export function CommentCustomizeSteps() {
+
   const frontendOptions = [
-    {title: 'React'},
-    {title: 'Next.js'},
-    {title: 'HTML'}
-  ];
-
-  const variants = [
-    {title: 'All'},
-    {title: 'Popover'}
-  ];
-
-  const options = [
-    [
-      <ReactAllCustom sectionId="customize-behavior" />,
-      <ReactAllCustom sectionId="customize-behavior" />,
-      <HTMLAllCustom sectionId="customize-behavior" />
-    ],
-    [
-      <ReactPopoverCustom sectionId="customize-behavior" />,
-      <ReactPopoverCustom sectionId="customize-behavior" />,
-      <HTMLPopoverCustom sectionId="customize-behavior" />
-    ]
+    {title: 'React', value: <ReactAllCustom sectionId="customize-behavior" />},
+    {title: 'Next.js', value: <ReactAllCustom sectionId="customize-behavior" />},
+    {title: 'HTML', value: <HTMLAllCustom sectionId="customize-behavior" />}
   ];
 
   return (
-    <StepTabsVariants
+    <StepTabs
       frontendOptions={frontendOptions}
-      variants={variants}
-      options={options}
     />
   );
 }
 
 <CommentCustomizeSteps />
 
-# Customize UI [#customize-ui]
-
-## 1. Custom Filters
+## Custom Filters
 
 export function CustomFilterSteps() {
   const frontendOptions = [
@@ -217,7 +205,9 @@ export function CustomFilterSteps() {
 
 <CustomFilterSteps />
 
-## 2. Slots
+# Customize UI [#customize-ui]
+
+## 1. Slots
 
 export function CommentSlotSteps() {
   const frontendOptions = [
@@ -261,7 +251,7 @@ export function CommentSlotSteps() {
 
 <CommentSlotSteps />
 
-## 3. Parts
+## 2. Parts
 
 export function CommentPartSteps() {
   const frontendOptions = [
@@ -310,7 +300,7 @@ export function CommentPartSteps() {
 
 <CommentPartSteps />
 
-## 4. Variables
+## 3. Variables
 
 export function CommentVariableSteps() {
   const frontendOptions = [
@@ -358,3 +348,5 @@ export function CommentVariableSteps() {
 }
 
 <CommentVariableSteps />
+
+## 4. Build your own UI

@@ -5,14 +5,18 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function ReactAllCustom(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
-    1: [[9, 9], [18, 20]],
-    2: [[22, 24]],
-    3: [[10, 10]],
-    4: [[11, 11]],
-    5: [[12, 12]],
-    6: [[13, 13]],
-    7: [[14, 14]],
-    8: [[15, 15]]
+    1: [[8, 10]],
+    2: [[12, 14], [17, 17]],
+    3: [[18, 18]],
+    4: [[19, 19]],
+    5: [[20, 20]],
+    6: [[21, 21]],
+    7: [[22, 22]],
+    8: [[23, 23]],
+    9: [[24, 24]],
+    10: [[25, 25]],
+    11: [[26, 26]],
+    12: [[27, 27]]
   };
   
   const [step, setStep] = useState(1);
@@ -20,23 +24,23 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Whitelist certain elements',
+      title: 'Blacklist certain elements',
       active: step === 1,
       description: (
         <>
-          <strong>You can pass allowed element IDs to our Comments component.</strong>
-          <p>This does not impact Popover mode. Comments will be disabled for every other element that is not passed in the array.</p>
+          <strong>Add a data attribute.</strong>
+          <p>If you only want to disallow commenting on certain elements, add the <code>data-snippyly-comment-disabled</code> attribute to that element.</p>
         </>
       )
     },
     {
       step: 2,
-      title: 'Blacklist certain elements',
+      title: 'Whitelist certain elements',
       active: step === 2,
       description: (
         <>
-          <strong>Add a data attribute.</strong>
-          <p>If you only want to disallow commenting on certain elements, add the <code>data-snippyly-comment-disabled</code> attribute to that element.</p>
+          <strong>You can pass allowed element IDs to our Comments component.</strong>
+          <p>This does not impact Popover mode. Comments will be disabled for every other element that is not passed in the array.</p>
         </>
       )
     },
@@ -105,6 +109,50 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
           <p>By default, this feature is off. We also allow you to customize the list of priorities (shown below in the customize section).</p>
         </>
       )
+    },
+    {
+      step: 9,
+      title: 'Disable status',
+      active: step === 9,
+      description: (
+        <>
+          <strong>You can disable the default status filter.</strong>
+          <p>By default, this feature is on. You can programatically enable or disable this feature. We also allow you to customize the list of priorities (shown in the next section).</p>
+        </>
+      )
+    },
+    {
+      step: 10,
+      title: 'Enable auto-categorize',
+      active: step === 10,
+      description: (
+        <>
+          <strong>You can enable AI auto-categorization of comments.</strong>
+          <p>Be default, this feature is off. We use AI to analyze your comment content and auto-categorize it so you can filter comments easily. We also allow you to customize the list of categories (shown in the next section).</p>
+        </>
+      )
+    },
+    {
+      step: 11,
+      title: 'Disable dialog on hover',
+      active: step === 11,
+      description: (
+        <>
+          <strong>By default, a comment dialog preview will open on hover.</strong>
+          <p>Hovering on a comment pin or a target element will open the comment dialog by default. You can disable this with the <code>disableDialogOnHover</code> input attribute.</p>
+        </>
+      )
+    },
+    {
+      step: 12,
+      title: 'Disable dialog on click',
+      active: step === 12,
+      description: (
+        <>
+          <strong>In Popover mode, the comment dialog will open on click.</strong>
+          <p>Clicking on the comment pin or a target element will open the comment dialog by default. You can disable this with the <code>disableDialogOnClick</code> input attribute.</p>
+        </>
+      )
     }
   ];
 
@@ -116,6 +164,14 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
   </head>
   <body>
 
+    <div data-snippyly-comment-disabled>
+      <!-- This element cannot be commented on -->
+    </div>
+
+    <div id="some-element">
+      <!-- This element is can be commented on -->
+    </div>
+
     <snippyly-comments
       allowed-element-ids='["some-element"]'
       moderator-mode="true"
@@ -124,15 +180,11 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
       show-device-info="true"
       show-comment-index="true"
       show-priority="true"
+      show-status="false"
+      auto-categorize="true"
+      disable-dialog-on-hover="true"
+      disable-dialog-on-click="true"
     ></snippyly-comments>
-
-    <div id="some-element">
-      <!-- This element is can be commented on -->
-    </div>
-
-    <div data-snippyly-comment-disabled>
-      <!-- This element cannot be commented on -->
-    </div>
 
   </body>
 </html>
