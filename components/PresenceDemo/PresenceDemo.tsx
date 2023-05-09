@@ -1,45 +1,50 @@
-import { SnippylyPresence, SnippylyProvider, useSnippylyClient } from '@snippyly/react';
-import { useEffect } from 'react';
-import { generateUserData } from '../../components/user';
-import DemoContainer from '../DemoContainer/DemoContainer';
+import { useEffect, useRef, useState } from 'react';
+import DemoContainer from "../DemoContainer/DemoContainer";
+import styles from './PresenceDemo.module.scss';
 
-interface PresenceDemoProps {
-  naked?: boolean;
-  classString?: string;
-}
+export default function PresenceDemo(props: any) {
 
-export default function PresenceDemo(props: PresenceDemoProps) {
+  const iframeRef = useRef(null);
+  const [demoInitialized, setDemoInitialized] = useState(false);
 
-  const { client } = useSnippylyClient();
+  const createIFrame = (el, src) => {
+ 
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.setAttribute('scrolling', 'no');
+    iframe.setAttribute('frameborder', '0');
+    el.appendChild(iframe);
+    
+  };
 
   useEffect(() => {
 
-    if (client) {
-      client.setDocumentId('presence-docs');
+    if (demoInitialized) return;
 
-      const yourLoggedInUser = generateUserData();
-      client
-        .identify(yourLoggedInUser)
-        .then((res) => {
-          // User auth successful with Snippyly
-          // console.log(client.getPresenceElement().presenceService.presenceUsers$.value);
-        }) 
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    let classString = props.classString || '';
 
-  }, [client]);
+    const src = `https://snippyly-docs-demo.web.app/presence?documentId=presence-docs&userIndex=0${classString !== '' ? `&classString=${classString}` : ''}`;
+    
+    createIFrame(iframeRef.current, src);
 
-  if (props.naked) {
-    //@ts-ignore
-    return <div className={props.classString}><SnippylyPresence /></div>
+    setDemoInitialized(true);
+        
+  }, []);
+
+  if (props.preview) {
+    return (
+      <div className={styles.iframeFlexContainer}>
+        <div ref={iframeRef} className={styles.iframe}></div>
+      </div>
+    )
   }
 
   return (
     <DemoContainer>
-      { /* @ts-ignore */ }
-      <div className={props.classString}><SnippylyPresence /></div>
+      <div className={styles.iframeFlexContainer}>
+        <div ref={iframeRef} className={styles.iframe}></div>
+      </div>
     </DemoContainer>
   );
+
 }

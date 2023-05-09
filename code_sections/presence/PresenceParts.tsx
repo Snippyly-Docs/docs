@@ -34,6 +34,6 @@ snippyly-presence::part(user-avatar)::before {
 
   return <CodeSection 
   sectionId={props.sectionId}
-  preview={ <PresenceDemo classString="partsDemo" naked={true} /> }
+  preview={ <PresenceDemo preview={true} classString="partsDemo" naked={true} /> }
   mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }

@@ -1,10 +1,8 @@
 import '../global.scss';
 import '../theme.scss';
-import '../components/PresenceDemo/PresenceDemo.scss';
 import '../public/fonts/poppins.scss';
 import '../public/fonts/firacode.scss';
 import { AppProps } from 'next/app';
-import { SnippylyProvider } from '@snippyly/react';
 import GlobalContext from '../components/globalContext';
 import { useState, useEffect } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
@@ -62,13 +60,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <SnippylyProvider apiKey="WDMgKshFEsPTqvBjUcH3">
-      <GlobalContext.Provider value={{ setDarkMode, darkMode, frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
-        <NextUIProvider>
-          <Component {...pageProps} />
-        </NextUIProvider>
-      </GlobalContext.Provider>
-    </SnippylyProvider>
+    <GlobalContext.Provider value={{ setDarkMode, darkMode, frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
+      <NextUIProvider>
+        <Component {...pageProps} />
+      </NextUIProvider>
+    </GlobalContext.Provider>
   );
 }
 

@@ -30,6 +30,6 @@ snippyly-presence {
 
   return <CodeSection
   sectionId={props.sectionId}
-  preview={ <PresenceDemo classString="smallAvatar" naked={true} /> }
+  preview={ <PresenceDemo preview={true} classString="smallAvatar" naked={true} /> }
   mode="css" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />
 }
