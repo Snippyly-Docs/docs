@@ -4,6 +4,7 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[2, 2], [6, 6], [12, 12]],
+    2: [[13, 13]]
   };
   
   const [step, setStep] = useState(1);
@@ -17,7 +18,17 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
         <>
           <strong>Use a callback for custom navigation or side-effects.</strong>
           <p>When the leader of a flock navigates, we can use the React Router to update the follower's position.</p>
-          <p>This replaces the default behavior of using <code>window.location.href</code> to navigate.</p>
+        </>
+      )
+    },
+    {
+      step: 2,
+      title: 'Disable default flock navigation',
+      active: step === 2,
+      description: (
+        <>
+          <strong>Disable default flock navigation.</strong>
+          <p>If you are handling navigation using a callback, you can opt to disable our default navigation using <code>window.location.href</code>.</p>
         </>
       )
     }
@@ -36,6 +47,7 @@ export default function App() {
       <SnippylyPresence 
         flockMode={true}
         navigate={(pageInfo) => navigate(pageInfo.path)}
+        disableFlockNavigation={true}
       />
     </div>
   );

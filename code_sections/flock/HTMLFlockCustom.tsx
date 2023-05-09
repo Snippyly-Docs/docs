@@ -3,7 +3,8 @@ import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
 export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const highlightRangeMap = {
-    1: [[8, 12], [17, 17]]
+    1: [[10, 18]],
+    2: [[25, 25]]
   };
   
   const [step, setStep] = useState(1);
@@ -16,7 +17,18 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Use a callback for custom navigation or side-effects.</strong>
-          <p>When the leader of a flock navigates, this callback will be called for the follower's client instead of our normal <code>window.location.href</code> change.</p>
+          <p>When the leader of a flock navigates, this callback will be called.</p>
+        </>
+      )
+    },
+    {
+      step: 2,
+      title: 'Disable default flock navigation',
+      active: step === 2,
+      description: (
+        <>
+          <strong>Disable default flock navigation.</strong>
+          <p>If you are handling navigation using a callback, you can opt to disable our default navigation using <code>window.location.href</code>.</p>
         </>
       )
     }
@@ -31,15 +43,23 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
   <body>
 
     <script>
-      const onNavigateHandler(pageInfo) {
+
+      function onNavigateHandler(pageInfo) {
         // Do something with pageInfo
       }
+
+      const presenceDOMElement = document.querySelector('snippyly-presence');
+
+      if (presenceDOMElement) {
+        presenceDOMElement.addEventListener('navigate', onNavigateHandler);
+      }
+
     </script>
 
     <div class="toolbar">
       <snippyly-presence
         flock-mode="true"
-        on-navigate="onNavigateHandler"
+        disable-flock-navigation="true"
       ></snippyly-presence>
     </div>
     
