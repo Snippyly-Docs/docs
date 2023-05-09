@@ -150,7 +150,18 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>In Popover mode, the comment dialog will open on click.</strong>
-          <p>Clicking on the comment pin or a target element will open the comment dialog by default. You can disable this with the <code>disableDialogOnClick</code> input attribute.</p>
+          <p>Clicking on the popover target element will open the comment dialog by default. You can disable this with the <code>disableDialogOnClick</code> input attribute.</p>
+        </>
+      )
+    },
+    {
+      step: 13,
+      title: 'Disable floating comments mode',
+      active: step === 13,
+      description: (
+        <>
+          <strong>By default, we show a floating comment dialog next to comment annotations.</strong>
+          <p>You can disable this feature altogether, for example if you only want to use stream or inbox mode exclusively.</p>
         </>
       )
     }
@@ -184,6 +195,7 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
       auto-categorize="true"
       disable-dialog-on-hover="true"
       disable-dialog-on-click="true"
+      floating-comments-mode="false"
     ></snippyly-comments>
 
   </body>

@@ -16,7 +16,8 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
     9: [[24, 24]],
     10: [[25, 25]],
     11: [[26, 26]],
-    12: [[27, 27]]
+    12: [[27, 27]],
+    13: [[28, 28]]
   };
   
   const [step, setStep] = useState(1);
@@ -150,7 +151,18 @@ export default function ReactAllCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>In Popover mode, the comment dialog will open on click.</strong>
-          <p>Clicking on the comment pin or a target element will open the comment dialog by default. You can disable this with the <code>disableDialogOnClick</code> input attribute.</p>
+          <p>Clicking on the popover target element will open the comment dialog by default. You can disable this with the <code>disableDialogOnClick</code> input attribute.</p>
+        </>
+      )
+    },
+    {
+      step: 13,
+      title: 'Disable floating comments mode',
+      active: step === 13,
+      description: (
+        <>
+          <strong>By default, we show a floating comment dialog next to comment annotations.</strong>
+          <p>You can disable this feature altogether, for example if you only want to use stream or inbox mode exclusively.</p>
         </>
       )
     }
@@ -184,6 +196,7 @@ export default function App() {
         autoCategorize={true}
         disableDialogOnHover={true}
         disableDialogOnClick={true}
+        floatingCommentsMode={false}
       />
 
     </>

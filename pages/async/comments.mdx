@@ -32,6 +32,8 @@ import ReactCustomCategory from '../../code_sections/comments/filters/ReactCusto
 import HTMLInboxOverview from '../../code_sections/comments/inbox/HTMLInboxOverview.tsx';
 import ReactInboxOverview from '../../code_sections/comments/inbox/ReactInboxOverview.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
+import HTMLGetComments from '../../code_sections/comments/HTMLGetComments.tsx';
+import ReactGetComments from '../../code_sections/comments/ReactGetComments.tsx';
 
 import BubbleVariablesRef from '../../reference/comment-pin/variables/BubbleVariables.mdx';
 import PinVariablesRef from '../../reference/comment-pin/variables/PinVariables.mdx';
@@ -350,3 +352,19 @@ export function CommentVariableSteps() {
 <CommentVariableSteps />
 
 ## 4. Build your own UI
+
+export function CommentCustomUISteps() {
+  const frontendOptions = [
+    { title: 'React', value: <ReactGetComments sectionId="customize-ui" /> },
+    { title: 'Next.js', value: <ReactGetComments sectionId="customize-ui" /> },
+    { title: 'HTML', value: <HTMLGetComments sectionId="customize-ui" /> }
+  ];
+
+  return (
+    <StepTabs
+      frontendOptions={frontendOptions}
+    />
+  );
+}
+
+<CommentCustomUISteps />

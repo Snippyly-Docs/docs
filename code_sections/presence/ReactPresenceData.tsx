@@ -28,7 +28,7 @@ export default function ReactPresenceData(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyCursor, useSnippylyClient } from '@snippyly/react';
+import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
 import { useEffect } from 'react';
 
 export default function App() {
