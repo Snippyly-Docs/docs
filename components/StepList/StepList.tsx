@@ -20,19 +20,20 @@ export default function StepList(props: StepListProps) {
   const [timeoutId, setTimeoutId] = useState(null);
   const { query } = useRouter();
 
-  // useEffect(() => {
-  //   const hash = window.location.hash.split('#')[1];
-  //   if (!hash) return;
-  //   if (hash !== props.sectionId) return;
-  //   if (!query.step) return;
+  useEffect(() => {
+    const hash = window.location.hash.split('#')[1];
+    if (!hash) return;
+    if (hash !== props.sectionId) return;
+    if (!query.step) return;
 
-  //   const stepNum = parseInt(query.step as string) - 1;
-  //   if (stepNum !== null) {
-  //     const step = stepRefs.current[stepNum];
-  //     step.current.scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});
-  //     console.log('test');
-  //   }
-  // }, [query]);
+    const stepNum = parseInt(query.step as string) - 1;
+    if (stepNum !== null) {
+      const step = stepRefs.current[stepNum];
+      setTimeout(() => {
+        step.current.scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});
+      }, 0);
+    }
+  }, [query]);
 
   const handleScroll = () => {
 
