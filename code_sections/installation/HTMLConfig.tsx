@@ -85,7 +85,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.snippyly.initConfig("UnHxCCFcclkô4bErBL1",
+        await window.Snippyly.initConfig("UnHxCCFcclkô4bErBL1",
           {
             urlAllowList: ['/about', '/contact-us'],
             featureAllowList: ['comments', 'presence'],

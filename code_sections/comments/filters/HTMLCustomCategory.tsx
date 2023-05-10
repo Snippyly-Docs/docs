@@ -46,7 +46,7 @@ export default function HTMLCustomPriority(props: CodeSectionVariant) {
 
     <script>
 
-      const commentElement = window.snippyly.getCommentElement();
+      const commentElement = window.Snippyly.getCommentElement();
       commentElement.setCustomCategories([
         {
           "id": "enhancement",
