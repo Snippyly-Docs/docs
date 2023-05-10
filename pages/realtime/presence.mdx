@@ -25,20 +25,11 @@ import { NextSeo } from 'next-seo';
 
 export function PresenceSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactPresenceOverview sectionId="steps" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactPresenceOverview sectionId="steps" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLPresenceOverview sectionId="steps" />
-    },
-  ];
+  const frontendOptions = {
+    'React': <ReactPresenceOverview sectionId="steps" />,
+    'Next.js': <ReactPresenceOverview sectionId="steps" />,
+    'HTML': <HTMLPresenceOverview sectionId="steps" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -51,20 +42,11 @@ export function PresenceSteps() {
 
 export function PresenceCustomSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactPresenceCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactPresenceCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLPresenceCustom sectionId="customize-behavior" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactPresenceCustom sectionId="customize-behavior" />,
+    'Next.js': <ReactPresenceCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLPresenceCustom sectionId="customize-behavior" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -79,12 +61,9 @@ export function PresenceCustomSteps() {
 
 export function PresenceCSSPartsSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'All',
-      value: <PresenceParts sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'All': <PresenceParts sectionId="customize-ui" />
+  };
   
   return <StepTabs frontendOptions={frontendOptions} />
 }
@@ -103,12 +82,9 @@ export function PresenceCSSPartsSteps() {
 
 export function PresenceCSSVariablesSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'All',
-      value: <PresenceVariables sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'All': <PresenceVariables sectionId="customize-ui" />
+  };
 
   return <StepTabs frontendOptions={frontendOptions} />
 }
@@ -128,20 +104,11 @@ export function PresenceCSSVariablesSteps() {
 
 export function PresenceDataSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactPresenceData sectionId="customize-ui" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactPresenceData sectionId="customize-ui" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLPresenceData sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactPresenceData sectionId="customize-ui" />,
+    'Next.js': <ReactPresenceData sectionId="customize-ui" />,
+    'HTML': <HTMLPresenceData sectionId="customize-ui" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />

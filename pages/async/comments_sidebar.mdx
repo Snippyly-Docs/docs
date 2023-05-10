@@ -26,20 +26,11 @@ import { NextSeo } from 'next-seo';
 
 export function SidebarOverviewSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactSidebarOverview sectionId="steps" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactSidebarOverview sectionId="steps" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLSidebarOverview sectionId="steps" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactSidebarOverview sectionId="steps" />,
+    'Next.js': <ReactSidebarOverview sectionId="steps" />,
+    'HTML': <HTMLSidebarOverview sectionId="steps" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -51,20 +42,12 @@ export function SidebarOverviewSteps() {
 # Customize Behavior [#customize-behavior]
 
 export function SidebarCustomSteps() {
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactSidebarCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactSidebarCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLSidebarCustom sectionId="customize-behavior" />
-    }
-  ];
+
+  const frontendOptions = {
+    'React': <ReactSidebarCustom sectionId="customize-behavior" />,
+    'Next.js': <ReactSidebarCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLSidebarCustom sectionId="customize-behavior" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -85,20 +68,12 @@ export function SidebarCustomSteps() {
 ## 1. Embed Mode
 
 export function SidebarEmbedSteps() {
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactSidebarEmbed sectionId="customize-ui" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactSidebarEmbed sectionId="customize-ui" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLSidebarEmbed sectionId="customize-ui" />
-    }
-  ];
+
+  const frontendOptions = {
+    'React': <ReactSidebarEmbed sectionId="customize-ui" />,
+    'Next.js': <ReactSidebarEmbed sectionId="customize-ui" />,
+    'HTML': <HTMLSidebarEmbed sectionId="customize-ui" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -110,20 +85,11 @@ export function SidebarEmbedSteps() {
 ## 2. Slots
 
 export function SidebarSlotsSteps() {
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactSidebarButton sectionId="customize-ui" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactSidebarButton sectionId="customize-ui" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLSidebarButton sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactSidebarButton sectionId="customize-ui" />,
+    'Next.js': <ReactSidebarButton sectionId="customize-ui" />,
+    'HTML': <HTMLSidebarButton sectionId="customize-ui" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
