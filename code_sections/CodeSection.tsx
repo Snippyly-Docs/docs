@@ -33,10 +33,12 @@ export default function CodeSection(props: CodeSectionProps) {
 
   const handleStepChanged = (step) => {
     if (step !== null) {
-      // console.log(step);
       setActiveHeader(props.sectionId);
-      if (window.location.hash !== `#${props.sectionId}`) {
-        window.history.pushState(null, '', `#${props.sectionId}`);
+      if (!window.location.hash.includes(`#${props.sectionId}`) || query.step !== step) {
+        let urlString = `?step=${step}`
+        if (query.review === 'true') urlString += '&review=true';
+        urlString += `#${props.sectionId}`;
+        window.history.pushState(null, '', urlString);
       }
       if (step in props.highlightRangeMap) {
         setHighlightRanges(props.highlightRangeMap[step]);
@@ -54,9 +56,7 @@ export default function CodeSection(props: CodeSectionProps) {
       props.setStep(step);
     } else {
       setActiveHeader(null);
-      if (window.location.hash !== '') {
-        window.history.pushState(null, '', ' ');
-      }
+      push({query: {}, hash: ''});
     }
   }
   return (
