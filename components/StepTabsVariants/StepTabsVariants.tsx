@@ -1,6 +1,7 @@
 import GlobalContext from '../globalContext';
 import styles from './StepTabsVariants.module.scss';
 import React, { useRef, useContext, useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 interface StepTabsVariantsProps {
   options: {[frontendOption: string]: {[variantOption: string]: React.ReactNode}};
@@ -12,6 +13,7 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
   const { frontendOption, setFrontendOption } = useContext(GlobalContext);
   const { variantSuggestion, setVariantSuggestion } = useContext(GlobalContext);
   const [featureVariant, setFeatureVariant] = useState(null);
+  const { push, query } = useRouter();
 
   const hostRef = useRef(null);
 

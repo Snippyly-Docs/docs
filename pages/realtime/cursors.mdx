@@ -75,12 +75,12 @@ export function CursorSlotSteps() {
 
 <CursorSlotSteps />
 
-## 2. Parts
+## 2. Parts [#customize-parts]
 
 export function CursorCSSParts() {
 
   const frontendOptions = {
-    'All': <CursorParts sectionId="customize-ui" />
+    'All': <CursorParts sectionId="customize-parts" />
   };
 
   return (
@@ -99,12 +99,12 @@ export function CursorCSSParts() {
 | `label-container` | Targets the label container |
 | `label` | Targets the label text |
 
-## 3. Variables
+## 3. Variables [#customize-vars]
 
 export function CursorCSSVariables() {
 
   const frontendOptions = {
-    'All': <CursorVariables sectionId="customize-ui" />
+    'All': <CursorVariables sectionId="customize-vars" />
   };
 
   return (
@@ -119,14 +119,14 @@ export function CursorCSSVariables() {
 | `--snippyly-cursor-avatar-size` | `2rem` | Sets the Cursor avatar size in avatar mode |
 | `--snippyly-cursor-video-size` | `4.2rem` | Sets the Cursor avatar size in Huddle mode |
 
-## 4. Build your own UI
+## 4. Build your own UI [#get-cursors]
 
 export function CursorDataSteps() {
 
   const frontendOptions = {
-    'React': <ReactCursorData sectionId="customize-ui" />,
-    'Next.js': <ReactCursorData sectionId="customize-ui" />,
-    'HTML': <HTMLCursorData sectionId="customize-ui" />
+    'React': <ReactCursorData sectionId="get-cursors" />,
+    'Next.js': <ReactCursorData sectionId="get-cursors" />,
+    'HTML': <HTMLCursorData sectionId="get-cursors" />
   };
 
   return (

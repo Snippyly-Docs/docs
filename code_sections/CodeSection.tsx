@@ -28,7 +28,7 @@ export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
-  const { setActiveHeader } = useContext(GlobalContext);
+  const { setActiveHeader, variantSuggestion, frontendOption } = useContext(GlobalContext);
   const { push, query } = useRouter();
 
   const handleStepChanged = (step) => {
@@ -62,7 +62,7 @@ export default function CodeSection(props: CodeSectionProps) {
   return (
     <SplitPane
       left={
-        <StepList steps={props.steps} handleStepChanged={handleStepChanged} />
+        <StepList sectionId={props.sectionId} steps={props.steps} handleStepChanged={handleStepChanged} />
       }
       right={
         <CodeSampleWrapper

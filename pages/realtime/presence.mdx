@@ -78,12 +78,12 @@ export function PresenceCSSPartsSteps() {
 | `user-avatar` | Targets the user avatar container |
 | `more-users` | Targets the more users container |
 
-## 2. Variables
+## 2. Variables [#customize-vars]
 
 export function PresenceCSSVariablesSteps() {
 
   const frontendOptions = {
-    'All': <PresenceVariables sectionId="customize-ui" />
+    'All': <PresenceVariables sectionId="customize-vars" />
   };
 
   return <StepTabs frontendOptions={frontendOptions} />
@@ -100,14 +100,14 @@ export function PresenceCSSVariablesSteps() {
 | `--snippyly-tooltip-border-color` | `#E6E8EC` | `#303034` | Sets the tooltip border color |
 | `--snippyly-more-users-color` | `#D4D6DF` | `#404044` | Sets the more users color |
 
-## 3. Build your own UI
+## 3. Build your own UI [#get-presence-data]
 
 export function PresenceDataSteps() {
 
   const frontendOptions = {
-    'React': <ReactPresenceData sectionId="customize-ui" />,
-    'Next.js': <ReactPresenceData sectionId="customize-ui" />,
-    'HTML': <HTMLPresenceData sectionId="customize-ui" />
+    'React': <ReactPresenceData sectionId="get-presence-data" />,
+    'Next.js': <ReactPresenceData sectionId="get-presence-data" />,
+    'HTML': <HTMLPresenceData sectionId="get-presence-data" />
   };
 
   return (

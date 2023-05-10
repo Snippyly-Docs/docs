@@ -132,25 +132,25 @@ export function CommentCustomizeSteps() {
 
 <CommentCustomizeSteps />
 
-## Custom Filters
+## Custom Filters [#custom-filters]
 
 export function CustomFilterSteps() {
 
   const options = {
     'React': {
-      'Status': <ReactCustomStatus sectionId="customize-behavior" />,
-      'Priority': <ReactCustomPriority sectionId="customize-behavior" />,
-      'Category': <ReactCustomCategory sectionId="customize-behavior" />
+      'Status': <ReactCustomStatus sectionId="customize-filters" />,
+      'Priority': <ReactCustomPriority sectionId="customize-filters" />,
+      'Category': <ReactCustomCategory sectionId="customize-filters" />
     },
     'Next.js': {
-      'Status': <ReactCustomStatus sectionId="customize-behavior" />,
-      'Priority': <ReactCustomPriority sectionId="customize-behavior" />,
-      'Category': <ReactCustomCategory sectionId="customize-behavior" />
+      'Status': <ReactCustomStatus sectionId="customize-filters" />,
+      'Priority': <ReactCustomPriority sectionId="customize-filters" />,
+      'Category': <ReactCustomCategory sectionId="customize-filters" />
     },
     'HTML': {
-      'Status': <HTMLCustomStatus sectionId="customize-behavior" />,
-      'Priority': <HTMLCustomPriority sectionId="customize-behavior" />,
-      'Category': <HTMLCustomCategory sectionId="customize-behavior" />
+      'Status': <HTMLCustomStatus sectionId="customize-filters" />,
+      'Priority': <HTMLCustomPriority sectionId="customize-filters" />,
+      'Category': <HTMLCustomCategory sectionId="customize-filters" />
     }
   };
 
@@ -196,15 +196,15 @@ export function CommentSlotSteps() {
 
 <CommentSlotSteps />
 
-## 2. Parts
+## 2. Parts [#customize-parts]
 
 export function CommentPartSteps() {
 
   const options = {
     'All': {
-      'Pin': <PinPart sectionId="customize-ui" />,
-      'Bubble': <BubblePart sectionId="customize-ui" />,
-      'Tool': <ToolPart sectionId="customize-ui" />
+      'Pin': <PinPart sectionId="customize-parts" />,
+      'Bubble': <BubblePart sectionId="customize-parts" />,
+      'Tool': <ToolPart sectionId="customize-parts" />
     }
   };
 
@@ -226,15 +226,15 @@ export function CommentPartSteps() {
 
 <CommentPartSteps />
 
-## 3. Variables
+## 3. Variables [#customize-vars]
 
 export function CommentVariableSteps() {
 
   const options = {
     'All': {
-      'Pin': <PinVariables sectionId="customize-ui" />,
-      'Bubble': <BubbleVariables sectionId="customize-ui" />,
-      'Tool': <ToolVariables sectionId="customize-ui" />
+      'Pin': <PinVariables sectionId="customize-vars" />,
+      'Bubble': <BubbleVariables sectionId="customize-vars" />,
+      'Tool': <ToolVariables sectionId="customize-vars" />
     }
   };
 
@@ -256,14 +256,14 @@ export function CommentVariableSteps() {
 
 <CommentVariableSteps />
 
-## 4. Build your own UI
+## 4. Build your own UI [#get-comments]
 
 export function CommentCustomUISteps() {
 
   const frontendOptions = {
-    'React': <ReactGetComments sectionId="customize-ui" />,
-    'Next.js': <ReactGetComments sectionId="customize-ui" />,
-    'HTML': <HTMLGetComments sectionId="customize-ui" />
+    'React': <ReactGetComments sectionId="get-comments" />,
+    'Next.js': <ReactGetComments sectionId="get-comments" />,
+    'HTML': <HTMLGetComments sectionId="get-comments" />
   };
 
   return (

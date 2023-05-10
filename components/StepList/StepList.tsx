@@ -1,8 +1,10 @@
 
 import { Step } from '../Step/Step';
 import React, { useRef, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export interface StepListProps {
+  sectionId: string;
   steps: {
     step: number;
     title: string;
@@ -16,6 +18,21 @@ export default function StepList(props: StepListProps) {
 
   const stepRefs = useRef(props.steps.map(() => React.createRef()));
   const [timeoutId, setTimeoutId] = useState(null);
+  const { query } = useRouter();
+
+  // useEffect(() => {
+  //   const hash = window.location.hash.split('#')[1];
+  //   if (!hash) return;
+  //   if (hash !== props.sectionId) return;
+  //   if (!query.step) return;
+
+  //   const stepNum = parseInt(query.step as string) - 1;
+  //   if (stepNum !== null) {
+  //     const step = stepRefs.current[stepNum];
+  //     step.current.scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});
+  //     console.log('test');
+  //   }
+  // }, [query]);
 
   const handleScroll = () => {
 
