@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import SplitPane from '../components/SplitPane/SplitPane';
 import StepList from '../components/StepList/StepList';
 import CodeSampleWrapper from '../components/CodeSampleWrapper/CodeSampleWrapper';
 import GlobalContext from '../components/globalContext';
+import { useRouter } from 'next/router';
 
 export interface CodeSectionVariant {
   sectionId: string;
@@ -28,9 +29,11 @@ export default function CodeSection(props: CodeSectionProps) {
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
   const { setActiveHeader } = useContext(GlobalContext);
+  const { push, query } = useRouter();
 
   const handleStepChanged = (step) => {
     if (step !== null) {
+      // console.log(step);
       setActiveHeader(props.sectionId);
       if (window.location.hash !== `#${props.sectionId}`) {
         window.history.pushState(null, '', `#${props.sectionId}`);
