@@ -19,8 +19,8 @@ export default function ReactConfig(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>The <code>initConfig</code> function allows you to pass extra configuration options.</strong>
-          <p>You can pass in a config object as the second parameter of the function.</p>
+          <strong>The <code>SnippylyProvider</code> component takes a <code>config</code> property.</strong>
+          <p>You can pass in a configuration object that affects the SDK at a global level across your application.</p>
         </>
       )
     },

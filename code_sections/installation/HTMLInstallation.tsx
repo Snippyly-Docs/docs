@@ -49,7 +49,7 @@ export default function HTMLInstallation(props: CodeSectionVariant) {
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.Snippyly.initConfig("UnHxCCFcclkô4bErBL1");
+        await window.Snippyly.init("UnHxCCFcclkô4bErBL1");
       }
     </script>
     
