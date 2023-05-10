@@ -1,9 +1,9 @@
 import GlobalContext from '../globalContext';
 import styles from './StepTabs.module.scss';
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useEffect } from 'react';
 
 interface StepTabsProps {
-  frontendOptions: [{title: string, value: React.ReactNode}];
+  frontendOptions: {[key: string]: React.ReactNode};
 }
 
 export default function StepTabs(props: StepTabsProps) {
@@ -12,18 +12,24 @@ export default function StepTabs(props: StepTabsProps) {
 
   const hostRef = useRef(null);
 
+  useEffect(() => {
+    if (frontendOption === null) {
+      setFrontendOption(Object.keys(props.frontendOptions)[0]);
+    }
+  }, [frontendOption]);
+
   return (
     <>
-      {props.frontendOptions.length > 1 ?
+      {Object.values(props.frontendOptions).length > 1 ?
         <div className={`${styles.flexContainer}`} ref={hostRef}>
           <div className={styles.spacer}></div>
           <div className={styles.stepTabs}>
             <h3>Frontend: </h3>
             {
-              props.frontendOptions.map((option, idx) => {
+              Object.keys(props.frontendOptions).map((key) => {
                 return (
-                  <div key={idx} className={`${styles.tab} ${idx === frontendOption ? styles.active : ''}`} onClick={() => setFrontendOption(idx)}>
-                    <p>{option.title}</p>
+                  <div key={key} className={`${styles.tab} ${key === frontendOption ? styles.active : ''}`} onClick={() => setFrontendOption(key)}>
+                    <p>{key}</p>
                   </div>
                 );
               })
@@ -31,7 +37,7 @@ export default function StepTabs(props: StepTabsProps) {
           </div>
         </div>
         : undefined}
-      {frontendOption in props.frontendOptions ? props.frontendOptions[frontendOption].value : props.frontendOptions[0].value}
+      {frontendOption in props.frontendOptions ? props.frontendOptions[frontendOption] : Object.values(props.frontendOptions)[0]}
     </>
   );
 }

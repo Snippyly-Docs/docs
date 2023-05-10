@@ -19,20 +19,12 @@ import { NextSeo } from 'next-seo';
 />
 
 export function InstallSteps() {
-  const frontendOptions = [
-    { 
-      title: 'React',
-      value: <ReactInstallation sectionId="installation" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactInstallation sectionId="installation" />
-    },
-    { 
-      title: 'HTML',
-      value: <HTMLInstallation sectionId="installation" />
-    }
-  ];
+
+  const frontendOptions = {
+    'React': <ReactInstallation sectionId="installation" />,
+    'Next.js': <ReactInstallation sectionId="installation" />,
+    'HTML': <HTMLInstallation sectionId="installation" />
+  };
 
   return (
     <StepTabs 
@@ -46,20 +38,11 @@ export function InstallSteps() {
 # Configuration [#configuration]
 
 export function ConfigSteps() {
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactConfig sectionId="configuration" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactConfig sectionId="configuration" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLConfig sectionId="configuration" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactConfig sectionId="configuration" />,
+    'Next.js': <ReactConfig sectionId="configuration" />,
+    'HTML': <HTMLConfig sectionId="configuration" />
+  };
 
   return (
     <StepTabs 
@@ -88,20 +71,11 @@ export function ConfigSteps() {
 # Users [#users]
 
 export function UserSteps() {
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactUsers sectionId="users" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactUsers sectionId="users" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLUsers sectionId="users" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactUsers sectionId="users" />,
+    'Next.js': <ReactUsers sectionId="users" />,
+    'HTML': <HTMLUsers sectionId="users" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -135,20 +109,11 @@ export function UserSteps() {
 # Location [#location]
 
 export function LocationSteps() {
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactLocation sectionId="location" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactLocation sectionId="location" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLLocation sectionId="location" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactLocation sectionId="location" />,
+    'Next.js': <ReactLocation sectionId="location" />,
+    'HTML': <HTMLLocation sectionId="location" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />

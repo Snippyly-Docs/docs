@@ -19,7 +19,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>The <code>initConfig</code> function allows you to pass extra configuration options.</strong>
+          <strong>The <code>init</code> function allows you to pass extra configuration options.</strong>
           <p>You can pass in a config object as the second parameter of the function.</p>
         </>
       )
@@ -85,7 +85,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.snippyly.initConfig("UnHxCCFcclkô4bErBL1",
+        await window.Snippyly.init("UnHxCCFcclkô4bErBL1",
           {
             urlAllowList: ['/about', '/contact-us'],
             featureAllowList: ['comments', 'presence'],

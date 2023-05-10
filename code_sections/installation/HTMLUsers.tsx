@@ -145,8 +145,8 @@ export default function HTMLUsers(props: CodeSectionVariant) {
         ];
         user.contacts = contacts;
 
-        if (window.snippyly) {
-          window.snippyly.identify(user);
+        if (window.Snippyly) {
+          window.Snippyly.identify(user);
         }
 
       }
@@ -158,8 +158,8 @@ export default function HTMLUsers(props: CodeSectionVariant) {
         await authProvider.signOut();
 
         // Clear the Snippyly user object
-        if (window.snippyly) {
-          window.snippyly.signOutUser();
+        if (window.Snippyly) {
+          window.Snippyly.signOutUser();
         }
 
       }

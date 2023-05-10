@@ -26,20 +26,11 @@ import { NextSeo } from 'next-seo';
 
 export function CursorSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactCursorOverview sectionId="steps" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactCursorOverview sectionId="steps" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLCursorOverview sectionId="steps" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactCursorOverview sectionId="steps" />,
+    'Next.js': <ReactCursorOverview sectionId="steps" />,
+    'HTML': <HTMLCursorOverview sectionId="steps" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -52,20 +43,11 @@ export function CursorSteps() {
 
 export function CursorCustomizeBehavior() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactCursorCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactCursorCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLCursorCustom sectionId="customize-behavior" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactCursorCustom sectionId="customize-behavior" />,
+    'Next.js': <ReactCursorCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLCursorCustom sectionId="customize-behavior" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -80,20 +62,11 @@ export function CursorCustomizeBehavior() {
 
 export function CursorSlotSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactCursorSlot sectionId="customize-ui" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactCursorSlot sectionId="customize-ui" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLCursorSlot sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactCursorSlot sectionId="customize-ui" />,
+    'Next.js': <ReactCursorSlot sectionId="customize-ui" />,
+    'HTML': <HTMLCursorSlot sectionId="customize-ui" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -102,16 +75,13 @@ export function CursorSlotSteps() {
 
 <CursorSlotSteps />
 
-## 2. Parts
+## 2. Parts [#customize-parts]
 
 export function CursorCSSParts() {
 
-  const frontendOptions = [
-    {
-      title: 'All',
-      value: <CursorParts sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'All': <CursorParts sectionId="customize-parts" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -129,16 +99,13 @@ export function CursorCSSParts() {
 | `label-container` | Targets the label container |
 | `label` | Targets the label text |
 
-## 3. Variables
+## 3. Variables [#customize-vars]
 
 export function CursorCSSVariables() {
 
-  const frontendOptions = [
-    {
-      title: 'All',
-      value: <CursorVariables sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'All': <CursorVariables sectionId="customize-vars" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -152,24 +119,15 @@ export function CursorCSSVariables() {
 | `--snippyly-cursor-avatar-size` | `2rem` | Sets the Cursor avatar size in avatar mode |
 | `--snippyly-cursor-video-size` | `4.2rem` | Sets the Cursor avatar size in Huddle mode |
 
-## 4. Build your own UI
+## 4. Build your own UI [#get-cursors]
 
 export function CursorDataSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactCursorData sectionId="customize-ui" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactCursorData sectionId="customize-ui" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLCursorData sectionId="customize-ui" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactCursorData sectionId="get-cursors" />,
+    'Next.js': <ReactCursorData sectionId="get-cursors" />,
+    'HTML': <HTMLCursorData sectionId="get-cursors" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />

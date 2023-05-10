@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import SplitPane from '../components/SplitPane/SplitPane';
 import StepList from '../components/StepList/StepList';
 import CodeSampleWrapper from '../components/CodeSampleWrapper/CodeSampleWrapper';
 import GlobalContext from '../components/globalContext';
+import { useRouter } from 'next/router';
 
 export interface CodeSectionVariant {
   sectionId: string;
@@ -27,13 +28,17 @@ export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
-  const { setActiveHeader } = useContext(GlobalContext);
+  const { setActiveHeader, variantSuggestion, frontendOption } = useContext(GlobalContext);
+  const { push, query } = useRouter();
 
   const handleStepChanged = (step) => {
     if (step !== null) {
       setActiveHeader(props.sectionId);
-      if (window.location.hash !== `#${props.sectionId}`) {
-        window.history.pushState(null, '', `#${props.sectionId}`);
+      if (!window.location.hash.includes(`#${props.sectionId}`) || query.step !== step) {
+        let urlString = `?step=${step}`
+        if (query.review === 'true') urlString += '&review=true';
+        urlString += `#${props.sectionId}`;
+        window.history.pushState(null, '', urlString);
       }
       if (step in props.highlightRangeMap) {
         setHighlightRanges(props.highlightRangeMap[step]);
@@ -51,15 +56,13 @@ export default function CodeSection(props: CodeSectionProps) {
       props.setStep(step);
     } else {
       setActiveHeader(null);
-      if (window.location.hash !== '') {
-        window.history.pushState(null, '', ' ');
-      }
+      push({query: {}, hash: ''});
     }
   }
   return (
     <SplitPane
       left={
-        <StepList steps={props.steps} handleStepChanged={handleStepChanged} />
+        <StepList sectionId={props.sectionId} steps={props.steps} handleStepChanged={handleStepChanged} />
       }
       right={
         <CodeSampleWrapper

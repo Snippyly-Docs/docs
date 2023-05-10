@@ -46,9 +46,9 @@ export default function ReactFlockAPI(props: CodeSectionVariant) {
   <body>
 
     <script>
-      if (window.snippyly) {
+      if (window.Snippyly) {
 
-        const presenceElement = window.snippyly.getPresenceElement();
+        const presenceElement = window.Snippyly.getPresenceElement();
 
         // Pass in the user ID of the user you want to follow
         presenceElement.startFollowingUser(userId);

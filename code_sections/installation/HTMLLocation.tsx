@@ -86,14 +86,14 @@ export default function HTMLConfig(props: CodeSectionVariant) {
         const popupEl = document.getElementById('popup');
         popupEl.style.display = 'block';
 
-        window.snippyly.addLocation({page: '/collaboration', popup: true});
+        window.Snippyly.addLocation({page: '/collaboration', popup: true});
       }
 
       function loadSnippyly() {
-        await window.snippyly.initConfig("UnHxCCFcclkô4bErBL1");
+        await window.Snippyly.init("UnHxCCFcclkô4bErBL1");
 
-        window.snippyly.setDocumentID('my-collaboration-app');
-        window.snippyly.setLocation({page: 'index'});
+        window.Snippyly.setDocumentID('my-collaboration-app');
+        window.Snippyly.setLocation({page: 'index'});
         
       }
     </script>

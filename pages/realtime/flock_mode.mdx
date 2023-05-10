@@ -22,20 +22,11 @@ import { NextSeo } from 'next-seo';
 
 export function FlockSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactFlockOverview sectionId="steps" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactFlockOverview sectionId="steps" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLFlockOverview sectionId="steps" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactFlockOverview sectionId="steps" />,
+    'Next.js': <ReactFlockOverview sectionId="steps" />,
+    'HTML': <HTMLFlockOverview sectionId="steps" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -48,20 +39,11 @@ export function FlockSteps() {
 
 export function FlockCustomSteps() {
 
-  const frontendOptions = [
-    {
-      title: 'React',
-      value: <ReactFlockCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'Next.js',
-      value: <ReactFlockCustom sectionId="customize-behavior" />
-    },
-    {
-      title: 'HTML',
-      value: <HTMLFlockCustom sectionId="customize-behavior" />
-    }
-  ];
+  const frontendOptions = {
+    'React': <ReactFlockCustom sectionId="customize-behavior" />,
+    'Next.js': <ReactFlockCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLFlockCustom sectionId="customize-behavior" />
+  };
 
   return (
     <StepTabs frontendOptions={frontendOptions} />
@@ -82,24 +64,15 @@ export function FlockCustomSteps() {
 
 export function FlockAPISteps() {
 
-    const frontendOptions = [
-      {
-        title: 'React',
-        value: <ReactFlockAPI sectionId="api" />
-      },
-      {
-        title: 'Next.js',
-        value: <ReactFlockAPI sectionId="api" />
-      },
-      {
-        title: 'HTML',
-        value: <HTMLFlockAPI sectionId="api" />
-      }
-    ];
+  const frontendOptions = {
+    'React': <ReactFlockAPI sectionId="api" />,
+    'Next.js': <ReactFlockAPI sectionId="api" />,
+    'HTML': <HTMLFlockAPI sectionId="api" />
+  };
   
-    return (
-      <StepTabs frontendOptions={frontendOptions} />
-    );
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
 }
 
 <FlockAPISteps />

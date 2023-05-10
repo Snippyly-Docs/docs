@@ -11,8 +11,9 @@ import { initSuperflow } from '@usesuperflow/client'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const [frontendOption, setFrontendOption] = useState(0);
-  const [activeHeader, setActiveHeader] = useState(undefined);
+  const [frontendOption, setFrontendOption] = useState(null);
+  const [variantSuggestion, setVariantSuggestion] = useState(null);
+  const [activeHeader, setActiveHeader] = useState(null);
   const [darkMode, setDarkMode] = useState(null);
 
   const handleThemeChange = (e) => {
@@ -60,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ setDarkMode, darkMode, frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
+    <GlobalContext.Provider value={{ variantSuggestion, setVariantSuggestion, setDarkMode, darkMode, frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
       <NextUIProvider>
         <Component {...pageProps} />
       </NextUIProvider>

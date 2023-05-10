@@ -1,31 +1,31 @@
 import GlobalContext from '../globalContext';
 import styles from './StepTabsVariants.module.scss';
-import React, { useRef, useContext, useState, useMemo } from 'react';
+import React, { useRef, useContext, useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 interface StepTabsVariantsProps {
-  frontendOptions: [{title: string}];
-  variants: [{title: string}];
-  options: Array<Array<React.ReactNode>>;
-  references: Array<Array<React.ReactNode>>;
+  options: {[frontendOption: string]: {[variantOption: string]: React.ReactNode}};
+  referenceOptions: {[key: string]: {[key: string]: React.ReactNode}};
 }
 
 export default function StepTabsVariants(props: StepTabsVariantsProps) {
 
   const { frontendOption, setFrontendOption } = useContext(GlobalContext);
-  const [featureVariant, setFeatureVariant] = useState(0);
-  // const [activeOption, setActiveOption] = useState(props.options[0][0]);
+  const { variantSuggestion, setVariantSuggestion } = useContext(GlobalContext);
+  const [featureVariant, setFeatureVariant] = useState(null);
+  const { push, query } = useRouter();
 
   const hostRef = useRef(null);
 
-  const renderOptions = (title: string, optionsArr: Array<{title: string}>, currentOptionIndex: number, setOption: Function) => {
+  const renderOptions = (title: string, optionsArr: Array<string>, currentOption: string, setOption: Function) => {
     return (
       <>
         <h3>{title}: </h3>
         {
           optionsArr.map((option, idx) => {
             return (
-              <div key={idx} className={`${styles.tab} ${idx === currentOptionIndex ? styles.active : ''}`} onClick={() => setOption(idx)}>
-                <p>{option.title}</p>
+              <div key={idx} className={`${styles.tab} ${option === currentOption? styles.active : ''}`} onClick={() => setOption(option)}>
+                <p>{option}</p>
               </div>
             )
           })
@@ -34,76 +34,73 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
     );
   }
 
-  // const getActiveOption = () => {
+  useEffect(() => {
+    if (variantSuggestion in Object.values(props.options)[0]) {
+      if (variantSuggestion !== featureVariant) {
+        setFeatureVariant(variantSuggestion);
+      }
+    }
+  }, [variantSuggestion, props.options]);
 
-  //   console.log(featureVariant);
-
-  //   if (featureVariant in props.options && frontendOption in props.options[featureVariant]) {
-  //     return props.options[featureVariant][frontendOption];
-  //   }
-
-  //   if (featureVariant in props.options) {
-  //     return props.options[featureVariant][0];
-  //   }
-
-  //   if (frontendOption in props.options[0]) {
-  //     return props.options[0][frontendOption];
-  //   }
-
-  // }
-
-  // useEffect(() => {
-  //   setActiveOption(getActiveOption());
-  // }, [featureVariant, frontendOption]);
+  useEffect(() => {
+    if (featureVariant === null) {
+      setFeatureVariant(Object.keys(Object.values(props.options)[0])[0]);
+    } else {
+      if (featureVariant !== variantSuggestion) {
+        setVariantSuggestion(featureVariant);
+      }
+    }
+  }, [featureVariant]);
 
   const activeOption = useMemo(() => {
-    if (featureVariant in props.options && frontendOption in props.options[featureVariant]) {
-      return props.options[featureVariant][frontendOption];
+    if (frontendOption in props.options && featureVariant in props.options[frontendOption]) {
+      return props.options[frontendOption][featureVariant];
     }
 
-    if (featureVariant in props.options) {
-      return props.options[featureVariant][0];
+    if (frontendOption in props.options) {
+      return Object.values(props.options[frontendOption])[0];
     }
 
-    if (frontendOption in props.options[0]) {
-      return props.options[0][frontendOption];
+    if (featureVariant in Object.values(props.options)[0]) {
+      return Object.values(props.options)[0][featureVariant];
     }
   }, [featureVariant, frontendOption, props.options]);
 
   const activeReference = useMemo(() => {
 
-    if (!props.references) return;
-    if (featureVariant in props.references && frontendOption in props.references[featureVariant]) {
-      return props.references[featureVariant][frontendOption];
+    if (!props.referenceOptions) return;
+
+    if (frontendOption in props.referenceOptions && featureVariant in props.referenceOptions[frontendOption]) {
+      return props.referenceOptions[featureVariant][frontendOption];
     }
 
-    if (featureVariant in props.options) {
-      return props.references[featureVariant][0];
+    if (frontendOption in props.options) {
+      return Object.values(props.referenceOptions[frontendOption])[0];
     }
 
-    if (frontendOption in props.options[0]) {
-      return props.references[0][frontendOption];
+    if (featureVariant in Object.values(props.options)[0]) {
+      return Object.values(props.referenceOptions)[0][featureVariant];
     }
-  }, [featureVariant, frontendOption, props.references]);
+  }, [featureVariant, frontendOption, props.referenceOptions]);
 
 
   return (
     <>
-      {props.frontendOptions.length > 1 || props.variants.length > 1 ?
+      {Object.keys(props.options).length > 1 || Object.keys(Object.values(props.options)[0]).length > 1 ?
         <div className={`${styles.flexContainer}`} ref={hostRef}>
           <div className={styles.spacer}></div>
           <div className={styles.stepTabs}>
             <div>
               {
-                props.variants.length > 1 ?
-                  renderOptions('Type', props.variants, featureVariant, setFeatureVariant)
+                Object.keys(Object.values(props.options)[0]).length > 1 ?
+                  renderOptions('Frontend', Object.keys(Object.values(props.options)[0]), featureVariant, setFeatureVariant)
                   : null
               }
             </div>
             <div>
               {
-                props.frontendOptions.length > 1 ?
-                  renderOptions('Frontend', props.frontendOptions, frontendOption, setFrontendOption)
+                Object.keys(props.options).length > 1 ?
+                  renderOptions('Type', Object.keys(props.options), frontendOption, setFrontendOption)
                   : null
               }
             </div>

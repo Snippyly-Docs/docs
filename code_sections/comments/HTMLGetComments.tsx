@@ -57,7 +57,7 @@ export default function ReactGetComments(props: CodeSectionVariant) {
   <body>
 
     <script>
-      const commentElement = window.snippyly.getCommentElement();
+      const commentElement = window.Snippyly.getCommentElement();
 
       // Provide your own logic to determine the documentId and location
       const documentId = 'example-document-id';

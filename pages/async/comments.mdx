@@ -55,30 +55,19 @@ import { NextSeo } from 'next-seo';
 <Subheading>Add comment annotations directly to your page.</Subheading>
 
 export function Test() {
-  const frontendOptions = [
-    {title: 'All'}
-  ];
 
-  const variants = [
-    {title: 'Freestyle'},
-    {title: 'Popover'},
-    {title: 'Stream'},
-    {title: 'Text'},
-    {title: 'Inbox'}
-  ];
-
-  const options = [
-    [ <CommentsDemo demoUrl="comments" /> ],
-    [ <CommentsDemo demoUrl="comments-popover" /> ],
-    [ <CommentsDemo demoUrl="comments-stream" /> ],
-    [ <CommentsDemo demoUrl="comments-text" /> ],
-    [ <CommentsDemo demoUrl="comments-inbox" /> ]
-  ];
+  const options = {
+    'All': {
+      'Freestyle': <CommentsDemo demoUrl="comments" />,
+      'Popover': <CommentsDemo demoUrl="comments-popover" />,
+      'Stream': <CommentsDemo demoUrl="comments-stream" />,
+      'Text': <CommentsDemo demoUrl="comments-text" />,
+      'Inbox': <CommentsDemo demoUrl="comments-inbox" />
+    }
+  };
 
   return (
     <StepTabsVariants
-      frontendOptions={frontendOptions}
-      variants={variants}
       options={options}
     />
   );
@@ -90,52 +79,32 @@ export function Test() {
 
 export function CommentOverviewSteps() {
 
-  const frontendOptions = [
-    {title: 'React'},
-    {title: 'Next.js'},
-    {title: 'HTML'}
-  ];
-
-  const variants = [
-    {title: 'Freestyle'},
-    {title: 'Popover'},
-    {title: 'Stream'},
-    {title: 'Text'},
-    {title: 'Inbox'}
-  ];
-
-  const options = [
-    [
-      <ReactFreestyleOverview sectionId="steps" />,
-      <ReactFreestyleOverview sectionId="steps" />,
-      <HTMLFreestyleOverview sectionId="steps" />
-    ],
-    [
-      <ReactPopoverOverview sectionId="steps" />,
-      <ReactPopoverOverview sectionId="steps" />,
-      <HTMLPopoverOverview sectionId="steps" />
-    ],
-    [
-      <ReactStreamOverview sectionId="steps" />,
-      <ReactStreamOverview sectionId="steps" />,
-      <HTMLStreamOverview sectionId="steps" />
-    ],
-    [
-      <ReactTextOverview sectionId="steps" />,
-      <ReactTextOverview sectionId="steps" />,
-      <HTMLTextOverview sectionId="steps" />
-    ],
-    [
-      <ReactInboxOverview sectionId="steps" />,
-      <ReactInboxOverview sectionId="steps" />,
-      <HTMLInboxOverview sectionId="steps" />
-    ]
-  ];
+  const options = {
+    'React': {
+      'Freestyle': <ReactFreestyleOverview sectionId="steps" />,
+      'Popover': <ReactPopoverOverview sectionId="steps" />,
+      'Stream': <ReactStreamOverview sectionId="steps" />,
+      'Text': <ReactTextOverview sectionId="steps" />,
+      'Inbox': <ReactInboxOverview sectionId="steps" />
+    },
+    'Next.js': {
+      'Freestyle': <ReactFreestyleOverview sectionId="steps" />,
+      'Popover': <ReactPopoverOverview sectionId="steps" />,
+      'Stream': <ReactStreamOverview sectionId="steps" />,
+      'Text': <ReactTextOverview sectionId="steps" />,
+      'Inbox': <ReactInboxOverview sectionId="steps" />
+    },
+    'HTML': {
+      'Freestyle': <HTMLFreestyleOverview sectionId="steps" />,
+      'Popover': <HTMLPopoverOverview sectionId="steps" />,
+      'Stream': <HTMLStreamOverview sectionId="steps" />,
+      'Text': <HTMLTextOverview sectionId="steps" />,
+      'Inbox': <HTMLInboxOverview sectionId="steps" />
+    }
+  };
 
   return (
     <StepTabsVariants
-      frontendOptions={frontendOptions}
-      variants={variants}
       options={options}
     />
   );
@@ -148,11 +117,11 @@ export function CommentOverviewSteps() {
 
 export function CommentCustomizeSteps() {
 
-  const frontendOptions = [
-    {title: 'React', value: <ReactAllCustom sectionId="customize-behavior" />},
-    {title: 'Next.js', value: <ReactAllCustom sectionId="customize-behavior" />},
-    {title: 'HTML', value: <HTMLAllCustom sectionId="customize-behavior" />}
-  ];
+  const frontendOptions = {
+    'React': <ReactAllCustom sectionId="customize-behavior" />,
+    'Next.js': <ReactAllCustom sectionId="customize-behavior" />,
+    'HTML': <HTMLAllCustom sectionId="customize-behavior" />
+  };
 
   return (
     <StepTabs
@@ -163,43 +132,30 @@ export function CommentCustomizeSteps() {
 
 <CommentCustomizeSteps />
 
-## Custom Filters
+## Custom Filters [#custom-filters]
 
 export function CustomFilterSteps() {
-  const frontendOptions = [
-    { title: 'React' },
-    { title: 'Next.js' },
-    { title: 'HTML' }
-  ];
 
-  const variants = [
-    {title: 'Status'},
-    {title: 'Priority'},
-    {title: 'Category'}
-  ];
-
-  const options = [
-    [
-      <ReactCustomStatus sectionId="customize-ui" />,
-      <ReactCustomStatus sectionId="customize-ui" />,
-      <HTMLCustomStatus sectionId="customize-ui" />,
-    ],
-    [
-      <ReactCustomPriority sectionId="customize-ui" />,
-      <ReactCustomPriority sectionId="customize-ui" />,
-      <HTMLCustomPriority sectionId="customize-ui" />,
-    ],
-    [
-      <ReactCustomCategory sectionId="customize-ui" />,
-      <ReactCustomCategory sectionId="customize-ui" />,
-      <HTMLCustomCategory sectionId="customize-ui" />,
-    ]
-  ];
+  const options = {
+    'React': {
+      'Status': <ReactCustomStatus sectionId="customize-filters" />,
+      'Priority': <ReactCustomPriority sectionId="customize-filters" />,
+      'Category': <ReactCustomCategory sectionId="customize-filters" />
+    },
+    'Next.js': {
+      'Status': <ReactCustomStatus sectionId="customize-filters" />,
+      'Priority': <ReactCustomPriority sectionId="customize-filters" />,
+      'Category': <ReactCustomCategory sectionId="customize-filters" />
+    },
+    'HTML': {
+      'Status': <HTMLCustomStatus sectionId="customize-filters" />,
+      'Priority': <HTMLCustomPriority sectionId="customize-filters" />,
+      'Category': <HTMLCustomCategory sectionId="customize-filters" />
+    }
+  };
 
   return (
     <StepTabsVariants
-      frontendOptions={frontendOptions}
-      variants={variants}
       options={options}
     />
   );
@@ -212,40 +168,27 @@ export function CustomFilterSteps() {
 ## 1. Slots
 
 export function CommentSlotSteps() {
-  const frontendOptions = [
-    { title: 'React' },
-    { title: 'Next.js' },
-    { title: 'HTML' }
-  ];
 
-  const variants = [
-    { title: 'Pin' },
-    { title: 'Bubble' },
-    { title: 'Tool' }
-  ];
-
-  const options = [
-    [
-      <ReactPin sectionId="customize-ui" />,
-      <ReactPin sectionId="customize-ui" />,
-      <HTMLPin sectionId="customize-ui" />
-    ],
-    [
-      <ReactBubble sectionId="customize-ui" />,
-      <ReactBubble sectionId="customize-ui" />,
-      <HTMLBubble sectionId="customize-ui" />
-    ],
-    [
-      <ReactTool sectionId="customize-ui" />,
-      <ReactTool sectionId="customize-ui" />,
-      <HTMLTool sectionId="customize-ui" />
-    ]
-  ];
+  const options = {
+    'React': {
+      'Pin': <ReactPin sectionId="customize-ui" />,
+      'Bubble': <ReactBubble sectionId="customize-ui" />,
+      'Tool': <ReactTool sectionId="customize-ui" />
+    },
+    'Next.js': {
+      'Pin': <ReactPin sectionId="customize-ui" />,
+      'Bubble': <ReactBubble sectionId="customize-ui" />,
+      'Tool': <ReactTool sectionId="customize-ui" />
+    },
+    'HTML': {
+      'Pin': <HTMLPin sectionId="customize-ui" />,
+      'Bubble': <HTMLBubble sectionId="customize-ui" />,
+      'Tool': <HTMLTool sectionId="customize-ui" />
+    }
+  };
 
   return (
     <StepTabsVariants
-      frontendOptions={frontendOptions}
-      variants={variants}
       options={options}
     />
   );
@@ -253,112 +196,75 @@ export function CommentSlotSteps() {
 
 <CommentSlotSteps />
 
-## 2. Parts
+## 2. Parts [#customize-parts]
 
 export function CommentPartSteps() {
-  const frontendOptions = [
-    { title: 'All' }
-  ];
 
-  const variants = [
-    { title: 'Pin' },
-    { title: 'Bubble' },
-    { title: 'Tool' }
-  ];
+  const options = {
+    'All': {
+      'Pin': <PinPart sectionId="customize-parts" />,
+      'Bubble': <BubblePart sectionId="customize-parts" />,
+      'Tool': <ToolPart sectionId="customize-parts" />
+    }
+  };
 
-  const options = [
-    [
-      <PinPart sectionId="customize-ui" />
-    ],
-    [
-      <BubblePart sectionId="customize-ui" />
-    ],
-    [
-      <ToolPart sectionId="customize-ui" />
-    ]
-  ];
-
-  const references = [
-    [
-      <PinPartsRef />
-    ],
-    [
-      <BubblePartsRef />
-    ],
-    [
-      <ToolPartsRef />
-    ]
-  ];
+  const referenceOptions = {
+    'All': {
+      'Pin': <PinPartsRef />,
+      'Bubble': <BubblePartsRef />,
+      'Tool': <ToolPartsRef />
+    }
+  };
 
   return (
     <StepTabsVariants 
-      frontendOptions={frontendOptions}
-      variants={variants}
       options={options}
-      references={references}
+      referenceOptions={referenceOptions}
     />
   );
 }
 
 <CommentPartSteps />
 
-## 3. Variables
+## 3. Variables [#customize-vars]
 
 export function CommentVariableSteps() {
-  const frontendOptions = [
-    {title: 'All'}
-  ];
 
-  const variants = [
-    { title: 'Pin' },
-    { title: 'Bubble' },
-    { title: 'Tool' }
-  ];
+  const options = {
+    'All': {
+      'Pin': <PinVariables sectionId="customize-vars" />,
+      'Bubble': <BubbleVariables sectionId="customize-vars" />,
+      'Tool': <ToolVariables sectionId="customize-vars" />
+    }
+  };
 
-  const options = [
-    [
-      <PinVariables sectionId="customize-ui" />
-    ],
-    [
-      <BubbleVariables sectionId="customize-ui" />
-    ],
-    [
-      <ToolVariables sectionId="customize-ui" />
-    ]
-  ];
-
-  const references = [
-    [
-      <PinVariablesRef />
-    ],
-    [
-      <BubbleVariablesRef />
-    ],
-    [
-      <ToolVariablesRef />
-    ]
-  ];
+  const referenceOptions = {
+    'All': {
+      'Pin': <PinVariablesRef />,
+      'Bubble': <BubbleVariablesRef />,
+      'Tool': <ToolVariablesRef />
+    }
+  };
 
   return (
     <StepTabsVariants
-      frontendOptions={frontendOptions}
-      variants={variants}
       options={options}
-      references={references}
+      referenceOptions={referenceOptions}
     />
   );
 }
 
 <CommentVariableSteps />
 
-## 4. Build your own UI
+## 4. Build your own UI [#get-comments]
 
 export function CommentCustomUISteps() {
-  const frontendOptions = [
-    { title: 'React', value: <ReactGetComments sectionId="customize-ui" /> },
-    { title: 'Next.js', value: <ReactGetComments sectionId="customize-ui" /> },
-    { title: 'HTML', value: <HTMLGetComments sectionId="customize-ui" /> }
-  ];
+
+  const frontendOptions = {
+    'React': <ReactGetComments sectionId="get-comments" />,
+    'Next.js': <ReactGetComments sectionId="get-comments" />,
+    'HTML': <HTMLGetComments sectionId="get-comments" />
+  };
 
   return (
     <StepTabs
