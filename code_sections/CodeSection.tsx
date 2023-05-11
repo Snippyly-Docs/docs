@@ -41,6 +41,7 @@ export default function CodeSection(props: CodeSectionProps) {
   };
 
   useEffect(() => {
+    if (frontendOption === null) return;
     setQueryFrontendOption();
   });
 

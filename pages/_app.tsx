@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       const cachedFrontendOption = sessionStorage.getItem('frontendOption');
       if (cachedFrontendOption) {
         setFrontendOption(cachedFrontendOption);
+        return;
       }
     } else {
       sessionStorage.setItem('frontendOption', frontendOption);

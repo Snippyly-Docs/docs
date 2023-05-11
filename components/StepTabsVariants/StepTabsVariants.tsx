@@ -1,7 +1,6 @@
 import GlobalContext from '../globalContext';
 import styles from './StepTabsVariants.module.scss';
 import React, { useRef, useContext, useState, useMemo, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 interface StepTabsVariantsProps {
   options: {[frontendOption: string]: {[variantOption: string]: React.ReactNode}};
@@ -39,16 +38,32 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
         setFeatureVariant(variantSuggestion);
       }
     }
-  }, [variantSuggestion, props.options]);
+  }, [variantSuggestion]);
 
   useEffect(() => {
+
+    // Set cached item based on unique key of window href
+    // const key = window.location.pathname + window.location.hash;
+
     if (featureVariant === null) {
+    //   const cachedFeatureVariant = sessionStorage.getItem(`fv-${key}`);
+    //   console.log(cachedFeatureVariant);
+    //   console.log(Object.values(props.options)[0]);
+    //   if (cachedFeatureVariant && cachedFeatureVariant in Object.values(props.options)[0]) {
+    //     console.log(cachedFeatureVariant);
+    //     setFeatureVariant(cachedFeatureVariant);
+    //     setVariantSuggestion(cachedFeatureVariant);
+    //   } else {
+    //     setFeatureVariant(Object.keys(Object.values(props.options)[0])[0]);
+    //   }
       setFeatureVariant(Object.keys(Object.values(props.options)[0])[0]);
     } else {
       if (featureVariant !== variantSuggestion) {
         setVariantSuggestion(featureVariant);
       }
     }
+
+    // sessionStorage.setItem(`fv-${key}`, featureVariant);
   }, [featureVariant]);
 
   const activeOption = useMemo(() => {
