@@ -28,15 +28,34 @@ export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
-  const { setActiveHeader } = useContext(GlobalContext);
+  const { setActiveHeader, frontendOption } = useContext(GlobalContext);
   const { push, query } = useRouter();
+
+  const setQueryFrontendOption = () => {
+    const query = new URLSearchParams(window.location.search);
+    if (query.has('frontend') && query.get('frontend') === frontendOption && frontendOption !== null) return;
+    query.set('frontend', frontendOption);
+    let urlString = query.toString();
+    if (window.location.hash !== '') urlString += `${window.location.hash}`;
+    window.history.pushState({}, '', `?${urlString}`);
+  };
+
+  useEffect(() => {
+    setQueryFrontendOption();
+  });
+
+  useEffect(() => {
+    if (frontendOption === null) return;
+    setQueryFrontendOption();
+  }, [frontendOption]);
 
   const handleStepChanged = (step) => {
     if (step !== null) {
       setActiveHeader(props.sectionId);
       if (!window.location.hash.includes(`#${props.sectionId}`) || query.step !== step) {
-        const queryCopy = {...query, step};
-        let urlString = `?${new URLSearchParams(queryCopy).toString()}`;
+        const params = new URLSearchParams(window.location.search);
+        params.set('step', step);
+        let urlString = `?${params.toString()}`;
         urlString += `#${props.sectionId}`;
         window.history.pushState(null, '', urlString);
       }
@@ -56,9 +75,14 @@ export default function CodeSection(props: CodeSectionProps) {
       props.setStep(step);
     } else {
       setActiveHeader(null);
-      push({query: {}, hash: ''});
+      const oldParams = new URLSearchParams(window.location.search);
+      const newParams = {} as any;
+      if (oldParams.has('review')) newParams['review'] = true;
+      if (oldParams.has('frontend')) newParams['frontend'] = oldParams.get('frontend');
+      push({query: newParams}, undefined, { shallow: true });
     }
   }
+
   return (
     <SplitPane
       left={
