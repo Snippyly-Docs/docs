@@ -1,6 +1,8 @@
 .sidebar {
   // padding: 3rem 2rem !important;
   position: sticky;
+  height: 100vh;
+  overflow-y: scroll;
   top: 0;
 
   * {

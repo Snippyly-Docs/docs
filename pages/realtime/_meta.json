@@ -1,11 +1,14 @@
 {
   "presence": {
-    "title": "Presence"
+    "title": "Presence",
+    "firstHeader": "Overview"
   },
   "cursors": {
-    "title": "Cursors"
+    "title": "Cursors",
+    "firstHeader": "Overview"
   },
   "flock_mode": {
-    "title": "Flock Mode"
+    "title": "Flock Mode",
+    "firstHeader": "Overview"
   }
 }

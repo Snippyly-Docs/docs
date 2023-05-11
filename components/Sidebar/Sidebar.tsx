@@ -11,6 +11,7 @@ interface SidebarProps {
 interface CustomPageMeta {
   hidden?: boolean;
   title?: string;
+  firstHeader?: string;
 }
 
 interface CustomHeading extends Heading {
@@ -60,13 +61,13 @@ export default function Sidebar(props: SidebarProps) {
     });
   }
 
-  const renderHeadings = () => {
+  const renderHeadings = (customMeta: CustomPageMeta) => {
 
     return headings.map((heading, idx) => {
 
       let data = heading as CustomHeading;
-      if (idx === 0) {
-        data.value = 'Overview';
+      if (idx === 0 && customMeta.firstHeader) {
+        data.value = customMeta.firstHeader;
       }
 
       if (data.depth > 1) return null;
@@ -104,7 +105,7 @@ export default function Sidebar(props: SidebarProps) {
                   <CaretIcon open={folderOpenStates[child.name]} />
                   {customMeta && customMeta.title ? customMeta.title : child.name}
                 </summary>
-                <ul className={`${styles.list} ${styles.headingList}`}>{renderHeadings()}</ul>
+                <ul className={`${styles.list} ${styles.headingList}`}>{renderHeadings(customMeta)}</ul>
               </details> :
               <a className={styles.pageLink} href={child.route}>
                 <CaretIcon open={false} />{customMeta && customMeta.title ? customMeta.title : child.name}</a>

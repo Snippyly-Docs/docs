@@ -70,14 +70,10 @@ export default function StepList(props: StepListProps) {
 
         // Add validation for the last step
         const isLastStep = closestStepValue === stepRefs.current.length;
-        // const isFirstStep = closestStepValue === 1;
 
         const pastStep = closestStepMetadata.stepBottom < viewportCenter;
-        // console.log(closestStepMetadata.stepTop, viewportCenter);
-        // const beforeStep = closestStepMetadata.stepTop < viewportCenter;
 
         if (isLastStep && pastStep) return;
-        // if (isFirstStep && beforeStep) return;
 
         props.handleStepChanged(closestStepValue);
 
