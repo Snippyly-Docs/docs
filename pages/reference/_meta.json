@@ -1,0 +1,20 @@
+{
+  "general": {
+    "title": "General"
+  },
+  "presence": {
+    "title": "Presence"
+  },
+  "cursors": {
+    "title": "Cursors"
+  },
+  "flock": {
+    "title": "Flock"
+  },
+  "comments": {
+    "title": "Comments"
+  },
+  "comments_sidebar": {
+    "title": "Comments Sidebar"
+  }
+}
