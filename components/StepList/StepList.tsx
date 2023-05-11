@@ -30,6 +30,7 @@ export default function StepList(props: StepListProps) {
     if (stepNum !== null) {
       const step = stepRefs.current[stepNum];
       setTimeout(() => {
+        if (!step.current) return;
         step.current.scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});
       }, 0);
     }

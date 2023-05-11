@@ -14,6 +14,11 @@ export default function StepTabs(props: StepTabsProps) {
 
   useEffect(() => {
     if (frontendOption === null) {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('frontend')) {
+        setFrontendOption(params.get('frontend'));
+        return;
+      }
       setFrontendOption(Object.keys(props.frontendOptions)[0]);
     } 
   }, [frontendOption]);
