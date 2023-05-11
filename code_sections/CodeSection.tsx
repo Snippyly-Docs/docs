@@ -28,7 +28,7 @@ export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
-  const { setActiveHeader, frontendOption } = useContext(GlobalContext);
+  const { setActiveHeader, frontendOption, variantMap } = useContext(GlobalContext);
   const { push, query } = useRouter();
 
   const setQueryFrontendOption = () => {
@@ -37,12 +37,11 @@ export default function CodeSection(props: CodeSectionProps) {
     query.set('frontend', frontendOption);
     let urlString = query.toString();
     if (window.location.hash !== '') urlString += `${window.location.hash}`;
-    window.history.pushState({}, '', `?${urlString}`);
+    window.history.pushState(null, '', `?${urlString}`);
   };
 
   useEffect(() => {
-    if (frontendOption === null) return;
-    setQueryFrontendOption();
+    if (frontendOption !== null) setQueryFrontendOption();
   });
 
   useEffect(() => {
@@ -53,9 +52,12 @@ export default function CodeSection(props: CodeSectionProps) {
   const handleStepChanged = (step) => {
     if (step !== null) {
       setActiveHeader(props.sectionId);
-      if (!window.location.hash.includes(`#${props.sectionId}`) || query.step !== step) {
+      const key = window.location.pathname + '#' + props.sectionId;
+      if (!window.location.hash.includes(`#${props.sectionId}`) || query.step !== step || query.variant !== variantMap[key]) {
         const params = new URLSearchParams(window.location.search);
         params.set('step', step);
+        if (!variantMap[key]) params.delete('variant');
+        else params.set('variant', variantMap[key]);
         let urlString = `?${params.toString()}`;
         urlString += `#${props.sectionId}`;
         window.history.pushState(null, '', urlString);
@@ -80,6 +82,8 @@ export default function CodeSection(props: CodeSectionProps) {
       const newParams = {} as any;
       if (oldParams.has('review')) newParams['review'] = true;
       if (oldParams.has('frontend')) newParams['frontend'] = oldParams.get('frontend');
+      const key = window.location.pathname + '#';
+      if (key in variantMap) newParams.variant = variantMap[key];
       push({query: newParams}, undefined, { shallow: true });
     }
   }
