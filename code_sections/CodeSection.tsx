@@ -28,15 +28,15 @@ export default function CodeSection(props: CodeSectionProps) {
 
   const [scrollLine, setScrollLine] = useState(undefined);
   const [highlightRanges, setHighlightRanges] = useState(props.highlightRangeMap[1]);
-  const { setActiveHeader, variantSuggestion, frontendOption } = useContext(GlobalContext);
+  const { setActiveHeader } = useContext(GlobalContext);
   const { push, query } = useRouter();
 
   const handleStepChanged = (step) => {
     if (step !== null) {
       setActiveHeader(props.sectionId);
       if (!window.location.hash.includes(`#${props.sectionId}`) || query.step !== step) {
-        let urlString = `?step=${step}`
-        if (query.review === 'true') urlString += '&review=true';
+        const queryCopy = {...query, step};
+        let urlString = `?${new URLSearchParams(queryCopy).toString()}`;
         urlString += `#${props.sectionId}`;
         window.history.pushState(null, '', urlString);
       }
