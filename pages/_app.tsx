@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const [frontendOption, setFrontendOption] = useState(null);
   const [variantSuggestion, setVariantSuggestion] = useState(null);
+  const [variantMap, setVariantMap] = useState<Record<string, string>>({});
   const [activeHeader, setActiveHeader] = useState(null);
   const [darkMode, setDarkMode] = useState(null);
 
@@ -72,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ variantSuggestion, setVariantSuggestion, setDarkMode, darkMode, frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
+    <GlobalContext.Provider value={{ variantMap, setVariantMap, variantSuggestion, setVariantSuggestion, setDarkMode, darkMode, frontendOption, setFrontendOption, activeHeader, setActiveHeader }}>
       <NextUIProvider>
         <Component {...pageProps} />
       </NextUIProvider>
