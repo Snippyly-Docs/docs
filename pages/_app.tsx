@@ -23,8 +23,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     } else {
       setDarkMode(false);
     }
-
   };
+
+  useEffect(() => {
+    if (frontendOption === null) {
+      const cachedFrontendOption = sessionStorage.getItem('frontendOption');
+      if (cachedFrontendOption) {
+        setFrontendOption(cachedFrontendOption);
+      }
+    } else {
+      sessionStorage.setItem('frontendOption', frontendOption);
+    }
+  }, [frontendOption]);
 
   useEffect(() => {
     const rootElement = document.documentElement;

@@ -13,7 +13,6 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
   const { frontendOption, setFrontendOption } = useContext(GlobalContext);
   const { variantSuggestion, setVariantSuggestion } = useContext(GlobalContext);
   const [featureVariant, setFeatureVariant] = useState(null);
-  const { query } = useRouter();
 
   const hostRef = useRef(null);
 

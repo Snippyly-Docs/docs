@@ -15,7 +15,7 @@ export default function StepTabs(props: StepTabsProps) {
   useEffect(() => {
     if (frontendOption === null) {
       setFrontendOption(Object.keys(props.frontendOptions)[0]);
-    }
+    } 
   }, [frontendOption]);
 
   return (
