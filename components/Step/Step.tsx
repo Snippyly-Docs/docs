@@ -10,7 +10,7 @@ interface StepProps {
   ref?: any;
 }
 
-export const Step = React.forwardRef(({title, description, step, handleClick, active}, ref) => {
+export const Step = React.forwardRef(({title, description, step, handleClick, active}: StepProps, ref) => {
   return (
     <div ref={ref} data-step={step} className={styles.stepContainer}>
       <div className={styles.title}>

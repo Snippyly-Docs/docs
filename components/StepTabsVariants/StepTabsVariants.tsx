@@ -13,7 +13,7 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
   const { frontendOption, setFrontendOption } = useContext(GlobalContext);
   const { variantSuggestion, setVariantSuggestion } = useContext(GlobalContext);
   const [featureVariant, setFeatureVariant] = useState(null);
-  const { push, query } = useRouter();
+  const { query } = useRouter();
 
   const hostRef = useRef(null);
 
@@ -93,14 +93,14 @@ export default function StepTabsVariants(props: StepTabsVariantsProps) {
             <div>
               {
                 Object.keys(Object.values(props.options)[0]).length > 1 ?
-                  renderOptions('Frontend', Object.keys(Object.values(props.options)[0]), featureVariant, setFeatureVariant)
+                  renderOptions('Type', Object.keys(Object.values(props.options)[0]), featureVariant, setFeatureVariant)
                   : null
               }
             </div>
             <div>
               {
                 Object.keys(props.options).length > 1 ?
-                  renderOptions('Type', Object.keys(props.options), frontendOption, setFrontendOption)
+                  renderOptions('Frontend', Object.keys(props.options), frontendOption, setFrontendOption)
                   : null
               }
             </div>
