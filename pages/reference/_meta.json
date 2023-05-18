@@ -16,5 +16,8 @@
   },
   "comments_sidebar": {
     "title": "Comments Sidebar"
+  },
+  "system_comments": {
+    "title": "System Comments"
   }
 }
