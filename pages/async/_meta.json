@@ -6,5 +6,9 @@
   "comments_sidebar": {
     "title": "Comments Sidebar",
     "firstHeader": "Overview"
+  },
+  "system_comments": {
+    "title": "System Comments",
+    "firstHeader": "Overview"
   }
 }
