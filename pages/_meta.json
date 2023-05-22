@@ -11,6 +11,9 @@
   "async": {
     "title": "Async Collaboration"
   },
+  "ai": {
+    "title": "AI Copilot"
+  },
   "reference": {
     "title": "API Reference"
   }

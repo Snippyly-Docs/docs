@@ -59,7 +59,7 @@ import { SnippylyProvider } from '@snippyly/react';
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="UnHxCCFcclkô4bErBL1">
+    <SnippylyProvider apiKey="YOUR_API_KEY">
       // Your app goes here
     </SnippylyProvider>
   );

@@ -80,16 +80,16 @@ export default function HTMLConfig(props: CodeSectionVariant) {
 
     <!-- Your content goes here -->
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@x.x.xx/snippyly.js" onload="loadSnippyly()"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@1.0.112/snippyly.js" onload="loadSnippyly()"></script>
 
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.Snippyly.init("UnHxCCFcclkô4bErBL1",
+        await window.Snippyly.init("YOUR_API_KEY",
           {
             urlAllowList: ['/about', '/contact-us'],
             featureAllowList: ['comments', 'presence'],
-            userPlanAllowList: ['pro', 'enterprise', 'admin', 'moderator'],
+            userPlanAllowList: ['pro', 'enterprise', 'admin'],
             userIdAllowList: ['d5558f1f-bdea-4eb5-9fd5-ed657e460307'],
           }
         );

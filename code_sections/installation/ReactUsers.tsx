@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
-import { createGetSnippylyStep } from '../CommonSteps';
+import { createGetSnippylyStep, createUseEffectStep } from '../CommonSteps';
 
 export default function ReactUsers(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[1, 1], [6, 6]],
-    2: [[8, 9]],
-    3: [[11, 24]],
-    4: [[26, 27]],
-    5: [[29, 30]],
-    6: [[32, 43]],
-    7: [[45, 45]],
-    8: [[49, 58]]
+    2: [[8, 9], [42, 43]],
+    3: [[12, 12], [15, 20]],
+    4: [[23, 23]],
+    // 5: [[26, 26]],
+    // 6: [[30, 39]],
+    5: [[25, 25]],
+    6: [[61, 61]]
   };
   
   const [step, setStep] = useState(1);
@@ -20,12 +20,12 @@ export default function ReactUsers(props: CodeSectionVariant) {
     createGetSnippylyStep(step, 1),
     {
       step: 2,
-      title: 'Identify your users',
+      title: 'Create a useEffect hook',
       active: step === 2,
       description: (
         <>
-          <strong>For our SDK to work correctly, we need to identify your users.</strong>
-          <p>You should identify users in the same function where you perform user authentication (login).</p>
+          <strong>Create an effect with the <code>client</code> and <code>your authenticated user</code> as dependencies.</strong>
+          <p>Make sure to check that the <code>client</code> and user objects are not <code>null</code> or <code>undefined</code> before you use it.</p>
         </>
       )
     },
@@ -35,9 +35,10 @@ export default function ReactUsers(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Keep any relevant user info from whatever authentication provider you use.</strong>
-          <p>Things like the user name, avatar, and ID can be re-used to identify your users. Create a Snippyly User object, which will be passed to the SDK.</p>
+          <strong>Create a Snippyly User object by taking the relevant fields from your authenticated User object. </strong>
+          <p>This will work with any authentication provider you use.</p>
         </>
+        //TODO: Add api reference to user object.
       )
     },
     {
@@ -51,47 +52,47 @@ export default function ReactUsers(props: CodeSectionVariant) {
         </>
       )
     },
+    // {
+    //   step: 5,
+    //   title: 'Set a user group (optional)',
+    //   active: step === 5,
+    //   description: (
+    //     <>
+    //       <strong>Users in the same group can tag each other.</strong>
+    //       <p>They can use the @tag in comments, or assign each other to tasks.</p>
+    //     </>
+    //   )
+    // },
+    // {
+    //   step: 6,
+    //   title: 'Manually set user contacts (optional)',
+    //   active: step === 6,
+    //   description: (
+    //     <>
+    //       <strong>An alternative to groups.</strong>
+    //       <p>If user groups are not sufficient for your use-case, you can manually set user contacts to the user being identified.</p>
+    //     </>
+    //   )
+    // },
     {
       step: 5,
-      title: 'Set a user group (optional)',
+      title: 'Pass the user object to the SDK',
       active: step === 5,
       description: (
         <>
-          <strong>Users in the same group can tag eachother.</strong>
-          <p>They can use the @tag in comments, or assign eachother to tasks.</p>
+          <strong>Call the <code>identify()</code> method.</strong>
+          <p>Pass the Snippyly object you created above in the <code>identify()</code> method.</p>
         </>
       )
     },
     {
       step: 6,
-      title: 'Manually set user contacts (optional)',
+      title: 'Logout the user',
       active: step === 6,
       description: (
         <>
-          <strong>An alternative to groups.</strong>
-          <p>If user groups are not sufficient for your use-case, you can manually set user contacts to the user being identified.</p>
-        </>
-      )
-    },
-    {
-      step: 7,
-      title: 'Pass the user object to the SDK',
-      active: step === 7,
-      description: (
-        <>
-          <strong>Call the <code>identify</code> function.</strong>
-          <p>Use the Snippyly client object to pass the user information to our servers.</p>
-        </>
-      )
-    },
-    {
-      step: 8,
-      title: 'Logout the user',
-      active: step === 8,
-      description: (
-        <>
-          <strong>Identify when the user logs out.</strong>
-          <p>We will remove our UI features from the user's client.</p>
+          <strong>Whenever your user logs out, call this method to clean up the session.</strong>
+          <p>We will remove our UI components from the user's DOM.</p>
         </>
       )
     }
@@ -105,45 +106,33 @@ export default function App() {
 
   const { client } = useSnippylyClient();
 
-  // Example login function
-  const loginHandler = async () => {
-        
-    // In this example, we use some auth provider to sign in and get the user's credentials
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+
+      // Fetch the relevant user info from your authenticated user object.
+      const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+      // Create the Snippyly user object
+      const user = {
+        userId: uid,
+        name: displayName,
+        email: email,
+        photoUrl: photoURL
+      };
+
+      // Use your own logic to determine the user's plan
+      user.plan = 'premium';
+
+      client.identify(user);
+    }
+  }, [client, yourAuthenticatedUser]);
+
+  // Example of your login function.
+  const loginHandler = async () => {    
+    // In this example, we use some auth provider to sign in and get the user's credentials.
     const credentials = await authProvider.signInWithGoogle();
-
-    // Fetch the relevant user info by destructuring the credentials
-    const { userInfo } = credentials;
-    const { uid, displayName, email, photoURL } = userInfo;
-
-    // Create the Snippyly user object
-    const user = {
-      userId: uid,
-      name: displayName,
-      email: email,
-      photoUrl: photoURL
-    };
-
-    // Use your own logic to determine the user's plan
-    user.plan = 'premium';
-
-    // Use your own logic to determine the group the user belongs to
-    user.groupId = 'developers';
-
-    // You can pass contacts as an array of UserContact objects
-    // These contacts will show up in comment tagging and assignment 
-    const contacts = [
-      {
-        userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
-        name: 'John Doe',
-        photoUrl: '<some avatar url>',
-        email: 'john.doe@snippyly.com',
-        groupId: 'developers'
-      }
-    ];
-    user.contacts = contacts;
-
-    client.identify(user);
-
+    // Fetch the relevant user info by destructuring the credentials.
+    const { yourAuthenticatedUser } = credentials;
   };
 
   // Example logout function

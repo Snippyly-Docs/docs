@@ -11,7 +11,7 @@ export default function ReactInstallation(props: CodeSectionVariant) {
     5: [[15, 21]],
     6: [[27, 33]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -24,7 +24,7 @@ export default function ReactInstallation(props: CodeSectionVariant) {
       description: (
         <>
           <strong>A document is like a virtual building.</strong>
-          <p>Users in the same <i>virtual building</i> can see and interact with eachother using our pre-built components.</p>
+          <p>Users in the same <i>virtual building</i> can see and interact with each other using our pre-built components.</p>
         </>
       )
     },

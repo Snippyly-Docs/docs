@@ -12,7 +12,7 @@ export default function HTMLInstallation(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Install our script tag',
+      title: 'Install Snippyly script tag',
       active: step === 1,
       description: (
         <>
@@ -44,12 +44,12 @@ export default function HTMLInstallation(props: CodeSectionVariant) {
 
     <!-- Your content goes here -->
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@x.x.xx/snippyly.js" onload="loadSnippyly()"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@1.0.112/snippyly.js" onload="loadSnippyly()"></script>
 
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.Snippyly.init("UnHxCCFcclkô4bErBL1");
+        await window.Snippyly.init("YOUR_API_KEY");
       }
     </script>
     
