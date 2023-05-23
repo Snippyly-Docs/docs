@@ -17,7 +17,7 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Show the user's avatar floating next to their cursor.</strong>
+          <strong>Show the user's avatar floating next to their cursor instead of their name.</strong>
           <p>Enabling this mode will allow you to show the user's avatar in context with the cursor.</p>
         </>
       )
@@ -29,7 +29,8 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Set the time it takes for a user to go inactive in milliseconds.</strong>
-          <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
+          <p>By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe. <br />
+            If they unfocus the tab, we mark them inactive immediately.</p>
         </>
       )
     },
@@ -39,8 +40,10 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Whitelist allowed elements</strong>
-          <p>If you provide a list of element IDs, we will only show cursors that hover over those specific elements.</p>
+          <strong>Provide a list of element IDs where the cursors should show.</strong>
+          <p>If you provide a list of element IDs, we will only show cursors that hover over those specific elements. <br /> <br />
+            For eg: For an app with canvas and tool picker: You can whitelist the canvas ID so that the cursors are only visible on the canvas and not the tool picker.
+          </p>
         </>
       )
     }

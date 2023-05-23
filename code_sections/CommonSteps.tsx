@@ -86,7 +86,7 @@ export function createVariableSteps(currentStep: number, component: string) {
       active: currentStep === 1,
       description: (
         <>
-          <strong>You can select all {component} components, or use a specific selector.</strong>
+          <strong>You can select the {component} component.</strong>
           <p>Our CSS variables are set at the component level.</p>
         </>
       )

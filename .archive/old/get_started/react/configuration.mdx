@@ -22,7 +22,7 @@ Then you can add it to your HTML with your API key:
 
 ```html copy
 <React.StrictMode>
-  <SnippylyProvider apiKey="...">
+  <SnippylyProvider apiKey="API_KEY">
     <App />
   </SnippylyProvider>
 </React.StrictMode>
@@ -36,7 +36,7 @@ The **SnippylyProvider** also takes a `config` property to restrict certain feat
 
 ```jsx copy {3-5}
 <SnippylyProvider
-  apiKey="..."
+  apiKey="API_KEY"
   config={{
     urlAllowList: ['/review']
   }}

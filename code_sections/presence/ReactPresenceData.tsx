@@ -20,8 +20,8 @@ export default function ReactPresenceData(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Subscribe to constant user changes.</strong>
-          <p>We will send you a new list of users everytime there is a change so you can build out your own user UI and logic.</p>
+          <strong>Subscribe to the realtime Presence users data on the current <code>document</code> and <code>location</code>.</strong>
+          <p>We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.</p>
         </>
       )
     }
@@ -40,18 +40,15 @@ export default function App() {
 
       const presenceElement = client.getPresenceElement();
 
-      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((_presenceUsers) => {
+        // Do something with Presence Users list
       });
 
     }
   }, [client]);
 
   return (
-    <>
-      <SnippylyPresence />
-      {/* ... */}
-    </>
+    // Your app template
   );
 }
     `;

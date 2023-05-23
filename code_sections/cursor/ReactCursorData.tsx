@@ -20,8 +20,8 @@ export default function ReactCursorData(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Subscribe to constant cursor changes.</strong>
-          <p>We will send you a new list of cursors everytime there is a change so you can build out your own cursor UI and logic.</p>
+          <strong>Subscribe to the realtime Cursor users data on the current <code>document</code> and <code>location</code>.</strong>
+          <p>We will send you a new list of cursors everytime there is a change so you can build out your own cursor UI.</p>
         </>
       )
     }
@@ -40,8 +40,8 @@ export default function App() {
 
       const cursorElement = client.getCursorElement();
 
-      cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
-        // Do something with cursors list
+      cursorElement.getLiveCursorsOnCurrentDocument().subscribe((_cursorUsers) => {
+        // Do something with Cursor Users list
       });
 
     }

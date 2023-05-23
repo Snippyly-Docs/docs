@@ -11,7 +11,7 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
     4: [[20, 22]],
     5: [[20, 22]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -82,7 +82,7 @@ import {
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
       <SnippylyComments popoverMode={true} />
 
       <div className="toolbar">

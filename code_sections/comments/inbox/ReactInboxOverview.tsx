@@ -9,7 +9,7 @@ export default function ReactInboxOverview(props: CodeSectionVariant) {
     2: [[7, 7]],
     3: [[7, 7]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -54,7 +54,7 @@ import { SnippylyProvider, SnippylyComments } from '@snippyly/react';
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
       <SnippylyComments inboxMode={true} />
     </SnippylyProvider>
   );

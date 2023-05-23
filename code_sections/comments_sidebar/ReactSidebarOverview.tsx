@@ -10,7 +10,7 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
     3: [[17, 17]],
     4: [[17, 17]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -71,7 +71,7 @@ import {
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
       <SnippylyComments />
       <SnippylyCommentsSidebar />
 

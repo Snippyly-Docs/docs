@@ -9,7 +9,7 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
     2: [[7, 7]],
     3: [[7, 7]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -19,8 +19,7 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Import the component from our React library.</strong>
-          <p>We offer a specific component for our users that use React.</p>
+          <strong>Import the component from the React library.</strong>
         </>
       )
     },
@@ -31,7 +30,9 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Add it to the root component.</strong>
-          <p>This component renders the cursors of users on the same document and location in your web app.</p>
+          <p>This component renders the cursors of users on the same <code>document</code> and <code>location</code> in your web app. <br /><br />
+          Note that we automatically assign different colors to users & <b>adapt the cursors to different screen sizes and to what's actually present on the screen.</b> So you don't have to worry about building this logic.
+          </p>
         </>
       )
     },
@@ -41,8 +42,8 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Test it out by opening the same page in another browser.</strong>
-          <p>When you open the same page in another incognito window or browser, you should see the cursor on the other window when moving your mouse around.</p>
+          <strong>Test it out by opening the target page in two browsers with two different users logged in.</strong>
+          <p>You should see the cursors of the users rendered as you move mouse around.</p>
         </>
       )
     }
@@ -54,7 +55,7 @@ import { SnippylyCursor } from '@snippyly/react';
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
       <SnippylyCursor />
       {/* ... */}
     </SnippylyProvider>
