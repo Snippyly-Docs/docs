@@ -16,9 +16,12 @@ export default function ReactFlockOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Opt-in to Flock mode.</strong>
-          <p>This feature relies on Presence in order to trigger Flock mode. You can click on a user's avatar to start following that user.</p>
-          <p>This will enable Flock mode as an option for your users globally, wherever Presence is shown.</p>
+          <strong>Enable Flock mode feature.</strong>
+          <p>You need to add <code>Presence</code> feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever <code>Presence</code> is shown.</p>
+          <br />
+          <p>
+          To start the shared flock session, click on a user's avatar to start following them.
+          </p>
         </>
       )
     },
@@ -28,8 +31,8 @@ export default function ReactFlockOverview(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Test it out by opening the same page in another browser.</strong>
-          <p>When you open the same page in another incognito window or browser, you'll be able to test it out by clicking on a user avatar in Presence.</p>
+          <strong>Test it out by opening the target page in two browsers with two different users logged in.</strong>
+          <p>You should see the avatars of the users rendered where you added the presence component. Now click on any avatar to start following them.</p>
         </>
       )
     }

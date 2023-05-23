@@ -5,7 +5,8 @@ export default function ReactPresenceCustom(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[8, 8]],
     2: [[9, 9]],
-    3: [[10, 10]]
+    3: [[10, 10]],
+    4: [[11, 11]],
   };
   
   const [step, setStep] = useState(1);
@@ -50,6 +51,23 @@ export default function ReactPresenceCustom(props: CodeSectionVariant) {
         </>
       )
     },
+    {
+      step: 4,
+      title: 'Enable Flock Mode',
+      active: step === 4,
+      description: (
+        <>
+          <strong>Enable Flock Mode Feature.</strong>
+          <p>This will enable Flock mode as an option for your users globally, wherever <code>Presence</code> is shown.
+          <br />
+          To start the shared flock session, click on a user's avatar to start following them.
+          <br /><br />
+          Learn more about it in the Flock Mode feature section.
+          </p>
+        </>
+        //TODO: add link to flock mode feature section
+      )
+    },
   ];
 
   const code = `
@@ -63,6 +81,7 @@ export default function App() {
         inactivityTime={30000}
         location={{page: 1}}
         maxUsers={3}
+        flockMode={true}
       />
     </div>
   );
