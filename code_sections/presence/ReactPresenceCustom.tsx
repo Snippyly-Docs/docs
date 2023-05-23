@@ -18,18 +18,24 @@ export default function ReactPresenceCustom(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Set the time it takes for a user to go inactive in milliseconds.</strong>
-          <p>By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.</p>
+          <p>By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe. <br />
+            If they unfocus the tab, we mark them inactive immediately.</p>
         </>
       )
     },
     {
       step: 2,
-      title: 'Add Presence to child documents',
+      title: 'Add Presence to a Location',
       active: step === 2,
       description: (
         <>
-          <strong>Show users' presence on child documents.</strong>
-          <p>Set the location attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.</p>
+          <strong>Show users' presence on a <code>Location</code>.</strong>
+          <p>Set the <code>location</code> attribute on the Presence element.
+          When there are users at that location, their avatars will show in this Presence element. <br /><br />
+          Eg: For a Presentation tool, you can add <code>Presence</code> component at the main <code>document</code> level and
+           add another <code>Presence</code> component on the slide thumbnails.
+          This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
+          </p>
         </>
       )
     },
@@ -39,7 +45,7 @@ export default function ReactPresenceCustom(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Max users determines how many Presence avatars to display at a time.</strong>
+          <strong>Set how many Presence avatars to display at a time.</strong>
           <p>You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.</p>
         </>
       )

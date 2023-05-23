@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
 import { createGetSnippylyStep, createUseEffectStep } from '../CommonSteps';
 
-export default function ReactUsers(props: CodeSectionVariant) {
+export default function ReactAuth(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[1, 1], [6, 6]],
     2: [[8, 9], [42, 43]],
@@ -11,7 +11,7 @@ export default function ReactUsers(props: CodeSectionVariant) {
     // 5: [[26, 26]],
     // 6: [[30, 39]],
     5: [[25, 25]],
-    6: [[61, 61]]
+    // 6: [[61, 61]]
   };
   
   const [step, setStep] = useState(1);
@@ -85,17 +85,17 @@ export default function ReactUsers(props: CodeSectionVariant) {
         </>
       )
     },
-    {
-      step: 6,
-      title: 'Logout the user',
-      active: step === 6,
-      description: (
-        <>
-          <strong>Whenever your user logs out, call this method to clean up the session.</strong>
-          <p>We will remove our UI components from the user's DOM.</p>
-        </>
-      )
-    }
+    // {
+    //   step: 6,
+    //   title: 'Logout the user',
+    //   active: step === 6,
+    //   description: (
+    //     <>
+    //       <strong>Whenever your user logs out, call this method to clean up the session.</strong>
+    //       <p>We will remove our UI components from the user's DOM.</p>
+    //     </>
+    //   )
+    // }
   ];
 
   const code = `
@@ -133,17 +133,6 @@ export default function App() {
     const credentials = await authProvider.signInWithGoogle();
     // Fetch the relevant user info by destructuring the credentials.
     const { yourAuthenticatedUser } = credentials;
-  };
-
-  // Example logout function
-  const logout = async () => {
-
-    // Logout with your auth provider
-    await authProvider.signOut();
-
-    // Clear the Snippyly user object
-    client.signOutUser();
-
   };
 
   return (

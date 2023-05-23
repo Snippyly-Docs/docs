@@ -49,8 +49,8 @@ export function createPartSteps(currentStep: number) {
       active: currentStep === 1,
       description: (
         <>
-          <strong>We offer several parts which can be used like classes.</strong>
-          <p>The Cursor component is encapsulated in Shadow DOM, which is isolated from the normal DOM.</p>
+          <strong>We offer several parts which can be used like classes. Full list below.</strong>
+          <p>The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.</p>
         </>
       )
     },

@@ -18,8 +18,10 @@ export default function HTMLConfig(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>A document is like a virtual building.</strong>
-          <p>Users in the same <i>virtual building</i> can see and interact with each other using our pre-built components.</p>
+          <strong>Pass a unique ID representing your document.</strong>
+          <p>Users logged into the same document ID can see each other's presence, cursors, comments etc.
+            Whenever your document initializes, you should call this method.
+          </p>
         </>
       )
     },
