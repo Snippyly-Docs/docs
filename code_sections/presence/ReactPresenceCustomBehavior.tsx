@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
-export default function ReactPresenceCustom(props: CodeSectionVariant) {
+export default function ReactPresenceCustomBehavior(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[8, 8]],
     2: [[9, 9]],
     3: [[10, 10]],
     4: [[11, 11]],
+    5: [[12, 12]],
   };
   
   const [step, setStep] = useState(1);
@@ -68,20 +69,32 @@ export default function ReactPresenceCustom(props: CodeSectionVariant) {
         //TODO: add link to flock mode feature section
       )
     },
+    {
+      step: 5,
+      title: 'Subscribe to changes in User Presence',
+      active: step === 5,
+      description: (
+        <>
+          <p>Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this <code>document</code>.
+          </p>
+        </>
+      )
+    },
   ];
 
   const code = `
-import { SnippylyPresence } from '@snippyly/react';
+import { VeltPresence } from '@veltdev/react';
 
 export default function App() {
 
   return (
     <div className="toolbar">
-      <SnippylyPresence
+      <VeltPresence
         inactivityTime={30000}
         location={{page: 1}}
         maxUsers={3}
         flockMode={true}
+        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)}
       />
     </div>
   );

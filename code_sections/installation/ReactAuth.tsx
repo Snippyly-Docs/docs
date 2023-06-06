@@ -7,10 +7,10 @@ export default function ReactAuth(props: CodeSectionVariant) {
     1: [[1, 1], [6, 6]],
     2: [[8, 9], [42, 43]],
     3: [[12, 12], [15, 20]],
-    4: [[23, 23]],
+    // 4: [[23, 23]],
     // 5: [[26, 26]],
     // 6: [[30, 39]],
-    5: [[25, 25]],
+    4: [[22, 22]],
     // 6: [[61, 61]]
   };
   
@@ -41,17 +41,17 @@ export default function ReactAuth(props: CodeSectionVariant) {
         //TODO: Add api reference to user object.
       )
     },
-    {
-      step: 4,
-      title: 'Set a user plan (optional)',
-      active: step === 4,
-      description: (
-        <>
-          <strong>We cross-reference this field with the whitelisted user plans in your SDK configuration.</strong>
-          <p>You can use this, for example, to restrict our collaboration features only for paid users, admins, etc.</p>
-        </>
-      )
-    },
+    // {
+    //   step: 4,
+    //   title: 'Set a user plan (optional)',
+    //   active: step === 4,
+    //   description: (
+    //     <>
+    //       <strong>We cross-reference this field with the whitelisted user plans in your SDK configuration.</strong>
+    //       <p>You can use this, for example, to restrict our collaboration features only for paid users, admins, etc.</p>
+    //     </>
+    //   )
+    // },
     // {
     //   step: 5,
     //   title: 'Set a user group (optional)',
@@ -75,9 +75,9 @@ export default function ReactAuth(props: CodeSectionVariant) {
     //   )
     // },
     {
-      step: 5,
+      step: 4,
       title: 'Pass the user object to the SDK',
-      active: step === 5,
+      active: step === 4,
       description: (
         <>
           <strong>Call the <code>identify()</code> method.</strong>
@@ -119,9 +119,6 @@ export default function App() {
         email: email,
         photoUrl: photoURL
       };
-
-      // Use your own logic to determine the user's plan
-      user.plan = 'premium';
 
       client.identify(user);
     }

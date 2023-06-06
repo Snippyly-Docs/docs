@@ -50,15 +50,15 @@ export default function ReactCursorOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyCursor } from '@snippyly/react';
+import { VeltProvider, VeltCursor } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
-      <SnippylyCursor />
+    <VeltProvider apiKey="API_KEY">
+      <VeltCursor />
       {/* ... */}
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
     `;

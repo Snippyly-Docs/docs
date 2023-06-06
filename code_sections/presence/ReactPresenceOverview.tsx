@@ -50,13 +50,13 @@ export default function ReactPresenceOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyPresence } from '@snippyly/react';
+import { VeltPresence } from '@veltdev/react';
 
 export default function App() {
 
   return (
     <div className="toolbar">
-      <SnippylyPresence />
+      <VeltPresence />
     </div>
   );
 }

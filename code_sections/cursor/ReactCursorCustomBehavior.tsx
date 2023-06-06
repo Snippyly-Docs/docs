@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
-export default function HTMLCursorCustom(props: CodeSectionVariant) {
+export default function ReactCursorCustomBehavior(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[8, 8]],
     2: [[9, 9]],
     3: [[10, 10]],
+    4: [[11, 11]],
   };
   
   const [step, setStep] = useState(1);
@@ -46,23 +47,34 @@ export default function HTMLCursorCustom(props: CodeSectionVariant) {
           </p>
         </>
       )
+    },
+    {
+      step: 4,
+      title: 'Subscribe to changes in User Cursors',
+      active: step === 4,
+      description: (
+        <>
+          <p>Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this <code>document</code> with their cursor positions.
+          </p>
+        </>
+      )
     }
   ];
 
   const code = `
-import { SnippylyCursor } from '@snippyly/react';
+import { VeltProvider, VeltCursor } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <>
-      <SnippylyCursor
+    <VeltProvider apiKey="API_KEY">
+      <VeltCursor
         avatarMode={true}
         inactivityTime={300000}
         allowedElementIds={['element-1', 'element-2']}
+        onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)}
       />
-      { /* ... */ }
-    </>
+    </VeltProvider>
   );
 }
     `;

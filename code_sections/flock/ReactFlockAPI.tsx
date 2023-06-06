@@ -22,7 +22,7 @@ export default function ReactFlockAPI(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Start following a user by passing in their user ID.</strong>
-          <p>You can programatically start a flock session by passing in the user ID of the user leading the session.</p>
+          <p>You can programatically start a flock session by passing in the user ID of the user you want to lead the session.</p>
         </>
       )
     },
@@ -33,7 +33,7 @@ export default function ReactFlockAPI(props: CodeSectionVariant) {
       active: step === 4,
       description: (
         <>
-          <strong>Stop following.</strong>
+          <strong>Stop flock session for the current user.</strong>
           <p>If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.</p>
         </>
       )

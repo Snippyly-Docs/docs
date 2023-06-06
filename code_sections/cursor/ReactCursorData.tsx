@@ -28,19 +28,19 @@ export default function ReactCursorData(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyCursor, useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function App() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
 
       const cursorElement = client.getCursorElement();
 
-      cursorElement.getLiveCursorsOnCurrentDocument().subscribe((_cursorUsers) => {
+      cursorElement.getOnlineUsersOnCurrentDocument().subscribe((_cursorUsers) => {
         // Do something with Cursor Users list
       });
 
@@ -49,8 +49,6 @@ export default function App() {
 
   return (
     <>
-      <SnippylyCursor />
-      {/* ... */}
     </>
   );
 }

@@ -2,7 +2,7 @@ import Subheading from '../../components/Subheading/Subheading.tsx';
 import CursorDemo from '../../components/CursorDemo/CursorDemo.tsx';
 import ReactCursorOverview from '../../code_sections/cursor/ReactCursorOverview.tsx';
 import HTMLCursorOverview from '../../code_sections/cursor/HTMLCursorOverview.tsx';
-import ReactCursorCustom from '../../code_sections/cursor/ReactCursorCustom.tsx';
+import ReactCursorCustomBehavior from '../../code_sections/cursor/ReactCursorCustomBehavior.tsx';
 import HTMLCursorCustom from '../../code_sections/cursor/HTMLCursorCustom.tsx';
 import HTMLCursorSlot from '../../code_sections/cursor/HTMLCursorSlot.tsx';
 import ReactCursorSlot from '../../code_sections/cursor/ReactCursorSlot.tsx';
@@ -19,7 +19,8 @@ import { NextSeo } from 'next-seo';
   title="Velt Docs - Cursors"
   description="Live cursors documentation page for the Velt SDK"
 />
-<Subheading>Your users can view each other's cursors when interacting on the same document. This makes your app more alive.</Subheading>
+<Subheading>Your users can view each other's cursors when interacting on the same document. This makes your app more alive.
+We handle the complexity of adapting the cursors to different screen sizes, differences in content etc.</Subheading>
 <CursorDemo />
 
 # Steps [#steps]
@@ -44,8 +45,8 @@ export function CursorSteps() {
 export function CursorCustomizeBehavior() {
 
   const frontendOptions = {
-    'React': <ReactCursorCustom sectionId="customize-behavior" />,
-    'Next.js': <ReactCursorCustom sectionId="customize-behavior" />,
+    'React': <ReactCursorCustomBehavior sectionId="customize-behavior" />,
+    'Next.js': <ReactCursorCustomBehavior sectionId="customize-behavior" />,
     'HTML': <HTMLCursorCustom sectionId="customize-behavior" />
   };
 
@@ -116,8 +117,8 @@ export function CursorCSSVariables() {
 
 | Variable Name | Default | What does it do? |
 | ------------- | ------- | ---------------- |
-| `--snippyly-cursor-avatar-size` | `2rem` | Sets the Cursor avatar size in avatar mode. |
-| `--snippyly-cursor-video-size` | `4.2rem` | Sets the Cursor video bubble size in Huddle mode. You can learn more about this in the Huddle Feature. |
+| `--velt-cursor-avatar-size` | `2rem` | Sets the Cursor avatar size in avatar mode. |
+| `--velt-cursor-video-size` | `4.2rem` | Sets the Cursor video bubble size in Huddle mode. You can learn more about this in the Huddle Feature. |
 
 ## 4. Build your own UI [#get-cursors]
 

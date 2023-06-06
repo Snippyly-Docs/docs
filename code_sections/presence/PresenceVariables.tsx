@@ -19,12 +19,8 @@ export default function PresenceVariables(props: CodeSectionVariant) {
   ];
 
   const code = `
-snippyly-presence {
-  --snippyly-presence-avatar-size: 1.5rem;
-}
-
-#specific-presence-id {
-  --snippyly-presence-avatar-size: 1.5rem;
+velt-presence {
+  --velt-presence-avatar-size: 1.5rem;
 }
     `;
 
