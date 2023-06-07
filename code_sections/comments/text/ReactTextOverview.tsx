@@ -6,8 +6,8 @@ export default function ReactTextOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[1, 1]],
-    2: [[7, 7]],
-    3: [[7, 7]]
+    2: [[8, 8]],
+    3: [[8, 8]]
   };
 
   const [step, setStep] = useState(1);
@@ -19,8 +19,7 @@ export default function ReactTextOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Import the comment component and the comment tool component.</strong>
-          <p>We offer specific components for our users that use React.</p>
+          <strong>Import the <code>VeltComments</code> component.</strong>
         </>
       )
     },
@@ -30,8 +29,9 @@ export default function ReactTextOverview(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Add the comment component to your template.</strong>
-          <p>This component is required to render comments in your app. Text mode allows users to attach comments to highlighted text.</p>
+          <strong>Add the <code>VeltComments</code> component to the root of your app and mark the <code>textMode</code> property as <code>true</code>.</strong>
+          <p>This component is required to render comments in your app. <br /> <br />
+            Text mode allows users to select any text and attach comments to it similar to Google Docs.</p>
         </>
       )
     },
@@ -41,22 +41,24 @@ export default function ReactTextOverview(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Test it out by adding a comment.</strong>
-          <p>You should be able to leave a comment by selecting some text.</p>
+          <strong>Test it out by opening the page with Velt components in your browser.</strong>
+          <p>Select any text, a comment tool will appear near the highlighted text. Click on it to add a comment.</p>
         </>
       )
     }
   ];
 
   const code = `
-import { SnippylyProvider, SnippylyComments } from '@snippyly/react';
+import { VeltProvider, VeltComments } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
-      <SnippylyComments textMode={true} />
-    </SnippylyProvider>
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments textMode={true} />
+
+    </VeltProvider>
   );
 }
     `;

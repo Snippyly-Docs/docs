@@ -38,7 +38,7 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyPresence } from '@snippyly/react';
+import { VeltPresence } from '@veltdev/react';
 import { useNavigate } from 'react-router-dom';
 
 export default function App() {
@@ -47,10 +47,10 @@ export default function App() {
 
   return (
     <div className="toolbar">
-      <SnippylyPresence 
+      <VeltPresence 
         flockMode={true}
-        navigate={(pageInfo) => navigate(pageInfo.path)}
-        disableFlockNavigation={true}
+        onNavigate={(pageInfo) => navigate(pageInfo.path)}
+        defaultFlockNavigation={true}
       />
     </div>
   );

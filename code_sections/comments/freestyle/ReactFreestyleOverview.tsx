@@ -20,17 +20,17 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Import the <code>SnippylyComments</code> component and the <code>SnippylyCommentTool</code> component.</strong>
+          <strong>Import the <code>VeltComments</code> component and the <code>VeltCommentTool</code> component.</strong>
         </>
       )
     },
     {
       step: 2,
-      title: 'Add Comment component',
+      title: 'Add Comments component',
       active: step === 2,
       description: (
         <>
-          <strong>Add the <code>SnippylyComments</code> component to the root of your app.</strong>
+          <strong>Add the <code>VeltComments</code> component to the root of your app.</strong>
           <p>This component is required to render comments in your app.</p>
         </>
       )
@@ -41,7 +41,7 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Add the <code>SnippylyCommentTool</code> component wherever you want to show the comment tool button.</strong>
+          <strong>Add the <code>VeltCommentTool</code> component wherever you want to show the comment tool button.</strong>
           <p>Clicking on it initiates comment mode & changes your mouse cursor to a comment pin.
             Now you can click anywhere on the document to attach comments to any elements.
           </p>
@@ -54,7 +54,7 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
       active: step === 4,
       description: (
         <>
-          <strong>Test it out by adding a comment.</strong>
+          <strong>Test it out by opening the page with Velt components in your browser.</strong>
           <p>Click on the comment tool and click anywhere on the page to add a comment.</p>
         </>
       )
@@ -63,21 +63,21 @@ export default function ReactFreestyleOverview(props: CodeSectionVariant) {
 
   const code = `
 import { 
-  SnippylyProvider, 
-  SnippylyComments, 
-  SnippylyCommentTool 
-} from '@snippyly/react';
+  VeltProvider, 
+  VeltComments, 
+  VeltCommentTool 
+} from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
-      <SnippylyComments />
+    <VeltProvider apiKey="API_KEY">
+      <VeltComments />
 
       <div className="toolbar">
-        <SnippylyCommentTool />
+        <VeltCommentTool />
       </div>
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
     `;
