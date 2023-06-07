@@ -10,5 +10,9 @@
   "flock_mode": {
     "title": "Flock Mode",
     "firstHeader": "Overview"
+  },
+  "huddle": {
+    "title": "Huddle",
+    "firstHeader": "Overview"
   }
 }
