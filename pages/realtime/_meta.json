@@ -14,5 +14,9 @@
   "huddle": {
     "title": "Huddle",
     "firstHeader": "Overview"
+  },
+  "live_selection": {
+    "title": "Live Selection",
+    "firstHeader": "Overview"
   }
 }
