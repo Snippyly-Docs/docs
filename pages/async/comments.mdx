@@ -30,7 +30,9 @@ import ReactCustomPriority from '../../code_sections/comments/filters/ReactCusto
 import HTMLCustomCategory from '../../code_sections/comments/filters/HTMLCustomCategory.tsx';
 import ReactCustomCategory from '../../code_sections/comments/filters/ReactCustomCategory.tsx';
 import HTMLInboxOverview from '../../code_sections/comments/inbox/HTMLInboxOverview.tsx';
+import HTMLAreaOverview from '../../code_sections/comments/area/HTMLAreaOverview.tsx';
 import ReactInboxOverview from '../../code_sections/comments/inbox/ReactInboxOverview.tsx';
+import ReactAreaOverview from '../../code_sections/comments/area/ReactAreaOverview.tsx';
 import CommentsDemo from '../../components/CommentsDemo/CommentsDemo.tsx';
 import HTMLGetComments from '../../code_sections/comments/HTMLGetComments.tsx';
 import ReactGetComments from '../../code_sections/comments/ReactGetComments.tsx';
@@ -62,7 +64,8 @@ export function Test() {
       'Popover': <CommentsDemo demoUrl="comments-popover" />,
       'Stream': <CommentsDemo demoUrl="comments-stream" />,
       'Text': <CommentsDemo demoUrl="comments-text" />,
-      'Inbox': <CommentsDemo demoUrl="comments-inbox" />
+      'Inbox': <CommentsDemo demoUrl="comments-inbox" />,
+      'Area': <CommentsDemo demoUrl="comments-area" />
     }
   };
 
@@ -86,21 +89,24 @@ export function CommentOverviewSteps() {
       'Popover': <ReactPopoverOverview sectionId="steps" />,
       'Stream': <ReactStreamOverview sectionId="steps" />,
       'Text': <ReactTextOverview sectionId="steps" />,
-      'Inbox': <ReactInboxOverview sectionId="steps" />
+      'Inbox': <ReactInboxOverview sectionId="steps" />,
+      'Area': <ReactAreaOverview sectionId="steps" />
     },
     'Next.js': {
       'Freestyle': <ReactFreestyleOverview sectionId="steps" />,
       'Popover': <ReactPopoverOverview sectionId="steps" />,
       'Stream': <ReactStreamOverview sectionId="steps" />,
       'Text': <ReactTextOverview sectionId="steps" />,
-      'Inbox': <ReactInboxOverview sectionId="steps" />
+      'Inbox': <ReactInboxOverview sectionId="steps" />,
+      'Area': <ReactAreaOverview sectionId="steps" />
     },
     'HTML': {
       'Freestyle': <HTMLFreestyleOverview sectionId="steps" />,
       'Popover': <HTMLPopoverOverview sectionId="steps" />,
       'Stream': <HTMLStreamOverview sectionId="steps" />,
       'Text': <HTMLTextOverview sectionId="steps" />,
-      'Inbox': <HTMLInboxOverview sectionId="steps" />
+      'Inbox': <HTMLInboxOverview sectionId="steps" />,
+      'Area': <HTMLAreaOverview sectionId="steps" />
     }
   };
 
