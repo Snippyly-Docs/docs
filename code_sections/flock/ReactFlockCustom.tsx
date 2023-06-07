@@ -12,12 +12,14 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Pass in a callback for navigation',
+      title: 'Enable custom navigation',
       active: step === 1,
       description: (
         <>
           <strong>Use a callback for custom navigation or side-effects.</strong>
-          <p>When the leader of a flock navigates, we can use the React Router to update the follower's position.</p>
+          <p>When the leader of a flock navigates, we can use the React Router to update the follower's position.
+            In the callback you will receive a <code>PageInfo</code> object.
+          </p>
         </>
       )
     },
@@ -28,14 +30,15 @@ export default function HTMLFlockOverview(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Disable default flock navigation.</strong>
-          <p>If you are handling navigation using a callback, you can opt to disable our default navigation using <code>window.location.href</code>.</p>
+          <p>Our default navigation uses <code>window.location.href</code> to detect navigation.
+          If you are handling navigation using the callback method above, you should disable our default navigation.</p>
         </>
       )
     }
   ];
 
   const code = `
-import { SnippylyPresence } from '@snippyly/react';
+import { VeltPresence } from '@veltdev/react';
 import { useNavigate } from 'react-router-dom';
 
 export default function App() {
@@ -44,10 +47,10 @@ export default function App() {
 
   return (
     <div className="toolbar">
-      <SnippylyPresence 
+      <VeltPresence 
         flockMode={true}
-        navigate={(pageInfo) => navigate(pageInfo.path)}
-        disableFlockNavigation={true}
+        onNavigate={(pageInfo) => navigate(pageInfo.path)}
+        defaultFlockNavigation={true}
       />
     </div>
   );

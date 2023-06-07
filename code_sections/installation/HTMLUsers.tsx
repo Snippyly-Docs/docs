@@ -11,7 +11,7 @@ export default function HTMLUsers(props: CodeSectionVariant) {
     6: [[51, 53]],
     7: [[57, 68]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -54,8 +54,8 @@ export default function HTMLUsers(props: CodeSectionVariant) {
       active: step === 4,
       description: (
         <>
-          <strong>Users in the same group can tag eachother.</strong>
-          <p>They can use the @tag in comments, or assign eachother to tasks.</p>
+          <strong>Users in the same group can tag each other.</strong>
+          <p>They can use the @tag in comments, or assign each other to tasks.</p>
         </>
       )
     },
@@ -104,7 +104,7 @@ export default function HTMLUsers(props: CodeSectionVariant) {
 
     <!-- Your content goes here -->
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@x.x.xx/snippyly.js" onload="loadSnippyly()"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@1.0.112/snippyly.js" onload="loadSnippyly()"></script>
 
     <script>
 
@@ -138,7 +138,7 @@ export default function HTMLUsers(props: CodeSectionVariant) {
           {
             userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
             name: 'John Doe',
-            photoUrl: '<some avatar url>',
+            photoUrl: 'https://i.pravatar.cc/300',
             email: 'john.doe@snippyly.com',
             groupId: 'developers'
           }

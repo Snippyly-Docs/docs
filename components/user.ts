@@ -30,7 +30,7 @@ function generateUserData() {
      * Here we define the user that we pass to Snippyly.
      * 
      * The group ID is particularly important as it
-     * allows users in the same group to tag eachother.
+     * allows users in the same group to tag each other.
      * 
      * Providing a contacts array does the same,
      * but effectively manually adds users to the user's contacts list.

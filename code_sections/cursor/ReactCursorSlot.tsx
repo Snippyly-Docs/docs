@@ -24,15 +24,15 @@ export default function CursorSlot(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyCursor } from '@snippyly/react';
+import { VeltCursor } from '@veltdev/react';
 
 export default function App() {
 
   return (
     <>
-      <SnippylyCursor>
+      <VeltCursor>
         <img src="..." slot="cursor" />
-      </SnippylyCursor>
+      </VeltCursor>
 
       {/* ... */}
     </>

@@ -20,28 +20,28 @@ export default function ReactCursorData(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Subscribe to constant cursor changes.</strong>
-          <p>We will send you a new list of cursors everytime there is a change so you can build out your own cursor UI and logic.</p>
+          <strong>Subscribe to the realtime Cursor users data on the current <code>document</code> and <code>location</code>.</strong>
+          <p>We will send you a new list of cursors everytime there is a change so you can build out your own cursor UI.</p>
         </>
       )
     }
   ];
 
   const code = `
-import { SnippylyCursor, useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function App() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
 
       const cursorElement = client.getCursorElement();
 
-      cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
-        // Do something with cursors list
+      cursorElement.getOnlineUsersOnCurrentDocument().subscribe((_cursorUsers) => {
+        // Do something with Cursor Users list
       });
 
     }
@@ -49,8 +49,6 @@ export default function App() {
 
   return (
     <>
-      <SnippylyCursor />
-      {/* ... */}
     </>
   );
 }

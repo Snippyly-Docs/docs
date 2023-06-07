@@ -15,7 +15,7 @@ import { NextSeo } from 'next-seo';
   title="Velt Docs - Flock Mode"
   description="Flock mode documentation page for the Velt SDK"
 />
-<Subheading>Start a flock session and follow the leader with a single click.</Subheading>
+<Subheading>This is like Figma's follow along feature. Start a shared session in a click. One person is the leader, and whatever they do - like clicking, scrolling, or navigating - happens automatically on everyone else's screen.</Subheading>
 <FlockDemo />
 
 # Steps [#steps]
@@ -56,11 +56,13 @@ export function FlockCustomSteps() {
 
 | Field | Type | Description |
 | --- | --- | --- |
-| baseUrl | string | The base URL of the site |
-| path | string | The path after the base URL |
-| url | string | The full URL |
+| `baseUrl` | `string` | The base URL of the site |
+| `path` | `string` | The path after the base URL |
+| `url` | `string` | The full URL |
 
 # API [#api]
+Programtically start and stop a flock session.
+<br />
 
 export function FlockAPISteps() {
 

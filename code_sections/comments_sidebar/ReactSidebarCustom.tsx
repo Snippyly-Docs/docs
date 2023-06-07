@@ -9,7 +9,7 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
     2: [[11, 16]],
     3: [[18, 22], [31, 33]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -73,7 +73,7 @@ export default function App() {
   };
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
 
       <SnippylyComments
         contextProvider={provideContext}

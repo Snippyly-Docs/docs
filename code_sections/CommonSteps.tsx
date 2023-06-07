@@ -16,12 +16,12 @@ export function createUseEffectStep(currentStep: number, stepNum: number) {
 export function createGetSnippylyStep(currentStep: number, stepNum: number) {
   return {
     step: stepNum,
-    title: 'Get the Snippyly client',
+    title: 'Get the Velt client',
     active: currentStep === stepNum,
     description: (
       <>
-        <strong>Import the <code>useSnippylyClient</code> React hook.</strong>
-        <p>You can use this hook within your component to fetch the Snippyly client.</p>
+        <strong>Import the <code>useVeltClient</code> React hook.</strong>
+        <p>You can use this hook within your component to fetch the Velt client.</p>
       </>
     )
   };
@@ -34,8 +34,8 @@ export function createGetInstanceStep(currentStep: number, stepNum: number, inst
     active: currentStep === stepNum,
     description: (
       <>
-        <strong>Fetch the {instanceType} element from the Snippyly client.</strong>
-        <p>At this point, the Snippyly instance should be loaded and available to you on the <code>window</code> object.</p>
+        <strong>Fetch the {instanceType} element from the Velt client.</strong>
+        <p>At this point, the Velt instance should be loaded and available to you on the <code>window</code> object.</p>
       </>
     )
   };
@@ -49,8 +49,8 @@ export function createPartSteps(currentStep: number) {
       active: currentStep === 1,
       description: (
         <>
-          <strong>We offer several parts which can be used like classes.</strong>
-          <p>The Cursor component is encapsulated in Shadow DOM, which is isolated from the normal DOM.</p>
+          <strong>We offer several parts which can be used like classes. Full list below.</strong>
+          <p>The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.</p>
         </>
       )
     },
@@ -86,7 +86,7 @@ export function createVariableSteps(currentStep: number, component: string) {
       active: currentStep === 1,
       description: (
         <>
-          <strong>You can select all {component} components, or use a specific selector.</strong>
+          <strong>You can select the {component} component.</strong>
           <p>Our CSS variables are set at the component level.</p>
         </>
       )

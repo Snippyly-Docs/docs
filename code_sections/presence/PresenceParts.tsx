@@ -19,7 +19,7 @@ export default function PresenceParts(props: CodeSectionVariant) {
   ];
 
   const code = `
-snippyly-presence::part(user-avatar)::before {
+velt-presence::part(user-avatar)::before {
   content: "";
   position: absolute;
   border-radius: 50%;

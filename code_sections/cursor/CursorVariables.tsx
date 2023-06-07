@@ -19,8 +19,8 @@ export default function CursorVariables(props: CodeSectionVariant) {
   ];
 
   const code = `
-snippyly-cursor {
-  --snippyly-cursor-avatar-size: 1.5rem;
+velt-cursor {
+  --velt-cursor-avatar-size: 1.5rem;
 }
 `;
 

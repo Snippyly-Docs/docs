@@ -5,13 +5,16 @@ import ReactInstallation from '../../code_sections/installation/ReactInstallatio
 import HTMLConfig from '../../code_sections/installation/HTMLConfig.tsx';
 import ReactConfig from '../../code_sections/installation/ReactConfig.tsx';
 import HTMLUsers from '../../code_sections/installation/HTMLUsers.tsx';
-import ReactUsers from '../../code_sections/installation/ReactUsers.tsx';
+import ReactAuth from '../../code_sections/installation/ReactAuth.tsx';
+import ReactAuthContactList from '../../code_sections/installation/ReactAuthContactList.tsx';
+import ReactAuthLogoutUser from '../../code_sections/installation/ReactAuthLogoutUser.tsx';
+import ReactDocument from '../../code_sections/installation/ReactDocument.tsx';
 import ReactLocation from '../../code_sections/installation/ReactLocation.tsx';
 import HTMLLocation from '../../code_sections/installation/HTMLLocation.tsx';
 
 import { NextSeo } from 'next-seo';
 
-# Installation [#installation]
+# 1. Install [#install]
 
 <NextSeo 
   title="Velt Docs - Installation"
@@ -21,9 +24,9 @@ import { NextSeo } from 'next-seo';
 export function InstallSteps() {
 
   const frontendOptions = {
-    'React': <ReactInstallation sectionId="installation" />,
-    'Next.js': <ReactInstallation sectionId="installation" />,
-    'HTML': <HTMLInstallation sectionId="installation" />
+    'React': <ReactInstallation sectionId="install" />,
+    'Next.js': <ReactInstallation sectionId="install" />,
+    'HTML': <HTMLInstallation sectionId="install" />
   };
 
   return (
@@ -35,13 +38,17 @@ export function InstallSteps() {
 
 <InstallSteps />
 
-# Configuration [#configuration]
+<br />
+## Advanced Configurations (optional) [#configure]
+**The <code>SnippylyProvider</code> component takes a <code>config</code> property.**
 
+You can pass in a configuration object that affects the SDK at a global level across your application.
+<br />
 export function ConfigSteps() {
   const frontendOptions = {
-    'React': <ReactConfig sectionId="configuration" />,
-    'Next.js': <ReactConfig sectionId="configuration" />,
-    'HTML': <HTMLConfig sectionId="configuration" />
+    'React': <ReactConfig sectionId="configure" />,
+    'Next.js': <ReactConfig sectionId="configure" />,
+    'HTML': <HTMLConfig sectionId="configure" />
   };
 
   return (
@@ -53,13 +60,18 @@ export function ConfigSteps() {
 
 <ConfigSteps />
 
-# Users [#users]
+# 2. Authenticate [#authenticate]
+**This tells us who the logged in user is so that we can associate the data with them.**
 
-export function UserSteps() {
+As soon as you get your authenticated user, you should call the SDK's `identify()` method.
+
+<br />
+
+export function AuthSteps() {
   const frontendOptions = {
-    'React': <ReactUsers sectionId="users" />,
-    'Next.js': <ReactUsers sectionId="users" />,
-    'HTML': <HTMLUsers sectionId="users" />
+    'React': <ReactAuth sectionId="authenticate" />,
+    'Next.js': <ReactAuth sectionId="authenticate" />,
+    'HTML': <ReactAuth sectionId="authenticate" />
   };
 
   return (
@@ -67,15 +79,17 @@ export function UserSteps() {
   );
 }
 
-<UserSteps />
+<AuthSteps />
 
-# Location [#location]
-
-export function LocationSteps() {
+## Enable @ mentions & user tagging [#user-contact-list]
+For some features like Comments, your users should be able to @mention or tag other users. <br />
+You can enable autocomplete and show a contacts dropdown by using this feature.
+<br />
+export function AuthContactListSteps() {
   const frontendOptions = {
-    'React': <ReactLocation sectionId="location" />,
-    'Next.js': <ReactLocation sectionId="location" />,
-    'HTML': <HTMLLocation sectionId="location" />
+    'React': <ReactAuthContactList sectionId="user-contact-list" />,
+    'Next.js': <ReactAuthContactList sectionId="user-contact-list" />,
+    'HTML': <ReactAuthContactList sectionId="user-contact-list" />
   };
 
   return (
@@ -83,4 +97,60 @@ export function LocationSteps() {
   );
 }
 
-<LocationSteps />
+<AuthContactListSteps />
+
+
+## Additional options [#additional-options]
+export function AuthLogoutUserSteps() {
+  const frontendOptions = {
+    'React': <ReactAuthLogoutUser sectionId="additional-options" />,
+    'Next.js': <ReactAuthLogoutUser sectionId="additional-options" />,
+    'HTML': <ReactAuthLogoutUser sectionId="additional-options" />
+  };
+
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
+}
+
+<AuthLogoutUserSteps />
+
+
+# 3. Initialize Document [#initialize-document]
+Document is the space where you want your users to collaborate. <br />
+For a design tool it's the canvas, for a video editor, it's the editor, for a documentation tool, it's the document etc.<br />
+A document is like a virtual house.
+Users in the same virtual house can see and interact with each other.
+<br />
+export function InitDocumentSteps() {
+  const frontendOptions = {
+    'React': <ReactDocument sectionId="initialize-document" />,
+    'Next.js': <ReactDocument sectionId="initialize-document" />,
+    'HTML': <ReactDocument sectionId="initialize-document" />
+  };
+
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
+}
+
+<InitDocumentSteps />
+
+## Initialize Location (optional) [#location]
+A location is like a room in the virtual house. <br />
+This represents a space inside the main `document` that you set in the previous step. <br />
+Depending on the app, this could represent slides, sections, popups, versions, frames (in video editor), data points on maps/charts etc.
+<br />
+export function InitDocumentLocationSteps() {
+  const frontendOptions = {
+    'React': <ReactLocation sectionId="initialize-location" />,
+    'Next.js': <ReactLocation sectionId="initialize-location" />,
+    'HTML': <ReactLocation sectionId="initialize-location" />
+  };
+
+  return (
+    <StepTabs frontendOptions={frontendOptions} />
+  );
+}
+
+<InitDocumentLocationSteps />

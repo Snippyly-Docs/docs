@@ -19,7 +19,7 @@ export default function CursorParts(props: CodeSectionVariant) {
   ];
 
   const code = `
-snippyly-cursor::part(label-container) {
+velt-cursor::part(label-container) {
   border-radius: 0;
 }
     `;

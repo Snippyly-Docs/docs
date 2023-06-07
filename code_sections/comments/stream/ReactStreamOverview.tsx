@@ -6,10 +6,10 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[1, 1]],
-    2: [[7, 8], [10, 10]],
-    3: [[9, 9]],
-    4: [[17, 17]],
-    5: [[17, 17]]
+    2: [[15, 16], [18, 18]],
+    3: [[17, 17]],
+    4: [[23, 23]],
+    5: [[23, 23]]
   };
   
   const [step, setStep] = useState(1);
@@ -21,8 +21,7 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Import the comment component and the comment tool component.</strong>
-          <p>We offer specific components for our users that use React.</p>
+          <strong>Import the <code>VeltComments</code> component and the <code>VeltCommentTool</code> component.</strong>
         </>
       )
     },
@@ -32,19 +31,23 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Add the comment component to your template.</strong>
-          <p>This component is required to render comments in your app. Stream mode renders a stream view of comments in a column.</p>
+          <strong>Add the <code>VeltComments</code> component to the root of your app and mark the <code>streamMode</code> property as <code>true</code>.</strong>
+          <p>This component is required to render comments in your app. <br /> <br />
+            Stream mode renders all comment dialog boxes in a column on the right side similar to Google Docs.
+          </p>
         </>
       )
     },
     {
       step: 3,
-      title: 'Add the Stream View container ID (optional)',
+      title: 'Add the Stream View container ID',
       active: step === 3,
       description: (
         <>
-          <strong>Pass the container ID of the scrolling element to help us position the stream of comments.</strong>
-          <p>Alternatively, you can move the Comment component tag to inside whatever scrolling element to help position the comment stream correctly.</p>
+          <strong>Pass the DOM ID of the main scrolling element. This helps us position & scroll the comment stream as the user scrolls.</strong>
+          <p>Alternatively, you can move <code>VeltComments</code> component inside the scrolling container and ensure that its the sibling of the target content.
+          
+          </p>
         </>
       )
     },
@@ -54,8 +57,12 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
       active: step === 4,
       description: (
         <>
-          <strong>The comment tool allows your to add comments.</strong>
-          <p>When you click on the comment tool, it initiates comment mode. In Popover mode, you must specify a target comment element ID which links the tool to that element.</p>
+          <strong>(optional) Add the <code>VeltCommentTool</code> component wherever you want to show the comment tool button.</strong>
+          <p>This is optional as most developers use Stream mode to enable commenting on text vs any element on the DOM.
+            However, if you do need to enable commenting on any element, you can use this tool. <br /><br />
+            Clicking on it initiates comment mode & changes your mouse cursor to a comment pin.
+            Now you can click anywhere on the document to attach comments to any elements.
+          </p>
         </>
       )
     },
@@ -65,33 +72,40 @@ export default function ReactPopoverOverview(props: CodeSectionVariant) {
       active: step === 5,
       description: (
         <>
-          <strong>Test it out by adding a comment.</strong>
-          <p>You should be able to leave a comment on the target element using the comment tool.</p>
+          <strong>Test it out by opening the page with Velt components in your browser.</strong>
+          <p>Select text to attach a comment to it. If you have added <code>VeltCommentTool</code>, click on it and click anywhere on the page to add a comment.</p>
         </>
       )
     }
   ];
 
   const code = `
-import { SnippylyComments, SnippylyCommentTool } from '@snippyly/react';
+import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <>
-      <SnippylyComments
-        streamMode={true}
-        streamViewContainerId="scrolling-comment-stream"
-      />
+    <VeltProvider apiKey="API_KEY">
 
-      <div id="scrolling-comment-stream">
-        <!-- This element is scrollable -->
+      <div id="scrolling-container-id">
+
+        //This element is scrollable
+        <div class="target-content">
+          //This element contains the content that you want to be commented.
+        </div>
+
+        <VeltComments
+          streamMode={true}
+          streamViewContainerId="scrolling-container-id"
+        />
+
       </div>
 
       <div class="toolbar">
-        <SnippylyCommentTool />
+        <VeltCommentTool />
       </div>
-    </>
+
+    </VeltProvider>
   );
 }
     `;

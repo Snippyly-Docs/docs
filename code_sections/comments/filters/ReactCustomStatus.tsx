@@ -57,7 +57,7 @@ import {
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
       <SnippylyComments 
 
         customStatuses={[

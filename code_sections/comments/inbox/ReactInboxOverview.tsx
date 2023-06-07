@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 
@@ -6,10 +5,11 @@ export default function ReactInboxOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[1, 1]],
-    2: [[7, 7]],
-    3: [[7, 7]]
+    2: [[8, 8]],
+    3: [[11, 11]],
+    4: [[11, 11]],
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -19,8 +19,7 @@ export default function ReactInboxOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Import the comment component and the comment tool component.</strong>
-          <p>We offer specific components for our users that use React.</p>
+          <strong>Import the <code>VeltComments</code> component.</strong>
         </>
       )
     },
@@ -30,33 +29,55 @@ export default function ReactInboxOverview(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Add the comment component to your template.</strong>
-          <p>This component is required to render comments in your app. Inbox mode provides a more conversational sidebar UI.</p>
+          <strong>Add the <code>VeltComments</code> component to the root of your app and mark the <code>inboxMode</code> property as <code>true</code>.</strong>
+          <p>This component is required to render comments in your app. <br /> <br />
+          This mode enable a more focused inbox style UI for each comment on the right side. Instead of showing a comment dialog box, it shows the given comment in a sidebar.
+          You can combine this with other modes like Freestyle, Popover, Stream or Text.
+          </p>
         </>
       )
     },
     {
       step: 3,
-      title: 'Test Integration',
+      title: 'Add Comment Tool component',
       active: step === 3,
       description: (
         <>
-          <strong>Test it out by adding a comment.</strong>
-          <p>You should be able to leave a comment by selecting some text.</p>
+          <strong>Add the <code>VeltCommentTool</code> component wherever you want to show the comment tool button.</strong>
+          <p>Clicking on it initiates comment mode & changes your mouse cursor to a comment pin.
+            Now you can click anywhere on the document to attach comments to any elements.
+          </p>
+        </>
+      )
+    },
+    {
+      step: 4,
+      title: 'Test Integration',
+      active: step === 4,
+      description: (
+        <>
+          <strong>Test it out by opening the page with Velt components in your browser.</strong>
+          <p>You should be able to leave a comment by selecting some text or using the comment tool.</p>
         </>
       )
     }
   ];
 
   const code = `
-import { SnippylyProvider, SnippylyComments } from '@snippyly/react';
+import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
-      <SnippylyComments inboxMode={true} />
-    </SnippylyProvider>
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments inboxMode={true} />
+
+      <div class="toolbar">
+        <VeltCommentTool />
+      </div>
+
+    </VeltProvider>
   );
 }
     `;

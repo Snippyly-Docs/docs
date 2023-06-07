@@ -9,7 +9,7 @@ export default function ReactPin(props: CodeSectionVariant) {
     2: [[14, 14]],
     3: [[16, 16]],
   }
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -57,7 +57,7 @@ import {
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="...">
+    <SnippylyProvider apiKey="API_KEY">
 
       <SnippylyComments>
         <div 

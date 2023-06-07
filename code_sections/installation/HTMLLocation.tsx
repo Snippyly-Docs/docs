@@ -8,7 +8,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
     3: [[23, 29]],
     4: [[14, 14]],
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -18,8 +18,10 @@ export default function HTMLConfig(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>A document is like a virtual building.</strong>
-          <p>Users in the same <i>virtual building</i> can see and interact with eachother using our pre-built components.</p>
+          <strong>Pass a unique ID representing your document.</strong>
+          <p>Users logged into the same document ID can see each other's presence, cursors, comments etc.
+            Whenever your document initializes, you should call this method.
+          </p>
         </>
       )
     },
@@ -77,7 +79,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
       This is a popup!
     </div>
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@x.x.xx/snippyly.js" onload="loadSnippyly()"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@snippyly/sdk@1.0.112/snippyly.js" onload="loadSnippyly()"></script>
 
     <script>
 
@@ -90,7 +92,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
       }
 
       function loadSnippyly() {
-        await window.Snippyly.init("UnHxCCFcclkô4bErBL1");
+        await window.Snippyly.init("YOUR_API_KEY");
 
         window.Snippyly.setDocumentID('my-collaboration-app');
         window.Snippyly.setLocation({page: 'index'});
