@@ -10,5 +10,9 @@
   "system_comments": {
     "title": "System Comments",
     "firstHeader": "Overview"
+  },
+  "arrows": {
+    "title": "Arrows",
+    "firstHeader": "Overview"
   }
 }
