@@ -22,5 +22,8 @@
   },
   "arrows": {
     "title": "Arrows"
+  },
+  "recorder": {
+    "title": "Recorder"
   }
 }

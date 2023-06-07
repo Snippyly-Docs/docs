@@ -14,5 +14,9 @@
   "arrows": {
     "title": "Arrows",
     "firstHeader": "Overview"
+  },
+  "recorder": {
+    "title": "Recorder",
+    "firstHeader": "Overview"
   }
 }
