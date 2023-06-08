@@ -19,20 +19,20 @@ export default function ReactAreaOverview(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Import the <code>VeltComments</code> component.</strong>
+          <strong>Import the <code>VeltComments</code> component and the <code>VeltCommentTool</code> component.</strong>
         </>
       )
     },
     {
       step: 2,
-      title: 'Add Comment component with Inbox mode',
+      title: 'Add Comment component with Area mode',
       active: step === 2,
       description: (
         <>
-          <strong>Add the <code>VeltComments</code> component to the root of your app and mark the <code>inboxMode</code> property as <code>true</code>.</strong>
+          <strong>Add the <code>VeltComments</code> component to the root of your app and mark the <code>areaMode</code> property as <code>true</code>.</strong>
           <p>This component is required to render comments in your app. <br /> <br />
-          This mode enable a more focused inbox style UI for each comment on the right side. Instead of showing a comment dialog box, it shows the given comment in a sidebar.
-          You can combine this with other modes like Freestyle, Popover, Stream or Text.
+          With this mode, users can select an arbitrary area on the DOM and attach a comment to it.
+          This is an extension to <code>Freestyle</code> mode comments and by default it is on.
           </p>
         </>
       )

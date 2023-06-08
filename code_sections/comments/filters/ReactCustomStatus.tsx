@@ -17,7 +17,7 @@ export default function ReactCustomStatus(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Provide custom statuses in the <code>custom-statuses</code> input attribute.</strong>
+          <strong>Provide custom statuses in the <code>customStatuses</code> prop.</strong>
           <p>We will replace our custom status assignments and filtering functionality to use the values you pass in.</p>
         </>
       )
