@@ -18,6 +18,7 @@ export default function HuddleDemo(props: HuddleDemoProps) {
 
     const iframe = document.createElement('iframe');
     iframe.src = src;
+    iframe.allow = "camera; microphone";
     iframe.setAttribute('scrolling', 'no');
     iframe.setAttribute('frameborder', '0');
     el.appendChild(iframe);
