@@ -1,5 +1,6 @@
 
 import Subheading from '../../components/Subheading/Subheading.tsx';
+import StepTabsVariants from '../../components/StepTabsVariants/StepTabsVariants.tsx';
 import RecorderDemo from '../../components/RecorderDemo/RecorderDemo.tsx';
 import ReactPresenceOverview from '../../code_sections/presence/ReactPresenceOverview.tsx';
 import HTMLPresenceOverview from '../../code_sections/presence/HTMLPresenceOverview.tsx';
@@ -19,7 +20,26 @@ import { NextSeo } from 'next-seo';
   description="Live presence documentation page for the Velt SDK"
 />
 <Subheading>Your users can see other users online on the document. This makes your app feel alive.</Subheading>
-<RecorderDemo demoUrl="recorder" />
+
+export function Test() {
+
+  const options = {
+    'All': {
+      'Audio': <RecorderDemo demoUrl="audio-recorder" />,
+      'Video': <RecorderDemo demoUrl="video-recorder" />,
+      'Screen': <RecorderDemo demoUrl="screen-recorder" />
+    }
+  };
+
+  return (
+    <StepTabsVariants
+      sectionId=""
+      options={options}
+    />
+  );
+}
+
+<Test />
 
 # Steps [#steps]
 

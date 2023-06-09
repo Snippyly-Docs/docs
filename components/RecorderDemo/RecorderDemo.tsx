@@ -47,7 +47,7 @@ export default function RecorderDemo(props: RecorderDemoProps) {
   }, []);
 
   return (
-    <DemoContainer height="650px">
+    <DemoContainer height={props?.demoUrl === 'recorder' ? '650px' : '450px'}>
       <div className={styles.iframeFlexContainer}>
         <div ref={iframeRef} className={styles.iframe}></div>
       </div>
