@@ -19,5 +19,14 @@
   },
   "system_comments": {
     "title": "System Comments"
+  },
+  "arrows": {
+    "title": "Arrows"
+  },
+  "recorder": {
+    "title": "Recorder"
+  },
+  "rewriter": {
+    "title": "Rewriter"
   }
 }

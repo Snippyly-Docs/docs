@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import DemoContainer from "../DemoContainer/DemoContainer";
-import styles from './CommentsDemo.module.scss';
+import styles from './ArrowsDemo.module.scss';
 
-interface CommentsDemoProps {
+interface ArrowsDemoProps {
   demoUrl: string;
 }
 
-export default function CursorDemo(props: CommentsDemoProps) {
+export default function ArrowsDemo(props: ArrowsDemoProps) {
 
   const iframeRef = useRef(null);
   const [demoInitialized, setDemoInitialized] = useState(false);
@@ -15,10 +15,6 @@ export default function CursorDemo(props: CommentsDemoProps) {
  
     const iframe = document.createElement('iframe');
     iframe.src = src;
-    iframe.allow = "camera; microphone";
-    if (props.demoUrl !== 'comments-stream') {
-      iframe.setAttribute('scrolling', 'no');
-    }
     iframe.setAttribute('frameborder', '0');
     el.appendChild(iframe);
     
@@ -30,9 +26,9 @@ export default function CursorDemo(props: CommentsDemoProps) {
 
     const documentId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     
-    fetch('https://us-central1-snippyly-sdk-prod.cloudfunctions.net/setCommentData', {
+    fetch('https://us-central1-snippyly-sdk-prod.cloudfunctions.net/setArrowData', {
       method: 'POST',
-      body: JSON.stringify({ documentId, type: props.demoUrl.split('-')[1] })
+      body: JSON.stringify({ documentId })
     }).then(data => {
 
       let demoUrl = props.demoUrl;

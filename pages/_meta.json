@@ -11,6 +11,12 @@
   "async": {
     "title": "Async Collaboration"
   },
+  "user_feedback": {
+    "title": "In-App User Feedback"
+  },
+  "permission_management": {
+    "title": "Permission Management"
+  },
   "ai": {
     "title": "AI Copilot"
   },
