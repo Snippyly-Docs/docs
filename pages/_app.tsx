@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [variantSuggestion, setVariantSuggestion] = useState(null);
   const [variantMap, setVariantMap] = useState<Record<string, string>>({});
   const [activeHeader, setActiveHeader] = useState(null);
-  const [darkMode, setDarkMode] = useState(null);
+  const [darkMode, setDarkMode] = useState(true);
 
   const handleThemeChange = (e) => {
 
