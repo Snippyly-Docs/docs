@@ -23,7 +23,7 @@ export default function UserRequestDemo(props: any) {
 
     let classString = props.classString || '';
 
-    const src = `https://snippyly-docs-demo.web.app/user-request-tool?documentId=user-request-docs&userIndex=0${classString !== '' ? `&classString=${classString}` : ''}`;
+    const src = `https://snippyly-docs-demo.web.app/${props?.demoUrl}?documentId=user-request-docs&userIndex=0${classString !== '' ? `&classString=${classString}` : ''}`;
     
     createIFrame(iframeRef.current, src);
 

@@ -15,6 +15,7 @@ export default function RewriterDemo(props: RewriterDemoProps) {
  
     const iframe = document.createElement('iframe');
     iframe.src = src;
+    iframe.allow = "camera; microphone";
     iframe.setAttribute('frameborder', '0');
     el.appendChild(iframe);
     

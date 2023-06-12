@@ -15,6 +15,7 @@ export default function RecorderDemo(props: RecorderDemoProps) {
  
     const iframe = document.createElement('iframe');
     iframe.src = src;
+    iframe.allow = "camera; microphone";
     iframe.setAttribute('frameborder', '0');
     el.appendChild(iframe);
     
@@ -46,7 +47,7 @@ export default function RecorderDemo(props: RecorderDemoProps) {
   }, []);
 
   return (
-    <DemoContainer height="650px">
+    <DemoContainer height={props?.demoUrl === 'recorder' ? '650px' : '450px'}>
       <div className={styles.iframeFlexContainer}>
         <div ref={iframeRef} className={styles.iframe}></div>
       </div>

@@ -18,9 +18,5 @@
   "recorder": {
     "title": "Recorder",
     "firstHeader": "Overview"
-  },
-  "rewriter": {
-    "title": "Rewriter",
-    "firstHeader": "Overview"
   }
 }

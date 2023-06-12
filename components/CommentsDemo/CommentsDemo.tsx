@@ -15,6 +15,7 @@ export default function CursorDemo(props: CommentsDemoProps) {
  
     const iframe = document.createElement('iframe');
     iframe.src = src;
+    iframe.allow = "camera; microphone";
     if (props.demoUrl !== 'comments-stream') {
       iframe.setAttribute('scrolling', 'no');
     }
