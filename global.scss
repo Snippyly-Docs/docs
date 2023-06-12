@@ -4,6 +4,39 @@ body {
   max-width: 100vw;
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+code span {
+  color: var(--primary-color) !important;
+}
+
+html {
+  .velt-logo {
+    height: 36px;
+  }
+
+  .velt-logo.velt-logo-header {
+    height: 44px;
+  }
+
+  .velt-logo.light {
+    display: block;
+  }
+
+  .velt-logo.dark {
+    display: none;
+  }
+
+  &[dark] {
+    .velt-logo.light {
+      display: none;
+    }
+
+    .velt-logo.dark {
+      display: block;
+    }
+  }
 }
 
 :root {
