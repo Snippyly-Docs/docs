@@ -1,4 +1,7 @@
 {
+  "velt_client": {
+    "title": "Velt Client"
+  },
   "general": {
     "title": "General"
   },
@@ -25,6 +28,9 @@
   },
   "recorder": {
     "title": "Recorder"
+  },
+  "huddle": {
+    "title": "Huddle"
   },
   "rewriter": {
     "title": "Rewriter"
