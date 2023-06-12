@@ -1,0 +1,19 @@
+| Field | Type | Description |
+| --- | --- | --- |
+| `userId` | `string` | Unique user identifier that you use to identify your user |
+| `name` | `string \| undefined` | Your user's full name. Default: Random avatar name |
+| `email` | `string \| undefined` | Your user's email |
+| `photoUrl` | `string \| undefined` | Your user's display picture URL. Default: Random avatar image |
+| `onlineStatus` | `string` | Auto updated when the user has their tab focused, inactive, or closed. Values: active, inactive or offline |
+| `userSnippylyId` | `string \| undefined` | Auto generated unique user id that is linked with your app's user ID |
+| `color` | `string \| undefined` | A random color is assigned to the user for the current session |
+| `timestamp` | `any` | Server Timestamp |
+| `type` | `string \| undefined` | User type |
+| `selections` | `any \| undefined` | User selections |
+| `documentParamsId` | `number \| null \| undefined` | Unique document params id generated from provided document params. This field is deprecated, use `locationId` instead |
+| `documentParams` | `object \| null \| undefined` | Set document params to identify user on sub document. This field is deprecated, use `location` instead |
+| `locationId` | `number \| null \| undefined` | Unique location id generated from provided location |
+| `location` | `Location \| null \| undefined` | Set location to identify user on sub document |
+| `isReadOnly` | `boolean \| undefined` | Specifies if the user is readonly |
+| `isAnonymous` | `boolean \| undefined` | Specifies if the user is anonymous |
+| `pageInfo` | `PageInfo` | Information about the page |
