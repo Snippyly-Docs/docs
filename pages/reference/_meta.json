@@ -26,6 +26,9 @@
   "arrows": {
     "title": "Arrows"
   },
+  "area": {
+    "title": "Area"
+  },
   "recorder": {
     "title": "Recorder"
   },
@@ -34,5 +37,11 @@
   },
   "rewriter": {
     "title": "Rewriter"
+  },
+  "selection": {
+    "title": "Live Selection"
+  },
+  "tag": {
+    "title": "Tag"
   }
 }
