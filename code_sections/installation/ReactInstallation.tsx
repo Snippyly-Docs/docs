@@ -9,6 +9,7 @@ export default function ReactInstallation(props: CodeSectionVariant) {
     3: [[6, 8]]
   };
 
+
   const [step, setStep] = useState(1);
 
   const steps = [
