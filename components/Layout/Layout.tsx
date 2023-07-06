@@ -13,7 +13,7 @@ export default function Layout(props: NextraThemeLayoutProps) {
   const { darkMode, setDarkMode } = useContext(GlobalContext);
 
   useEffect(() => {
-    // console.log('props: ', props); 
+    // console.log('props: ', props);
   }, [props]);
 
   return (
