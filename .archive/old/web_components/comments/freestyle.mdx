@@ -27,7 +27,7 @@ If you want users to be able to press a button to enable commenting, and place c
 Import the component:
 
 ```ts copy
-import { SnippylyComments } from '@snippyly/react';
+import { SnippylyComments } from '@veltdev/react';
 ```
 
 Then add it to the root of your React application.
@@ -42,7 +42,7 @@ Then add it to the root of your React application.
     import { 
       SnippylyProvider, 
       SnippylyComments 
-    } from "@snippyly/react";
+    } from "@veltdev/react";
 
     function App() {
       return (
@@ -71,7 +71,7 @@ When your users click on this button, their mouse cursor will change to a commen
 First import the component:
 
 ```ts copy
-import { SnippylyCommentTool } from '@snippyly/react';
+import { SnippylyCommentTool } from '@veltdev/react';
 ```
 
 Then insert it somewhere in your application.
@@ -85,7 +85,7 @@ Then insert it somewhere in your application.
     ```tsx copy {8}
     import { 
       SnippylyCommentTool 
-    } from "@snippyly/react";
+    } from "@veltdev/react";
 
     function SomeComponent() {
       return (
@@ -174,7 +174,7 @@ You can do so by adding **`data-snippyly-comment-disabled`** attribute to any DO
 
 By default, clicking on `<SnippylyCommentTool>` trigger allows users to attach a comment to any element in a freestyle way. If you want to associate `<SnippylyCommentTool>` with pre-defined elements on the DOM only, then use any of the these two methods:
 
-![](https://files.readme.io/ef78f36-Snippyly_SDK_Pre-defined_Element_Comment.gif "Snippyly SDK Pre-defined Element Comment.gif")
+![](https://files.readme.io/ef78f36-Snippyly_SDK_Pre-defined_Element_Comment.gif "Velt SDK Pre-defined Element Comment.gif")
 
 **a. Using `<SnippylyCommentTool>` trigger**  
 Pass target element's ID in `target-comment-element-id` attribute.  

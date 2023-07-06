@@ -26,7 +26,7 @@ export default function ReactLocation(props: CodeSectionVariant) {
           <p>Set a key/value paired object representing the location. This object can represent one or all of these dimensions at once: pages, sections, versions, frames (in video editor), data points on maps/charts etc.
             <br /> <br />
             Note that this is not a replacement for <code>documentId</code>. A <code>location</code> is always under a <code>document</code> in hierarchy.
-            Once you set this, all Snippyly features will now be stored in a hierarcy like this: <code>document/location</code>.
+            Once you set this, all Velt features will now be stored in a hierarcy like this: <code>document/location</code>.
           </p>
 
         </>
@@ -69,12 +69,12 @@ export default function ReactLocation(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
 export default function Collaboration() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {

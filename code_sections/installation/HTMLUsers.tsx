@@ -33,7 +33,7 @@ export default function HTMLUsers(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Keep any relevant user info from whatever authentication provider you use.</strong>
-          <p>Things like the user name, avatar, and ID can be re-used to identify your users. Create a Snippyly User object, which will be passed to the SDK.</p>
+          <p>Things like the user name, avatar, and ID can be re-used to identify your users. Create a Velt User object, which will be passed to the SDK.</p>
         </>
       )
     },
@@ -77,7 +77,7 @@ export default function HTMLUsers(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Call the <code>identify</code> function.</strong>
-          <p>Use the Snippyly client object to pass the user information to our servers.</p>
+          <p>Use the Velt client object to pass the user information to our servers.</p>
         </>
       )
     },
@@ -118,7 +118,7 @@ export default function HTMLUsers(props: CodeSectionVariant) {
         const { userInfo } = credentials;
         const { uid, displayName, email, photoURL } = userInfo;
 
-        // Create the Snippyly user object
+        // Create the Velt user object
         const user = {
           userId: uid,
           name: displayName,
@@ -145,8 +145,8 @@ export default function HTMLUsers(props: CodeSectionVariant) {
         ];
         user.contacts = contacts;
 
-        if (window.Snippyly) {
-          window.Snippyly.identify(user);
+        if (window.Velt) {
+          window.Velt.identify(user);
         }
 
       }
@@ -157,9 +157,9 @@ export default function HTMLUsers(props: CodeSectionVariant) {
         // Logout with your auth provider
         await authProvider.signOut();
 
-        // Clear the Snippyly user object
-        if (window.Snippyly) {
-          window.Snippyly.signOutUser();
+        // Clear the Velt user object
+        if (window.Velt) {
+          window.Velt.signOutUser();
         }
 
       }

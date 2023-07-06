@@ -26,8 +26,8 @@ function generateUserData() {
   if (user === null) {
     const name = generateName();
     /**
-     * Snippyly Code Example
-     * Here we define the user that we pass to Snippyly.
+     * Velt Code Example
+     * Here we define the user that we pass to Velt.
      * 
      * The group ID is particularly important as it
      * allows users in the same group to tag each other.

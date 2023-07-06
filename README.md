@@ -24,4 +24,4 @@ This project is licensed under the MIT License.
 
 ## TODO
 
-* Split up the Get Started section into different frameworks/libraries. For now, focus only on @snippyly/react
+* Split up the Get Started section into different frameworks/libraries. For now, focus only on @veltdev/react

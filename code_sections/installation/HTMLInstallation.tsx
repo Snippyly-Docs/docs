@@ -6,13 +6,13 @@ export default function HTMLInstallation(props: CodeSectionVariant) {
     1: [[10, 10]],
     2: [[12, 17]],
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
     {
       step: 1,
-      title: 'Install Snippyly script tag',
+      title: 'Install Velt script tag',
       active: step === 1,
       description: (
         <>
@@ -27,7 +27,7 @@ export default function HTMLInstallation(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Use the <code>Snippyly.init</code> method to authenticate with our servers.</strong>
+          <strong>Use the <code>Velt.init</code> method to authenticate with our servers.</strong>
           <p>The example API key is invalid, make sure to replace it with your own!</p>
         </>
       )
@@ -49,7 +49,7 @@ export default function HTMLInstallation(props: CodeSectionVariant) {
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.Snippyly.init("YOUR_API_KEY");
+        await window.Velt.init("YOUR_API_KEY");
       }
     </script>
     

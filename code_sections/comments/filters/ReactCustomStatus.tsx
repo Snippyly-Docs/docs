@@ -52,7 +52,7 @@ export default function ReactCustomStatus(props: CodeSectionVariant) {
 import { 
   SnippylyProvider, 
   SnippylyComments
-} from '@snippyly/react';
+} from '@veltdev/react';
 
 export default function App() {
 

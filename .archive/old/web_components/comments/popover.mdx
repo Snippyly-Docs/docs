@@ -23,7 +23,7 @@ If you want to display popover style comments instead of our default freestyle c
 Import the component:
 
 ```ts copy
-import { SnippylyComments } from '@snippyly/react';
+import { SnippylyComments } from '@veltdev/react';
 ```
 
 Then add it to the root of your React application.
@@ -38,7 +38,7 @@ Then add it to the root of your React application.
     import { 
       SnippylyProvider, 
       SnippylyComments 
-    } from "@snippyly/react";
+    } from "@veltdev/react";
 
     function App() {
       return (
@@ -67,7 +67,7 @@ When your users click on this button, a comment dialog will open prompting the u
 **Example**
 
 ```ts copy
-import { SnippylyCommentTool } from '@snippyly/react';
+import { SnippylyCommentTool } from '@veltdev/react';
 ```
 
 You must specify the target container element in which the popover will show using the `targetCommentElementId` attribute:
@@ -97,14 +97,14 @@ const commentElement = client.getCommentElement();
 commentElement.enablePopoverMode(true);
 ```
 
-In your component, provision the **Snippyly** client:
+In your component, provision the **Velt** client:
 
 ```tsx copy {1, 5}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
   
   return (
     //... rest of the component code...
@@ -116,11 +116,11 @@ Next, create a `useEffect` hook that uses the `client` as a dependency:
 
 ```tsx copy
 import { useEffect } from 'react';
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
 
@@ -152,11 +152,11 @@ Finally, inside the `useEffect` we created we can add the function call to `enab
   <div>
     ```tsx copy {8-19}
     import React, {useEffect} from "react";
-    import { useSnippylyClient } from '@snippyly/react';
+    import { useVeltClient } from '@veltdev/react';
 
     const SomeComponent = () => {
       
-      const { client } = useSnippylyClient();
+      const { client } = useVeltClient();
 
 
       const enablePopoverMode = () => {
@@ -195,7 +195,7 @@ The comment bubble is an enhancement that you can add to popover mode. Adding th
 Import the component:
 
 ```tsx copy
-import { SnippylyCommentBubble } from '@snippyly/react';
+import { SnippylyCommentBubble } from '@veltdev/react';
 ```
 
 Similar to the `SnippylyCommentTool`, you will have to set the `targetCommentElementId` attribute to point at the popover container:
@@ -209,7 +209,7 @@ And a fuller example for context:
 **Example**
 
 ```tsx copy {7}
-import { SnippylyCommentBubble } from '@snippyly/react';
+import { SnippylyCommentBubble } from '@veltdev/react';
 
 export const SomeComponent = () => {
     return (

@@ -9,7 +9,7 @@ export default function ReactGetComments(props: CodeSectionVariant) {
     2: [[11, 16]],
     3: [[18, 20]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -19,8 +19,8 @@ export default function ReactGetComments(props: CodeSectionVariant) {
       active: step === 1,
       description: (
         <>
-          <strong>Fetch the comment element from the Snippyly client.</strong>
-          <p>At this point, the Snippyly instance should be loaded and available to you on the <code>window</code> object.</p>
+          <strong>Fetch the comment element from the Velt client.</strong>
+          <p>At this point, the Velt instance should be loaded and available to you on the <code>window</code> object.</p>
         </>
       )
     },
@@ -57,7 +57,7 @@ export default function ReactGetComments(props: CodeSectionVariant) {
   <body>
 
     <script>
-      const commentElement = window.Snippyly.getCommentElement();
+      const commentElement = window.Velt.getCommentElement();
 
       // Provide your own logic to determine the documentId and location
       const documentId = 'example-document-id';

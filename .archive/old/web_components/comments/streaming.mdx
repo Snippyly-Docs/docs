@@ -23,7 +23,7 @@ Stream mode will show all the comment dialogs in order of submission on the righ
 Import the component:
 
 ```ts copy
-import { SnippylyComments } from '@snippyly/react';
+import { SnippylyComments } from '@veltdev/react';
 ```
 
 Then add it to the root of your React application.
@@ -38,7 +38,7 @@ Then add it to the root of your React application.
     import { 
       SnippylyProvider, 
       SnippylyComments 
-    } from "@snippyly/react";
+    } from "@veltdev/react";
 
     function App() {
       return (
@@ -67,14 +67,14 @@ const commentElement = client.getCommentElement();
 commentElement.enableStreamMode(true);
 ```
 
-In your component, provision the **Snippyly** client:
+In your component, provision the **Velt** client:
 
 ```tsx copy {1, 5}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
   
   return (
     //... rest of the component code...
@@ -86,11 +86,11 @@ Next, create a `useEffect` hook that uses the `client` as a dependency:
 
 ```tsx copy {8-12}
 import { useEffect } from 'react';
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
   
 
   useEffect(() => {
@@ -121,11 +121,11 @@ Finally, inside the `useEffect` we created we can add the function call to `enab
 
 ```tsx copy {8-21}
 import { useEffect } from "react";
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
 
   const enableStreamMode = () => {
@@ -159,7 +159,7 @@ When your users click on this button, their mouse cursor will change to a commen
 First import the component:
 
 ```ts copy
-import { SnippylyCommentTool } from '@snippyly/react';
+import { SnippylyCommentTool } from '@veltdev/react';
 ```
 
 Then insert it somewhere in your application.
@@ -173,7 +173,7 @@ Then insert it somewhere in your application.
     ```tsx copy {8}
     import { 
       SnippylyCommentTool 
-    } from "@snippyly/react";
+    } from "@veltdev/react";
 
     function SomeComponent() {
       return (
@@ -217,11 +217,11 @@ Finally, inside the `useEffect` we created we can add the function call to `enab
 
 ```tsx copy {15-20, 25}
 import { useEffect } from "react";
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   const enableStreamMode = () => {
     if (client) {

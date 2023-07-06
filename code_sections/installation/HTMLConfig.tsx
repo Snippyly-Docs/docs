@@ -9,7 +9,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
     4: [[19, 19]],
     5: [[20, 20]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -85,7 +85,7 @@ export default function HTMLConfig(props: CodeSectionVariant) {
     <script>
       function loadSnippyly() {
         // Your API key goes here!
-        await window.Snippyly.init("YOUR_API_KEY",
+        await window.Velt.init("YOUR_API_KEY",
           {
             urlAllowList: ['/about', '/contact-us'],
             featureAllowList: ['comments', 'presence'],

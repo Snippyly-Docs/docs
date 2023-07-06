@@ -22,7 +22,7 @@ The comment sidebar allows you to perform administrative tasks, view all comment
 Import the component:
 
 ```jsx copy
-import { SnippylyCommentsSidebar } from '@snippyly/react';
+import { SnippylyCommentsSidebar } from '@veltdev/react';
 ```
 
 Then insert the sidebar in the root of your React application:
@@ -30,7 +30,7 @@ Then insert the sidebar in the root of your React application:
 **Example**
 
 ```tsx copy {6}
-import { SnippylyProvider, SnippylyComments } from "@snippyly/react";
+import { SnippylyProvider, SnippylyComments } from "@veltdev/react";
 
 function App() {
   return (
@@ -76,7 +76,7 @@ This will be shown in the filter dropdown.
 
 This will be used to filter the comments in the sidebar.
 
-The way you can set this is by using `location`. The key use case for this filter is to segment comments by different pages/sections in your app where the comment was added. The way you tell Snippyly about these pages or sections in your app is by setting `location`. Once you set `location`, we automatically use that as values behind the scenes to filter based comments based on that.
+The way you can set this is by using `location`. The key use case for this filter is to segment comments by different pages/sections in your app where the comment was added. The way you tell Velt about these pages or sections in your app is by setting `location`. Once you set `location`, we automatically use that as values behind the scenes to filter based comments based on that.
 
 ### 3. Set the `Version` filter
 

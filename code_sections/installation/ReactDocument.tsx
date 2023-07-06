@@ -29,12 +29,12 @@ export default function ReactDocument(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
 export default function Collaboration() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {

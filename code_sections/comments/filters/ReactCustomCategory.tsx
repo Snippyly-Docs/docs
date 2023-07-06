@@ -38,7 +38,7 @@ export default function ReactCustomCategory(props: CodeSectionVariant) {
 import { 
   SnippylyProvider, 
   SnippylyComments
-} from '@snippyly/react';
+} from '@veltdev/react';
 
 export default function App() {
 

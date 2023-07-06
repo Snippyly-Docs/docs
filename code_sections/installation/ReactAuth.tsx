@@ -13,7 +13,7 @@ export default function ReactAuth(props: CodeSectionVariant) {
     4: [[22, 22]],
     // 6: [[61, 61]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -35,7 +35,7 @@ export default function ReactAuth(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Create a Snippyly User object by taking the relevant fields from your authenticated User object. </strong>
+          <strong>Create a Velt User object by taking the relevant fields from your authenticated User object. </strong>
           <p>This will work with any authentication provider you use.</p>
         </>
         //TODO: Add api reference to user object.
@@ -81,7 +81,7 @@ export default function ReactAuth(props: CodeSectionVariant) {
       description: (
         <>
           <strong>Call the <code>identify()</code> method.</strong>
-          <p>Pass the Snippyly object you created above in the <code>identify()</code> method.</p>
+          <p>Pass the Velt object you created above in the <code>identify()</code> method.</p>
         </>
       )
     },
@@ -99,12 +99,12 @@ export default function ReactAuth(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function App() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
@@ -112,7 +112,7 @@ export default function App() {
       // Fetch the relevant user info from your authenticated user object.
       const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
-      // Create the Snippyly user object
+      // Create the Velt user object
       const user = {
         userId: uid,
         name: displayName,

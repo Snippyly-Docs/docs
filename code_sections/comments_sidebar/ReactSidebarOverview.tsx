@@ -66,7 +66,7 @@ import {
   SnippylyCommentsSidebar, 
   SnippylySidebarButton,
   SnippylyCommentTool 
-} from '@snippyly/react';
+} from '@veltdev/react';
 
 export default function App() {
 

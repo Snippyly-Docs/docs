@@ -7,7 +7,7 @@ export default function ReactTool(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[11, 13]],
   }
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -27,7 +27,7 @@ export default function ReactTool(props: CodeSectionVariant) {
   const code = `
 import {
   SnippylyCommentTool
-} from '@snippyly/react';
+} from '@veltdev/react';
 
 export default function App() {
 

@@ -46,7 +46,7 @@ export default function HTMLCustomPriority(props: CodeSectionVariant) {
 
     <script>
 
-      const commentElement = window.Snippyly.getCommentElement();
+      const commentElement = window.Velt.getCommentElement();
       commentElement.setCustomPriorities([
         {
           "id": "low",

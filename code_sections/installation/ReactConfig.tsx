@@ -9,7 +9,7 @@ export default function ReactConfig(props: CodeSectionVariant) {
     3: [[8, 8]],
     4: [[9, 9]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -79,7 +79,7 @@ export default function ReactConfig(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyProvider } from '@snippyly/react';
+import { SnippylyProvider } from '@veltdev/react';
 
 export default function App() {
 

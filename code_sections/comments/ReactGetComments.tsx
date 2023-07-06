@@ -11,7 +11,7 @@ export default function ReactGetComments(props: CodeSectionVariant) {
     3: [[13, 18]],
     4: [[20, 22]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -42,12 +42,12 @@ export default function ReactGetComments(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { SnippylyComments, useSnippylyClient } from '@snippyly/react';
+import { SnippylyComments, useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function App() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {

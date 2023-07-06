@@ -25,14 +25,14 @@ const commentElement = client.getCommentElement();
 commentElement.enableTextComments(true);
 ```
 
-In your component, provision the **Snippyly** client:
+In your component, provision the **Velt** client:
 
 ```tsx copy {1, 5}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
   
   return (
     //... rest of the component code...
@@ -44,11 +44,11 @@ Next, create a `useEffect` hook that uses the `client` as a dependency:
 
 ```tsx copy {8-12}
 import { useEffect } from 'react';
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 const SomeComponent = () => {
   
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
   
 
   useEffect(() => {
@@ -83,11 +83,11 @@ Finally, inside the `useEffect` we created we can add the function call to `enab
   <div>
     ```tsx copy {8-21}
     import { useEffect } from "react";
-    import { useSnippylyClient } from '@snippyly/react';
+    import { useVeltClient } from '@veltdev/react';
 
     const SomeComponent = () => {
       
-      const { client } = useSnippylyClient();
+      const { client } = useVeltClient();
 
 
       const enableTextComments = () => {

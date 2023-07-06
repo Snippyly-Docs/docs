@@ -5,7 +5,7 @@ export default function ReactSidebarEmbed(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[11, 11]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -25,7 +25,7 @@ export default function ReactSidebarEmbed(props: CodeSectionVariant) {
   const code = `
 import {
   SnippylyCommentsSidebar,
-} from '@snippyly/react';
+} from '@veltdev/react';
 
 export default function App() {
 

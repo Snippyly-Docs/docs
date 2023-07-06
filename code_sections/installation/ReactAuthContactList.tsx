@@ -59,12 +59,12 @@ export default function ReactAuthContactList(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function App() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
