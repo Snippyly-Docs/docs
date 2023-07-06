@@ -8,7 +8,7 @@ export default function ReactInstallation(props: CodeSectionVariant) {
     2: [[1, 1]],
     3: [[6, 8]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -46,7 +46,7 @@ export default function ReactInstallation(props: CodeSectionVariant) {
           <p>Add your Velt API key.</p>
         </>
       )
-    }
+    },
   ];
 
   const code = `
