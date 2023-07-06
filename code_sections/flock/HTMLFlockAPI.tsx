@@ -8,7 +8,7 @@ export default function ReactFlockAPI(props: CodeSectionVariant) {
     2: [[13, 14]],
     3: [[16, 17]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -46,9 +46,9 @@ export default function ReactFlockAPI(props: CodeSectionVariant) {
   <body>
 
     <script>
-      if (window.Snippyly) {
+      if (window.Velt) {
 
-        const presenceElement = window.Snippyly.getPresenceElement();
+        const presenceElement = window.Velt.getPresenceElement();
 
         // Pass in the user ID of the user you want to follow
         presenceElement.startFollowingUser(userId);

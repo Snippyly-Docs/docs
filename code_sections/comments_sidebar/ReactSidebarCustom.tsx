@@ -52,7 +52,7 @@ export default function ReactSidebarCustom(props: CodeSectionVariant) {
 import { 
   SnippylyProvider, 
   SnippylyCommentsSidebar
-} from '@snippyly/react';
+} from '@veltdev/react';
 import { useState } from 'react';
 
 export default function App() {

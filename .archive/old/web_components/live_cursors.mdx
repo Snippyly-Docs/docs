@@ -64,7 +64,7 @@ By default if the user is inactive for `>2 minutes`, we mark them offline. By in
 
 **Example**
 ```js copy
-const cursorElement = Snippyly.getCursorElement();
+const cursorElement = Velt.getCursorElement();
 cursorElement.setInactivityTime(60000); // Pass time in milliseconds
 ```
 
@@ -77,7 +77,7 @@ You can restrict cursors to specific DOM elements by providing a list of element
 **Example**
 
 ```js copy
-const cursorElement = Snippyly.getCursorElement();
+const cursorElement = Velt.getCursorElement();
 cursorElement.allowedElementIds(['elementId1', 'elementId2']);
 ```
 

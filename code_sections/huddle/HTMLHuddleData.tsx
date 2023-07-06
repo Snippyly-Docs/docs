@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CodeSection, { CodeSectionVariant } from '../CodeSection';
 
-export default function HTMLPresenceData(props: CodeSectionVariant) {
+export default function HTMLHuddleData(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[14, 14]],
     2: [[16, 18]]

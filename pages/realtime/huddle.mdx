@@ -1,14 +1,14 @@
 
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import HuddleDemo from '../../components/HuddleDemo/HuddleDemo.tsx';
-import ReactPresenceOverview from '../../code_sections/presence/ReactPresenceOverview.tsx';
-import HTMLPresenceOverview from '../../code_sections/presence/HTMLPresenceOverview.tsx';
-import ReactPresenceCustomBehavior from '../../code_sections/presence/ReactPresenceCustomBehavior.tsx';
-import HTMLPresenceCustom from '../../code_sections/presence/HTMLPresenceCustom.tsx';
-import PresenceParts from '../../code_sections/presence/PresenceParts.tsx';
-import PresenceVariables from '../../code_sections/presence/PresenceVariables.tsx';
-import ReactPresenceData from '../../code_sections/presence/ReactPresenceData.tsx';
-import HTMLPresenceData from '../../code_sections/presence/HTMLPresenceData.tsx';
+import ReactHuddleOverview from '../../code_sections/huddle/ReactHuddleOverview.tsx';
+import HTMLHuddleOverview from '../../code_sections/huddle/HTMLhuddleOverview.tsx';
+import ReactHuddleCustomBehavior from '../../code_sections/huddle/ReacthuddleCustomBehavior.tsx';
+import HTMLHuddleCustom from '../../code_sections/huddle/HTMLhuddleCustom.tsx';
+import HuddleParts from '../../code_sections/huddle/huddleParts.tsx';
+import HuddleVariables from '../../code_sections/huddle/huddleVariables.tsx';
+import ReactHuddleData from '../../code_sections/huddle/ReacthuddleData.tsx';
+import HTMLHuddleData from '../../code_sections/huddle/HTMLhuddleData.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 import { NextSeo } from 'next-seo';
 
@@ -16,19 +16,19 @@ import { NextSeo } from 'next-seo';
 
 <NextSeo 
   title="Velt Docs - Huddle"
-  description="Live presence documentation page for the Velt SDK"
+  description="Live huddle documentation page for the Velt SDK"
 />
-<Subheading>Your users can see other users online on the document. This makes your app feel alive.</Subheading>
+<Subheading>Enable slack-style effortless audio, video and screen sharing discussions inside your own product.</Subheading>
 <HuddleDemo />
 
 # Steps [#steps]
 
-export function PresenceSteps() {
+export function HuddleSteps() {
 
   const frontendOptions = {
-    'React': <ReactPresenceOverview sectionId="steps" />,
-    'Next.js': <ReactPresenceOverview sectionId="steps" />,
-    'HTML': <HTMLPresenceOverview sectionId="steps" />
+    'React': <ReactHuddleOverview sectionId="steps" />,
+    'Next.js': <ReactHuddleOverview sectionId="steps" />,
+    'HTML': <HTMLHuddleOverview sectionId="steps" />
   };
 
   return (
@@ -36,16 +36,16 @@ export function PresenceSteps() {
   );
 }
 
-<PresenceSteps />
+<HuddleSteps />
 
 # Customize Behavior [#customize-behavior]
 
-export function PresenceCustomSteps() {
+export function HuddleCustomSteps() {
 
   const frontendOptions = {
-    'React': <ReactPresenceCustomBehavior sectionId="customize-behavior" />,
-    'Next.js': <ReactPresenceCustomBehavior sectionId="customize-behavior" />,
-    'HTML': <HTMLPresenceCustom sectionId="customize-behavior" />
+    'React': <ReactHuddleCustomBehavior sectionId="customize-behavior" />,
+    'Next.js': <ReactHuddleCustomBehavior sectionId="customize-behavior" />,
+    'HTML': <HTMLHuddleCustom sectionId="customize-behavior" />
   };
 
   return (
@@ -53,22 +53,22 @@ export function PresenceCustomSteps() {
   );
 }
 
-<PresenceCustomSteps />
+<HuddleCustomSteps />
 
 # Customize UI [#customize-ui]
 
 ## 1. Parts
 
-export function PresenceCSSPartsSteps() {
+export function HuddleCSSPartsSteps() {
 
   const frontendOptions = {
-    'All': <PresenceParts sectionId="customize-ui" />
+    'All': <HuddleParts sectionId="customize-ui" />
   };
   
   return <StepTabs frontendOptions={frontendOptions} />
 }
 
-<PresenceCSSPartsSteps />
+<HuddleCSSPartsSteps />
 
 | Part Name | What does it do? |
 | --------- | ---------------- |
@@ -80,16 +80,16 @@ export function PresenceCSSPartsSteps() {
 
 ## 2. Variables [#customize-vars]
 
-export function PresenceCSSVariablesSteps() {
+export function HuddleCSSVariablesSteps() {
 
   const frontendOptions = {
-    'All': <PresenceVariables sectionId="customize-vars" />
+    'All': <HuddleVariables sectionId="customize-vars" />
   };
 
   return <StepTabs frontendOptions={frontendOptions} />
 }
 
-<PresenceCSSVariablesSteps />
+<HuddleCSSVariablesSteps />
 
 | Variable Name | Default (light) | Default (dark) | What does it do? |
 | ------------- | --------------------- | -------------------- | ---------------- |
@@ -99,20 +99,3 @@ export function PresenceCSSVariablesSteps() {
 | `--velt-tooltip-bg-color` | `#FCFCFD` | `#141416` | Sets the tooltip background color |
 | `--velt-tooltip-border-color` | `#E6E8EC` | `#303034` | Sets the tooltip border color |
 | `--velt-more-users-color` | `#D4D6DF` | `#404044` | Sets the more users color |
-
-## 3. Build your own UI [#get-presence-data]
-
-export function PresenceDataSteps() {
-
-  const frontendOptions = {
-    'React': <ReactPresenceData sectionId="get-presence-data" />,
-    'Next.js': <ReactPresenceData sectionId="get-presence-data" />,
-    'HTML': <HTMLPresenceData sectionId="get-presence-data" />
-  };
-
-  return (
-    <StepTabs frontendOptions={frontendOptions} />
-  );
-}
-
-<PresenceDataSteps />

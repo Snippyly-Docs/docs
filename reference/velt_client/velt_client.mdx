@@ -14,7 +14,7 @@ export declare async function init(apiKey: string, config: Config): Promise<Velt
 
 **Params**
 
-`apiKey: string` -  Your API key to make authenticated calls to Snippyly Servers and track SDK usage.
+`apiKey: string` -  Your API key to make authenticated calls to Velt Servers and track SDK usage.
 
 `config?: Config` 
 
@@ -93,7 +93,7 @@ You can pass a custom key value paired object to set the location. This means th
 }
 `} />
 
-A `location` is always under a `document` in hierarchy. Once you set this, all Snippyly features will now be attributed to this specific `location` under the `document`. In a way all Snippyly data will be stored in a hierarcy like this: `document`/`location`. 
+A `location` is always under a `document` in hierarchy. Once you set this, all Velt features will now be attributed to this specific `location` under the `document`. In a way all Velt data will be stored in a hierarcy like this: `document`/`location`. 
 
 If you want to show two users each others' `cursors` or `comments` then you need to set the same `documentId` **AND** `location` for them.
 
@@ -131,7 +131,7 @@ export declare function addLocation(params: Location): void;
 
 ## removeLocation()
 
-Removes the specific location. Now all Snippyly features will attributed at `documentId` level.
+Removes the specific location. Now all Velt features will attributed at `documentId` level.
 
 **Signature**
 
@@ -384,7 +384,7 @@ export declare function setUserRoles(userRoles: UserRole[]): void;
 
 ## setDarkMode()
 
-To set the dark mode of Snippyly components.
+To set the dark mode of Velt components.
 
 **Signature**
 

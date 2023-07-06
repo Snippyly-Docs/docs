@@ -7,7 +7,7 @@ export default function HTMLCursorData(props: CodeSectionVariant) {
     1: [[14, 14]],
     2: [[16, 18]]
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -37,9 +37,9 @@ export default function HTMLCursorData(props: CodeSectionVariant) {
 
     <script>
 
-      if (window.Snippyly) {
+      if (window.Velt) {
 
-        const cursorElement = window.Snippyly.getCursorElement();
+        const cursorElement = window.Velt.getCursorElement();
 
         cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
           // Do something with cursors list

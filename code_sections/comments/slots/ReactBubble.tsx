@@ -9,7 +9,7 @@ export default function ReactPin(props: CodeSectionVariant) {
     2: [[13, 13]],
     3: [[15, 15]],
   }
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -51,7 +51,7 @@ export default function ReactPin(props: CodeSectionVariant) {
   const code = `
 import {
   SnippylyCommentBubble
-} from '@snippyly/react';
+} from '@veltdev/react';
 
 export default function App() {
 

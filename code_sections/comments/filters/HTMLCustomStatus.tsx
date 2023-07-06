@@ -61,7 +61,7 @@ export default function HTMLCustomStatus(props: CodeSectionVariant) {
 
     <script>
 
-      const commentElement = window.Snippyly.getCommentElement();
+      const commentElement = window.Velt.getCommentElement();
       commentElement.setCustomStatuses([
         {
           "id": "open",

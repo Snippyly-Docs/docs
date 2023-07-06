@@ -15,7 +15,7 @@ First, you need to initialize the **SnippylyProvider** with a client authenticat
 First import the `SnipplyProvider`:
 
 ```js copy
-import { SnippylyProvider } from '@snippyly/react';
+import { SnippylyProvider } from '@veltdev/react';
 ```
 
 Then you can add it to your HTML with your API key:
@@ -28,11 +28,11 @@ Then you can add it to your HTML with your API key:
 </React.StrictMode>
 ```
 
-The **SnippylyProvider** acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Snippyly Client** within its context.
+The **SnippylyProvider** acts as a [React context provider](https://reactjs.org/docs/context.html), so you can only use the **Velt Client** within its context.
 
 ### Configuring the Client
 
-The **SnippylyProvider** also takes a `config` property to restrict certain features. Here's how to restrict **Snippyly** features to a certain URL:
+The **SnippylyProvider** also takes a `config` property to restrict certain features. Here's how to restrict **Velt** features to a certain URL:
 
 ```jsx copy {3-5}
 <SnippylyProvider
@@ -45,14 +45,14 @@ The **SnippylyProvider** also takes a `config` property to restrict certain feat
 
 You can view the reference [here]() to check out all the different configuration options available.
 
-## 2. Using the Snippyly Client
+## 2. Using the Velt Client
 
-The `@snippyly/react` package provides a convenient hook `useSnippylyClient` to provision the SDK client.
+The `@veltdev/react` package provides a convenient hook `useVeltClient` to provision the SDK client.
 
 First import the `SnipplyClient`:
 
 ```js copy
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 ```
 
 Then you can use the provided hook to fetch an instance of the client:
@@ -74,11 +74,11 @@ useEffect(() => {
 This effect simply checks if the client has been provisioned, and logs the current SDK version to the console. Here is what the full example looks like in context:
 
 ```js copy
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 function SomeComponent() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
@@ -90,18 +90,18 @@ function SomeComponent() {
 }
 ```
 
-When your component is rendered, you should verify for yourself that the **Snippyly** SDK is _loaded, working, and on the intended version_. Note that when using the **Snippyly** client in a React effect, it is a general best practice to check if the client is `undefined`.
+When your component is rendered, you should verify for yourself that the **Velt** SDK is _loaded, working, and on the intended version_. Note that when using the **Velt** client in a React effect, it is a general best practice to check if the client is `undefined`.
 
 ## 3. Identifying your Users
 
-**Snippyly** needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
+**Velt** needs to know who is logged in to your application! This is so we can accurately provide cursors, presence, comments, etc.
 
 ### _When should I identify users?_
 
 > **You must identify the user every time the SDK is loaded on the browser for the first time.**
 > For example, when a new session/tab is created you must re-identify the user.
 
-Everyone handles authentication differently in their applications, so there isn't a one size fits all solution. The main point is that _when the user is logged in_, you should also identify the user with the **Snippyly** client.
+Everyone handles authentication differently in their applications, so there isn't a one size fits all solution. The main point is that _when the user is logged in_, you should also identify the user with the **Velt** client.
 
 ### Example with Firebase Authentication
 
@@ -122,10 +122,10 @@ export const signInWithGoogle = () => {
 
 The code snippet above initializes the Firebase SDK. **This code example is not important** -- all you need to know is that the code exports a function `signInWithGoogle` that we will be using in our example below.
 
-First import the `useSnippylyClient` hook as well as the `signInWithGoogle` function we defined in the Firebase code.
+First import the `useVeltClient` hook as well as the `signInWithGoogle` function we defined in the Firebase code.
 
 ```js copy
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { signInWithGoogle } from '../firebase';
 ```
 
@@ -137,15 +137,15 @@ return (
 );
 ```
 
-Within our component, provision an instance of the **Snippyly** client:
+Within our component, provision an instance of the **Velt** client:
 
 ```js copy {6}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { signInWithGoogle } from '../firebase';
 
 function LoginComponent() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   return (
     <button onClick={ signInHandler }>Log in with Google</button>
@@ -153,7 +153,7 @@ function LoginComponent() {
 }
 ```
 
-Lastly, we can define the function `signInHandler`. This function calls the `signInWithGoogle` function we made earlier, which prompts the user to login via Google. If the user is logged in successfully, we identify the user using the `identify` function provided by the **Snippyly** client:
+Lastly, we can define the function `signInHandler`. This function calls the `signInWithGoogle` function we made earlier, which prompts the user to login via Google. If the user is logged in successfully, we identify the user using the `identify` function provided by the **Velt** client:
 
 ```js copy
 const signInHandler = async () => {
@@ -177,7 +177,7 @@ const signInHandler = async () => {
 };
 ```
 
-The `identify` function accepts a [User]() as its only parameter. If your authentication method provides user data, you may have to map that data to our **Snippyly** [User]() object like in our Firebase example:
+The `identify` function accepts a [User]() as its only parameter. If your authentication method provides user data, you may have to map that data to our **Velt** [User]() object like in our Firebase example:
 
 ```js copy
 const snippylyUser = {
@@ -191,12 +191,12 @@ const snippylyUser = {
 Keep in mind this is only one method of logging the user in, and you will have to decide where to identify the user in your _specific_ application. Here's the full example in context:
 
 ```js copy
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { signInWithGoogle } from '../firebase';
 
 function LoginComponent() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   const signInHandler = async () => {
     try {
@@ -239,7 +239,7 @@ The `signOutUser` function returns a [Promise](https://developer.mozilla.org/en-
 
 ## 4. Tracking the User
 
-Lastly, Snippyly needs to know what part of your app the user is currently on! **Documents** and **Locations** are how you can provide that information.
+Lastly, Velt needs to know what part of your app the user is currently on! **Documents** and **Locations** are how you can provide that information.
 
 ### Setting the Document ID
 
@@ -248,11 +248,11 @@ A **Document** is like a _Building_. Users in the same **Document** can interact
 Here, we will set our **Document ID**, which is like setting the address of the building that the current user is in.
 
 ```js copy {7-11}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 function SomeComponent() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
@@ -283,11 +283,11 @@ If the complexity of your application does not require the use of **Locations**,
 Here, we will set the **Document ID** as well as the **Location**.
 
 ```js copy {7-11}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 function SomeComponent() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
@@ -310,11 +310,11 @@ One neat feature of **Locations** is that the user can actually be in multiple l
 **Example**
 
 ```js copy {10-11}
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 
 function SomeComponent() {
 
-  const { client } = useSnippylyClient();
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
@@ -382,7 +382,7 @@ If you identify the user **Peter Parker** like in the example above, that user w
 
 ### Updating the User
 
-At any time, if you need to update the user's data, you can use the `updateUser` function available on the **Snippyly** client:
+At any time, if you need to update the user's data, you can use the `updateUser` function available on the **Velt** client:
 
 ```js copy
 client.updateUser({userId: "some_user_uuid"});

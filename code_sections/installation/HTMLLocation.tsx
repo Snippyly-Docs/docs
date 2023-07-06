@@ -88,14 +88,14 @@ export default function HTMLConfig(props: CodeSectionVariant) {
         const popupEl = document.getElementById('popup');
         popupEl.style.display = 'block';
 
-        window.Snippyly.addLocation({page: '/collaboration', popup: true});
+        window.Velt.addLocation({page: '/collaboration', popup: true});
       }
 
       function loadSnippyly() {
-        await window.Snippyly.init("YOUR_API_KEY");
+        await window.Velt.init("YOUR_API_KEY");
 
-        window.Snippyly.setDocumentID('my-collaboration-app');
-        window.Snippyly.setLocation({page: 'index'});
+        window.Velt.setDocumentID('my-collaboration-app');
+        window.Velt.setLocation({page: 'index'});
         
       }
     </script>

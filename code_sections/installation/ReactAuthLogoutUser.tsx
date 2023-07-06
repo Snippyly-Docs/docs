@@ -8,7 +8,7 @@ export default function ReactAuthLogoutUser(props: CodeSectionVariant) {
     2: [[26, 26]],
     3: [[29, 29]],
   };
-  
+
   const [step, setStep] = useState(1);
 
   const steps = [
@@ -49,7 +49,7 @@ export default function ReactAuthLogoutUser(props: CodeSectionVariant) {
   ];
 
   const code = `
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function App() {
@@ -59,7 +59,7 @@ export default function App() {
     // Logout with your auth provider.
     await authProvider.signOut();
 
-    // Clear the Snippyly user object. Ensure that client is not null or undefined.
+    // Clear the Velt user object. Ensure that client is not null or undefined.
     client.signOutUser();
   };
 
