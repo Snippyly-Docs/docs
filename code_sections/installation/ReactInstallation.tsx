@@ -46,7 +46,7 @@ export default function ReactInstallation(props: CodeSectionVariant) {
           <p>Add your Velt API key.</p>
         </>
       )
-    },
+    }
   ];
 
   const code = `
