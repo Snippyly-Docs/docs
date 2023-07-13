@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import CodeSection, { CodeSectionVariant } from '../CodeSection';
-import { createGetSnippylyStep, createUseEffectStep } from '../CommonSteps';
+import CodeSection, { CodeSectionVariant } from '../../CodeSection';
+import { createGetSnippylyStep, createUseEffectStep } from '../../CommonSteps';
 
 export default function ReactAuth(props: CodeSectionVariant) {
   const highlightRangeMap = {
     1: [[1, 1], [6, 6]],
-    2: [[8, 9], [42, 43]],
+    2: [[8, 8], [24, 24]],
     3: [[12, 12], [15, 20]],
     // 4: [[23, 23]],
     // 5: [[26, 26]],
@@ -24,8 +24,8 @@ export default function ReactAuth(props: CodeSectionVariant) {
       active: step === 2,
       description: (
         <>
-          <strong>Create an effect with the <code>client</code> and <code>your authenticated user</code> as dependencies.</strong>
-          <p>Make sure to check that the <code>client</code> and user objects are not <code>null</code> or <code>undefined</code> before you use it.</p>
+          <strong>Create the hook with the <code>client</code> and <code>your authenticated user</code> as dependencies.</strong>
+          {/* <p>Make sure to check that the <code>client</code> and user objects are not <code>null</code> or <code>undefined</code> before you use it.</p> */}
         </>
       )
     },
@@ -35,8 +35,8 @@ export default function ReactAuth(props: CodeSectionVariant) {
       active: step === 3,
       description: (
         <>
-          <strong>Create a Velt User object by taking the relevant fields from your authenticated User object. </strong>
-          <p>This will work with any authentication provider you use.</p>
+          <strong>Create a Velt <a href="/reference/general#user">User</a> object by taking the relevant fields from your authenticated User object. </strong>
+          {/* <p>This will work with any authentication provider you use.</p> */}
         </>
         //TODO: Add api reference to user object.
       )
@@ -80,8 +80,8 @@ export default function ReactAuth(props: CodeSectionVariant) {
       active: step === 4,
       description: (
         <>
-          <strong>Call the <code>identify()</code> method.</strong>
-          <p>Pass the Velt object you created above in the <code>identify()</code> method.</p>
+          <strong>Call the <code>identify()</code> method and pass in the Velt User.</strong>
+          {/* <p>Pass the Velt object you created above in the <code>identify()</code> method.</p> */}
         </>
       )
     },
@@ -124,14 +124,6 @@ export default function App() {
     }
   }, [client, yourAuthenticatedUser]);
 
-  // Example of your login function.
-  const loginHandler = async () => {    
-    // In this example, we use some auth provider to sign in and get the user's credentials.
-    const credentials = await authProvider.signInWithGoogle();
-    // Fetch the relevant user info by destructuring the credentials.
-    const { yourAuthenticatedUser } = credentials;
-  };
-
   return (
     // Your app template
   );
@@ -140,3 +132,11 @@ export default function App() {
 
   return <CodeSection sectionId={props.sectionId} mode="jsx" highlightRangeMap={highlightRangeMap} setStep={setStep} steps={steps} code={code} />;
 }
+
+  // // Example of your login function.
+  // const loginHandler = async () => {    
+  //   // In this example, we use some auth provider to sign in and get the user's credentials.
+  //   const credentials = await authProvider.signInWithGoogle();
+  //   // Fetch the relevant user info by destructuring the credentials.
+  //   const { yourAuthenticatedUser } = credentials;
+  // };

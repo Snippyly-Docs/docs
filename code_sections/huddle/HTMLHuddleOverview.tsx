@@ -12,23 +12,23 @@ export default function HTMLHuddleOverview(props: CodeSectionVariant) {
   const steps = [
     {
       step: 1,
-      title: 'Add Presence Component',
+      title: 'Add Huddle Component',
       active: step === 1,
       description: (
         <>
-          <strong>Add it anywhere you want to see the user avatars.</strong>
-          <p>This component renders the avatars of users on the same page in your web app.</p>
+          <strong>Add it to your root component.</strong>
+          <p>This renders the video or audio bubbles in the given huddle.</p>
         </>
       )
     },
     {
       step: 2,
-      title: 'Test Integration',
+      title: 'Add Huddle Tool',
       active: step === 2,
       description: (
         <>
-          <strong>Test it out by opening the same page in another browser.</strong>
-          <p>When you open the same page in another incognito window or browser, you should see the avatars of both users.</p>
+          <strong>Add it wherever you want to show the button.</strong>
+          <p>This adds the button to start a huddle.</p>
         </>
       )
     }

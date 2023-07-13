@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CodeSection, { CodeSectionVariant } from '../CodeSection';
+import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 
 export default function ReactAuthContactList(props: CodeSectionVariant) {
   const highlightRangeMap = {
@@ -45,7 +45,7 @@ export default function ReactAuthContactList(props: CodeSectionVariant) {
     },
     {
       step: 3,
-      title: 'Add private contacts',
+      title: 'Add private contacts (optional)',
       active: step === 3,
       description: (
         <>

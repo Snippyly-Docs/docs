@@ -28,7 +28,7 @@ export function HuddleSteps() {
   const frontendOptions = {
     'React': <ReactHuddleOverview sectionId="steps" />,
     'Next.js': <ReactHuddleOverview sectionId="steps" />,
-    'HTML': <HTMLHuddleOverview sectionId="steps" />
+    // 'HTML': <HTMLHuddleOverview sectionId="steps" />
   };
 
   return (
@@ -37,65 +37,3 @@ export function HuddleSteps() {
 }
 
 <HuddleSteps />
-
-# Customize Behavior [#customize-behavior]
-
-export function HuddleCustomSteps() {
-
-  const frontendOptions = {
-    'React': <ReactHuddleCustomBehavior sectionId="customize-behavior" />,
-    'Next.js': <ReactHuddleCustomBehavior sectionId="customize-behavior" />,
-    'HTML': <HTMLHuddleCustom sectionId="customize-behavior" />
-  };
-
-  return (
-    <StepTabs frontendOptions={frontendOptions} />
-  );
-}
-
-<HuddleCustomSteps />
-
-# Customize UI [#customize-ui]
-
-## 1. Parts
-
-export function HuddleCSSPartsSteps() {
-
-  const frontendOptions = {
-    'All': <HuddleParts sectionId="customize-ui" />
-  };
-  
-  return <StepTabs frontendOptions={frontendOptions} />
-}
-
-<HuddleCSSPartsSteps />
-
-| Part Name | What does it do? |
-| --------- | ---------------- |
-| `tooltip` | Targets the tooltip container |
-| `tooltip-avatar` | Targets the tooltip avatar |
-| `tooltip-text` | Targets the tooltip text container |
-| `user-avatar` | Targets the user avatar container |
-| `more-users` | Targets the more users container |
-
-## 2. Variables [#customize-vars]
-
-export function HuddleCSSVariablesSteps() {
-
-  const frontendOptions = {
-    'All': <HuddleVariables sectionId="customize-vars" />
-  };
-
-  return <StepTabs frontendOptions={frontendOptions} />
-}
-
-<HuddleCSSVariablesSteps />
-
-| Variable Name | Default (light) | Default (dark) | What does it do? |
-| ------------- | --------------------- | -------------------- | ---------------- |
-| `--velt-presence-avatar-size` | `2rem` | `2rem` | Sets the Presence avatar size |
-| `--velt-presence-primary-text-color` | `#141416` | `#E5E5E9` | Sets the primary text color |
-| `--velt-presence-secondary-text-color` | `#777E90` | `#91919C` | Sets the secondary text color |
-| `--velt-tooltip-bg-color` | `#FCFCFD` | `#141416` | Sets the tooltip background color |
-| `--velt-tooltip-border-color` | `#E6E8EC` | `#303034` | Sets the tooltip border color |
-| `--velt-more-users-color` | `#D4D6DF` | `#404044` | Sets the more users color |
