@@ -5,11 +5,17 @@
   "get_started": {
     "title": "Get Started"
   },
+  "users": {
+    "title": "Users"
+  },
   "realtime": {
     "title": "Realtime Collaboration"
   },
   "async": {
     "title": "Async Collaboration"
+  },
+  "ai": {
+    "title": "AI Copilot"
   },
   "user_feedback": {
     "title": "In-App User Feedback"
@@ -17,9 +23,7 @@
   "permission_management": {
     "title": "Permission Management"
   },
-  "ai": {
-    "title": "AI Copilot"
-  },
+  
   "reference": {
     "title": "API Reference"
   }

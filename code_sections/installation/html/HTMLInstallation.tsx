@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CodeSection, { CodeSectionVariant } from '../CodeSection';
+import CodeSection, { CodeSectionVariant } from '../../CodeSection';
 
 export default function HTMLInstallation(props: CodeSectionVariant) {
   const highlightRangeMap = {

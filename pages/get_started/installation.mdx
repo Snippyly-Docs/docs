@@ -1,16 +1,18 @@
 import Subheading from '../../components/Subheading/Subheading.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
-import HTMLInstallation from '../../code_sections/installation/HTMLInstallation.tsx';
-import ReactInstallation from '../../code_sections/installation/ReactInstallation.tsx';
-import HTMLConfig from '../../code_sections/installation/HTMLConfig.tsx';
-import ReactConfig from '../../code_sections/installation/ReactConfig.tsx';
-import HTMLUsers from '../../code_sections/installation/HTMLUsers.tsx';
-import ReactAuth from '../../code_sections/installation/ReactAuth.tsx';
-import ReactAuthContactList from '../../code_sections/installation/ReactAuthContactList.tsx';
-import ReactAuthLogoutUser from '../../code_sections/installation/ReactAuthLogoutUser.tsx';
-import ReactDocument from '../../code_sections/installation/ReactDocument.tsx';
-import ReactLocation from '../../code_sections/installation/ReactLocation.tsx';
-import HTMLLocation from '../../code_sections/installation/HTMLLocation.tsx';
+import HTMLInstallation from '../../code_sections/installation/html/HTMLInstallation.tsx';
+import HTMLConfig from '../../code_sections/installation/html/HTMLConfig.tsx';
+import HTMLUsers from '../../code_sections/installation/html/HTMLUsers.tsx';
+import HTMLLocation from '../../code_sections/installation/html/HTMLLocation.tsx';
+
+import ReactInstallation from '../../code_sections/installation/react/ReactInstallation.tsx';
+import ReactConfig from '../../code_sections/installation/react/ReactConfig.tsx';
+import ReactAuth from '../../code_sections/installation/react/ReactAuth.tsx';
+import ReactAuthContactList from '../../code_sections/installation/react/ReactAuthContactList.tsx';
+import ReactAuthLogoutUser from '../../code_sections/installation/react/ReactAuthLogoutUser.tsx';
+import ReactDocument from '../../code_sections/installation/react/ReactDocument.tsx';
+import ReactLocation from '../../code_sections/installation/react/ReactLocation.tsx';
+
 
 import { NextSeo } from 'next-seo';
 
@@ -61,9 +63,9 @@ export function ConfigSteps() {
 <ConfigSteps /> */}
 
 # 2. Authenticate [#authenticate]
-**This tells us who the logged in user is so that we can associate the data with them.**
+**Autheticate your logged in user with the SDK.**
 
-As soon as you get your authenticated user, you should call the SDK's `identify()` method.
+{/* As soon as you get your authenticated user, you should call the SDK's `identify()` method. */}
 
 <br />
 
@@ -81,7 +83,7 @@ export function AuthSteps() {
 
 <AuthSteps />
 
-## Enable @ mentions & user tagging [#user-contact-list]
+{/* ## Enable @ mentions & user tagging [#user-contact-list]
 For some features like Comments, your users should be able to @mention or tag other users. <br />
 You can enable autocomplete and show a contacts dropdown by using this feature.
 <br />
@@ -97,10 +99,10 @@ export function AuthContactListSteps() {
   );
 }
 
-<AuthContactListSteps />
+<AuthContactListSteps /> */}
 
 
-## Additional options [#additional-options]
+{/* ## Additional options [#additional-options]
 export function AuthLogoutUserSteps() {
   const frontendOptions = {
     'React': <ReactAuthLogoutUser sectionId="additional-options" />,
@@ -113,7 +115,7 @@ export function AuthLogoutUserSteps() {
   );
 }
 
-<AuthLogoutUserSteps />
+<AuthLogoutUserSteps /> */}
 
 
 # 3. Initialize Document [#initialize-document]
@@ -136,7 +138,7 @@ export function InitDocumentSteps() {
 
 <InitDocumentSteps />
 
-## Initialize Location (optional) [#location]
+{/* ## Initialize Location (optional) [#location]
 A location is like a room in the virtual house. <br />
 This represents a space inside the main `document` that you set in the previous step. <br />
 Depending on the app, this could represent slides, sections, popups, versions, frames (in video editor), data points on maps/charts etc.
@@ -153,4 +155,4 @@ export function InitDocumentLocationSteps() {
   );
 }
 
-<InitDocumentLocationSteps />
+<InitDocumentLocationSteps /> */}

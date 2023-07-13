@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import CodeSection, { CodeSectionVariant } from '../CodeSection';
-import CodeSnippet from '../../components/CodeSnippet/CodeSnippet';
+import CodeSection, { CodeSectionVariant } from '../../CodeSection';
+import CodeSnippet from '../../../components/CodeSnippet/CodeSnippet';
 
 export default function ReactInstallation(props: CodeSectionVariant) {
   const highlightRangeMap = {
@@ -39,10 +39,11 @@ export default function ReactInstallation(props: CodeSectionVariant) {
     },
     {
       step: 3,
-      title: 'Add the VeltProvider component to the root of your app',
+      title: 'Add VeltProvider',
       active: step === 3,
       description: (
         <>
+          <strong>Add the VeltProvider component to the root of your app.</strong>
           <p>Add your Velt API key.</p>
         </>
       )

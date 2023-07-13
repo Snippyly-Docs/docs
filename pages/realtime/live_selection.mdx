@@ -9,6 +9,7 @@ import PresenceParts from '../../code_sections/presence/PresenceParts.tsx';
 import PresenceVariables from '../../code_sections/presence/PresenceVariables.tsx';
 import ReactPresenceData from '../../code_sections/presence/ReactPresenceData.tsx';
 import HTMLPresenceData from '../../code_sections/presence/HTMLPresenceData.tsx';
+import LiveSelectionOverview from '../../code_sections/live_selection/react/LiveSelectionOverview.tsx';
 import StepTabs from '../../components/StepTabs/StepTabs.tsx';
 import { NextSeo } from 'next-seo';
 
@@ -16,19 +17,19 @@ import { NextSeo } from 'next-seo';
 
 <NextSeo 
   title="Velt Docs - Live Selection"
-  description="Live presence documentation page for the Velt SDK"
+  description="Live Selection documentation page for the Velt SDK"
 />
-<Subheading>Your users can see other users online on the document. This makes your app feel alive.</Subheading>
+<Subheading>Your users can see what part of the document others are interacting with in real-time.</Subheading>
 <LiveSelectionDemo />
 
 # Steps [#steps]
 
-export function PresenceSteps() {
+export function LiveSelectionSteps() {
 
   const frontendOptions = {
-    'React': <ReactPresenceOverview sectionId="steps" />,
-    'Next.js': <ReactPresenceOverview sectionId="steps" />,
-    'HTML': <HTMLPresenceOverview sectionId="steps" />
+    'React': <LiveSelectionOverview sectionId="steps" />,
+    'Next.js': <LiveSelectionOverview sectionId="steps" />,
+    // 'HTML': <HTMLPresenceOverview sectionId="steps" />
   };
 
   return (
@@ -36,83 +37,4 @@ export function PresenceSteps() {
   );
 }
 
-<PresenceSteps />
-
-# Customize Behavior [#customize-behavior]
-
-export function PresenceCustomSteps() {
-
-  const frontendOptions = {
-    'React': <ReactPresenceCustomBehavior sectionId="customize-behavior" />,
-    'Next.js': <ReactPresenceCustomBehavior sectionId="customize-behavior" />,
-    'HTML': <HTMLPresenceCustom sectionId="customize-behavior" />
-  };
-
-  return (
-    <StepTabs frontendOptions={frontendOptions} />
-  );
-}
-
-<PresenceCustomSteps />
-
-# Customize UI [#customize-ui]
-
-## 1. Parts
-
-export function PresenceCSSPartsSteps() {
-
-  const frontendOptions = {
-    'All': <PresenceParts sectionId="customize-ui" />
-  };
-  
-  return <StepTabs frontendOptions={frontendOptions} />
-}
-
-<PresenceCSSPartsSteps />
-
-| Part Name | What does it do? |
-| --------- | ---------------- |
-| `tooltip` | Targets the tooltip container |
-| `tooltip-avatar` | Targets the tooltip avatar |
-| `tooltip-text` | Targets the tooltip text container |
-| `user-avatar` | Targets the user avatar container |
-| `more-users` | Targets the more users container |
-
-## 2. Variables [#customize-vars]
-
-export function PresenceCSSVariablesSteps() {
-
-  const frontendOptions = {
-    'All': <PresenceVariables sectionId="customize-vars" />
-  };
-
-  return <StepTabs frontendOptions={frontendOptions} />
-}
-
-<PresenceCSSVariablesSteps />
-
-| Variable Name | Default (light) | Default (dark) | What does it do? |
-| ------------- | --------------------- | -------------------- | ---------------- |
-| `--velt-presence-avatar-size` | `2rem` | `2rem` | Sets the Presence avatar size |
-| `--velt-presence-primary-text-color` | `#141416` | `#E5E5E9` | Sets the primary text color |
-| `--velt-presence-secondary-text-color` | `#777E90` | `#91919C` | Sets the secondary text color |
-| `--velt-tooltip-bg-color` | `#FCFCFD` | `#141416` | Sets the tooltip background color |
-| `--velt-tooltip-border-color` | `#E6E8EC` | `#303034` | Sets the tooltip border color |
-| `--velt-more-users-color` | `#D4D6DF` | `#404044` | Sets the more users color |
-
-## 3. Build your own UI [#get-presence-data]
-
-export function PresenceDataSteps() {
-
-  const frontendOptions = {
-    'React': <ReactPresenceData sectionId="get-presence-data" />,
-    'Next.js': <ReactPresenceData sectionId="get-presence-data" />,
-    'HTML': <HTMLPresenceData sectionId="get-presence-data" />
-  };
-
-  return (
-    <StepTabs frontendOptions={frontendOptions} />
-  );
-}
-
-<PresenceDataSteps />
+<LiveSelectionSteps />

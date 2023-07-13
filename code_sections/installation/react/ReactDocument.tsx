@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import CodeSection, { CodeSectionVariant } from '../CodeSection';
-import { createGetSnippylyStep, createUseEffectStep } from '../CommonSteps';
+import CodeSection, { CodeSectionVariant } from '../../CodeSection';
+import { createGetSnippylyStep, createUseEffectStep } from '../../CommonSteps';
 
 export default function ReactDocument(props: CodeSectionVariant) {
   const highlightRangeMap = {

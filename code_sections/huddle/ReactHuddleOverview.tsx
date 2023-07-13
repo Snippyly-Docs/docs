@@ -6,8 +6,8 @@ export default function ReactHuddleOverview(props: CodeSectionVariant) {
 
   const highlightRangeMap = {
     1: [[1, 1]],
-    2: [[7, 7]],
-    3: [[7, 7]]
+    2: [[6, 6]],
+    3: [[9, 9]]
   };
   
   const [step, setStep] = useState(1);
@@ -45,28 +45,19 @@ export default function ReactHuddleOverview(props: CodeSectionVariant) {
           </p>
         </>
       )
-    },
-    {
-      step: 4,
-      title: 'Test Integration',
-      active: step === 4,
-      description: (
-        <>
-          <strong>Test it out by opening the target page in two browsers with two different users logged in.</strong>
-          <p>You should see the avatars of the users rendered where you added the presence component.</p>
-        </>
-      )
     }
   ];
 
   const code = `
-import { VeltPresence } from '@veltdev/react';
+import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
 
 export default function App() {
 
   return (
+    <VeltHuddle />
+
     <div className="toolbar">
-      <VeltPresence />
+      <VeltHuddleTool type='all' />
     </div>
   );
 }
